@@ -1,0 +1,176 @@
+@charset "windows-1252";
+@import url('../font-awesome-4.3.0/css/font-awesome.css');
+
+#it1__inputElement {
+
+}
+
+/* Android Title bar styling begin */
+.amx-panelPage-header-appIcon {
+    /*background-image: url("images/Icon.png");
+    border-bottom-color: #81bc00;
+    background-color: #002776;*/
+    display:none;
+}
+
+.amx-panelPage-header{
+    border-bottom-color: #81bc00; 
+    background-color:#002776;    
+    color: #81bc00;
+    font-size: large; 
+    font-weight: bold; 
+    font-family: 'Arial Black';
+}
+
+.amx-panelPage-header .amx-outputText  {
+    color: #81bc00;
+    font-size: large; 
+    font-weight: bold; 
+    font-family: 'Arial Black';
+}
+/* Android Title bar styling end */
+
+
+.amx-panelPage-content > .amx-outputText {
+    color: #002776;
+    text-align: center;
+    font: 16px Arial,Helvetica,Sans-serif;
+    font-size: large; 
+    font-weight: 400; 
+}
+
+.ot1  {
+    color: red;
+    text-align: center;
+    font: 12px Arial,Helvetica,Sans-serif;
+    font-weight: 100; 
+}
+/*
+#it1 input[type="email"] {
+    background: no-repeat 10px 6px #fcfcfc;
+    border: 0 none;
+    font: 12px Arial,Helvetica,Sans-serif;
+    color: #d7d7d7;
+    width:90%;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+     
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+
+#it1 input[type="text"] {
+    background: no-repeat 10px 6px #fcfcfc;
+    border: 0 none;
+    font: 12px Arial,Helvetica,Sans-serif;
+    color: #d7d7d7;
+    width:90%;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+     
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+
+#it1 input[type="text"]:focus {
+    background: url(search-dark.png) no-repeat 10px 6px #fcfcfc;
+    color: #6a6f75;
+    width: 90%;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    
+    }
+   
+.amx-panelGroupLayout > table {
+    border-spacing: 0;
+    width: 90%;
+} 
+
+.amx-panelStretchLayout_top {
+    margin-top: 4px;
+}
+
+.amx-panelStretchLayout_center > .amx-listView:only-child {
+  position: absolute;
+  top: -5px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+a,
+.amx-goLink,
+.amx-commandLink {
+    color: #0572CE;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: normal;
+}
+
+#pCstmSprnBrd {
+    background-color: gray;
+}
+
+.amx-listItem .amx-outputText {
+    white-space: nowrap;
+    text-overflow: clip;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+}
+
+.style5 {
+  color: rgba(245,159,26,0.8);
+  text-shadow: 1px 4px 6px #FFF,0 0 0 #000,1px 4px 6px #FFF;
+}
+
+.style4 {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  color: #A9014B;
+}
+
+.style3 {
+  color: #E33100;
+  text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #E33100,0 0 30px #E33100,0 0 40px #E33100,0 0 50px #E33100,0 0 75px #E33100;
+}
+
+.style2 {
+  color: #2DAEBF;
+  text-shadow: 0px 1px 0px #0092b3,0px 2px 0px #0087a6,0px 3px 0px #008099,0px 4px 0px #00758c,0px 5px 0px #555,0px 6px 0px #006a80,0px 0px 0px #006073,0px 8px 7px #005566;
+}
+
+.style1 {
+  color: #B8D30B;
+}
+
+.amx-inputText .field-value .wrap > * {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 22px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background-color: #F7F7F7 ;
+}
+
+/* Same padding for LTR & RTL but for specificity, we are adding html[dir] to the selector */
+html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topStart .field-value,
+html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topCenter .field-value,
+html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
+    padding: 0px 10px 10px 5px;
+}

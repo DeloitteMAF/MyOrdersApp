@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.13.26" id="SettingsPageDef"
+                Package="com.company.myorders.Settings">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ResultService" id="ResultServiceIterator"/>
+    <accessorIterator MasterBinding="ResultServiceIterator" Binds="result" RangeSize="25" DataControl="ResultService"
+                      BeanClass="com.company.myorders.mobile.model.Result" id="resultIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <list IterBinding="resultIterator" ListOperMode="navigation" ListIter="resultIterator" id="result"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="locationFullName"/>
+      </AttrNames>
+    </list>
+  </bindings>
+</pageDefinition>
