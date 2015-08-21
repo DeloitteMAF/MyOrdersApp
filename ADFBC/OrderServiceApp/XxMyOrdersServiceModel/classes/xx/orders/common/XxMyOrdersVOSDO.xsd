@@ -1,0 +1,27 @@
+<xsd:schema xmlns:sdoJava="commonj.sdo/java" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="/xx/orders/common/"
+     xmlns="/xx/orders/common/" elementFormDefault="qualified" sdoJava:package="xx.orders.common">
+    <xsd:annotation>
+        <xsd:documentation/>
+    </xsd:annotation>
+    <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
+    <xsd:complexType name="XxMyOrdersVOSDO">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>OrderNumber</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="OrderNumber" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="PartyName" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="AccountNumber" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="FlowStatusCode" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="OrderedDate" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="CustPoNumber" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="TotalOrderedValue" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="FulfillmentDate" type="xsd:string" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="xxMyOrdersVOSDO" type="XxMyOrdersVOSDO"/>
+</xsd:schema>

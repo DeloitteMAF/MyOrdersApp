@@ -1,0 +1,21 @@
+<xsd:schema xmlns:sdoJava="commonj.sdo/java" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="/xx/orders/common/"
+     xmlns="/xx/orders/common/" elementFormDefault="qualified" sdoJava:package="xx.orders.common">
+    <xsd:annotation>
+        <xsd:documentation/>
+    </xsd:annotation>
+    <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
+    <xsd:complexType name="XxMyLocationsVOSDO">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>LocationCode</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="LocationCode" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="LocationFullName" type="xsd:string" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="xxMyLocationsVOSDO" type="XxMyLocationsVOSDO"/>
+</xsd:schema>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxMyOrdersVO"
+  Version="12.1.3.13.26"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="xx.orders.view.XxMyOrdersVORowImpl"
+  SdoGen="true"
+  SdoName="xx.orders.common.XxMyOrdersVOSDO"
+  SdoNameSpace="/xx/orders/common/">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="xx.orders.view.XxMyOrdersVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="bindCustAccountId"
+    Kind="where"
+    Type="java.lang.Long"/>
+  <Variable
+    Name="bindNoOfDays"
+    Kind="where"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="bindNoOfRows"
+    Kind="where"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="bindLocation"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select * from(       
+SELECT ooh.order_number order_number, hp.party_name customer,       
+          hca.account_number customer_number,       
+          ooh.flow_status_code status, ooh.ordered_date, ooh.cust_po_number,       
+          xxtest_get_total_value (ooh.header_id) as total_ordered_value,       
+          ool.fulfillment_date       
+     FROM oe_order_headers_all ooh,       
+          oe_order_lines_all ool,       
+          hz_parties hp,       
+          hz_party_sites hps,       
+          hz_locations hl,       
+          hz_cust_accounts_all hca,       
+          hz_cust_acct_sites_all hcs,       
+          hz_cust_site_uses_all hcu       
+    WHERE ooh.header_id = ool.header_id       
+      AND ooh.org_id = hcu.org_id       
+      AND ooh.sold_to_org_id = hca.cust_account_id       
+      AND ool.ship_to_org_id = hcu.site_use_id       
+      AND hcu.site_use_code = 'SHIP_TO'       
+      AND hca.party_id = hp.party_id       
+      AND hca.cust_account_id = hcs.cust_account_id       
+      AND hcs.cust_acct_site_id = hcu.cust_acct_site_id       
+      AND hcs.party_site_id = hps.party_site_id       
+      AND hp.party_id = hps.party_id       
+      AND hps.location_id = hl.location_id       
+      AND hcu.status = 'A'       
+      AND hcs.status = 'A'       
+      AND hca.status = 'A'       
+      AND hp.status = 'A'       
+      AND hps.status = 'A'       
+      AND hl.country = NVL(:bindLocation,'US')       
+      AND   TRUNC (SYSDATE)       
+                - NVL (TRUNC (ool.fulfillment_date), TRUNC (SYSDATE)) <= :bindNoOfDays       
+      AND hca.cust_account_id = :bindCustAccountId       
+ GROUP BY ooh.order_number, hp.party_name, hca.account_number, ooh.flow_status_code,        
+          ooh.ordered_date, ooh.cust_po_number, ooh.header_id, fulfillment_date           
+ ORDER BY total_ordered_value desc)       
+ where rownum<=:bindNoOfRows]]></SQLQuery>
+  <ViewAttribute
+    Name="OrderNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ORDER_NUMBER"
+    Expression="ORDER_NUMBER"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="PartyName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="360"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PARTY_NAME"
+    Expression="PARTY_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="360"/>
+    </DesignTime>
+  </ViewAttribute>
+
+  <ViewAttribute
+    Name="AccountNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ACCOUNT_NUMBER"
+    Expression="ACCOUNT_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FlowStatusCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FLOW_STATUS_CODE"
+    Expression="FLOW_STATUS_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderedDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="DATE"
+    AliasName="ORDERED_DATE"
+    Expression="ORDERED_DATE"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="CustPoNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUST_PO_NUMBER"
+    Expression="CUST_PO_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalOrderedValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="TOTAL_ORDERED_VALUE"
+    SQLType="NUMERIC"
+    Expression="TOTAL_ORDERED_VALUE"
+    IsQueriable="false"/>
+  <ViewAttribute
+    Name="FulfillmentDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    AliasName="FULFILLMENT_DATE"
+    Expression="FULFILLMENT_DATE"
+    SQLType="VARCHAR"
+    IsQueriable="false"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="OrderNumber"/>
+  </AttrArray><ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="xx.orders.XxMyOrdersServiceModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

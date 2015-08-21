@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxMyOrdersServiceModel"
+  Version="12.1.3.13.26"
+  SeparateXMLFiles="true"
+  PackageName="xx.orders">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../XxMyOrdersServiceModel.jpr"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_NamedConnection" Value="EBSConn"/>
+  </DesignTime>
+  <Containee
+    Name="am"
+    PackageName="xx.orders.am"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="view"
+    PackageName="xx.orders.view"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+</JboProject>

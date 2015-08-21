@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxMyLocationsVO"
+  Version="12.1.3.13.26"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="xx.orders.view.XxMyLocationsVORowImpl"
+  PageIterMode="Full"
+  SdoGen="true"
+  SdoName="xx.orders.common.XxMyLocationsVOSDO"
+  SdoNameSpace="/xx/orders/common/">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="xx.orders.view.XxMyLocationsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="bindCustAccountId"
+    Kind="where"
+    Type="java.lang.Long"/>
+  <SQLQuery><![CDATA[SELECT  ftt.territory_code as location_code,     
+        ftt.territory_short_name as location_full_name    
+    FROM hz_cust_accounts_all hca,     
+         hz_cust_acct_sites_all hcs,    
+         hz_cust_site_uses_all hcu,    
+         hz_parties hp,    
+         hz_party_sites hps,    
+         hz_locations hl,    
+         fnd_territories_tl ftt    
+   WHERE hl.country = ftt.territory_code    
+     AND ftt.language = USERENV('lang')    
+     AND hp.party_id = hca.party_id    
+     AND hp.party_id = hps.party_id    
+     AND hca.cust_account_id = hcs.cust_account_id    
+     AND hcs.cust_acct_site_id = hcu.cust_acct_site_id    
+     AND hcu.site_use_code = 'SHIP_TO'    
+     AND hcu.status = 'A'    
+     AND hcs.status = 'A'    
+     AND hca.status = 'A'    
+     AND hp.status = 'A'    
+     AND hps.status = 'A'    
+     AND hps.party_site_id = hcs.party_site_id    
+     AND hps.location_id = hl.location_id    
+     AND hca.cust_account_id = :bindCustAccountId          --1221    
+GROUP BY ftt.territory_short_name, ftt.territory_code]]></SQLQuery>
+  <ViewAttribute
+    Name="LocationCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LOCATION_CODE"
+    Expression="LOCATION_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LocationFullName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="60"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="LOCATION_FULL_NAME"
+    Expression="LOCATION_FULL_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="LocationCode"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="xx.orders.XxMyOrdersServiceModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

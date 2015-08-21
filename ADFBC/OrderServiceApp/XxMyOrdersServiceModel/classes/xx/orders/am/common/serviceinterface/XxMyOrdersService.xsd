@@ -1,0 +1,37 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/xx/orders/am/common/types/"
+     xmlns:tns="/xx/orders/am/common/types/" xmlns:ns0="/xx/orders/common/" xmlns:ns1="http://xmlns.oracle.com/adf/svc/errors/">
+    <import namespace="/xx/orders/common/" schemaLocation="../../../common/XxMyLocationsVOSDO.xsd"/>
+    <import namespace="http://xmlns.oracle.com/adf/svc/errors/" schemaLocation="classpath:/META-INF/wsdl/ServiceException.xsd"/>
+    <import namespace="/xx/orders/common/" schemaLocation="../../../common/XxMyOrdersVOSDO.xsd"/>
+    <element name="getCustomerLocations">
+        <complexType>
+            <sequence>
+                <element name="custAccountId" type="long"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="getCustomerLocationsResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:XxMyLocationsVOSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="getRequestedOrders">
+        <complexType>
+            <sequence>
+                <element name="custAccountId" type="long"/>
+                <element name="NoOfDays" type="int"/>
+                <element name="NoOfRows" type="int"/>
+                <element name="Location" type="string"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="getRequestedOrdersResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:XxMyOrdersVOSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>
