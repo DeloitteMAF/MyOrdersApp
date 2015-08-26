@@ -20,8 +20,8 @@
       </amx:tableLayout>
     </amx:facet>
     <!-- SuppressWarning: org.adfemg.audits.expressionlanguage.bean-scope-prefix -->
-    <amx:selectOneChoice value="#{applicationScope.location}" label="Location" id="soc1">
-      <amx:selectItems value="#{bindings.result.items}" id="si1"/>
+    <amx:selectOneChoice value="#{preferenceScope.application.userPref.location}" label="#{bindings.partyName.label}" id="soc1">
+      <amx:selectItems value="#{bindings.partyName.items}" id="si1"/>
     </amx:selectOneChoice>
   </amx:panelPage>
 </amx:view>

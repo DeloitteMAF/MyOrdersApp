@@ -26,5 +26,20 @@
         <amx:outputHtml id="oh1" styleClass="fa fa-power-off fa-lg"/>
       </amx:commandLink>
     </amx:facet>
+    
+    <amx:listView var="row" value="#{bindings.orders.collectionModel}" fetchSize="#{bindings.orders.rangeSize}"
+                  selectedRowKeys="#{bindings.orders.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.orders.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv1">
+      <amx:listItem id="li1">
+        <amx:panelGroupLayout id="pgl1" layout="vertical">
+          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2" inlineStyle="width:auto;"/>
+          <amx:outputText value="Order Number : #{row.orderNumber}" id="ot3"/>
+        <amx:image id="i1" source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
+                   inlineStyle="width:70%;"/>
+        </amx:panelGroupLayout>
+
+      </amx:listItem>
+    </amx:listView>
   </amx:panelPage>
 </amx:view>

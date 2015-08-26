@@ -4,10 +4,22 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
+    <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25" DataControl="OrdersService"
+                      BeanClass="com.company.myorders.mobile.model.Orders" id="ordersIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <tree IterBinding="ordersIterator" id="orders">
+      <nodeDefinition DefName="com.company.myorders.mobile.model.Orders" Name="orders0">
+        <AttrNames>
+          <Item Value="orderNumber"/>
+          <Item Value="orderedDate"/>
+          <Item Value="flowStatusCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

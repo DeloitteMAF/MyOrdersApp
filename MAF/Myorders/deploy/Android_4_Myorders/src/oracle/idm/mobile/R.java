@@ -254,7 +254,8 @@ containing a value of this type.
         public static final int TenantID=0x7f060002;
         public static final int Username=0x7f060001;
         public static final int app_name=0x7f060008;
-        public static final int oamms_activity_excep=0x7f06000b;
+        public static final int application_userPref_location___defaultValue=0x7f060009;
+        public static final int oamms_activity_excep=0x7f06000c;
         /**  General Messages 
  General Messages 
  General Messages 
@@ -286,10 +287,10 @@ containing a value of this type.
  General Messages 
  General Messages 
          */
-        public static final int oamms_app_name=0x7f060009;
-        public static final int oamms_application_not_available=0x7f06001b;
-        public static final int oamms_auth_failed=0x7f06002a;
-        public static final int oamms_auth_success=0x7f06002b;
+        public static final int oamms_app_name=0x7f06000a;
+        public static final int oamms_application_not_available=0x7f06001c;
+        public static final int oamms_auth_failed=0x7f06002b;
+        public static final int oamms_auth_success=0x7f06002c;
         /**  *********************************************************************** 
  Federated Authentication Messages 
  *********************************************************************** 
@@ -351,19 +352,19 @@ containing a value of this type.
  *********************************************************************** 
  Federated Authentication Messages 
          */
-        public static final int oamms_authentication_timed_out=0x7f06005d;
-        public static final int oamms_auto_login=0x7f06003b;
-        public static final int oamms_back_button=0x7f06003c;
-        public static final int oamms_cancel=0x7f060033;
-        public static final int oamms_cancel_button=0x7f06003f;
-        public static final int oamms_certificate_not_accepted=0x7f060012;
-        public static final int oamms_chalg_missing=0x7f060028;
-        public static final int oamms_challenge_ans=0x7f060036;
-        public static final int oamms_challenge_answer_hint=0x7f060037;
-        public static final int oamms_challenge_head=0x7f060034;
-        public static final int oamms_challenge_ques=0x7f060035;
-        public static final int oamms_clear_username_password_failed=0x7f060018;
-        public static final int oamms_client_certifcate_invalid_certifcate_presented=0x7f060090;
+        public static final int oamms_authentication_timed_out=0x7f06005e;
+        public static final int oamms_auto_login=0x7f06003c;
+        public static final int oamms_back_button=0x7f06003d;
+        public static final int oamms_cancel=0x7f060034;
+        public static final int oamms_cancel_button=0x7f060040;
+        public static final int oamms_certificate_not_accepted=0x7f060013;
+        public static final int oamms_chalg_missing=0x7f060029;
+        public static final int oamms_challenge_ans=0x7f060037;
+        public static final int oamms_challenge_answer_hint=0x7f060038;
+        public static final int oamms_challenge_head=0x7f060035;
+        public static final int oamms_challenge_ques=0x7f060036;
+        public static final int oamms_clear_username_password_failed=0x7f060019;
+        public static final int oamms_client_certifcate_invalid_certifcate_presented=0x7f060091;
         /**  *********************************************************************** 
  ******************** Client Certificate ****************************** 
  *********************************************************************** 
@@ -423,20 +424,20 @@ containing a value of this type.
  *********************************************************************** 
  ******************** Client Certificate ****************************** 
          */
-        public static final int oamms_client_certificate=0x7f06008b;
-        public static final int oamms_client_certificate_dialog_sub_title=0x7f060094;
-        public static final int oamms_client_certificate_dialog_title=0x7f060091;
-        public static final int oamms_client_certificate_import_empty_password=0x7f06008c;
-        public static final int oamms_client_certificate_import_enter_password=0x7f060092;
-        public static final int oamms_client_certificate_import_failed=0x7f060093;
-        public static final int oamms_client_certificate_import_invalid_certificate=0x7f06008f;
+        public static final int oamms_client_certificate=0x7f06008c;
+        public static final int oamms_client_certificate_dialog_sub_title=0x7f060095;
+        public static final int oamms_client_certificate_dialog_title=0x7f060092;
+        public static final int oamms_client_certificate_import_empty_password=0x7f06008d;
+        public static final int oamms_client_certificate_import_enter_password=0x7f060093;
+        public static final int oamms_client_certificate_import_failed=0x7f060094;
+        public static final int oamms_client_certificate_import_invalid_certificate=0x7f060090;
         /**  *********************************************************************** 
  ******************** Client Certificate ****************************** 
          */
-        public static final int oamms_client_certificate_import_invalid_password=0x7f06008d;
-        public static final int oamms_client_certificate_import_user_canceled=0x7f06008e;
-        public static final int oamms_config_intent_uri_invalid=0x7f060042;
-        public static final int oamms_config_intent_uri_null=0x7f060041;
+        public static final int oamms_client_certificate_import_invalid_password=0x7f06008e;
+        public static final int oamms_client_certificate_import_user_canceled=0x7f06008f;
+        public static final int oamms_config_intent_uri_invalid=0x7f060043;
+        public static final int oamms_config_intent_uri_null=0x7f060042;
         /**  *********************************************************************** 
  URL-Based Configuration 
  *********************************************************************** 
@@ -498,12 +499,12 @@ containing a value of this type.
  *********************************************************************** 
  URL-Based Configuration 
          */
-        public static final int oamms_config_properties_missing=0x7f060040;
-        public static final int oamms_cookie_not_found=0x7f060016;
-        public static final int oamms_could_not_retrieve_configuration=0x7f060043;
-        public static final int oamms_could_not_store_configuration=0x7f060044;
-        public static final int oamms_custom_auth_headers_count_exceeded=0x7f06001a;
-        public static final int oamms_custom_auth_headers_not_allowed=0x7f060019;
+        public static final int oamms_config_properties_missing=0x7f060041;
+        public static final int oamms_cookie_not_found=0x7f060017;
+        public static final int oamms_could_not_retrieve_configuration=0x7f060044;
+        public static final int oamms_could_not_store_configuration=0x7f060045;
+        public static final int oamms_custom_auth_headers_count_exceeded=0x7f06001b;
+        public static final int oamms_custom_auth_headers_not_allowed=0x7f06001a;
         /**  *********************************************************************** 
  HTML Login View Customization 
  *********************************************************************** 
@@ -565,17 +566,17 @@ containing a value of this type.
  *********************************************************************** 
  HTML Login View Customization 
          */
-        public static final int oamms_custom_html_fields_invalid=0x7f06005e;
-        public static final int oamms_fingerprint=0x7f060072;
-        public static final int oamms_forbidden=0x7f06005c;
-        public static final int oamms_forward_button=0x7f06003d;
-        public static final int oamms_html_file_exception=0x7f060060;
-        public static final int oamms_http_callback_null=0x7f06001c;
-        public static final int oamms_http_res_url_null=0x7f06001d;
-        public static final int oamms_identity_domain_required=0x7f060023;
-        public static final int oamms_import_certificate_failure=0x7f060076;
-        public static final int oamms_init_SSOAgent_success=0x7f060055;
-        public static final int oamms_internal_error=0x7f060013;
+        public static final int oamms_custom_html_fields_invalid=0x7f06005f;
+        public static final int oamms_fingerprint=0x7f060073;
+        public static final int oamms_forbidden=0x7f06005d;
+        public static final int oamms_forward_button=0x7f06003e;
+        public static final int oamms_html_file_exception=0x7f060061;
+        public static final int oamms_http_callback_null=0x7f06001d;
+        public static final int oamms_http_res_url_null=0x7f06001e;
+        public static final int oamms_identity_domain_required=0x7f060024;
+        public static final int oamms_import_certificate_failure=0x7f060077;
+        public static final int oamms_init_SSOAgent_success=0x7f060056;
+        public static final int oamms_internal_error=0x7f060014;
         /**  *********************************************************************** 
  Mobile & Social Server 
  *********************************************************************** 
@@ -637,9 +638,9 @@ containing a value of this type.
  *********************************************************************** 
  Mobile & Social Server 
          */
-        public static final int oamms_invalid_appname=0x7f060049;
-        public static final int oamms_invalid_arguments_null=0x7f060017;
-        public static final int oamms_invalid_arguments_null_or_empty=0x7f060014;
+        public static final int oamms_invalid_appname=0x7f06004a;
+        public static final int oamms_invalid_arguments_null=0x7f060018;
+        public static final int oamms_invalid_arguments_null_or_empty=0x7f060015;
         /**  *********************************************************************** 
  *********************************************************************** 
  Basic Authentication Messages 
@@ -731,18 +732,18 @@ containing a value of this type.
  *********************************************************************** 
  Basic Authentication Messages 
          */
-        public static final int oamms_invalid_basic_url=0x7f06005a;
-        public static final int oamms_invalid_config=0x7f060057;
-        public static final int oamms_invalid_html_file=0x7f060061;
-        public static final int oamms_invalid_server_type=0x7f06000e;
-        public static final int oamms_invalid_server_url=0x7f06004a;
-        public static final int oamms_invalid_service_domain=0x7f06004b;
-        public static final int oamms_kba_html_fields_invalid=0x7f06005f;
-        public static final int oamms_login=0x7f060032;
-        public static final int oamms_logout_failure=0x7f060020;
-        public static final int oamms_logout_in_progress=0x7f06001e;
-        public static final int oamms_logout_timed_out=0x7f06001f;
-        public static final int oamms_md5_fp=0x7f060074;
+        public static final int oamms_invalid_basic_url=0x7f06005b;
+        public static final int oamms_invalid_config=0x7f060058;
+        public static final int oamms_invalid_html_file=0x7f060062;
+        public static final int oamms_invalid_server_type=0x7f06000f;
+        public static final int oamms_invalid_server_url=0x7f06004b;
+        public static final int oamms_invalid_service_domain=0x7f06004c;
+        public static final int oamms_kba_html_fields_invalid=0x7f060060;
+        public static final int oamms_login=0x7f060033;
+        public static final int oamms_logout_failure=0x7f060021;
+        public static final int oamms_logout_in_progress=0x7f06001f;
+        public static final int oamms_logout_timed_out=0x7f060020;
+        public static final int oamms_md5_fp=0x7f060075;
         /**  *********************************************************************** 
  Setup failure 
  *********************************************************************** 
@@ -804,21 +805,21 @@ containing a value of this type.
  *********************************************************************** 
  Setup failure 
          */
-        public static final int oamms_mss_init_failed=0x7f060045;
-        public static final int oamms_network_unavailable=0x7f060010;
-        public static final int oamms_no_agent_avail=0x7f060058;
-        public static final int oamms_no_rp_login_url=0x7f06004e;
-        public static final int oamms_no_user_token=0x7f06004d;
-        public static final int oamms_not_connect_to_server=0x7f06000f;
-        public static final int oamms_not_found=0x7f060021;
-        public static final int oamms_not_parse_response=0x7f060011;
-        public static final int oamms_oaam_denied_action=0x7f060051;
-        public static final int oamms_oaam_wipeout_action=0x7f060052;
-        public static final int oamms_oauth_access_denied_desc=0x7f06007c;
-        public static final int oamms_oauth_auth_url_invalid=0x7f060084;
-        public static final int oamms_oauth_client_assertion_invalid=0x7f060085;
-        public static final int oamms_oauth_client_secret_invalid=0x7f060086;
-        public static final int oamms_oauth_context_invalid=0x7f060079;
+        public static final int oamms_mss_init_failed=0x7f060046;
+        public static final int oamms_network_unavailable=0x7f060011;
+        public static final int oamms_no_agent_avail=0x7f060059;
+        public static final int oamms_no_rp_login_url=0x7f06004f;
+        public static final int oamms_no_user_token=0x7f06004e;
+        public static final int oamms_not_connect_to_server=0x7f060010;
+        public static final int oamms_not_found=0x7f060022;
+        public static final int oamms_not_parse_response=0x7f060012;
+        public static final int oamms_oaam_denied_action=0x7f060052;
+        public static final int oamms_oaam_wipeout_action=0x7f060053;
+        public static final int oamms_oauth_access_denied_desc=0x7f06007d;
+        public static final int oamms_oauth_auth_url_invalid=0x7f060085;
+        public static final int oamms_oauth_client_assertion_invalid=0x7f060086;
+        public static final int oamms_oauth_client_secret_invalid=0x7f060087;
+        public static final int oamms_oauth_context_invalid=0x7f06007a;
         /**  *********************************************************************** 
  ************************OAuth2.0 Known errors************************** 
  *********************************************************************** 
@@ -880,9 +881,9 @@ containing a value of this type.
  *********************************************************************** 
  ************************OAuth2.0 Known errors************************** 
          */
-        public static final int oamms_oauth_failed=0x7f060077;
-        public static final int oamms_oauth_invalid_client_desc=0x7f060082;
-        public static final int oamms_oauth_invalid_grant_desc=0x7f060083;
+        public static final int oamms_oauth_failed=0x7f060078;
+        public static final int oamms_oauth_invalid_client_desc=0x7f060083;
+        public static final int oamms_oauth_invalid_grant_desc=0x7f060084;
         /**  ********* Description messages if server returns no description ****** 
  ********* Description messages if server returns no description ****** 
  ********* Description messages if server returns no description ****** 
@@ -914,38 +915,38 @@ containing a value of this type.
  ********* Description messages if server returns no description ****** 
  ********* Description messages if server returns no description ****** 
          */
-        public static final int oamms_oauth_invalid_request_desc=0x7f06007a;
-        public static final int oamms_oauth_invalid_scope_desc=0x7f060080;
-        public static final int oamms_oauth_invalid_state=0x7f060078;
-        public static final int oamms_oauth_oam_token_request_failed=0x7f060088;
-        public static final int oamms_oauth_pre_authz_code_invalid=0x7f060087;
-        public static final int oamms_oauth_server_error_desc=0x7f06007e;
-        public static final int oamms_oauth_temp_unavailable_desc=0x7f06007f;
-        public static final int oamms_oauth_unauthorized_client_desc=0x7f06007b;
-        public static final int oamms_oauth_unsupported_grant_type_desc=0x7f060081;
-        public static final int oamms_oauth_unsupported_response_type_desc=0x7f06007d;
-        public static final int oamms_oauth_user_assertion_null=0x7f06008a;
-        public static final int oamms_oauth_user_assertion_request_failed=0x7f060089;
-        public static final int oamms_password=0x7f06002e;
-        public static final int oamms_password_hint=0x7f06002f;
-        public static final int oamms_password_null=0x7f060025;
-        public static final int oamms_processing=0x7f06000a;
-        public static final int oamms_refresh_button=0x7f06003e;
-        public static final int oamms_remember_credentials=0x7f06003a;
-        public static final int oamms_remember_username=0x7f060039;
-        public static final int oamms_remote_html_file=0x7f060062;
-        public static final int oamms_req_denied=0x7f060050;
-        public static final int oamms_req_failed=0x7f06004f;
-        public static final int oamms_sec_profile_excep=0x7f06000c;
-        public static final int oamms_security_warning=0x7f06006d;
-        public static final int oamms_serial_number=0x7f060071;
-        public static final int oamms_server_returned_error=0x7f06005b;
-        public static final int oamms_service_domain_not_same=0x7f060056;
-        public static final int oamms_servicename_null=0x7f06000d;
-        public static final int oamms_setup_failed_default=0x7f060047;
-        public static final int oamms_setup_failed_ms=0x7f060046;
-        public static final int oamms_setup_failed_oauth=0x7f060048;
-        public static final int oamms_sha_fp=0x7f060073;
+        public static final int oamms_oauth_invalid_request_desc=0x7f06007b;
+        public static final int oamms_oauth_invalid_scope_desc=0x7f060081;
+        public static final int oamms_oauth_invalid_state=0x7f060079;
+        public static final int oamms_oauth_oam_token_request_failed=0x7f060089;
+        public static final int oamms_oauth_pre_authz_code_invalid=0x7f060088;
+        public static final int oamms_oauth_server_error_desc=0x7f06007f;
+        public static final int oamms_oauth_temp_unavailable_desc=0x7f060080;
+        public static final int oamms_oauth_unauthorized_client_desc=0x7f06007c;
+        public static final int oamms_oauth_unsupported_grant_type_desc=0x7f060082;
+        public static final int oamms_oauth_unsupported_response_type_desc=0x7f06007e;
+        public static final int oamms_oauth_user_assertion_null=0x7f06008b;
+        public static final int oamms_oauth_user_assertion_request_failed=0x7f06008a;
+        public static final int oamms_password=0x7f06002f;
+        public static final int oamms_password_hint=0x7f060030;
+        public static final int oamms_password_null=0x7f060026;
+        public static final int oamms_processing=0x7f06000b;
+        public static final int oamms_refresh_button=0x7f06003f;
+        public static final int oamms_remember_credentials=0x7f06003b;
+        public static final int oamms_remember_username=0x7f06003a;
+        public static final int oamms_remote_html_file=0x7f060063;
+        public static final int oamms_req_denied=0x7f060051;
+        public static final int oamms_req_failed=0x7f060050;
+        public static final int oamms_sec_profile_excep=0x7f06000d;
+        public static final int oamms_security_warning=0x7f06006e;
+        public static final int oamms_serial_number=0x7f060072;
+        public static final int oamms_server_returned_error=0x7f06005c;
+        public static final int oamms_service_domain_not_same=0x7f060057;
+        public static final int oamms_servicename_null=0x7f06000e;
+        public static final int oamms_setup_failed_default=0x7f060048;
+        public static final int oamms_setup_failed_ms=0x7f060047;
+        public static final int oamms_setup_failed_oauth=0x7f060049;
+        public static final int oamms_sha_fp=0x7f060074;
         /**  SSO Messages 
  SSO Messages 
  SSO Messages 
@@ -977,18 +978,18 @@ containing a value of this type.
  SSO Messages 
  SSO Messages 
          */
-        public static final int oamms_sign_not_valid=0x7f060053;
-        public static final int oamms_ssl_alert_icon=0x7f060075;
-        public static final int oamms_ssl_common_name=0x7f060066;
-        public static final int oamms_ssl_continue=0x7f06006e;
-        public static final int oamms_ssl_expires_on=0x7f06006c;
-        public static final int oamms_ssl_issued_by=0x7f060069;
-        public static final int oamms_ssl_issued_on=0x7f06006b;
-        public static final int oamms_ssl_issued_to=0x7f060065;
-        public static final int oamms_ssl_message=0x7f060070;
-        public static final int oamms_ssl_organization=0x7f060067;
-        public static final int oamms_ssl_organization_unit=0x7f060068;
-        public static final int oamms_ssl_security_certificate=0x7f060064;
+        public static final int oamms_sign_not_valid=0x7f060054;
+        public static final int oamms_ssl_alert_icon=0x7f060076;
+        public static final int oamms_ssl_common_name=0x7f060067;
+        public static final int oamms_ssl_continue=0x7f06006f;
+        public static final int oamms_ssl_expires_on=0x7f06006d;
+        public static final int oamms_ssl_issued_by=0x7f06006a;
+        public static final int oamms_ssl_issued_on=0x7f06006c;
+        public static final int oamms_ssl_issued_to=0x7f060066;
+        public static final int oamms_ssl_message=0x7f060071;
+        public static final int oamms_ssl_organization=0x7f060068;
+        public static final int oamms_ssl_organization_unit=0x7f060069;
+        public static final int oamms_ssl_security_certificate=0x7f060065;
         /**  *********************************************************************** 
  ************************* SSL Certificate Warning ********************* 
  *********************************************************************** 
@@ -1050,19 +1051,19 @@ containing a value of this type.
  *********************************************************************** 
  ************************* SSL Certificate Warning ********************* 
          */
-        public static final int oamms_ssl_settings_header=0x7f060063;
-        public static final int oamms_ssl_validity=0x7f06006a;
-        public static final int oamms_ssl_view_certificate=0x7f06006f;
-        public static final int oamms_sso_activity_missing=0x7f060054;
-        public static final int oamms_submit=0x7f060038;
-        public static final int oamms_tenant=0x7f060030;
-        public static final int oamms_tenant_hint=0x7f060031;
-        public static final int oamms_token_missing=0x7f06004c;
-        public static final int oamms_tokens_not_available=0x7f060059;
-        public static final int oamms_un_pwd_missing=0x7f060026;
-        public static final int oamms_un_pwd_tenant_missing=0x7f060027;
-        public static final int oamms_update_cookies_validation_failure=0x7f060015;
-        public static final int oamms_user_canceled=0x7f060029;
+        public static final int oamms_ssl_settings_header=0x7f060064;
+        public static final int oamms_ssl_validity=0x7f06006b;
+        public static final int oamms_ssl_view_certificate=0x7f060070;
+        public static final int oamms_sso_activity_missing=0x7f060055;
+        public static final int oamms_submit=0x7f060039;
+        public static final int oamms_tenant=0x7f060031;
+        public static final int oamms_tenant_hint=0x7f060032;
+        public static final int oamms_token_missing=0x7f06004d;
+        public static final int oamms_tokens_not_available=0x7f06005a;
+        public static final int oamms_un_pwd_missing=0x7f060027;
+        public static final int oamms_un_pwd_tenant_missing=0x7f060028;
+        public static final int oamms_update_cookies_validation_failure=0x7f060016;
+        public static final int oamms_user_canceled=0x7f06002a;
         /**  *********************************************************************** 
  *********** UI Messages and Descriptions of Images ************* 
  *********************************************************************** 
@@ -1124,9 +1125,9 @@ containing a value of this type.
  *********************************************************************** 
  *********** UI Messages and Descriptions of Images ************* 
          */
-        public static final int oamms_username=0x7f06002c;
-        public static final int oamms_username_hint=0x7f06002d;
-        public static final int oamms_username_identity_domain_required=0x7f060024;
+        public static final int oamms_username=0x7f06002d;
+        public static final int oamms_username_hint=0x7f06002e;
+        public static final int oamms_username_identity_domain_required=0x7f060025;
         /**  *********************************************************************** 
  ************************ Success/Error Messages ************************* 
  *********************************************************************** 
@@ -1188,7 +1189,7 @@ containing a value of this type.
  *********************************************************************** 
  ************************ Success/Error Messages ************************* 
          */
-        public static final int oamms_username_required=0x7f060022;
+        public static final int oamms_username_required=0x7f060023;
     }
     public static final class style {
         public static final int Theme_MAF=0x7f070002;
@@ -1197,6 +1198,7 @@ containing a value of this type.
     }
     public static final class xml {
         public static final int config=0x7f040000;
+        public static final int maf_preferences=0x7f040001;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdfMFPreference.

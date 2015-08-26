@@ -3,20 +3,31 @@
                 Package="com.company.myorders.Settings">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <variableIterator id="variables">
+      <variable Name="location" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
+    <accessorIterator id="ordersIterator" MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25"
+                      DataControl="OrdersService" BeanClass="com.company.myorders.mobile.model.Orders"/>
     <iterator Binds="root" RangeSize="25" DataControl="ResultService" id="ResultServiceIterator"/>
-    <accessorIterator MasterBinding="ResultServiceIterator" Binds="result" RangeSize="25" DataControl="ResultService"
-                      BeanClass="com.company.myorders.mobile.model.Result" id="resultIterator"/>
+    <accessorIterator id="resultIterator" MasterBinding="ResultServiceIterator" Binds="result" RangeSize="-1"
+                      DataControl="ResultService" BeanClass="com.company.myorders.mobile.model.Result"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
-    <list IterBinding="resultIterator" ListOperMode="navigation" ListIter="resultIterator" id="result"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+    <list StaticList="false" IterBinding="ordersIterator" ListIter="resultIterator" id="partyName" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
       <AttrNames>
-        <Item Value="locationFullName"/>
+        <Item Value="partyName"/>
       </AttrNames>
+      <ListAttrNames>
+        <Item Value="locationCode"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="locationFullName"/>
+      </ListDisplayAttrNames>
     </list>
   </bindings>
 </pageDefinition>
