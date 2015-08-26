@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:FileUtils="http://www.oracle.com/XSL/Transform/java/oracle.adfmf.common.util.FileUtils" xmlns:ora="http://www.oracle.com/XSL/Transform/java" xmlns:adfmf="http://schemas.android.com/apk/res/com.company.MyOrders">
+   <PreferenceCategory android:key="application.userPref">
+      <oracle.adfmf.preferences.AdfMFPreferenceText android:key="application.userPref.location" android:defaultValue="@string/application.userPref.location___defaultValue" android:password="true"/>
+   </PreferenceCategory>
+</PreferenceScreen>
