@@ -19,10 +19,10 @@
       </amx:tableLayout>
     </amx:facet>
     <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
     </amx:facet>
     <amx:facet name="secondary">
-      <amx:commandLink id="cl1" actionListener="#{OrdersManagedBean.Logout}">
+      <amx:commandLink id="cl1" actionListener="#{OrdersManagedBean.Logout}"
+                       rendered="false">
         <amx:outputHtml id="oh1" styleClass="fa fa-power-off fa-lg"/>
       </amx:commandLink>
     </amx:facet>
@@ -31,12 +31,16 @@
                   selectedRowKeys="#{bindings.orders.collectionModel.selectedRow}"
                   selectionListener="#{bindings.orders.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
                   bufferStrategy="viewport" id="lv1">
-      <amx:listItem id="li1">
+      <amx:listItem id="li1"
+                    inlineStyle="background-color:#D7D7DA; border-bottom-color:ThreeDShadow;">
         <amx:panelGroupLayout id="pgl1" layout="vertical">
-          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2" inlineStyle="width:auto;"/>
-          <amx:outputText value="Order Number : #{row.orderNumber}" id="ot3"/>
-        <amx:image id="i1" source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
-                   inlineStyle="width:70%;"/>
+          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
+                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          <amx:outputText value="Order ##{row.orderNumber}" id="ot3" inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          <amx:outputText value="Status #{row.flowStatusCode}" id="ot4" inlineStyle="width:auto; font-size:small; font-weight:bold;"
+                          rendered="false"/>
+        <amx:image id="i1" source="/resources/css/images/#{row.flowStatusCode eq 'In process' ? 'InProcess' : row.flowStatusCode}.png"
+                   inlineStyle="width:80%;"/>
         </amx:panelGroupLayout>
 
       </amx:listItem>
