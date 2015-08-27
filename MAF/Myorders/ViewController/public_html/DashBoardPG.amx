@@ -13,7 +13,7 @@
           </amx:cellFormat>
           <amx:cellFormat id="cf3" columnSpan="3" width="30sp"/>
           <amx:cellFormat id="cf2" halign="center" valign="middle" columnSpan="4" rowSpan="1">
-            <amx:outputText value="MyOrders" id="ot1"/>
+            <amx:outputText value="My Orders" id="ot1"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
@@ -26,13 +26,28 @@
         <amx:outputHtml id="oh1" styleClass="fa fa-power-off fa-lg"/>
       </amx:commandLink>
     </amx:facet>
-    
+    <amx:tableLayout id="tl2" width="100%"
+                     inlineStyle="border-bottom-width:thin; background-color:rgb(60, 60, 73);">
+      <amx:rowLayout id="rl2">
+        <amx:cellFormat id="cf4" width="50%"
+                        inlineStyle="border-bottom: 5px solid #1EBE92;">
+          <amx:commandButton text="Top Orders" id="cb1"
+                             inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none"
+                             styleClass="tab_btn"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf5" width="50%">
+          <amx:commandButton text="All Orders" id="cb2"
+                             inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White;box-shadow:none"
+                             styleClass="tab_btn"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
     <amx:listView var="row" value="#{bindings.orders.collectionModel}" fetchSize="#{bindings.orders.rangeSize}"
                   selectedRowKeys="#{bindings.orders.collectionModel.selectedRow}"
                   selectionListener="#{bindings.orders.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
                   bufferStrategy="viewport" id="lv1">
       <amx:listItem id="li1"
-                    inlineStyle="background-color:#D7D7DA; border-bottom-color:ThreeDShadow;">
+                    inlineStyle="background-color:#D7D7DA; border-bottom-color:Grey;">
         <amx:panelGroupLayout id="pgl1" layout="vertical">
           <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
                           inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
@@ -40,7 +55,7 @@
           <amx:outputText value="Status #{row.flowStatusCode}" id="ot4" inlineStyle="width:auto; font-size:small; font-weight:bold;"
                           rendered="false"/>
         <amx:image id="i1" source="/resources/css/images/#{row.flowStatusCode eq 'In process' ? 'InProcess' : row.flowStatusCode}.png"
-                   inlineStyle="width:80%;"/>
+                   inlineStyle="width:95%;"/>
         </amx:panelGroupLayout>
 
       </amx:listItem>

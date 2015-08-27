@@ -4,6 +4,9 @@
 #it1__inputElement {
 
 }
+#oh2{
+    color:rgb(60, 60, 73);
+}
 
 /* Android Title bar styling begin */
 .amx-panelPage-header-appIcon {
@@ -14,16 +17,16 @@
 }
 
 .amx-panelPage-header{
-    border-bottom-color: #81bc00; 
-    background-color:#002776;    
-    color: #81bc00;
+    border-bottom-color: #1EBE92; 
+    background-color:#1EBE92;    
+    color: #1EBE92;
     font-size: large; 
     font-weight: bold; 
     font-family: 'Arial Black';
 }
 
 .amx-panelPage-header .amx-outputText  {
-    color: #81bc00;
+    color: #FFFFFF;
     font-size: large; 
     font-weight: bold; 
     font-family: 'Arial Black';
@@ -44,6 +47,14 @@
     text-align: center;
     font: 12px Arial,Helvetica,Sans-serif;
     font-weight: 100; 
+}
+
+.amx-panelPage-header-overflowIcon{
+    display:none;
+}
+
+.tab_btn > .amx-commandButton-label{
+    color: #FFFFFF;
 }
 /*
 #it1 input[type="email"] {
