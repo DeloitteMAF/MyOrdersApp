@@ -29,8 +29,10 @@
          <directMapping attributeName="fulfillmentDate" payloadAttributeName="FulfillmentDate" columnName="FULFILLMENT_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/myorder/SO/getAllOrders/1146/150/10/{loc}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+        <findAllMethod uri="/myorder/SO/getAllOrders/1004/150/10/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="loc" value="#{preferenceScope.application.userPref.location}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+            <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+            <parameter name="showclosedorders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
          </findAllMethod>
       </methods>
    </classMappingDescriptor>
