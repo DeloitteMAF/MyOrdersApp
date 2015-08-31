@@ -13,7 +13,7 @@
           </amx:cellFormat>
           <amx:cellFormat id="cf3" columnSpan="3" width="30sp"/>
           <amx:cellFormat id="cf2" halign="center" valign="middle" columnSpan="4" rowSpan="1">
-            <amx:outputText value="My Orders" id="ot1"/>
+            <amx:outputText value="#{securityContext.userName}" id="ot1"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
