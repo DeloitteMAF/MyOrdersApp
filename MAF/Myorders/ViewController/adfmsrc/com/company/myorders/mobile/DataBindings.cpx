@@ -11,6 +11,8 @@
     <page id="com_company_myorders_mobile_SettingsPageDef" path="com.company.myorders.Settings.SettingsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="AllOrdersService"
+        path="com.company.myorders.mobile.AllOrdersService"/>
     <dc id="OrdersService" path="com.company.myorders.mobile.OrdersService"/>
     <dc id="ResultService" path="com.company.myorders.mobile.ResultService"/>
     <dc id="ApplicationFeatures" path="com.company.myorders.application.ApplicationFeatures"/>

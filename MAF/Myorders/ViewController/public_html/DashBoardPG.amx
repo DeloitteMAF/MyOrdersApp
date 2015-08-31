@@ -69,5 +69,25 @@
 
       </amx:listItem>
     </amx:listView>
+    <amx:listView var="row" value="#{bindings.allOrders.collectionModel}"
+                  fetchSize="#{bindings.allOrders.rangeSize}"
+                  selectedRowKeys="#{bindings.allOrders.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.allOrders.collectionModel.makeCurrent}"
+                  showMoreStrategy="autoScroll" bufferStrategy="viewport"
+                  id="lv2" rendered="#{pageFlowScope.currentTab=='ALL'}">
+<amx:listItem id="li2"
+                    inlineStyle="background-color:#D7D7DA; border-bottom-color:Grey;">
+        <amx:panelGroupLayout id="pgl2" layout="vertical">
+          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot5"
+                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          <amx:outputText value="Order ##{row.orderNumber}" id="ot6" inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          <amx:outputText value="Status #{row.flowStatusCode}" id="ot7" inlineStyle="width:auto; font-size:small; font-weight:bold;"
+                          rendered="false"/>
+        <amx:image id="i2" source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
+                   inlineStyle="width:95%;"/>
+        </amx:panelGroupLayout>
+
+      </amx:listItem>
+    </amx:listView>
   </amx:panelPage>
 </amx:view>
