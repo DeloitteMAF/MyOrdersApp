@@ -1,4 +1,4 @@
-package xx.orders.common;
+package xx.orders.view.common;
 
 import org.eclipse.persistence.sdo.SDODataObject;
 

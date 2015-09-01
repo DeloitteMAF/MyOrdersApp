@@ -146,7 +146,7 @@
                                  <value n="type" v="0"/>
                               </hash>
                               <hash>
-                                 <value n="pattern" v="xx/orders/common/*"/>
+                                 <value n="pattern" v="xx/orders/view/common/*"/>
                                  <value n="type" v="0"/>
                               </hash>
                               <hash>
@@ -204,7 +204,7 @@
                                  <value n="type" v="0"/>
                               </hash>
                               <hash>
-                                 <value n="pattern" v="xx/orders/common/**"/>
+                                 <value n="pattern" v="xx/orders/view/common/**"/>
                                  <value n="type" v="1"/>
                               </hash>
                               <hash>

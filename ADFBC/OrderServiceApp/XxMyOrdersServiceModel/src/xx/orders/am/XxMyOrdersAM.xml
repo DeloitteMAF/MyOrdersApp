@@ -38,7 +38,7 @@
         IsGeneric="true">
         <Element
           Name="XxMyLocationsVORowImpl"
-          Type="xx.orders.XxMyLocationsVORowImpl"
+          Type="xx.orders.view.XxMyLocationsVORowImpl"
           ViewObjectName="XxMyLocationsVO"/>
       </Return>
       <Parameter
@@ -54,20 +54,26 @@
         IsGeneric="true">
         <Element
           Name="XxMyOrdersVORowImpl"
-          Type="xx.orders.XxMyOrdersVORowImpl"
+          Type="xx.orders.view.XxMyOrdersVORowImpl"
           ViewObjectName="XxMyOrdersVO"/>
       </Return>
       <Parameter
         Name="custAccountId"
         Type="java.lang.Long"/>
       <Parameter
-        Name="NoOfDays"
+        Name="noOfDays"
         Type="java.lang.Integer"/>
       <Parameter
-        Name="NoOfRows"
+        Name="noOfRows"
         Type="java.lang.Integer"/>
       <Parameter
-        Name="Location"
+        Name="location"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="orderBy"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="fetchClosedOrders"
         Type="java.lang.String"/>
     </Method>
   </ServiceInterface>

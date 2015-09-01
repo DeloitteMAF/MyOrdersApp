@@ -1,7 +1,9 @@
-<xsd:schema xmlns:sdoJava="commonj.sdo/java" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="/xx/orders/common/"
-     xmlns="/xx/orders/common/" elementFormDefault="qualified" sdoJava:package="xx.orders.common">
+<xsd:schema xmlns:sdoJava="commonj.sdo/java" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="/xx/orders/view/common/"
+     xmlns="/xx/orders/view/common/" elementFormDefault="qualified" sdoJava:package="xx.orders.view.common">
     <xsd:annotation>
-        <xsd:documentation/>
+        <xsd:documentation>
+            <name>Xx My Orders Vo</name>
+        </xsd:documentation>
     </xsd:annotation>
     <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
     <xsd:complexType name="XxMyOrdersVOSDO">

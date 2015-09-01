@@ -1,4 +1,4 @@
-package xx.orders.common;
+package xx.orders.view.common;
 
 public interface XxMyLocationsVOSDO extends java.io.Serializable {
 

@@ -1,8 +1,8 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/xx/orders/am/common/types/"
-     xmlns:tns="/xx/orders/am/common/types/" xmlns:ns0="/xx/orders/common/" xmlns:ns1="http://xmlns.oracle.com/adf/svc/errors/">
-    <import namespace="/xx/orders/common/" schemaLocation="../../../common/XxMyLocationsVOSDO.xsd"/>
+     xmlns:tns="/xx/orders/am/common/types/" xmlns:ns0="/xx/orders/view/common/" xmlns:ns1="http://xmlns.oracle.com/adf/svc/errors/">
+    <import namespace="/xx/orders/view/common/" schemaLocation="../../../view/common/XxMyLocationsVOSDO.xsd"/>
     <import namespace="http://xmlns.oracle.com/adf/svc/errors/" schemaLocation="classpath:/META-INF/wsdl/ServiceException.xsd"/>
-    <import namespace="/xx/orders/common/" schemaLocation="../../../common/XxMyOrdersVOSDO.xsd"/>
+    <import namespace="/xx/orders/view/common/" schemaLocation="../../../view/common/XxMyOrdersVOSDO.xsd"/>
     <element name="getCustomerLocations">
         <complexType>
             <sequence>
@@ -21,9 +21,11 @@
         <complexType>
             <sequence>
                 <element name="custAccountId" type="long"/>
-                <element name="NoOfDays" type="int"/>
-                <element name="NoOfRows" type="int"/>
-                <element name="Location" type="string"/>
+                <element name="noOfDays" type="int"/>
+                <element name="noOfRows" type="int"/>
+                <element name="location" type="string"/>
+                <element name="orderBy" type="string"/>
+                <element name="fetchClosedOrders" type="string"/>
             </sequence>
         </complexType>
     </element>

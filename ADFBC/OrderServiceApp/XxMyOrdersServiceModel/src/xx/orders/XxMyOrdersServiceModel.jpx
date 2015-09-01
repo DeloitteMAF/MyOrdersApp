@@ -11,6 +11,7 @@
     <Attr Name="_jprName" Value="../../../XxMyOrdersServiceModel.jpr"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="EBSConn"/>
+    <Attr Name="_appModuleNames0" Value="xx.orders.am.XxMyOrdersAM"/>
   </DesignTime>
   <Containee
     Name="am"
