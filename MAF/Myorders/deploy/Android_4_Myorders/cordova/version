@@ -1,3 +1,0 @@
-#!/bin/sh
-VERSION=3.6.3
-echo $VERSION
