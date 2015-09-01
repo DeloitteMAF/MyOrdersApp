@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="MyOrders" id="com.company.MyOrders" appControllerFolder="ApplicationController"
+                   listener-class="oracle.ateam.sample.mobile.lifecycle.InitDBLifeCycleListener">
+  <adfmf:featureReference refId="com.company.myorders.Orders" id="fr1" loginConnRefId="HTTP Basic"/>
+  <adfmf:featureReference refId="com.company.myorders.Settings" id="fr2"/>
+  <adfmf:preferences>
+    <adfmf:preferenceGroup id="userPref">
+      <adfmf:preferenceText id="location" default="US" secret="true"/>
+      <adfmf:preferenceText id="showclosedorders" label="Show Closed Orders"
+                            default="No"/>
+      <adfmf:preferenceText id="orderby" label="Order By" default="date"/>
+    </adfmf:preferenceGroup>
+  </adfmf:preferences>
+  <adfmf:navigation>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="140"/>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+  <adfmf:login defaultConnRefId="HTTP Basic">
+    <adfmf:localHTML url="MyOrdersLogin.html"/>
+  </adfmf:login>
+</adfmf:application>

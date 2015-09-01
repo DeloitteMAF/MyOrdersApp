@@ -1,0 +1,42 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="HTTP Basic" className="oracle.adf.model.connection.adfmf.LoginConnection"
+             adfCredentialStoreKey="HTTP Basic" partial="false" manageInOracleEnterpriseManager="true" deployable="true"
+             xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="http://10.118.37.123:7001/OrderServiceApp/faces/Home.jspx"/>
+          <logout url="http://10.118.37.123:7001/OrderServiceApp/faces/Home.jspx"/>
+          <authenticationMode value="hybrid"/>
+          <idleTimeout value="300"/>
+          <sessionTimeout value="28800"/>
+          <maxFailuresBeforeCredentialCleared value="3"/>
+          <rememberCredentials>
+            <enableRememberUserName value="true"/>
+            <rememberUserNameDefault value="true"/>
+            <enableRememberPassword value="true"/>
+            <rememberPasswordDefault value="true"/>
+            <enableStayLoggedIn value="true"/>
+            <stayLoggedInDefault value="true"/>
+          </rememberCredentials>
+          <injectCookiesToRestHttpHeader value="true"/>
+          <includeBasicAuthHeader value="true"/>
+          <accessControl/>
+          <userObjectFilter/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="OSBService" className="oracle.adf.model.connection.rest.RestConnection" xmlns=""
+             adfCredentialStoreKey="HTTP Basic">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="OSBService">
+        <Contents>
+          <restconnection name="OSBService" url="http://ussltcsnl3432.solutions.glbsnet.com:7004"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

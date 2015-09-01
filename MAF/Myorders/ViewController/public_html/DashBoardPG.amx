@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:tableLayout id="tl1">
+        <amx:rowLayout id="rl1">
+          <amx:cellFormat id="cf1" halign="start" valign="middle" columnSpan="2" rowSpan="2">
+            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}"
+                             disabled="#{!bindings.gotoSpringboard.enabled}" id="cl3">
+                <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-2x"/>
+            </amx:commandLink>
+          </amx:cellFormat>
+          <amx:cellFormat id="cf3" columnSpan="3" width="30sp"/>
+          <amx:cellFormat id="cf2" halign="center" valign="middle" columnSpan="4" rowSpan="1">
+            <amx:outputText value="My Orders" id="ot1"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+      </amx:tableLayout>
+    </amx:facet>
+    <amx:facet name="primary">
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandLink id="cl1" actionListener="#{OrdersManagedBean.Logout}"
+                       rendered="false">
+        <amx:outputHtml id="oh1" styleClass="fa fa-power-off fa-lg"/>
+      </amx:commandLink>
+    </amx:facet>
+    <amx:tableLayout id="tl2" width="100%"
+                     inlineStyle="border-bottom-width:thin; background-color:rgb(60, 60, 73);">
+      <amx:rowLayout id="rl2">
+        <amx:cellFormat id="cf4" width="50%"
+                        inlineStyle="#{pageFlowScope.currentTab!='ALL' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
+          <amx:commandButton text="Top Orders" id="cb1"
+                             inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none"
+                             styleClass="tab_btn">
+            <amx:setPropertyListener id="spl1" from="#{'TOP'}"
+                                     to="#{pageFlowScope.currentTab}"/>
+          </amx:commandButton>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf5" width="50%"
+                        inlineStyle="#{pageFlowScope.currentTab=='ALL' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
+          <amx:commandButton text="All Orders" id="cb2"
+                             inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White;box-shadow:none"
+                             styleClass="tab_btn">
+            <amx:setPropertyListener id="spl2"
+                                     to="#{pageFlowScope.currentTab}"
+                                     from="#{'ALL'}"/>
+          </amx:commandButton>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:listView var="row" value="#{bindings.orders.collectionModel}" fetchSize="#{bindings.orders.rangeSize}"
+                  selectedRowKeys="#{bindings.orders.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.orders.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv1"
+                  rendered="#{pageFlowScope.currentTab!='ALL'}">
+      <amx:listItem id="li1"
+                    inlineStyle="background-color:#D7D7DA; border-bottom-color:Grey;">
+        <amx:panelGroupLayout id="pgl1" layout="vertical">
+          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
+                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          <amx:outputText value="Order ##{row.orderNumber}" id="ot3" inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          <amx:outputText value="Status #{row.flowStatusCode}" id="ot4" inlineStyle="width:auto; font-size:small; font-weight:bold;"
+                          rendered="false"/>
+        <amx:image id="i1" source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
+                   inlineStyle="width:95%;"/>
+        </amx:panelGroupLayout>
+
+      </amx:listItem>
+    </amx:listView>
+    <amx:listView var="row" value="#{bindings.allOrders.collectionModel}"
+                  fetchSize="#{bindings.allOrders.rangeSize}"
+                  selectedRowKeys="#{bindings.allOrders.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.allOrders.collectionModel.makeCurrent}"
+                  showMoreStrategy="autoScroll" bufferStrategy="viewport"
+                  id="lv2" rendered="#{pageFlowScope.currentTab=='ALL'}">
+<amx:listItem id="li2"
+                    inlineStyle="background-color:#D7D7DA; border-bottom-color:Grey;">
+        <amx:panelGroupLayout id="pgl2" layout="vertical">
+          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot5"
+                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          <amx:outputText value="Order ##{row.orderNumber}" id="ot6" inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          <amx:outputText value="Status #{row.flowStatusCode}" id="ot7" inlineStyle="width:auto; font-size:small; font-weight:bold;"
+                          rendered="false"/>
+        <amx:image id="i2" source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
+                   inlineStyle="width:95%;"/>
+        </amx:panelGroupLayout>
+
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>
