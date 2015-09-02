@@ -14,4 +14,7 @@ public class OrdersManagedBean {
         // Add event code here...
         AdfmfJavaUtilities.logout();
     }
+    public String getCurrentFeature(){
+        return AdfmfJavaUtilities.getFeatureId();
+    }
 }

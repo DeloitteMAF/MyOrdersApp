@@ -8,6 +8,10 @@
     color:rgb(60, 60, 73);
 }
 
+#oh1{
+    color:rgb(60, 60, 73);
+}
+
 /* Android Title bar styling begin */
 .amx-panelPage-header-appIcon {
     /*background-image: url("images/Icon.png");
@@ -55,6 +59,7 @@
 
 .tab_btn > .amx-commandButton-label{
     color: #FFFFFF;
+    font-size: 15px;
 }
 /*
 #it1 input[type="email"] {

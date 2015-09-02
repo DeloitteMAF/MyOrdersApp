@@ -7,7 +7,9 @@
       <property
          name="activityId">LogoutCall</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>LogoutCall&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>LogoutCall&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
