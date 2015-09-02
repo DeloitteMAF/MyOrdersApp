@@ -20,4 +20,15 @@
       </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
+  <adfmf:feature id="com.company.myorders.SpringBoard" name="SpringBoard" securityEnabled="true">
+    <adfmf:content id="com.company.myorders.SpringBoard.1">
+      <adfmf:constraints/>
+      <adfmf:amx file="com.company.myorders.SpringBoard/SpringBoard.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.company.myorders.Logout" name="Logout">
+    <adfmf:content id="com.company.myorders.Logout.1">
+      <adfmf:amx file="com.company.myorders.Logout/Logout.xml#Logout"/>
+    </adfmf:content>
+  </adfmf:feature>
 </adfmf:features>

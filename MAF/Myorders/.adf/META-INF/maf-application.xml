@@ -4,6 +4,9 @@
                    listener-class="oracle.ateam.sample.mobile.lifecycle.InitDBLifeCycleListener">
   <adfmf:featureReference refId="com.company.myorders.Orders" id="fr1" loginConnRefId="HTTP Basic"/>
   <adfmf:featureReference refId="com.company.myorders.Settings" id="fr2"/>
+  <adfmf:featureReference refId="com.company.myorders.SpringBoard" id="fr3" showOnNavigationBar="false"
+                          showOnSpringboard="false"/>
+  <adfmf:featureReference refId="com.company.myorders.Logout" id="fr4"/>
   <adfmf:preferences>
     <adfmf:preferenceGroup id="userPref">
       <adfmf:preferenceText id="location" default="US" secret="true"/>
