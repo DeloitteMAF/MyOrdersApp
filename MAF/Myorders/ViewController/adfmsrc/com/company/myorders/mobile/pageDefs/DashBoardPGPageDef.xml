@@ -3,7 +3,9 @@
                 Package="com.company.myorders.mobile.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <variableIterator id="variables">
+      <variable Name="find_searchValue" Type="java.lang.String"/>
+    </variableIterator>
     <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
     <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25" DataControl="OrdersService"
                       BeanClass="com.company.myorders.mobile.model.Orders" id="ordersIterator"/>
@@ -48,5 +50,14 @@
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDValue="#{pageFlowScope.currentFeature}" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="findOrders" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findOrders"
+                  IsViewObjectMethod="false" DataControl="OrdersService" InstanceName="data.OrdersService.dataProvider">
+      <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues id="searchValue" IterBinding="variables">
+      <AttrNames>
+        <Item Value="find_searchValue"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

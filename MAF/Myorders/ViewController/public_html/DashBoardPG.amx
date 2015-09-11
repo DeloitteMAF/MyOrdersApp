@@ -11,7 +11,7 @@
                         id="cl3" rendered="#{viewScope.IsSpringboardActive!='YES'}">
                 <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>
               <amx:setPropertyListener id="spl3" from="#{'YES'}" to="#{viewScope.IsSpringboardActive}"/>
-              <amx:setPropertyListener id="spl5" from="#{applicationScope.OrdersManagedBean.currentFeature}"
+              <amx:setPropertyListener id="spl5" from="#{applicationScope.currentFeature}"
                                        to="#{pageFlowScope.currentFeature}"/>
             </amx:commandLink>
                         <amx:commandLink actionListener="#{bindings.gotoFeature.execute}"
@@ -21,7 +21,13 @@
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
-            <amx:outputText value="My Orders" id="ot1"/>
+           <amx:panelGroupLayout id="pgl2" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
+              <!--<amx:outputText value="My Orders" id="ot1"/>-->
+              <amx:outputText  id="ot1" value="#{applicationScope.OrdersManagedBean.getSearchStatus}"/>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl4" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}">
+              <amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"/>
+            </amx:panelGroupLayout>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
@@ -110,8 +116,24 @@
       </amx:listItem>
     </amx:listView>
     <amx:facet name="secondary">
-      <amx:image id="i3" source="/resources/css/images/Search.png"
-                 inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:5px; padding-top:5px; max-height:24px; max-width:24px;"/>
+      <amx:panelGroupLayout id="pgl5" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
+        <amx:commandLink id="cl2">
+          <amx:outputHtml id="oh10" styleClass="fa fa-edit fa-lg"
+                                    inlineStyle="color:#fffff; top:-2px; position:relative;"/>
+          <amx:setPropertyListener id="spl6" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}" from="#{'false'}"/>
+          <!--<amx:image id="i3" source="/resources/css/images/Search.png"
+                     inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
+        </amx:commandLink>
+      </amx:panelGroupLayout>
+      <amx:panelGroupLayout id="pgl6" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}">
+      <amx:commandLink id="cl4" actionListener="#{bindings.findOrders.execute}">
+      <amx:outputHtml id="oh3" styleClass="fa fa-edit fa-lg"
+                                    inlineStyle="color:#fffff; top:-2px; position:relative;"/>
+          <amx:setPropertyListener id="spl7" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}" from="#{'true'}"/>
+          <!--<amx:image id="i4" source="/resources/css/images/Search.png"
+                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
+        </amx:commandLink>
+      </amx:panelGroupLayout>
     </amx:facet>
   </amx:panelPage>
 </amx:view>

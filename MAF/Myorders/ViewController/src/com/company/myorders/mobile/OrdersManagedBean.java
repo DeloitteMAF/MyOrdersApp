@@ -6,6 +6,16 @@ import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
 public class OrdersManagedBean {
+    boolean getSearchStatus = false;
+
+    public void setGetSearchStatus(boolean getSearchStatus) {
+        this.getSearchStatus = getSearchStatus;
+    }
+
+    public boolean isGetSearchStatus() {
+        return getSearchStatus;
+    }
+
     public OrdersManagedBean() {
         super();
     }
