@@ -109,5 +109,9 @@
         </amx:tableLayout>
       </amx:listItem>
     </amx:listView>
+    <amx:facet name="secondary">
+      <amx:image id="i3" source="/resources/css/images/Search.png"
+                 inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:5px; padding-top:5px; max-height:24px; max-width:24px;"/>
+    </amx:facet>
   </amx:panelPage>
 </amx:view>
