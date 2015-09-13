@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html PUBLIC "" "">
-<html height="100%">
+<html>
     <head>
         <meta content="IE=11.0000" http-equiv="X-UA-Compatible"/>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -20,18 +20,16 @@
                 bottom: 0;
                 left: 0;
                 margin: 0;
-                padding: 0;
                 color: #002775;
-                background-color: #002775;
+                background-color: #34485E;
                 background-repeat: no-repeat;
-                background-size: 100% 239px;
                 background-position: 0 0;
             }
 
             body, label, .field-value-user, .field-value-pass, .commandButton {
                 font-size: 17px;
-                font-family: Arial, sans-serif;
-                color: #82ba00;
+                font-family: 'Helvetica', Arial, sans-serif;
+                color: #ffffff;
             }
 
             .login-ios body, .login-ios .field-value-user, .field-value-pass, .login-ios .commandButton {
@@ -67,10 +65,10 @@
                 margin-left: -8px;
                 margin-right: 2px;
                 background-color: transparent;
-                width: 32px;
-                height: 32px;
+                width: 12px;
+                height: 12px;
                 background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAABlBMVEX///+hoaGbtfr/AAAAAXRSTlMAQObYZgAAACBJREFUeAFjGHzgPxAwMDAhiRxgYGCGi4wIBmZoDFIAAJf6CPZu5DM8AAAAAElFTkSuQmCC);
-                background-size: 32px 32px;
+                background-size: 12px 12px;
             }
 
             .login-android input[type=checkbox].login-selected, .login-android input[type=checkbox]:active {
@@ -78,7 +76,8 @@
             }
 
             .login-android input[type=checkbox]:checked {
-                background-image: url(data:image/png;base64,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);
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAABcSAAAXEgFnn9JSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAlRJREFUeNrk2j9PAjEUAPDegTK4MOmKiwMmho9wDiRuMrkiAx+Ab6CfgDAzKKuTbiYM8A0kJjIYQ0icNDHq4IAh6qs5zd3Rcq9w19fqS5oL4U/6o6+Pci1jfywclRcXu+08XEqa+zgeluvjxECA8OBShVaBlif64l+g9aF1AHe+EAggfCSa0DzDsmoArQGwPhoEmEO4nBg+XWqAOo0FWYKRohxBml1ZVth2g+nnRp5sWlipQ9nkRqqZZyGo4E+TmRGqWvx7ui8CVSwGVUIgfwWQN7Gn7uMbW+2NMKuY7+mS9R+XTMXkzq6ZM5kyBu19byv+PabmUAjDv/mbB7Z6eWsnKIr5CQzKtQWDRbk2YUIoSaFwbcPw+Mxl2XR7w1yQKmZysMM+1tfMBCWJIQcljSEFpYEhA6WFIQGlidEOShujFaQDowTK3D2hOkOJQYP4UiN3MUR3igqDAgUXgyqdo8DEgkQrW2wnKTBzQfOW6XGdpcJIQag/UpJOU2KWLtvRzlNjpCD+XwNzQyKIyNy/kmOCd32EKB6oGxM+ChNpYmJTTmWkTMCg5lBSKB0YdFFYFqULo1TlFkXpxCiXbVWUbkwQNE4aRYHh8bslWey2n5nCDsS81QQFZliuO9GU6yeRfkQjMxDNoY7qp0RRVGkG0ZpJOT/t+A648l4RT7+V3ogKw4/ObMqWPg1ovUVGSnavWUM0pGXb3++vMXviOHr2x+ajMRxzJC3bApTnowqGQfhvZkN2KgtzvIyPFj8HQL3tz0tzS3RgSQkkGDXtITtK9i/iS4ABAA3OnziJw6gZAAAAAElFTkSuQmCC);
+                size:12px 12px;
             }
 
             .login-android input[type=checkbox].login-selected:checked, .login-android input[type=checkbox]:checked:active {
@@ -125,11 +124,13 @@
             }
             /* Icon */
             #bodyPage {
-                background-image: url("My Orders Logo_green.png");
+                background-image: url("Login Screen Logo.png");
                 background-repeat: no-repeat;
-                background-size: 324px 324px;
                 background-position: center top;
-                padding-bottom: 56px;
+                padding-left: 70px;
+                padding-right: 70px;
+                background-size: 181px 181px;
+                max-height: 
             }
 
             .login-panelPage-header {
@@ -146,20 +147,15 @@
             }
             /* Oracle logo */
             form {
-                 background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='50px' width='312px'> <text x='0' y='15' fill='black' font-size='24'>Terms and conditions will go here:</text></svg>");
+             background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='50px' width='312px'> <text x='0' y='15' fill='black' font-size='24'>Terms and conditions will go here:</text></svg>");
                 background-repeat: no-repeat;
-                background-size: 200px 50px;
                 background-position: center bottom;
                 background-origin: content-box;
-                padding-left: 382px;
-                padding-top: 50px;
-                padding-bottom: 15px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 25%;
+                padding-bottom:12%;
                 position: absolute;
-                top: 239px;
-                bottom: 50px;
-                left: 56px;
-                right: 56px;
-                border-bottom: 1px solid #C8CFD5;
             }
 
             .login-panelFormLayout, .form-row {
@@ -192,15 +188,16 @@
                 box-sizing: border-box;
                 border: 1px solid #C8CFD5;
                 border-radius: 5px;
-                padding-left: 30px;
+                padding-left: 50px;
                 padding-right: 10px;
                 background-color: #FCFDFE;
                 background-image: url("Customer id.png");
-                background-size: 30px 25px;
+                background-size: 25px 25px;
+                background-position:10px 2px;
                 background-repeat: no-repeat;
                 color: #000000;
-                width: 321px;
-                height: 30px;
+                width: 100%;
+                height: 33px;
             }
 
             .field-value-pass {
@@ -208,15 +205,16 @@
                 box-sizing: border-box;
                 border: 1px solid #C8CFD5;
                 border-radius: 5px;
-                padding-left: 30px;
+                padding-left: 50px;
                 padding-right: 10px;
                 background-color: #FCFDFE;
                 background-image: url("Password.png");
-                background-size: 30px 25px;
+                background-size: 25px 25px; 
                 background-repeat: no-repeat;
+                background-position:10px 2px;
                 color: #000000;
-                width: 321px;
-                height: 30px;
+                width: 100%;
+                height: 33px;
             }
 
             .error-panelFormLayout {
@@ -261,17 +259,17 @@
             }
 
             .centerButton {
-                width: 321px;
+                width: 100%;
             }
 
             .commandButton {
                 -webkit-appearance: none;
                 width: 100%;
-                height: 45px;
+                height: 33px;
                 padding: 0px 10px;
-                border-radius: 5px;
+                border-radius: 2px;
                 border-width: 0;
-                background-color: #3f8a2e;
+                background-color: #2ABB9B;
                 color: #FFFFFF;
             }
 
@@ -552,20 +550,21 @@
         </script>
         <meta name="GENERATOR" content="MSHTML 11.00.9600.17631"/>
     </head>
-    <body id="mainBody">
+    <body id="mainBody"
+          style="max-height:#{deviceScope.hardware.screen.height}; width:#{deviceScope.hardware.screen.width};">
         <div id="bodyPage">
             <form name="login" onsubmit="return handleSubmit()">
                 <div class="error-panelFormLayout">
                     <label class="error-text" id="oracle_access_error_id"></label>
                 </div>
                 <div class="login-panelFormLayout">
-                    <label class="field-label" for="oracle_access_user_id">User Name</label><input name="oracle_access_user_id"
+                    <label class="field-label" for="oracle_access_user_id" style="padding-bottom:0px;">User Name</label><input name="oracle_access_user_id"
                                                                                                    class="field-value-user"
                                                                                                    id="oracle_access_user_id"
                                                                                                    onfocus="pressed(this,true)"
                                                                                                    onblur="pressed(this,false)"
                                                                                                    type="text"
-                                                                                                   placeholder="User Name"
+                                                                                                   placeholder="Customer ID"
                                                                                                    value=""
                                                                                                    autocomplete="off"
                                                                                                    autocapitalize="none"
@@ -584,8 +583,8 @@
                                                                                                          autocorrect="off"
                                                                                                          hidden="hidden"/>
                 </div>
-                <div class="login-panelFormLayout">
-                    <label class="field-label" for="oracle_access_pwd_id">Password</label><input name="oracle_access_pwd_id"
+                <div class="login-panelFormLayout" style="padding-bottom:0px;">
+                    <label class="field-label" for="oracle_access_pwd_id" style="padding-bottom:15px;">Password</label><input name="oracle_access_pwd_id"
                                                                                                  class="field-value-pass"
                                                                                                  id="oracle_access_pwd_id"
                                                                                                  onfocus="pressed(this,true)"
@@ -622,7 +621,7 @@
                 </div>
                 <div class="centerButton">
                     <input class="commandButton" id="oracle_access_submit_id" onmouseout="pressed(this,false)"
-                           onmousedown="pressed(this,true)" onmouseup="pressed(this,false)" type="submit" value="Login"
+                           onmousedown="pressed(this,true)" onmouseup="pressed(this,false)" type="submit" value="Sign In"
                            ontouchcancel="pressed(this,false)" ontouchend="pressed(this,false)"
                            ontouchstart="pressed(this,true)"/>
                 </div>

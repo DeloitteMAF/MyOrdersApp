@@ -5,7 +5,7 @@
     <amx:facet name="header">
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
-          <amx:cellFormat id="cf3" width="10px"/>
+          <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
             <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}"
                         id="cl3" rendered="#{viewScope.IsSpringboardActive!='YES'}">
@@ -20,18 +20,44 @@
                 <amx:setPropertyListener id="spl4" from="#{'NO'}" to="#{viewScope.IsSpringboardActive}"/>
             </amx:commandLink>
           </amx:cellFormat>
-          <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
-           <amx:panelGroupLayout id="pgl2" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
-              <!--<amx:outputText value="My Orders" id="ot1"/>-->
-              <amx:outputText  id="ot1" value="#{applicationScope.OrdersManagedBean.getSearchStatus}"/>
-            </amx:panelGroupLayout>
-            <amx:panelGroupLayout id="pgl4" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}">
-              <amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"/>
+          <amx:cellFormat id="cf2" valign="bottom" width="100%" halign="center">
+            <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="baseline">
+              <amx:panelGroupLayout id="pgl2" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
+                <!--<amx:outputText value="My Orders" id="ot1"/>-->
+                <amx:outputText id="ot1" value="#{applicationScope.OrdersManagedBean.getSearchStatus}"/>
+              </amx:panelGroupLayout>
+              <amx:panelGroupLayout id="pgl4" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}">
+                <amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"/>
+              </amx:panelGroupLayout>
             </amx:panelGroupLayout>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
-    </amx:facet>   
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:panelGroupLayout id="pgl7" layout="vertical" halign="center" valign="baseline">
+        <amx:panelGroupLayout id="pgl5" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
+          <amx:commandLink id="cl2">
+            <amx:image id="i3" source="/resources/css/images/Search.png"
+                       inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>
+            <amx:setPropertyListener id="spl6" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
+                                     from="#{'false'}"/>
+            <!--<amx:image id="i3" source="/resources/css/images/Search.png"
+                     inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
+          </amx:commandLink>
+        </amx:panelGroupLayout>
+        <amx:panelGroupLayout id="pgl6" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}">
+          <amx:commandLink id="cl4" actionListener="#{bindings.findOrders.execute}">
+            <amx:image id="i4" source="/resources/css/images/Search.png"
+                       inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>
+            <amx:setPropertyListener id="spl7" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
+                                     from="#{'true'}"/>
+            <!--<amx:image id="i4" source="/resources/css/images/Search.png"
+                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
+          </amx:commandLink>
+        </amx:panelGroupLayout>
+      </amx:panelGroupLayout>
+    </amx:facet>
     <amx:tableLayout id="tl2" width="100%"
                      inlineStyle="border-bottom-width:thin; background-color:rgb(60,60,73); ">
       <amx:rowLayout id="rl2">
@@ -115,25 +141,5 @@
         </amx:tableLayout>
       </amx:listItem>
     </amx:listView>
-    <amx:facet name="secondary">
-      <amx:panelGroupLayout id="pgl5" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
-        <amx:commandLink id="cl2">
-          <amx:outputHtml id="oh10" styleClass="fa fa-edit fa-lg"
-                                    inlineStyle="color:#fffff; top:-2px; position:relative;"/>
-          <amx:setPropertyListener id="spl6" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}" from="#{'false'}"/>
-          <!--<amx:image id="i3" source="/resources/css/images/Search.png"
-                     inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
-        </amx:commandLink>
-      </amx:panelGroupLayout>
-      <amx:panelGroupLayout id="pgl6" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}">
-      <amx:commandLink id="cl4" actionListener="#{bindings.findOrders.execute}">
-      <amx:outputHtml id="oh3" styleClass="fa fa-edit fa-lg"
-                                    inlineStyle="color:#fffff; top:-2px; position:relative;"/>
-          <amx:setPropertyListener id="spl7" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}" from="#{'true'}"/>
-          <!--<amx:image id="i4" source="/resources/css/images/Search.png"
-                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
-        </amx:commandLink>
-      </amx:panelGroupLayout>
-    </amx:facet>
   </amx:panelPage>
 </amx:view>
