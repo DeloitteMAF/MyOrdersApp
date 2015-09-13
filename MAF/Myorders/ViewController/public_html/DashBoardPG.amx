@@ -11,20 +11,21 @@
                         id="cl3" rendered="#{viewScope.IsSpringboardActive!='YES'}">
                 <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>
               <amx:setPropertyListener id="spl3" from="#{'YES'}" to="#{viewScope.IsSpringboardActive}"/>
-              <amx:setPropertyListener id="spl5" from="#{applicationScope.currentFeature}"
+              <amx:setPropertyListener id="spl5" from="#{applicationScope.OrdersManagedBean.currentFeature}"
                                        to="#{pageFlowScope.currentFeature}"/>
             </amx:commandLink>
-                        <amx:commandLink actionListener="#{bindings.gotoFeature.execute}"
+                <amx:commandLink actionListener="#{bindings.gotoFeature.execute}"
                               id="cl1" rendered="#{viewScope.IsSpringboardActive=='YES'}">
                 <amx:outputHtml id="oh1" styleClass="fa fa-chevron-left fa-lg"/>
-                <amx:setPropertyListener id="spl4" from="#{'NO'}" to="#{viewScope.IsSpringboardActive}"/>
+                <amx:setPropertyListener id="spl4" from="#{'NO'}" to="#{viewScope.IsSpringboardActive}" type="action"/>
+              <amx:setPropertyListener id="spl8" from="#{pageFlowScope.currentFeature}"
+                                       to="#{pageFlowScope.FeatureId}"/>
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="bottom" width="100%" halign="center">
             <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="baseline">
               <amx:panelGroupLayout id="pgl2" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
-                <!--<amx:outputText value="My Orders" id="ot1"/>-->
-                <amx:outputText id="ot1" value="#{applicationScope.OrdersManagedBean.getSearchStatus}"/>
+                <amx:outputText value="My Orders" id="ot1"/>
               </amx:panelGroupLayout>
               <amx:panelGroupLayout id="pgl4" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}">
                 <amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"/>
