@@ -21,11 +21,11 @@
                     </amx:cellFormat>
                     <amx:cellFormat id="cf4" inlineStyle="padding-left:15px;">
                       <amx:commandLink
-                                       disabled="#{!bindings.gotoFeature.enabled}" id="cl1">
+                                       disabled="#{!bindings.gotoFeature.enabled}" id="cl1"
+                                       actionListener="#{bindings.gotoFeature.execute}">
                         <amx:outputText value="#{row.name}" id="ot2"/>
                         <amx:setPropertyListener id="spl1" from="#{row.id}" to="#{pageFlowScope.FeatureId}"
                                                  type="action"/>
-                        <amx:actionListener id="al1" binding="#{bindings.gotoFeature.execute}" type="action"/>
                       </amx:commandLink>
                     </amx:cellFormat>
                   </amx:rowLayout>
