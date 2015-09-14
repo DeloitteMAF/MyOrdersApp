@@ -89,7 +89,7 @@
                   bufferStrategy="viewport" id="lv1"
                   rendered="#{pageFlowScope.currentTab!='ALL'}" inlineStyle="background-color:#D7D7DA">
       <amx:listItem id="li1"
-                    inlineStyle="background-color:#D7D7DA; border-bottom-color:Grey;" showLinkIcon="true">
+                    inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}" showLinkIcon="true">
         <amx:tableLayout id="tl3" width="100%">
           <amx:rowLayout id="rl3">
             <amx:cellFormat id="cf6" width="10px"/>
@@ -124,7 +124,7 @@
                   showMoreStrategy="autoScroll" bufferStrategy="viewport"
                   id="lv2" rendered="#{pageFlowScope.currentTab=='ALL'}" inlineStyle="background-color:#D7D7DA">
 <amx:listItem id="li2"
-                    inlineStyle="background-color:#D7D7DA; border-bottom-color:Grey;">
+              inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}">
         <amx:tableLayout id="tl4" width="100%">
           <amx:rowLayout id="rl4">
             <amx:cellFormat id="cf8" width="10px"/>
