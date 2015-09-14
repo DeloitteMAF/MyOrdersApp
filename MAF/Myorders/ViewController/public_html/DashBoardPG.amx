@@ -7,19 +7,19 @@
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
-            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}"
-                        id="cl3" rendered="#{viewScope.IsSpringboardActive!='YES'}">
+            <amx:commandLink actionListener="#{applicationScope.OrdersManagedBean.openSpringboard}"
+                        id="cl3" rendered="#{!applicationScope.OrdersManagedBean.springBoardStatus}">
                 <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>
-              <amx:setPropertyListener id="spl3" from="#{'YES'}" to="#{viewScope.IsSpringboardActive}"/>
+              <!--<amx:setPropertyListener id="spl3" from="#{'YES'}" to="#{viewScope.IsSpringboardActive}"/>
               <amx:setPropertyListener id="spl5" from="#{applicationScope.OrdersManagedBean.currentFeature}"
-                                       to="#{pageFlowScope.currentFeature}"/>
+                                       to="#{pageFlowScope.currentFeature}"/>-->
             </amx:commandLink>
-                <amx:commandLink actionListener="#{bindings.gotoFeature.execute}"
-                              id="cl1" rendered="#{viewScope.IsSpringboardActive=='YES'}">
+                <amx:commandLink actionListener="#{OrdersManagedBean.closeSpringBoard}"
+                              id="cl1" rendered="#{applicationScope.OrdersManagedBean.springBoardStatus}">
                 <amx:outputHtml id="oh1" styleClass="fa fa-chevron-left fa-lg"/>
-                <amx:setPropertyListener id="spl4" from="#{'NO'}" to="#{viewScope.IsSpringboardActive}" type="action"/>
-              <amx:setPropertyListener id="spl8" from="#{pageFlowScope.currentFeature}"
-                                       to="#{pageFlowScope.FeatureId}"/>
+                <!--<amx:setPropertyListener id="spl4" from="#{'false'}" to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
+              <amx:setPropertyListener id="spl8" from="#{applicationScope.OrdersManagedBean.currentFeature}"
+                                       to="#{pageFlowScope.FeatureId}"/>-->
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="bottom" width="100%" halign="center">
@@ -42,7 +42,7 @@
             <amx:image id="i3" source="/resources/css/images/Search.png"
                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>
             <amx:setPropertyListener id="spl6" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
-                                     from="#{'false'}"/>
+                                     from="#{'true'}"/>
             <!--<amx:image id="i3" source="/resources/css/images/Search.png"
                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
           </amx:commandLink>
@@ -52,7 +52,7 @@
             <amx:image id="i4" source="/resources/css/images/Search.png"
                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>
             <amx:setPropertyListener id="spl7" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
-                                     from="#{'true'}"/>
+                                     from="#{'false'}"/>
             <!--<amx:image id="i4" source="/resources/css/images/Search.png"
                    inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
           </amx:commandLink>

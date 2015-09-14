@@ -10,6 +10,12 @@
     <view id="DashBoard">
       <page>/DashBoardPG.amx</page>
     </view>
+    <view id="SpringBoard">
+      <page>/com.company.myorders.SpringBoard/SpringBoard.amx</page>
+    </view>
+    <view id="Settings">
+      <page>/com.company.myorders.Settings/Settings.amx</page>
+    </view>
     <page-flow-scope-behavior>
       <push-new/>
     </page-flow-scope-behavior>

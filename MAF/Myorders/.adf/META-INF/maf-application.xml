@@ -6,7 +6,6 @@
   <adfmf:featureReference refId="com.company.myorders.Settings" id="fr2"/>
   <adfmf:featureReference refId="com.company.myorders.SpringBoard" id="fr3" showOnNavigationBar="false"
                           showOnSpringboard="false"/>
-  <adfmf:featureReference refId="com.company.myorders.Logout" id="fr4"/>
   <adfmf:preferences>
     <adfmf:preferenceGroup id="userPref">
       <adfmf:preferenceText id="location" default="US" secret="true"/>
@@ -17,7 +16,9 @@
   </adfmf:preferences>
   <adfmf:navigation>
     <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
-                       width="140"/>
+                       width="140">
+      <adfmf:springboardFeatureReference refId="com.company.myorders.SpringBoard" id="sfr1"/>
+    </adfmf:springboard>
     <adfmf:navigationBar enabled="false"/>
   </adfmf:navigation>
   <adfmf:login defaultConnRefId="HTTP Basic">

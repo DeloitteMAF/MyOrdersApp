@@ -19,4 +19,34 @@
       <property
          name="x">257.0</property>
    </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">SpringBoard</property>
+      <property
+         name="page">/com.company.myorders.SpringBoard/SpringBoard.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SpringBoard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">228.39648</property>
+      <property
+         name="x">446.3545</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">Settings</property>
+      <property
+         name="page">/com.company.myorders.Settings/Settings.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Settings&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">147.79883</property>
+      <property
+         name="x">370.5</property>
+   </View>
 </SDM>

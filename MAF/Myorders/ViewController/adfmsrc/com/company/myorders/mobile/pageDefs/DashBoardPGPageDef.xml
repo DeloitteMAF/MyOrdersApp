@@ -17,9 +17,6 @@
                       id="allOrdersIterator"/>
   </executables>
   <bindings>
-    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
-                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
-                  InstanceName="data.ApplicationFeatures.dataProvider"/>
     <tree IterBinding="ordersIterator" id="orders">
       <nodeDefinition DefName="com.company.myorders.mobile.model.Orders" Name="orders0">
         <AttrNames>

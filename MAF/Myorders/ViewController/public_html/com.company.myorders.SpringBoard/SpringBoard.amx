@@ -19,17 +19,31 @@
                       <amx:image id="i2" source="#{row.image}"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf4" inlineStyle="padding-left:15px;">
-                      <amx:commandLink actionListener="#{bindings.gotoFeature.execute}"
+                      <amx:commandLink
                                        disabled="#{!bindings.gotoFeature.enabled}" id="cl1">
                         <amx:outputText value="#{row.name}" id="ot2"/>
                         <amx:setPropertyListener id="spl1" from="#{row.id}" to="#{pageFlowScope.FeatureId}"
                                                  type="action"/>
+                        <amx:actionListener id="al1" binding="#{bindings.gotoFeature.execute}" type="action"/>
                       </amx:commandLink>
                     </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:iterator>
               </amx:tableLayout>
             </amx:panelGroupLayout>
+          </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl4">
+          <amx:cellFormat id="cf5" width="10%">
+            <amx:image id="i3" source="/resources/css/images/Sign out.png"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cf6" width="90%">
+            <amx:commandLink text="Sign Out" id="cl2" actionListener="#{applicationScope.OrdersManagedBean.Logout}"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout id="rl5">
+          <amx:cellFormat id="cf7">
+            <amx:outputText value="#{pageFlowScope.FeatureId}" id="ot3"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
