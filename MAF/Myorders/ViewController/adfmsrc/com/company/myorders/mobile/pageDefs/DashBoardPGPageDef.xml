@@ -23,6 +23,7 @@
           <Item Value="orderNumber"/>
           <Item Value="orderedDate"/>
           <Item Value="flowStatusCode"/>
+          <Item Value="totalOrderedValue"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

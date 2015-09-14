@@ -10,7 +10,9 @@
          <directMapping attributeName="locationFullName" payloadAttributeName="LocationFullName" columnName="LOCATION_FULL_NAME" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/GetAllCustomerLocations/getAllCustomerLocationUsecureRS/1146" connectionName="OSBService" requestType="GET" secured="false" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result"/>
+         <findAllMethod uri="/myorder/SO/getAllCustomerLocations/{custAcctid}" connectionName="OSBService" requestType="GET" secured="false" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+            <parameter name="custAcctid" value="#{securityContext.userName}" valueProvider="ELExpression" dataObjectAttribute="locationCode" pathParam="true"/>
+         </findAllMethod>
       </methods>
    </classMappingDescriptor>
    <classMappingDescriptor className="com.company.myorders.mobile.model.Orders" persisted="true">
@@ -29,10 +31,11 @@
          <directMapping attributeName="fulfillmentDate" payloadAttributeName="FulfillmentDate" columnName="FULFILLMENT_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/myorder/SO/getAllOrders/1146/150/10/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+         <findAllMethod uri="/myorder/SO/getAllOrders/{custAcctid}/-1/10/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="loc" value="#{preferenceScope.application.userPref.location}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="showclosedorders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+            <parameter name="custAcctid" value="#{securityContext.userName}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
          </findAllMethod>
       </methods>
    </classMappingDescriptor>
@@ -52,10 +55,11 @@
          <directMapping attributeName="fulfillmentDate" payloadAttributeName="FulfillmentDate" columnName="FULFILLMENT_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/myorder/SO/getAllOrders/1146/150/-1/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+         <findAllMethod uri="/myorder/SO/getAllOrders/{custAcctid}/-1/-1/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="loc" value="#{preferenceScope.application.userPref.location}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="showclosedorders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+            <parameter name="custAcctid" value="#{securityContext.userName}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
          </findAllMethod>
       </methods>
    </classMappingDescriptor>

@@ -13,11 +13,11 @@ public class OrdersUtilityBean {
     }
     public String toDateTime(String value){
         SimpleDateFormat intialFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
-        SimpleDateFormat newFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat newFormat = new SimpleDateFormat("dd-MMM-yyyy");
         String newDate = null;
         try {
             Date date = intialFormat.parse(value);
-            newDate = newFormat.format(date);
+            newDate = newFormat.format(date);   
         } catch (ParseException e) {
             e.printStackTrace();
         }

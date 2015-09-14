@@ -198,28 +198,28 @@
             <hash n="mnfImageOptions">
                <list n="deviceTypes">
                   <hash>
-                     <value n="appIconPath" v="resources/android/display-hdpi-icon.png"/>
+                     <value n="appIconPath" v="resources/android/High Density My Orders.png"/>
                      <value n="deviceTypeName" v="High Density"/>
-                     <value n="landscapeSplashScreenPath" v="resources/android/display-land-hdpi-splashscreen.png"/>
-                     <value n="portraitSplashScreenPath" v="resources/android/display-port-hdpi-splashscreen.png"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/High Density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/High Density portrait.png"/>
                   </hash>
                   <hash>
-                     <value n="appIconPath" v="resources/android/display-xhdpi-icon.png"/>
+                     <value n="appIconPath" v="resources/android/Extra High Density My Orders.png"/>
                      <value n="deviceTypeName" v="Extra-High Density"/>
-                     <value n="landscapeSplashScreenPath" v="resources/android/display-land-xhdpi-splashscreen.png"/>
-                     <value n="portraitSplashScreenPath" v="resources/android/display-port-xhdpi-splashscreen.png"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Extra high density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Extra High Density portrait.png"/>
                   </hash>
                   <hash>
-                     <value n="appIconPath" v="resources/android/display-mdpi-icon.png"/>
+                     <value n="appIconPath" v="resources/android/Medium Density My Orders.png"/>
                      <value n="deviceTypeName" v="Medium Density"/>
-                     <value n="landscapeSplashScreenPath" v="resources/android/display-land-mdpi-splashscreen.png"/>
-                     <value n="portraitSplashScreenPath" v="resources/android/display-port-mdpi-splashscreen.png"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Medium density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Meduin Density portrait.png"/>
                   </hash>
                   <hash>
-                     <value n="appIconPath" v="resources/android/display-ldpi-icon.png"/>
+                     <value n="appIconPath" v="resources/android/Low Density My Orders.png"/>
                      <value n="deviceTypeName" v="Low Density"/>
-                     <value n="landscapeSplashScreenPath" v="resources/android/display-land-ldpi-splashscreen.png"/>
-                     <value n="portraitSplashScreenPath" v="resources/android/display-port-ldpi-splashscreen.png"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Low Density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Low density portrait.png"/>
                   </hash>
                </list>
             </hash>

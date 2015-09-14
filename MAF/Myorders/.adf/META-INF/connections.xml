@@ -28,8 +28,8 @@
       </XmlRefAddr>
     </RefAddresses>
   </Reference>
-  <Reference name="OSBService" className="oracle.adf.model.connection.rest.RestConnection" xmlns=""
-             adfCredentialStoreKey="HTTP Basic">
+  <Reference name="OSBService" className="oracle.adf.model.connection.rest.RestConnection"
+             adfCredentialStoreKey="HTTP Basic" xmlns="">
     <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
     <RefAddresses>
       <XmlRefAddr addrType="OSBService">

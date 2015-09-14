@@ -89,7 +89,7 @@
                   bufferStrategy="viewport" id="lv1"
                   rendered="#{pageFlowScope.currentTab!='ALL'}" inlineStyle="background-color:#D7D7DA">
       <amx:listItem id="li1"
-                    inlineStyle="background-color:#D7D7DA; border-bottom-color:Grey;">
+                    inlineStyle="background-color:#D7D7DA; border-bottom-color:Grey;" showLinkIcon="true">
         <amx:tableLayout id="tl3" width="100%">
           <amx:rowLayout id="rl3">
             <amx:cellFormat id="cf6" width="10px"/>
@@ -99,8 +99,13 @@
                 <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
                                 inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                 <amx:spacer id="s2" height="7"/>
-                <amx:outputText value="Order ##{row.orderNumber}" id="ot3"
-                                inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                <amx:panelGroupLayout id="pgl9" layout="horizontal">
+                  <amx:outputText value="Order ##{row.orderNumber} " id="ot3"
+                                  inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                  <amx:spacer id="s5" width="10"/>
+                  <amx:outputText value=" Amount: #{row.totalOrderedValue}" id="ot5"
+                                  inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                </amx:panelGroupLayout>
                 <amx:outputText value="Status #{row.flowStatusCode}" id="ot4"
                                 inlineStyle="width:auto; font-size:small; font-weight:bold;" rendered="false"/>
                 <amx:image id="i1"
@@ -129,8 +134,13 @@
                 <amx:outputText value="Order Date : #{row.orderedDate}" id="ot8"
                                 inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                 <amx:spacer id="s4" height="7"/>
-                <amx:outputText value="Order ##{row.orderNumber}" id="ot10"
-                                inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                <amx:panelGroupLayout id="pgl10" layout="horizontal">
+                  <amx:outputText value="Order ##{row.orderNumber}" id="ot10"
+                                  inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                  <amx:spacer id="s6" width="10"/>
+                  <amx:outputText value="Amount: #{row.totalOrderedValue}" id="ot6"
+                                  inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                </amx:panelGroupLayout>
                 <amx:outputText value="Status #{row.flowStatusCode}" id="ot9"
                                 inlineStyle="width:auto; font-size:small; font-weight:bold;" rendered="false"/>
                 <amx:image id="i2"
