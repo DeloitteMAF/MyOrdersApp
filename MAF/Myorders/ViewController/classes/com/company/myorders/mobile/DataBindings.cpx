@@ -4,11 +4,15 @@
   <pageMap>
     <page path="/DashBoardPG.amx" usageId="com_company_myorders_mobile_DashBoardPGPageDef"/>
     <page path="/com.company.myorders.Settings/Settings.amx" usageId="com_company_myorders_mobile_SettingsPageDef"/>
+    <page path="/com.company.myorders.SpringBoard/SpringBoard.amx"
+          usageId="com_company_myorders_mobile_SpringBoardPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_company_myorders_mobile_DashBoardPGPageDef"
           path="com.company.myorders.mobile.pageDefs.DashBoardPGPageDef"/>
     <page id="com_company_myorders_mobile_SettingsPageDef" path="com.company.myorders.Settings.SettingsPageDef"/>
+    <page id="com_company_myorders_mobile_SpringBoardPageDef"
+          path="com.company.myorders.SpringBoard.SpringBoardPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="AllOrdersService"
