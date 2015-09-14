@@ -50,6 +50,7 @@ public class OrdersManagedBean {
 
     public void Logout(ActionEvent actionEvent) {
         // Add event code here...
+        AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
         AdfmfJavaUtilities.logout();
     }
     

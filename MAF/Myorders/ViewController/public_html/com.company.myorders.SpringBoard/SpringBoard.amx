@@ -5,7 +5,8 @@
     <amx:panelGroupLayout id="pgl1">
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
-          <amx:cellFormat id="cf1" inlineStyle="background-image:none; background-color:#1ebe92;">
+          <amx:cellFormat id="cf1" inlineStyle="background-image:none; background-color:#1ebe92;" columnSpan="2"
+                          rowSpan="1">
             <amx:outputText value="#{bindings.partyName.inputValue}" id="ot1"/>
           </amx:cellFormat>
         </amx:rowLayout>
