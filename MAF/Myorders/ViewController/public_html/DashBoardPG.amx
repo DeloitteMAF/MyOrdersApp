@@ -93,7 +93,7 @@
         <amx:tableLayout id="tl3" width="100%">
           <amx:rowLayout id="rl3">
             <amx:cellFormat id="cf6" width="10px"/>
-            <amx:cellFormat id="cf7" width="98%">
+            <amx:cellFormat id="cf7" width="90%">
               <amx:panelGroupLayout id="pgl1" layout="vertical">
                 <amx:spacer id="s1" height="10"/>
                 <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
@@ -113,6 +113,13 @@
                            inlineStyle="width:95%;"/>
               </amx:panelGroupLayout>
             </amx:cellFormat>
+                        <amx:cellFormat id="cf10" width="15px" halign="center">
+             <amx:commandLink 
+                              id="cl5" >
+                <amx:outputHtml id="oh3" styleClass="fa fa-chevron-right fa-2g"
+                                inlineStyle="color: rgb(157, 157, 173);"/>
+                </amx:commandLink>
+            </amx:cellFormat> 
           </amx:rowLayout>
         </amx:tableLayout>
       </amx:listItem>
@@ -124,11 +131,12 @@
                   showMoreStrategy="autoScroll" bufferStrategy="viewport"
                   id="lv2" rendered="#{pageFlowScope.currentTab=='ALL'}" inlineStyle="background-color:#D7D7DA">
 <amx:listItem id="li2"
-              inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}">
+              inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
+              showLinkIcon="false">
         <amx:tableLayout id="tl4" width="100%">
           <amx:rowLayout id="rl4">
             <amx:cellFormat id="cf8" width="10px"/>
-            <amx:cellFormat id="cf9" width="98%">
+            <amx:cellFormat id="cf9" width="90%">
               <amx:panelGroupLayout id="pgl3" layout="vertical">
                 <amx:spacer id="s3" height="10"/>
                 <amx:outputText value="Order Date : #{row.orderedDate}" id="ot8"
@@ -148,6 +156,13 @@
                            inlineStyle="width:95%;"/>
               </amx:panelGroupLayout>
             </amx:cellFormat>
+            <amx:cellFormat id="cf11" width="15px" halign="center">
+             <amx:commandLink 
+                              id="cl6" >
+                <amx:outputHtml id="oh4" styleClass="fa fa-chevron-right fa-2g"
+                                inlineStyle="color: rgb(157, 157, 173);"/>
+                </amx:commandLink>
+            </amx:cellFormat>            
           </amx:rowLayout>
         </amx:tableLayout>
       </amx:listItem>
