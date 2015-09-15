@@ -67,7 +67,7 @@
                 background-color: transparent;
                 width: 12px;
                 height: 12px;
-                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAQMAAACQp+OdAAAABlBMVEX///+hoaGbtfr/AAAAAXRSTlMAQObYZgAAACBJREFUeAFjGHzgPxAwMDAhiRxgYGCGi4wIBmZoDFIAAJf6CPZu5DM8AAAAAElFTkSuQmCC);
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAABcSAAAXEgFnn9JSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAVFJREFUeNrs2t0NgjAQB/DCBIyAr31iBJxANlBHYAOdwDiBsoEjsIE+9ZkNdASvsRotLX5GuOZP0vRBH/x51yvJnRCBPdE7X1ZKJbRlf/6NjZSy+RmIEDltU1oFraSnP/5Eq6ZVEW73EYggOhIrWvnAsupAqyRY/TKIMDPaNgM/LnNCbZ+CmGC8qMiRZntmhW18n36x9eGKYaV+yKbYqmY5Q1BqjkkrQlPG9+nEBSoYg4oHkHkDSBiDrkfmFqFMBPLEob2cAgQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAHkAzWhgG4tSaXUUTDuQEgpIzvlasaBObjOUMUYtG6lnEk73QHn1ivSozMjX5UrGUan9JZt0++fM8Is7dkfzqMxGrPwlm0HKjeodGhnRlyGl3ad91AHTEdLzwH03fbXpXntGlh6C+SIWh+XJuc78rvnLMAAIfVVP4FLZBQAAAAASUVORK5CYII=);
                 background-size: 12px 12px;
             }
 
@@ -127,10 +127,7 @@
                 background-image: url("Login Screen Logo.png");
                 background-repeat: no-repeat;
                 background-position: center top;
-                padding-left: 70px;
-                padding-right: 70px;
-                background-size: 181px 181px;
-                max-height: 
+                padding-bottom: 5%;
             }
 
             .login-panelPage-header {
@@ -151,9 +148,9 @@
                 background-repeat: no-repeat;
                 background-position: center bottom;
                 background-origin: content-box;
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 25%;
+                padding-left: 10%;
+                padding-right: 4%;
+                padding-top: 35%;
                 padding-bottom:12%;
                 position: absolute;
             }
@@ -189,7 +186,6 @@
                 border: 1px solid #C8CFD5;
                 border-radius: 5px;
                 padding-left: 50px;
-                padding-right: 10px;
                 background-color: #FCFDFE;
                 background-image: url("Customer id.png");
                 background-size: 25px 25px;
@@ -206,7 +202,6 @@
                 border: 1px solid #C8CFD5;
                 border-radius: 5px;
                 padding-left: 50px;
-                padding-right: 10px;
                 background-color: #FCFDFE;
                 background-image: url("Password.png");
                 background-size: 25px 25px; 
@@ -552,7 +547,7 @@
     </head>
     <body id="mainBody"
           style="max-height:#{deviceScope.hardware.screen.height}; width:#{deviceScope.hardware.screen.width};">
-        <div id="bodyPage">
+        <div id="bodyPage" style="background-size:40% 30%;">
             <form name="login" onsubmit="return handleSubmit()">
                 <div class="error-panelFormLayout">
                     <label class="error-text" id="oracle_access_error_id"></label>

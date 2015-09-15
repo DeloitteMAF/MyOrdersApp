@@ -21,9 +21,9 @@
     <tree IterBinding="featuresIterator" id="features">
       <nodeDefinition DefName="oracle.adfmf.framework.FeatureInformation" Name="features0">
         <AttrNames>
-          <Item Value="id"/>
-          <Item Value="image"/>
           <Item Value="name"/>
+          <Item Value="image"/>
+          <Item Value="id"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

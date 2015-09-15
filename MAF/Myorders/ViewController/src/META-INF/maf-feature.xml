@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
-  <adfmf:feature id="com.company.myorders.Orders" name="Orders" securityEnabled="true">
+  <adfmf:feature id="com.company.myorders.Orders" name="Orders" securityEnabled="true"
+                 image="resources/css/images/My orders.png">
     <adfmf:content id="com.company.myorders.Orders.1" image="resources/css/images/My orders.png">
       <adfmf:amx file="com.company.myorders.Orders/ViewController-task-flow.xml#ViewController-task-flow">
         <adfmf:includes>
@@ -10,7 +11,8 @@
       </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
-  <adfmf:feature id="com.company.myorders.Settings" name="Settings" securityEnabled="true">
+  <adfmf:feature id="com.company.myorders.Settings" name="Settings" securityEnabled="true"
+                 image="resources/css/images/Settings.png">
     <adfmf:content id="com.company.myorders.Settings.1" image="resources/css/images/Settings.png">
       <adfmf:amx file="com.company.myorders.Settings/Settings.amx">
         <adfmf:includes>
@@ -20,7 +22,7 @@
       </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
-  <adfmf:feature id="com.company.myorders.SpringBoard" name="SpringBoard" securityEnabled="true">
+  <adfmf:feature id="com.company.myorders.SpringBoard" name="SpringBoard" securityEnabled="false">
     <adfmf:content id="com.company.myorders.SpringBoard.1">
       <adfmf:constraints/>
       <adfmf:amx file="com.company.myorders.SpringBoard/SpringBoard.amx"/>

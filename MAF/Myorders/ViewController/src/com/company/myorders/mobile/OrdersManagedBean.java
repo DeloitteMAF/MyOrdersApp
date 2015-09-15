@@ -51,6 +51,7 @@ public class OrdersManagedBean {
     public void Logout(ActionEvent actionEvent) {
         // Add event code here...
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
+        AdfmfContainerUtilities.gotoFeature(currentFeature);
         AdfmfJavaUtilities.logout();
     }
     
@@ -70,7 +71,7 @@ public class OrdersManagedBean {
     public void gotoFeature(ActionEvent actionEvent) {
         // Add event code here...
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
-     //   AdfmfContainerUtilities.gotoFeature(currentFeature);
+        AdfmfContainerUtilities.gotoFeature(currentFeature);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener l) {
