@@ -10,16 +10,10 @@
             <amx:commandLink actionListener="#{applicationScope.OrdersManagedBean.openSpringboard}"
                         id="cl3" rendered="#{!applicationScope.OrdersManagedBean.springBoardStatus}">
                 <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>
-              <!--<amx:setPropertyListener id="spl3" from="#{'YES'}" to="#{viewScope.IsSpringboardActive}"/>
-              <amx:setPropertyListener id="spl5" from="#{applicationScope.OrdersManagedBean.currentFeature}"
-                                       to="#{pageFlowScope.currentFeature}"/>-->
             </amx:commandLink>
                 <amx:commandLink actionListener="#{OrdersManagedBean.closeSpringBoard}"
                               id="cl1" rendered="#{applicationScope.OrdersManagedBean.springBoardStatus}">
                 <amx:outputHtml id="oh1" styleClass="fa fa-chevron-left fa-lg"/>
-                <!--<amx:setPropertyListener id="spl4" from="#{'false'}" to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
-              <amx:setPropertyListener id="spl8" from="#{applicationScope.OrdersManagedBean.currentFeature}"
-                                       to="#{pageFlowScope.FeatureId}"/>-->
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="bottom" width="100%" halign="center">
