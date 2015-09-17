@@ -25,7 +25,11 @@
   <adfmf:feature id="com.company.myorders.SpringBoard" name="SpringBoard" securityEnabled="true">
     <adfmf:content id="com.company.myorders.SpringBoard.1">
       <adfmf:constraints/>
-      <adfmf:amx file="com.company.myorders.SpringBoard/SpringBoard.amx"/>
+      <adfmf:amx file="com.company.myorders.SpringBoard/SpringBoard.amx">
+        <adfmf:includes>
+          <adfmf:include type="StyleSheet" file="resources/css/MyOrdersSkin.css" id="i5"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
 </adfmf:features>
