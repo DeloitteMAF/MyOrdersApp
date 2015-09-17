@@ -49,27 +49,23 @@ public class OrdersManagedBean {
     }
 
     public void Logout(ActionEvent actionEvent) {
-        // Add event code here...
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
         AdfmfContainerUtilities.gotoFeature(currentFeature);
         AdfmfJavaUtilities.logout();
     }
     
     public void openSpringboard(ActionEvent actionEvent) {
-        // Add event code here...
         currentFeature = AdfmfJavaUtilities.getFeatureId();
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", true);
         AdfmfContainerUtilities.gotoSpringboard();
     }
     
     public void closeSpringBoard(ActionEvent actionEvent) {
-        // Add event code here...
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
         AdfmfContainerUtilities.gotoFeature(currentFeature);
     }
 
     public void gotoFeature(ActionEvent actionEvent) {
-        // Add event code here...
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
         AdfmfContainerUtilities.gotoFeature(currentFeature);
     }

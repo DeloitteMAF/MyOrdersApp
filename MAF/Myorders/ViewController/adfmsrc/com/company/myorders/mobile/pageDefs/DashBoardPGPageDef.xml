@@ -57,5 +57,10 @@
         <Item Value="find_searchValue"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="findAllOrders" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findAllOrders"
+                  IsViewObjectMethod="false" DataControl="AllOrdersService"
+                  InstanceName="data.AllOrdersService.dataProvider">
+      <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
