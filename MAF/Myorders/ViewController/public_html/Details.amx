@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="detailpp1" inlineStyle="background-color:#D7D7DA;">
+    <amx:facet name="header">
+      <amx:tableLayout id="tl1" width="100%">
+        <amx:rowLayout id="rl1">
+          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
+            <amx:commandLink
+                        id="cl3" action="backToDashBoard">
+              <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
+            </amx:commandLink>
+          </amx:cellFormat>
+          <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
+            <amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot4"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+      </amx:tableLayout>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1">
+      <amx:facet name="top">
+        <amx:tableLayout id="tl2" width="100%"
+                           inlineStyle="border-bottom-width:thin; background-color:rgb(60,60,73); ">
+            <amx:rowLayout id="rl2">
+              <amx:cellFormat id="cf4" width="50%"
+                              inlineStyle="#{pageFlowScope.detailCurrentTab!='LINES' &amp;&amp; pageFlowScope.detailCurrentTab!='ALERTS' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
+                <amx:commandButton text="Order Details" id="cb1"
+                                   inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; "
+                                   styleClass="tab_btn">
+                  <amx:setPropertyListener id="spl1" from="#{'DETAILS'}" to="#{pageFlowScope.detailCurrentTab}"/>
+                </amx:commandButton>
+              </amx:cellFormat>
+              <amx:cellFormat id="cf5" width="50%"
+                              inlineStyle="#{pageFlowScope.detailCurrentTab=='LINES' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
+                <amx:commandButton text="Order Lines" id="cb2"
+                                   inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none;"
+                                   styleClass="tab_btn">
+                  <amx:setPropertyListener id="spl2" to="#{pageFlowScope.detailCurrentTab}" from="#{'LINES'}"/>
+                </amx:commandButton>
+              </amx:cellFormat>
+            <amx:cellFormat id="cf6" width="50%"
+                            inlineStyle="#{pageFlowScope.detailCurrentTab=='ALERTS' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
+              <amx:commandButton text="Alerts" id="cb3"
+                                 inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none;"
+                                 styleClass="tab_btn">
+                <amx:setPropertyListener id="spl3" to="#{pageFlowScope.detailCurrentTab}" from="#{'ALERTS'}"/>
+              </amx:commandButton>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          </amx:tableLayout>
+      </amx:facet>
+      <amx:facet name="center">
+        <amx:commandLink id="cl2" styleClass="remove_ul">
+          <amx:panelGroupLayout id="pgl1"
+                                rendered="#{pageFlowScope.detailCurrentTab!='LINES' &amp;&amp; pageFlowScope.detailCurrentTab!='ALERTS'}">
+            <amx:tableLayout id="tl3" width="100%" cellSpacing="10">
+              <amx:rowLayout id="rl3">
+                <amx:cellFormat id="cf7" width="20%" rowSpan="1">
+                  <amx:spacer id="s1" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                  <amx:image id="i1" source="/resources/css/images/Order status.png" styleClass="detailimages"/>
+                  <amx:spacer id="s2" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf11" width="80%">
+                  <amx:panelGroupLayout id="pgl7">
+                    <amx:outputText value="Order Status" id="ot8" styleClass="detailhead"/>
+                    <amx:outputText value="#{bindings.flowStatusCode.inputValue}" id="ot1" styleClass="value"/>
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:tableLayout id="tl5" width="100%" inlineStyle="background-color:#ECECEC;" cellSpacing="10">
+              <amx:rowLayout id="rl4">
+                <amx:cellFormat id="cf8" width="20%">
+                  <amx:spacer id="s7" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                  <amx:image id="i2" source="/resources/css/images/Booking date.png" styleClass="detailimages"/>
+                  <amx:spacer id="s8" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf12" width="80%" rowSpan="2">
+                  <amx:panelGroupLayout id="pgl6">
+                    <amx:outputText value="Booking Date" id="ot9" styleClass="detailhead"/>
+                    <amx:outputText value="#{bindings.orderedDate.inputValue}" id="ot5" styleClass="value"/>
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:tableLayout id="tl6" width="100%" cellSpacing="10">
+              <amx:rowLayout id="rl5">
+                <amx:cellFormat id="cf9" width="20%">
+                  <amx:spacer id="s6" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                  <amx:image id="i3" source="/resources/css/images/Purchase order.png" styleClass="detailimages"/>
+                  <amx:spacer id="s5" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf13" width="80%">
+                  <amx:panelGroupLayout id="pgl5">
+                    <amx:outputText value="Purchase Order" id="ot10" styleClass="detailhead"/>
+                    <amx:outputText value="#{bindings.custPoNumber.inputValue}" id="ot6" styleClass="value"/>
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:tableLayout id="tl4" width="100%" inlineStyle="background-color:#ECECEC;" cellSpacing="10">
+              <amx:rowLayout id="rl6">
+                <amx:cellFormat id="cf10" width="20%">
+                  <amx:spacer id="s3" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                  <amx:image id="i4" source="/resources/css/images/Order value.png" styleClass="detailimages"/>
+                  <amx:spacer id="s4" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf14" width="80%">
+                  <amx:panelGroupLayout id="pgl4">
+                    <amx:outputText value="Order Value" id="ot11" styleClass="detailhead"/>
+                    <amx:outputText value="#{bindings.totalOrderedValue.inputValue}" id="ot7" styleClass="value"/>
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:panelGroupLayout>
+          <amx:setPropertyListener id="spl4" to="#{pageFlowScope.detailCurrentTab}" type="swipeLeft" from="#{'LINES'}"/>
+          <amx:actionListener id="al1"
+                              type="swipeRight" binding="#{OrdersManagedBean.backToDashboard}"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl4" styleClass="remove_ul">
+          <amx:panelGroupLayout id="pgl2" rendered="#{pageFlowScope.detailCurrentTab=='LINES'}">
+            <amx:outputText value="Coming Soon..." id="ot2"/>
+          </amx:panelGroupLayout>
+          <amx:setPropertyListener id="spl6" to="#{pageFlowScope.detailCurrentTab}" type="swipeLeft"
+                                   from="#{'ALERTS'}"/>
+          <amx:setPropertyListener id="spl7" to="#{pageFlowScope.detailCurrentTab}" from="#{'DETAILS'}"
+                                   type="swipeRight"/>
+        </amx:commandLink>
+        <amx:commandLink id="cl5" styleClass="remove_ul">
+          <amx:panelGroupLayout id="pgl3" rendered="#{pageFlowScope.detailCurrentTab=='ALERTS'}">
+            <amx:outputText value="Coming Soon..." id="ot3"/>
+          </amx:panelGroupLayout>
+          <amx:setPropertyListener id="spl8" to="#{pageFlowScope.detailCurrentTab}" from="#{'LINES'}"
+                                   type="swipeRight"/>
+        </amx:commandLink>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>
