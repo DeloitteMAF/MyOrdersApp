@@ -62,8 +62,48 @@
     font-size: 15px;
 }
 
+.detailhead{
+    color:#6d6e71;
+    width:auto;
+    font-size:.8em;
+}
+
+.detailimages{
+    height:50%;
+    width:40%;
+    padding-left:5%;
+}
+
+.sbimages{
+    height:50%;
+    width:75%;
+}
+
+.sbheader{
+    width:auto;
+    color:#2f3661;
+    font-size:1em;
+    font-weight:bold;    
+}
+
+.value{
+    width:auto;
+    color:#414042;
+    font-size:1em;
+    font-weight:bold;
+}
+
 .remove_ul {
 text-decoration: none;
+}
+
+.iconstyle{
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    max-height:24px;
+    max-width:24px;
 }
 
 /* Same padding for LTR & RTL but for specificity, we are adding html[dir] to the selector */

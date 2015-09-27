@@ -6,6 +6,8 @@
     <page path="/com.company.myorders.Settings/Settings.amx" usageId="com_company_myorders_mobile_SettingsPageDef"/>
     <page path="/com.company.myorders.SpringBoard/SpringBoard.amx"
           usageId="com_company_myorders_mobile_SpringBoardPageDef"/>
+    <page path="/OrderDetails.amx" usageId="com_company_myorders_mobile_OrderDetailsPageDef"/>
+    <page path="/Details.amx" usageId="com_company_myorders_mobile_DetailsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_company_myorders_mobile_DashBoardPGPageDef"
@@ -13,6 +15,9 @@
     <page id="com_company_myorders_mobile_SettingsPageDef" path="com.company.myorders.Settings.SettingsPageDef"/>
     <page id="com_company_myorders_mobile_SpringBoardPageDef"
           path="com.company.myorders.SpringBoard.SpringBoardPageDef"/>
+    <page id="com_company_myorders_mobile_OrderDetailsPageDef"
+          path="com.company.myorders.mobile.pageDefs.OrderDetailsPageDef"/>
+    <page id="com_company_myorders_mobile_DetailsPageDef" path="com.company.myorders.mobile.pageDefs.DetailsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="AllOrdersService"

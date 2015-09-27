@@ -37,7 +37,7 @@
                 /* We need to provide backup font family since Helvetica Neue is not available on all platforms */
             }
             /* Android appearance for the text fields */
-            .login-android .field-value {
+            .login-android .field-value .field-value-user .field-value-pass {
                 -webkit-appearance: none;
                 background-color: #002775;
                 padding-left: 0;
@@ -51,7 +51,7 @@
                 border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAAAJElEQVR42s2LsQ0AAAiDfLD/n0PjCSxGEjYYQPlwWCLiHA3GAlBD7oHNPFIzAAAAAElFTkSuQmCC)0 5 6 6 fill repeat;
             }
 
-            .login-android .field-value.login-selected {
+            .login-android .field-value.login-selected .field-value-user.login-selected .field-value-pass.login-selected{
                 outline: none;
                 -webkit-border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAAAKklEQVR42r3LoQ0AAAjEQAwLMygrlWCwHxCIc60BKw+DR9JEON3boJ2HAq62BOzNNfr/AAAAAElFTkSuQmCC)0 5 6 6 fill repeat;
                 border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAAAKklEQVR42r3LoQ0AAAjEQAwLMygrlWCwHxCIc60BKw+DR9JEON3boJ2HAq62BOzNNfr/AAAAAElFTkSuQmCC)0 5 6 6 fill repeat;
@@ -131,7 +131,7 @@
             }
 
             .login-panelPage-header {
-                padding-top: 82px;
+                padding-top: 35%;
                 padding-left: 438px;
                 box-sizing: border-box;
                 color: #FFFFFF;
@@ -553,7 +553,7 @@
                     <label class="error-text" id="oracle_access_error_id"></label>
                 </div>
                 <div class="login-panelFormLayout">
-                    <label class="field-label" for="oracle_access_user_id" style="padding-bottom:0px;">User Name</label><input name="oracle_access_user_id"
+                    <label class="field-label" for="oracle_access_user_id">User Name</label><input name="oracle_access_user_id"
                                                                                                    class="field-value-user"
                                                                                                    id="oracle_access_user_id"
                                                                                                    onfocus="pressed(this,true)"
@@ -578,7 +578,7 @@
                                                                                                          autocorrect="off"
                                                                                                          hidden="hidden"/>
                 </div>
-                <div class="login-panelFormLayout" style="padding-bottom:0px;">
+                <div class="login-panelFormLayout">
                     <label class="field-label" for="oracle_access_pwd_id" style="padding-bottom:15px;">Password</label><input name="oracle_access_pwd_id"
                                                                                                  class="field-value-pass"
                                                                                                  id="oracle_access_pwd_id"

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
-  <adfmf:feature id="com.company.myorders.Orders" name="Orders" securityEnabled="true"
+  <adfmf:feature id="com.company.myorders.Orders" name="My Orders" securityEnabled="true"
                  image="resources/css/images/My orders.png">
     <adfmf:content id="com.company.myorders.Orders.1" image="resources/css/images/My orders.png">
       <adfmf:amx file="com.company.myorders.Orders/ViewController-task-flow.xml#ViewController-task-flow">
         <adfmf:includes>
           <adfmf:include type="StyleSheet" file="resources/css/MyOrdersSkin.css" id="i1"/>
           <adfmf:include type="StyleSheet" file="resources/font-awesome-4.3.0/css/font-awesome.css" id="i2"/>
+          <adfmf:include type="JavaScript" file="resources/NavigationHandler.js" id="i6"/>
         </adfmf:includes>
       </adfmf:amx>
     </adfmf:content>
@@ -17,7 +18,7 @@
       <adfmf:amx file="com.company.myorders.Settings/Settings.amx">
         <adfmf:includes>
           <adfmf:include type="StyleSheet" file="resources/css/MyOrdersSkin.css" id="i3"/>
-          <adfmf:include type="StyleSheet" file="resources/font-awesome-4.3.0/css/font-awesome.css" id="i4"/>
+          <adfmf:include type="JavaScript" file="resources/NavigationHandler.js" id="i4"/>
         </adfmf:includes>
       </adfmf:amx>
     </adfmf:content>
@@ -27,7 +28,8 @@
       <adfmf:constraints/>
       <adfmf:amx file="com.company.myorders.SpringBoard/SpringBoard.amx">
         <adfmf:includes>
-          <adfmf:include type="StyleSheet" file="resources/css/MyOrdersSkin.css" id="i5"/>
+          <adfmf:include type="JavaScript" file="resources/NavigationHandler.js" id="i5"/>
+          <adfmf:include type="StyleSheet" file="resources/css/MyOrdersSkin.css" id="i7"/>
         </adfmf:includes>
       </adfmf:amx>
     </adfmf:content>
