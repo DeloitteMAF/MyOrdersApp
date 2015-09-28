@@ -12,7 +12,10 @@
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
-            <amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot4"/>
+            <amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot4"
+                            rendered="#{pageFlowScope.currentTab=='ALL'}"/>
+            <amx:outputText value="Order ##{bindings.orderNumber1.inputValue}" id="ot16"
+                            rendered="#{pageFlowScope.currentTab!='ALL'}"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
@@ -63,7 +66,10 @@
                 <amx:cellFormat id="cf11" width="80%">
                   <amx:panelGroupLayout id="pgl7">
                     <amx:outputText value="Order Status" id="ot8" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.flowStatusCode.inputValue}" id="ot1" styleClass="value"/>
+                    <amx:outputText value="#{bindings.flowStatusCode.inputValue}" id="ot1" styleClass="value"
+                                    rendered="#{pageFlowScope.currentTab=='ALL'}"/>
+                    <amx:outputText value="#{bindings.flowStatusCode1.inputValue}" id="ot12"
+                                    rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
               </amx:rowLayout>
@@ -78,7 +84,10 @@
                 <amx:cellFormat id="cf12" width="80%" rowSpan="2">
                   <amx:panelGroupLayout id="pgl6">
                     <amx:outputText value="Booking Date" id="ot9" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.orderedDate.inputValue}" id="ot5" styleClass="value"/>
+                    <amx:outputText value="#{bindings.orderedDate.inputValue}" id="ot5" styleClass="value"
+                                    rendered="#{pageFlowScope.currentTab=='ALL'}"/>
+                    <amx:outputText value="#{bindings.orderedDate1.inputValue}" id="ot13"
+                                    rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
               </amx:rowLayout>
@@ -93,7 +102,10 @@
                 <amx:cellFormat id="cf13" width="80%">
                   <amx:panelGroupLayout id="pgl5">
                     <amx:outputText value="Purchase Order" id="ot10" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.custPoNumber.inputValue}" id="ot6" styleClass="value"/>
+                    <amx:outputText value="#{bindings.custPoNumber.inputValue}" id="ot6" styleClass="value"
+                                    rendered="#{pageFlowScope.currentTab=='ALL'}"/>
+                    <amx:outputText value="#{bindings.custPoNumber1.inputValue}" id="ot14"
+                                    rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
               </amx:rowLayout>
@@ -108,7 +120,10 @@
                 <amx:cellFormat id="cf14" width="80%">
                   <amx:panelGroupLayout id="pgl4">
                     <amx:outputText value="Order Value" id="ot11" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.totalOrderedValue.inputValue}" id="ot7" styleClass="value"/>
+                    <amx:outputText value="#{bindings.totalOrderedValue.inputValue}" id="ot7" styleClass="value"
+                                    rendered="#{pageFlowScope.currentTab=='ALL'}"/>
+                    <amx:outputText value="#{bindings.totalOrderedValue1.inputValue}" id="ot15"
+                                    rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
               </amx:rowLayout>

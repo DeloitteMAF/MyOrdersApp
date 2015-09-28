@@ -8,6 +8,9 @@
     <accessorIterator MasterBinding="AllOrdersServiceIterator" Binds="allOrders" RangeSize="25"
                       DataControl="AllOrdersService" BeanClass="com.company.myorders.mobile.model.AllOrders"
                       id="allOrdersIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
+    <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25" DataControl="OrdersService"
+                      BeanClass="com.company.myorders.mobile.model.Orders" id="ordersIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="allOrdersIterator" id="orderNumber">
@@ -33,6 +36,31 @@
     <attributeValues IterBinding="allOrdersIterator" id="totalOrderedValue">
       <AttrNames>
         <Item Value="totalOrderedValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ordersIterator" id="flowStatusCode1">
+      <AttrNames>
+        <Item Value="flowStatusCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ordersIterator" id="orderedDate1">
+      <AttrNames>
+        <Item Value="orderedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ordersIterator" id="custPoNumber1">
+      <AttrNames>
+        <Item Value="custPoNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ordersIterator" id="totalOrderedValue1">
+      <AttrNames>
+        <Item Value="totalOrderedValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ordersIterator" id="orderNumber1">
+      <AttrNames>
+        <Item Value="orderNumber"/>
       </AttrNames>
     </attributeValues>
   </bindings>

@@ -106,6 +106,10 @@ text-decoration: none;
     max-width:24px;
 }
 
+.ordAppStretchLyt .amx-panelStretchLayout_center{
+    overflow: auto;
+}
+
 /* Same padding for LTR & RTL but for specificity, we are adding html[dir] to the selector */
 html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topStart .field-value,
 html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topCenter .field-value,

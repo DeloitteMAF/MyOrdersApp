@@ -55,7 +55,7 @@
       </amx:panelGroupLayout>
     </amx:facet>
     <amx:commandLink id="cl8">
-      <amx:panelStretchLayout id="psl1">
+      <amx:panelStretchLayout id="psl1" styleClass="ordAppStretchLyt">
         <amx:facet name="top">
           <amx:tableLayout id="tl2" width="100%"
                            inlineStyle="border-bottom-width:thin; background-color:rgb(60,60,73); ">
