@@ -136,6 +136,7 @@
         <amx:commandLink id="cl4" styleClass="remove_ul">
           <amx:panelGroupLayout id="pgl2" rendered="#{pageFlowScope.detailCurrentTab=='LINES'}">
             <amx:outputText value="Coming Soon..." id="ot2"/>
+            <amx:spacer id="s9" height="300"/>
           </amx:panelGroupLayout>
           <amx:setPropertyListener id="spl6" to="#{pageFlowScope.detailCurrentTab}" type="swipeLeft"
                                    from="#{'ALERTS'}"/>
@@ -145,6 +146,7 @@
         <amx:commandLink id="cl5" styleClass="remove_ul">
           <amx:panelGroupLayout id="pgl3" rendered="#{pageFlowScope.detailCurrentTab=='ALERTS'}">
             <amx:outputText value="Coming Soon..." id="ot3"/>
+            <amx:spacer id="s10" height="300"/>
           </amx:panelGroupLayout>
           <amx:setPropertyListener id="spl8" to="#{pageFlowScope.detailCurrentTab}" from="#{'LINES'}"
                                    type="swipeRight"/>

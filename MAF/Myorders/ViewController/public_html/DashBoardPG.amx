@@ -95,14 +95,18 @@
                     <amx:cellFormat id="cf7" width="90%">
                       <amx:panelGroupLayout id="pgl1" layout="vertical">
                         <amx:spacer id="s1" height="10"/>
-                        <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
-                                        inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                        <amx:panelGroupLayout id="pgl11" layout="horizontal">
+                          <amx:spacer id="s9" width="25"/>
+                          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
+                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                        </amx:panelGroupLayout>
                         <amx:spacer id="s2" height="7"/>
                         <amx:panelGroupLayout id="pgl9" layout="horizontal">
+                          <amx:spacer id="s7" width="25"/>
                           <amx:outputText value="Order ##{row.orderNumber} " id="ot3"
                                           inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                           <amx:spacer id="s5" width="10"/>
-                          <amx:outputText value=" Amount: #{row.totalOrderedValue}" id="ot5"
+                          <amx:outputText value=" Amount: $#{row.totalOrderedValue}" id="ot5"
                                           inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                         </amx:panelGroupLayout>
                         <amx:outputText value="Status #{row.flowStatusCode}" id="ot4"
@@ -141,14 +145,18 @@
                     <amx:cellFormat id="cf9" width="90%">
                       <amx:panelGroupLayout id="pgl3" layout="vertical">
                         <amx:spacer id="s3" height="10"/>
-                        <amx:outputText value="Order Date : #{row.orderedDate}" id="ot8"
-                                        inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                        <amx:panelGroupLayout id="pgl12" layout="horizontal">
+                          <amx:spacer id="s10" width="25"/>
+                          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot8"
+                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                        </amx:panelGroupLayout>
                         <amx:spacer id="s4" height="7"/>
                         <amx:panelGroupLayout id="pgl10" layout="horizontal">
+                          <amx:spacer id="s8" width="25"/>
                           <amx:outputText value="Order ##{row.orderNumber}" id="ot10"
                                           inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                           <amx:spacer id="s6" width="10"/>
-                          <amx:outputText value="Amount: #{row.totalOrderedValue}" id="ot6"
+                          <amx:outputText value="Amount: $#{row.totalOrderedValue}" id="ot6"
                                           inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                         </amx:panelGroupLayout>
                         <amx:outputText value="Status #{row.flowStatusCode}" id="ot9"
