@@ -124,6 +124,15 @@
                     </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
+                <amx:showPopupBehavior id="spb1" type="tapHold" align="overlapMiddleCenter" alignId="pp1" popupId="p1"/>
+                <amx:setPropertyListener id="spl5" from="#{row.flowStatusCode}" to="#{viewScope.flowStatusCode}"
+                                         type="tapHold"/>
+                <amx:setPropertyListener id="spl8" from="#{row.orderedDate}" to="#{viewScope.orderedDate}"
+                                         type="tapHold"/>
+                <amx:setPropertyListener id="spl9" from="#{row.orderNumber}" to="#{viewScope.orderNumber}"
+                                         type="tapHold"/>
+                <amx:setPropertyListener id="spl10" from="#{row.totalOrderedValue}" to="#{viewScope.totalOrderedValue}"
+                                         type="tapHold"/>
               </amx:listItem>
             </amx:listView>
             <amx:setPropertyListener id="spl3" to="#{pageFlowScope.currentTab}" from="#{'ALL'}" type="swipeLeft"/>
@@ -182,4 +191,35 @@
       </amx:panelStretchLayout>
     </amx:commandLink>
   </amx:panelPage>
+  <amx:popup id="p1" autoDismiss="true" animation="slideUp" inlineStyle="width:80%;">
+    <amx:tableLayout id="tl5" width="100%">
+      <amx:rowLayout id="rl5">
+        <amx:cellFormat id="cf12" width="10px"/>
+        <amx:cellFormat id="cf13" width="90%">
+          <amx:panelGroupLayout id="pgl13" layout="vertical">
+            <amx:spacer id="s11" height="10"/>
+            <amx:panelGroupLayout id="pgl14" layout="horizontal">
+              <amx:spacer id="s12" width="25"/>
+              <amx:outputText value="Order Date : #{viewScope.orderedDate}" id="ot7"
+                              inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+            </amx:panelGroupLayout>
+            <amx:spacer id="s13" height="7"/>
+            <amx:panelGroupLayout id="pgl15" layout="horizontal">
+              <amx:spacer id="s14" width="25"/>
+              <amx:outputText value="Order ##{viewScope.orderNumber} " id="ot11"
+                              inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+              <amx:spacer id="s15" width="10"/>
+              <amx:outputText value=" Amount: $#{viewScope.totalOrderedValue}" id="ot12"
+                              inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+            </amx:panelGroupLayout>
+            <amx:outputText value="Status #{viewScope.flowStatusCode}" id="ot13"
+                            inlineStyle="width:auto; font-size:small; font-weight:bold;" rendered="false"/>
+            <amx:image id="i6"
+                       source="/resources/css/images/#{viewScope.flowStatusCode eq 'In Process' ? 'InProcess' : viewScope.flowStatusCode}.png"
+                       inlineStyle="width:95%;"/>
+          </amx:panelGroupLayout>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+  </amx:popup>
 </amx:view>
