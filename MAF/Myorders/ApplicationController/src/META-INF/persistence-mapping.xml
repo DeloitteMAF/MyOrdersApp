@@ -27,7 +27,7 @@
          <directMapping attributeName="flowStatusCode" payloadAttributeName="FlowStatusCode" columnName="FLOW_STATUS_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="orderedDate" payloadAttributeName="OrderedDate" columnName="ORDERED_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="custPoNumber" payloadAttributeName="CustPoNumber" columnName="CUST_PO_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
          <directMapping attributeName="fulfillmentDate" payloadAttributeName="FulfillmentDate" columnName="FULFILLMENT_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods>
@@ -51,7 +51,7 @@
          <directMapping attributeName="flowStatusCode" payloadAttributeName="FlowStatusCode" columnName="FLOW_STATUS_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="orderedDate" payloadAttributeName="OrderedDate" columnName="ORDERED_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="custPoNumber" payloadAttributeName="CustPoNumber" columnName="CUST_PO_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
          <directMapping attributeName="fulfillmentDate" payloadAttributeName="FulfillmentDate" columnName="FULFILLMENT_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods>
