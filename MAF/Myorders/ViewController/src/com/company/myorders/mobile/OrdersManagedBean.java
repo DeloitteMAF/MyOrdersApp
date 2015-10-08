@@ -10,6 +10,7 @@ import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 public class OrdersManagedBean {
     boolean getSearchStatus = false;
+    boolean clearSearch = true;
     String currentFeature;
     boolean springBoardStatus = false;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -22,6 +23,16 @@ public class OrdersManagedBean {
         propertyChangeSupport.firePropertyChange("getSearchStatus", oldGetSearchStatus, getSearchStatus);
     }
 
+
+    public void setClearSearch(boolean clearSearch) {
+        boolean oldClearSearch = this.clearSearch;
+        this.clearSearch = clearSearch;
+        propertyChangeSupport.firePropertyChange("clearSearch", oldClearSearch, clearSearch);
+    }
+
+    public boolean isClearSearch() {
+        return clearSearch;
+    }
     public boolean isGetSearchStatus() {
         return getSearchStatus;
     }
