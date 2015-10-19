@@ -96,113 +96,123 @@
           </amx:tableLayout>
         </amx:facet>
         <amx:facet name="center">
-          <amx:commandLink id="cl7" styleClass="remove_ul">
-            <amx:listView var="row" value="#{bindings.orders.collectionModel}" fetchSize="#{bindings.orders.rangeSize}"
-                          selectedRowKeys="#{bindings.orders.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.orders.collectionModel.makeCurrent}"
-                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
-                          rendered="#{pageFlowScope.currentTab!='ALL'}" inlineStyle="background-color:#D7D7DA">
-              <amx:listItem id="li1"
-                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
-                            showLinkIcon="true" action="openDetail">
-                <amx:tableLayout id="tl3" width="100%">
-                  <amx:rowLayout id="rl3">
-                    <amx:cellFormat id="cf6" width="10px"/>
-                    <amx:cellFormat id="cf7" width="90%">
-                      <amx:panelGroupLayout id="pgl1" layout="vertical">
-                        <amx:spacer id="s1" height="10"/>
-                        <amx:panelGroupLayout id="pgl11" layout="horizontal">
-                          <amx:spacer id="s9" width="25"/>
-                          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
-                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+          
+            <amx:refreshContainer id="rc1" busyText="Refreshing"
+                                pullText="Pull to Refresh" actionListener="#{OrdersManagedBean.pullDownToRefreshAction}">
+            <amx:commandLink id="cl7" styleClass="remove_ul">
+              <amx:listView var="row" value="#{bindings.orders.collectionModel}"
+                            fetchSize="#{bindings.orders.rangeSize}"
+                            selectedRowKeys="#{bindings.orders.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.orders.collectionModel.makeCurrent}"
+                            showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
+                            rendered="#{pageFlowScope.currentTab!='ALL'}" inlineStyle="background-color:#D7D7DA">
+                <amx:listItem id="li1"
+                              inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
+                              showLinkIcon="true" action="openDetail">
+                  <amx:tableLayout id="tl3" width="100%">
+                    <amx:rowLayout id="rl3">
+                      <amx:cellFormat id="cf6" width="10px"/>
+                      <amx:cellFormat id="cf7" width="90%">
+                        <amx:panelGroupLayout id="pgl1" layout="vertical">
+                          <amx:spacer id="s1" height="10"/>
+                          <amx:panelGroupLayout id="pgl11" layout="horizontal">
+                            <amx:spacer id="s9" width="25"/>
+                            <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
+                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                          </amx:panelGroupLayout>
+                          <amx:spacer id="s2" height="7"/>
+                          <amx:panelGroupLayout id="pgl9" layout="horizontal">
+                            <amx:spacer id="s7" width="25"/>
+                            <amx:outputText value="Order ##{row.orderNumber} " id="ot3"
+                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                            <amx:spacer id="s5" width="10"/>
+                            <amx:outputText value=" Amount: $#{row.totalOrderedValue}" id="ot5"
+                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                          </amx:panelGroupLayout>
+                          <amx:outputText value="Status #{row.flowStatusCode}" id="ot4"
+                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"
+                                          rendered="false"/>
+                          <amx:image id="i1"
+                                     source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
+                                     inlineStyle="width:95%;"/>
                         </amx:panelGroupLayout>
-                        <amx:spacer id="s2" height="7"/>
-                        <amx:panelGroupLayout id="pgl9" layout="horizontal">
-                          <amx:spacer id="s7" width="25"/>
-                          <amx:outputText value="Order ##{row.orderNumber} " id="ot3"
-                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
-                          <amx:spacer id="s5" width="10"/>
-                          <amx:outputText value=" Amount: $#{row.totalOrderedValue}" id="ot5"
-                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                      </amx:cellFormat>
+                      <amx:cellFormat id="cf10" width="15px" halign="center">
+                        <amx:commandLink id="cl5">
+                          <amx:outputHtml id="oh3" styleClass="fa fa-chevron-right fa-2g"
+                                          inlineStyle="color: rgb(157, 157, 173);"/>
+                        </amx:commandLink>
+                      </amx:cellFormat>
+                    </amx:rowLayout>
+                  </amx:tableLayout>
+                  <!--<amx:showPopupBehavior id="spb1" type="tapHold" align="overlapMiddleCenter" alignId="pp1"
+                                         popupId="p1"/>-->
+                  <amx:setPropertyListener id="spl5" from="#{row.flowStatusCode}" to="#{viewScope.flowStatusCode}"
+                                           type="tapHold"/>
+                  <amx:setPropertyListener id="spl8" from="#{row.orderedDate}" to="#{viewScope.orderedDate}"
+                                           type="tapHold"/>
+                  <amx:setPropertyListener id="spl9" from="#{row.orderNumber}" to="#{viewScope.orderNumber}"
+                                           type="tapHold"/>
+                  <amx:setPropertyListener id="spl10" from="#{row.totalOrderedValue}"
+                                           to="#{viewScope.totalOrderedValue}" type="tapHold"/>
+                </amx:listItem>
+              </amx:listView>
+              <amx:setPropertyListener id="spl3" to="#{pageFlowScope.currentTab}" from="#{'ALL'}" type="swipeLeft"/>
+              <amx:actionListener id="al2" type="swipeRight" binding="#{OrdersManagedBean.openSpringboard}"/>
+              
+            </amx:commandLink>
+            <amx:commandLink id="cl9" styleClass="remove_ul">
+              <amx:setPropertyListener id="spl4" from="#{'TOP'}" to="#{pageFlowScope.currentTab}" type="swipeRight"/>
+              <amx:listView var="row" value="#{bindings.allOrders.collectionModel}"
+                            fetchSize="#{bindings.allOrders.rangeSize}"
+                            selectedRowKeys="#{bindings.allOrders.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.allOrders.collectionModel.makeCurrent}"
+                            showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2"
+                            rendered="#{pageFlowScope.currentTab=='ALL'}" inlineStyle="background-color:#D7D7DA">
+                <amx:listItem id="li2"
+                              inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
+                              showLinkIcon="false" action="openDetail">
+                  <amx:tableLayout id="tl4" width="100%">
+                    <amx:rowLayout id="rl4">
+                      <amx:cellFormat id="cf8" width="10px"/>
+                      <amx:cellFormat id="cf9" width="90%">
+                        <amx:panelGroupLayout id="pgl3" layout="vertical">
+                          <amx:spacer id="s3" height="10"/>
+                          <amx:panelGroupLayout id="pgl12" layout="horizontal">
+                            <amx:spacer id="s10" width="25"/>
+                            <amx:outputText value="Order Date : #{row.orderedDate}" id="ot8"
+                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                          </amx:panelGroupLayout>
+                          <amx:spacer id="s4" height="7"/>
+                          <amx:panelGroupLayout id="pgl10" layout="horizontal">
+                            <amx:spacer id="s8" width="25"/>
+                            <amx:outputText value="Order ##{row.orderNumber}" id="ot10"
+                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                            <amx:spacer id="s6" width="10"/>
+                            <amx:outputText value="Amount: $#{row.totalOrderedValue}" id="ot6"
+                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                          </amx:panelGroupLayout>
+                          <amx:outputText value="Status #{row.flowStatusCode}" id="ot9"
+                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"
+                                          rendered="false"/>
+                          <amx:image id="i2"
+                                     source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
+                                     inlineStyle="width:95%;"/>
                         </amx:panelGroupLayout>
-                        <amx:outputText value="Status #{row.flowStatusCode}" id="ot4"
-                                        inlineStyle="width:auto; font-size:small; font-weight:bold;" rendered="false"/>
-                        <amx:image id="i1"
-                                   source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
-                                   inlineStyle="width:95%;"/>
-                      </amx:panelGroupLayout>
-                    </amx:cellFormat>
-                    <amx:cellFormat id="cf10" width="15px" halign="center">
-                      <amx:commandLink id="cl5">
-                        <amx:outputHtml id="oh3" styleClass="fa fa-chevron-right fa-2g"
-                                        inlineStyle="color: rgb(157, 157, 173);"/>
-                      </amx:commandLink>
-                    </amx:cellFormat>
-                  </amx:rowLayout>
-                </amx:tableLayout>
-                <amx:showPopupBehavior id="spb1" type="tapHold" align="overlapMiddleCenter" alignId="pp1" popupId="p1"/>
-                <amx:setPropertyListener id="spl5" from="#{row.flowStatusCode}" to="#{viewScope.flowStatusCode}"
-                                         type="tapHold"/>
-                <amx:setPropertyListener id="spl8" from="#{row.orderedDate}" to="#{viewScope.orderedDate}"
-                                         type="tapHold"/>
-                <amx:setPropertyListener id="spl9" from="#{row.orderNumber}" to="#{viewScope.orderNumber}"
-                                         type="tapHold"/>
-                <amx:setPropertyListener id="spl10" from="#{row.totalOrderedValue}" to="#{viewScope.totalOrderedValue}"
-                                         type="tapHold"/>
-              </amx:listItem>
-            </amx:listView>
-            <amx:setPropertyListener id="spl3" to="#{pageFlowScope.currentTab}" from="#{'ALL'}" type="swipeLeft"/>
-            <amx:actionListener id="al2" type="swipeRight" binding="#{OrdersManagedBean.openSpringboard}"/>
-          </amx:commandLink>
-          <amx:commandLink id="cl9" styleClass="remove_ul">
-            <amx:listView var="row" value="#{bindings.allOrders.collectionModel}"
-                          fetchSize="#{bindings.allOrders.rangeSize}"
-                          selectedRowKeys="#{bindings.allOrders.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.allOrders.collectionModel.makeCurrent}"
-                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2"
-                          rendered="#{pageFlowScope.currentTab=='ALL'}" inlineStyle="background-color:#D7D7DA">
-              <amx:listItem id="li2"
-                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
-                            showLinkIcon="false" action="openDetail">
-                <amx:tableLayout id="tl4" width="100%">
-                  <amx:rowLayout id="rl4">
-                    <amx:cellFormat id="cf8" width="10px"/>
-                    <amx:cellFormat id="cf9" width="90%">
-                      <amx:panelGroupLayout id="pgl3" layout="vertical">
-                        <amx:spacer id="s3" height="10"/>
-                        <amx:panelGroupLayout id="pgl12" layout="horizontal">
-                          <amx:spacer id="s10" width="25"/>
-                          <amx:outputText value="Order Date : #{row.orderedDate}" id="ot8"
-                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
-                        </amx:panelGroupLayout>
-                        <amx:spacer id="s4" height="7"/>
-                        <amx:panelGroupLayout id="pgl10" layout="horizontal">
-                          <amx:spacer id="s8" width="25"/>
-                          <amx:outputText value="Order ##{row.orderNumber}" id="ot10"
-                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
-                          <amx:spacer id="s6" width="10"/>
-                          <amx:outputText value="Amount: $#{row.totalOrderedValue}" id="ot6"
-                                          inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
-                        </amx:panelGroupLayout>
-                        <amx:outputText value="Status #{row.flowStatusCode}" id="ot9"
-                                        inlineStyle="width:auto; font-size:small; font-weight:bold;" rendered="false"/>
-                        <amx:image id="i2"
-                                   source="/resources/css/images/#{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}.png"
-                                   inlineStyle="width:95%;"/>
-                      </amx:panelGroupLayout>
-                    </amx:cellFormat>
-                    <amx:cellFormat id="cf11" width="15px" halign="center">
-                      <amx:commandLink id="cl6">
-                        <amx:outputHtml id="oh4" styleClass="fa fa-chevron-right fa-2g"
-                                        inlineStyle="color: rgb(157, 157, 173);"/>
-                      </amx:commandLink>
-                    </amx:cellFormat>
-                  </amx:rowLayout>
-                </amx:tableLayout>
-              </amx:listItem>
-            </amx:listView>
-            <amx:setPropertyListener id="spl4" from="#{'TOP'}" to="#{pageFlowScope.currentTab}" type="swipeRight"/>
-          </amx:commandLink>
+                      </amx:cellFormat>
+                      <amx:cellFormat id="cf11" width="15px" halign="center">
+                        <amx:commandLink id="cl6">
+                          <amx:outputHtml id="oh4" styleClass="fa fa-chevron-right fa-2g"
+                                          inlineStyle="color: rgb(157, 157, 173);"/>
+                        </amx:commandLink>
+                      </amx:cellFormat>
+                    </amx:rowLayout>
+                  </amx:tableLayout>
+                </amx:listItem>
+              </amx:listView>
+            </amx:commandLink>
+            
+          </amx:refreshContainer>
         </amx:facet>
       </amx:panelStretchLayout>
     </amx:commandLink>

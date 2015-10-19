@@ -7,6 +7,7 @@ import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
+import oracle.adfmf.java.beans.ProviderChangeSupport;
 
 public class OrdersManagedBean {
     boolean getSearchStatus = false;
@@ -16,6 +17,8 @@ public class OrdersManagedBean {
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     private int detailRowSpacer = 15;
     private int sbRowSpacer = 10;
+    private Boolean isRefreshComplete=false;
+    private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
 
     public void setGetSearchStatus(boolean getSearchStatus) {
         boolean oldGetSearchStatus = this.getSearchStatus;
@@ -109,7 +112,37 @@ public class OrdersManagedBean {
         this.sbRowSpacer = sbRowSpacer;
     }
 
+    public void setIsRefreshComplete(Boolean isRefreshComplete) {
+        Boolean oldIsRefreshComplete = this.isRefreshComplete;
+        this.isRefreshComplete = isRefreshComplete;
+        propertyChangeSupport.firePropertyChange("isRefreshComplete", oldIsRefreshComplete, isRefreshComplete);
+    }
+
+    public Boolean getIsRefreshComplete() {
+        return isRefreshComplete;
+    }
+
     public int getSbRowSpacer() {
         return sbRowSpacer;
+    }
+
+    public void pullDownToRefreshAction(ActionEvent actionEvent) {
+        // Add event code here...
+        AdfmfJavaUtilities.evaluateELExpression("bindings.findAllOrders.execute");
+        AdfmfJavaUtilities.evaluateELExpression("bindings.findAllAllOrdersRemote.execute");
+        try {
+            Thread.sleep(2000);
+            AdfmfJavaUtilities.flushDataChangeEvent();
+            providerChangeSupport.fireProviderRefresh("orders");            
+            isRefreshComplete=true;
+        } catch (InterruptedException e) {
+        }
+    }
+    public Boolean getRefreshStatus(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+        }
+        return false;
     }
 }

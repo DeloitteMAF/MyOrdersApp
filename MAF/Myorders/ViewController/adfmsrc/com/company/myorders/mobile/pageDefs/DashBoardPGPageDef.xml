@@ -62,5 +62,8 @@
                   InstanceName="data.AllOrdersService.dataProvider">
       <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="findAllAllOrdersRemote" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="findAllAllOrdersRemote" IsViewObjectMethod="false" DataControl="AllOrdersService"
+                  InstanceName="data.AllOrdersService.dataProvider"/>
   </bindings>
 </pageDefinition>

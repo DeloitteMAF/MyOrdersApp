@@ -163,7 +163,7 @@
                <value n="custom" v="false"/>
                <value n="mobilePlatform" v="Android"/>
                <value n="name" v="Android Emulator"/>
-               <value n="profileName" v="Android1"/>
+               <value n="profileName" v="Android_4_Myorders"/>
                <url n="targetURL" path=".adf/META-INF/maf-application.xml"/>
             </hash>
             <hash n="iOS Simulator">
@@ -176,10 +176,9 @@
             </hash>
          </hash>
          <list n="runConfigurationList">
-            <string v="Shared"/>
-            <string v="iOS Simulator"/>
-            <string v="Android Emulator"/>
             <string v="Android Device"/>
+            <string v="Android Emulator"/>
+            <string v="iOS Simulator"/>
          </list>
       </hash>
    </hash>
