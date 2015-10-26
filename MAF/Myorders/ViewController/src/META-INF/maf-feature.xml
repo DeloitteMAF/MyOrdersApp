@@ -19,6 +19,7 @@
         <adfmf:includes>
           <adfmf:include type="StyleSheet" file="resources/css/MyOrdersSkin.css" id="i3"/>
           <adfmf:include type="JavaScript" file="resources/NavigationHandler.js" id="i4"/>
+          <adfmf:include type="JavaScript" file="resources/js/CustomEvent.js" id="i8"/>
         </adfmf:includes>
       </adfmf:amx>
     </adfmf:content>

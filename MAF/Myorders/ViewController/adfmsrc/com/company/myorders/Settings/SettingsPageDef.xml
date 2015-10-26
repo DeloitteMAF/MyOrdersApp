@@ -34,5 +34,17 @@
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDValue="#{pageFlowScope.currentFeature}" NDType="java.lang.String"/>
     </methodAction>
+    <tree IterBinding="resultIterator" id="result">
+      <nodeDefinition DefName="com.company.myorders.mobile.model.Result" Name="result0">
+        <AttrNames>
+          <Item Value="locationFullName"/>
+          <Item Value="locationCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="findResult" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findResult"
+                  IsViewObjectMethod="false" DataControl="ResultService" InstanceName="data.ResultService.dataProvider">
+      <NamedData NDName="searchValue" NDValue="${viewScope.searchString}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

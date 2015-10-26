@@ -116,3 +116,8 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topCenter .field-value,
 html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
     padding: 0px 10px 10px 5px;
 }
+
+.lovPopUp{
+    left:20%!important;
+    padding:2px;
+}

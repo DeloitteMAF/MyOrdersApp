@@ -1,6 +1,7 @@
 package com.company.myorders.mobile;
 
 
+import java.util.ArrayList;
 
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
@@ -127,15 +128,16 @@ public class OrdersManagedBean {
     }
 
     public void pullDownToRefreshAction(ActionEvent actionEvent) {
-        // Add event code here...
-        AdfmfJavaUtilities.evaluateELExpression("bindings.findAllOrders.execute");
-        AdfmfJavaUtilities.evaluateELExpression("bindings.findAllAllOrdersRemote.execute");
+        // Add event code here...        
         try {
-            Thread.sleep(2000);
+            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
             providerChangeSupport.fireProviderRefresh("orders");            
             isRefreshComplete=true;
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
+            e.getMessage();
         }
     }
     public Boolean getRefreshStatus(){
