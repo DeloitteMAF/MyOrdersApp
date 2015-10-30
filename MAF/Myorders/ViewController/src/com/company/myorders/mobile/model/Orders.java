@@ -2,6 +2,11 @@ package com.company.myorders.mobile.model;
 
 import com.company.myorders.mobile.model.utility.OrdersUtilityBean;
 
+import java.util.Arrays;
+import java.util.List;
+
+import oracle.ateam.sample.mobile.v2.persistence.util.EntityUtils;
+import oracle.ateam.sample.mobile.v2.persistence.manager.DBPersistenceManager;
 import oracle.ateam.sample.mobile.v2.persistence.model.Entity;
 
 import java.math.BigDecimal;
@@ -16,7 +21,9 @@ public class Orders extends Entity {
     private String orderedDate;
     private String custPoNumber;
     private BigDecimal totalOrderedValue;
-    private String fulfillmentDate;
+    private BigDecimal headerId;
+
+    private List<OrderDetails> xxMyOrderDetailsVO = createIndirectList("xxMyOrderDetailsVO");
 
 
     public BigDecimal getOrderNumber() {
@@ -76,12 +83,42 @@ public class Orders extends Entity {
         this.totalOrderedValue = totalOrderedValue;
     }
 
-    public String getFulfillmentDate() {
-        return this.fulfillmentDate;
+    public BigDecimal getHeaderId() {
+        return this.headerId;
     }
 
-    public void setFulfillmentDate(String fulfillmentDate) {
-        this.fulfillmentDate = fulfillmentDate;
+    public void setHeaderId(BigDecimal headerId) {
+        this.headerId = headerId;
+    }
+
+
+    public void setXxMyOrderDetailsVO(List<OrderDetails> xxMyOrderDetailsVO) {
+        this.xxMyOrderDetailsVO.clear();
+        this.xxMyOrderDetailsVO.addAll(xxMyOrderDetailsVO);
+        getProviderChangeSupport().fireProviderRefresh("xxMyOrderDetailsVO");
+    }
+
+    /**
+     * This method is called when entity instance is recreated from persisted JSON string in DataSynchAction
+     */
+    public void setXxMyOrderDetailsVO(OrderDetails[] xxMyOrderDetailsVO) {
+        setXxMyOrderDetailsVO(Arrays.asList(xxMyOrderDetailsVO));
+    }
+
+    public List<OrderDetails> getXxMyOrderDetailsVO() {
+        return this.xxMyOrderDetailsVO;
+    }
+
+
+    public void addOrderDetails(int index, OrderDetails orderDetails) {
+        orderDetails.setIsNewEntity(true);
+        EntityUtils.generatePrimaryKeyValue(orderDetails, 1);
+        orderDetails.setHeaderId(getHeaderId());
+    }
+
+    public void removeOrderDetails(OrderDetails orderDetails) {
+        DBPersistenceManager pm = new DBPersistenceManager();
+        pm.removeEntity(orderDetails, true);
     }
 
 
