@@ -22,6 +22,14 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="link"
+    PackageName="xx.orders.view.link"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="view"
     PackageName="xx.orders.view"
     ObjectType="JboPackage">

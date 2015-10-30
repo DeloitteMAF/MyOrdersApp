@@ -30,9 +30,13 @@ public interface XxMyOrdersVOSDO extends java.io.Serializable {
 
    public void setTotalOrderedValue(java.math.BigDecimal value);
 
-   public java.lang.String getFulfillmentDate();
+   public java.lang.Long getHeaderId();
 
-   public void setFulfillmentDate(java.lang.String value);
+   public void setHeaderId(java.lang.Long value);
+
+   public java.util.List getXxMyOrderDetailsVO();
+
+   public void setXxMyOrderDetailsVO(java.util.List value);
 
 
 }

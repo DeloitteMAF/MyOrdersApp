@@ -5,6 +5,7 @@ import java.util.List;
 
 import oracle.jbo.server.ApplicationModuleImpl;
 
+import oracle.jbo.server.ViewLinkImpl;
 import oracle.jbo.server.ViewObjectImpl;
 
 import xx.orders.view.XxMyLocationsVORowImpl;
@@ -74,6 +75,30 @@ public class XxMyOrdersAMImpl extends ApplicationModuleImpl {
      */
     public ViewObjectImpl getXxMyLocationsVO() {
         return (ViewObjectImpl) findViewObject("XxMyLocationsVO");
+    }
+
+    /**
+     * Container's getter for XxMyOrdersVO1.
+     * @return XxMyOrdersVO1
+     */
+    public ViewObjectImpl getXxMyOrdersVO1() {
+        return (ViewObjectImpl) findViewObject("XxMyOrdersVO1");
+    }
+
+    /**
+     * Container's getter for XxMyOrderDetailsVO1.
+     * @return XxMyOrderDetailsVO1
+     */
+    public ViewObjectImpl getXxMyOrderDetailsVO1() {
+        return (ViewObjectImpl) findViewObject("XxMyOrderDetailsVO1");
+    }
+
+    /**
+     * Container's getter for XxMyOrdersVOToXxMyOrderDetailsVO.
+     * @return XxMyOrdersVOToXxMyOrderDetailsVO
+     */
+    public ViewLinkImpl getXxMyOrdersVOToXxMyOrderDetailsVO() {
+        return (ViewLinkImpl) findViewLink("XxMyOrdersVOToXxMyOrderDetailsVO");
     }
 }
 

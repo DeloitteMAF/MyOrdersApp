@@ -6,11 +6,12 @@
         </xsd:documentation>
     </xsd:annotation>
     <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
+    <xsd:include schemaLocation="XxMyOrderDetailsVOSDO.xsd"/>
     <xsd:complexType name="XxMyOrdersVOSDO">
         <xsd:annotation>
             <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
                 <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
-                    <attribute>OrderNumber</attribute>
+                    <attribute>HeaderId</attribute>
                 </key>
             </xsd:appinfo>
         </xsd:annotation>
@@ -22,7 +23,8 @@
             <xsd:element name="OrderedDate" type="xsd:string" minOccurs="0" nillable="true"/>
             <xsd:element name="CustPoNumber" type="xsd:string" minOccurs="0" nillable="true"/>
             <xsd:element name="TotalOrderedValue" type="xsd:decimal" minOccurs="0" nillable="true"/>
-            <xsd:element name="FulfillmentDate" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="HeaderId" type="xsd:long" minOccurs="0" nillable="true"/>
+            <xsd:element name="XxMyOrderDetailsVO" type="XxMyOrderDetailsVOSDO" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:element name="xxMyOrdersVOSDO" type="XxMyOrdersVOSDO"/>

@@ -23,7 +23,8 @@ public class XxMyOrdersVORowImpl extends ViewRowImpl {
         OrderedDate,
         CustPoNumber,
         TotalOrderedValue,
-        FulfillmentDate;
+        HeaderId,
+        XxMyOrderDetailsVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -56,7 +57,8 @@ public class XxMyOrdersVORowImpl extends ViewRowImpl {
     public static final int ORDEREDDATE = AttributesEnum.OrderedDate.index();
     public static final int CUSTPONUMBER = AttributesEnum.CustPoNumber.index();
     public static final int TOTALORDEREDVALUE = AttributesEnum.TotalOrderedValue.index();
-    public static final int FULFILLMENTDATE = AttributesEnum.FulfillmentDate.index();
+    public static final int HEADERID = AttributesEnum.HeaderId.index();
+    public static final int XXMYORDERDETAILSVO = AttributesEnum.XxMyOrderDetailsVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -64,68 +66,6 @@ public class XxMyOrdersVORowImpl extends ViewRowImpl {
     public XxMyOrdersVORowImpl() {
     }
 
-    /**
-     * Gets the attribute value for the calculated attribute OrderNumber.
-     * @return the OrderNumber
-     */
-    public BigDecimal getOrderNumber() {
-        return (BigDecimal) getAttributeInternal(ORDERNUMBER);
-    }
 
-    /**
-     * Gets the attribute value for the calculated attribute PartyName.
-     * @return the PartyName
-     */
-    public String getPartyName() {
-        return (String) getAttributeInternal(PARTYNAME);
-    }
-
-    /**
-     * Gets the attribute value for the calculated attribute AccountNumber.
-     * @return the AccountNumber
-     */
-    public String getAccountNumber() {
-        return (String) getAttributeInternal(ACCOUNTNUMBER);
-    }
-
-    /**
-     * Gets the attribute value for the calculated attribute FlowStatusCode.
-     * @return the FlowStatusCode
-     */
-    public String getFlowStatusCode() {
-        return (String) getAttributeInternal(FLOWSTATUSCODE);
-    }
-
-    /**
-     * Gets the attribute value for the calculated attribute OrderedDate.
-     * @return the OrderedDate
-     */
-    public String getOrderedDate() {
-        return (String) getAttributeInternal(ORDEREDDATE);
-    }
-
-    /**
-     * Gets the attribute value for the calculated attribute CustPoNumber.
-     * @return the CustPoNumber
-     */
-    public String getCustPoNumber() {
-        return (String) getAttributeInternal(CUSTPONUMBER);
-    }
-
-    /**
-     * Gets the attribute value for the calculated attribute FulfillmentDate.
-     * @return the FulfillmentDate
-     */
-    public String getFulfillmentDate() {
-        return (String) getAttributeInternal(FULFILLMENTDATE);
-    }
-
-    /**
-     * Gets the attribute value for the calculated attribute TotalOrderedValue.
-     * @return the TotalOrderedValue
-     */
-    public BigDecimal getTotalOrderedValue() {
-        return (BigDecimal) getAttributeInternal(TOTALORDEREDVALUE);
-    }
 }
 
