@@ -24,22 +24,26 @@
           <Item Value="orderedDate"/>
           <Item Value="flowStatusCode"/>
           <Item Value="totalOrderedValue"/>
+          <Item Value="accountNumber"/>
+          <Item Value="custPoNumber"/>
+          <Item Value="headerId"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="partyName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <tree IterBinding="allOrdersIterator" id="allOrders">
-      <nodeDefinition DefName="com.company.myorders.mobile.model.AllOrders"
-                      Name="allOrders0">
+      <nodeDefinition DefName="com.company.myorders.mobile.model.AllOrders" Name="allOrders0">
         <AttrNames>
           <Item Value="orderNumber"/>
           <Item Value="accountNumber"/>
           <Item Value="custPoNumber"/>
           <Item Value="flowStatusCode"/>
-          <Item Value="fulfillmentDate"/>
           <Item Value="isNewEntity"/>
           <Item Value="orderedDate"/>
           <Item Value="partyName"/>
           <Item Value="totalOrderedValue"/>
+          <Item Value="headerId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
