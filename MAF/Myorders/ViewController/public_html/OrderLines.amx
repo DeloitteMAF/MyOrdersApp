@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:tableLayout id="tl1" width="100%">
+        <amx:rowLayout id="rl1">
+          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="10%">
+            <amx:commandLink
+                        id="cl3" action="backToDetails">
+              <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
+            </amx:commandLink>
+          </amx:cellFormat>
+          <amx:cellFormat id="cf2" valign="top" width="80%" halign="center">
+            <!--<amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot4"
+                            rendered="#{pageFlowScope.lineCurrentTab=='DETAILS'}"/>
+            <amx:outputText value="Order ##{bindings.orderNumber1.inputValue}" id="ot16"
+                            rendered="#{pageFlowScope.currentTab=='PRICING'}"/>-->
+            <amx:outputText value="Order Number" id="ot4"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cf7" valign="middle" halign="end" width="10%">
+          <amx:commandLink
+                        id="cl1" action="Home">
+              <amx:image id="i1" source="/resources/css/images/Home_Button.png" styleClass="iconstyle"/>
+            </amx:commandLink>
+          </amx:cellFormat>
+        </amx:rowLayout>
+      </amx:tableLayout>
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1">
+      <amx:facet name="top">
+        <amx:tableLayout id="tl2" width="100%"
+                           inlineStyle="border-bottom-width:thin; background-color:rgb(60,60,73); ">
+            <amx:rowLayout id="rl2">
+              <amx:cellFormat id="cf5" width="50%"
+                              inlineStyle="#{pageFlowScope.lineCurrentTab!='PRICING' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
+                <amx:commandButton text="Line Details" id="cb2"
+                                   inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none;"
+                                   styleClass="tab_btn">
+                  <amx:setPropertyListener id="spl2" to="#{pageFlowScope.lineCurrentTab}" from="#{'DETAILS'}"/>
+                </amx:commandButton>
+              </amx:cellFormat>
+            <amx:cellFormat id="cf6" width="50%"
+                            inlineStyle="#{pageFlowScope.lineCurrentTab=='PRICING' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
+              <amx:commandButton text="Pricing" id="cb3"
+                                 inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none;"
+                                 styleClass="tab_btn">
+                <amx:setPropertyListener id="spl3" to="#{pageFlowScope.lineCurrentTab}" from="#{'PRICING'}"/>
+              </amx:commandButton>
+            </amx:cellFormat>
+          </amx:rowLayout>
+          </amx:tableLayout>
+      </amx:facet>
+      <amx:facet name="center">
+          
+        <amx:refreshContainer id="rc1" busyText="Refreshing"
+                                pullText="Pull to Refresh" actionListener="#{OrdersManagedBean.pullDownToRefreshAction}">
+                                
+          <amx:tableLayout id="tl4" rendered="#{pageFlowScope.lineCurrentTab!='PRICING'}">
+            <amx:rowLayout id="rl4">
+              <amx:cellFormat id="cf4">
+                    <amx:panelGroupLayout id="pgl5" layout="vertical">
+                        <amx:outputText value="Item Name" id="ot2"/>
+                        <amx:outputText value="#{bindings.orderedItem.inputValue}" id="ot16"/>
+                        <amx:outputText value="Total" id="ot15"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl1" layout="horizontal">
+                        <amx:outputText value="#{bindings.lineTotal.inputValue}" id="ot1"/>
+                        <amx:outputText value=" #{bindings.orderQuantityUom.inputValue}" id="ot3"/>
+                    </amx:panelGroupLayout>
+                    <amx:outputText value="Shipped" id="ot5"/>
+                    <amx:panelGroupLayout id="pgl2" layout="horizontal">
+                        <amx:outputText value="#{bindings.shippedQuantity.inputValue}" id="ot6"/>
+                        <amx:outputText value="#{bindings.shippingQuantityUom.inputValue}" id="ot7"/>
+                    </amx:panelGroupLayout>
+                    <amx:outputText value="On Backorder" id="ot8"/>
+                    <amx:panelGroupLayout id="pgl3" layout="horizontal">
+                        <amx:outputText value="#{bindings.backorderQuantity.inputValue}" id="ot9"/>
+                        <amx:outputText value="#{bindings.orderQuantityUom.inputValue}" id="ot10"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl4" layout="vertical">
+                        <amx:outputText value="Shipping Deliveries" id="ot11"/>
+                        <amx:outputText value="#{bindings.freightCode.inputValue}" id="ot12"/>
+                        <amx:outputText value="Arrival Date" id="ot13"/>
+                        <amx:outputText value="#{bindings.actualArrivalDate.inputValue}" id="ot14"/>
+                        <amx:outputText value="Item Description" id="ot24"/>
+                        <amx:outputText value="#{bindings.description.inputValue}" id="ot25"/>
+                    </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+       
+          <amx:tableLayout id="tl3" rendered="#{pageFlowScope.lineCurrentTab=='PRICING'}">
+            <amx:rowLayout id="rl3">
+              <amx:cellFormat id="cf3">
+                <amx:panelGroupLayout id="pgl7" layout="vertical">
+                  <amx:outputText value="Unit Selling Price" id="ot17"/>
+                  <amx:outputText value="#{bindings.unitSellingPrice.inputValue}" id="ot18"/>
+                  <amx:outputText value="Quantity" id="ot19"/>
+                </amx:panelGroupLayout>
+                <amx:panelGroupLayout id="pgl6" layout="horizontal">
+                  <amx:outputText value="#{bindings.orderedQuantity.inputValue}" id="ot20"/>
+                  <amx:outputText value="#{bindings.orderQuantityUom.inputValue}" id="ot21"/>
+                </amx:panelGroupLayout>
+                <amx:panelGroupLayout id="pgl8" layout="vertical">
+                  <amx:outputText value="Line Total" id="ot22"/>
+                  <amx:outputText value="#{bindings.lineTotal.inputValue}" id="ot23"/>
+                  <amx:outputText value="Ship to" id="ot26"/>
+                  <amx:outputText value="Contact" id="ot27"/>
+                  <amx:outputText value="#{bindings.shipToContact.inputValue}" id="ot28"/>
+                  <amx:outputText value="Address" id="ot29"/>
+                  <amx:outputText value="#{bindings.address.inputValue}" id="ot30"/>
+                </amx:panelGroupLayout>
+              </amx:cellFormat>
+            </amx:rowLayout>
+          </amx:tableLayout>
+        </amx:refreshContainer>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

@@ -10,7 +10,10 @@
                             inlineStyle="background-image:none; background-color:#1ebe92; min-height:15%; text-wrap:none;"
                             columnSpan="1" rowSpan="1" valign="middle" halign="center">
               <amx:spacer id="s6" height="25"/>
+              <amx:panelGroupLayout id="pgl2" layout="vertical" halign="center" valign="middle">
               <amx:outputText value="#{bindings.partyName.inputValue}" id="ot1" styleClass="sbheader"/>
+              <amx:outputText value="Customer Id: #{securityContext.userName}" id="ot4" styleClass="sbheader1"/>
+               </amx:panelGroupLayout>
               <amx:spacer id="s2" height="25"/>
             </amx:cellFormat>
           </amx:rowLayout>

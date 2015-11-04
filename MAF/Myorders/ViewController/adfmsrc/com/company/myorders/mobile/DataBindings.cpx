@@ -8,6 +8,7 @@
           usageId="com_company_myorders_mobile_SpringBoardPageDef"/>
     <page path="/OrderDetails.amx" usageId="com_company_myorders_mobile_OrderDetailsPageDef"/>
     <page path="/Details.amx" usageId="com_company_myorders_mobile_DetailsPageDef"/>
+    <page path="/OrderLines.amx" usageId="com_company_myorders_mobile_OrderLinesPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_company_myorders_mobile_DashBoardPGPageDef"
@@ -18,6 +19,8 @@
     <page id="com_company_myorders_mobile_OrderDetailsPageDef"
           path="com.company.myorders.mobile.pageDefs.OrderDetailsPageDef"/>
     <page id="com_company_myorders_mobile_DetailsPageDef" path="com.company.myorders.mobile.pageDefs.DetailsPageDef"/>
+    <page id="com_company_myorders_mobile_OrderLinesPageDef"
+          path="com.company.myorders.mobile.pageDefs.OrderLinesPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="AllOrdersService"

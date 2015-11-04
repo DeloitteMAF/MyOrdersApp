@@ -88,4 +88,49 @@
       <property
          name="sdm:polyPoints">L46,483.87183,261.0459,256.0,269.39648,R46</property>
    </ControlFlowCase>
+   <View
+      id="View9">
+      <property
+         name="activityId">lineDetails</property>
+      <property
+         name="page">/OrderLines.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>lineDetails&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">287.59766</property>
+      <property
+         name="x">825.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View8"
+      to="View9">
+      <property
+         name="fromOutcome">openLineDetails</property>
+      <property
+         name="sdm:polyPoints">R50,566.0,264.5459,784.0,287.24707,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View9"
+      to="View8">
+      <property
+         name="fromOutcome">backToDetails</property>
+      <property
+         name="sdm:polyPoints">L54,783.6362,290.74707,566.0,268.0459,R54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="View9"
+      to="View2">
+      <property
+         name="fromOutcome">Home</property>
+      <property
+         name="sdm:polyPoints">B50,825.0,341.24707,215.0,326.89648,B50</property>
+   </ControlFlowCase>
 </SDM>

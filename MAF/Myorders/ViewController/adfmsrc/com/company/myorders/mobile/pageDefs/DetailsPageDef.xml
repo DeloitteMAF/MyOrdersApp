@@ -11,6 +11,12 @@
     <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
     <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25" DataControl="OrdersService"
                       BeanClass="com.company.myorders.mobile.model.Orders" id="ordersIterator"/>
+    <accessorIterator MasterBinding="allOrdersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
+                      DataControl="AllOrdersService" BeanClass="com.company.myorders.mobile.model.AllOrderDetails"
+                      id="xxMyOrderDetailsVOIterator"/>
+    <accessorIterator MasterBinding="ordersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
+                      DataControl="OrdersService" BeanClass="com.company.myorders.mobile.model.OrderDetails"
+                      id="xxMyOrderDetailsVOIterator1"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="allOrdersIterator" id="orderNumber">
@@ -63,5 +69,19 @@
         <Item Value="orderNumber"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="xxMyOrderDetailsVOIterator" id="xxMyOrderDetailsVO">
+      <nodeDefinition DefName="com.company.myorders.mobile.model.AllOrderDetails" Name="xxMyOrderDetailsVO0">
+        <AttrNames>
+          <Item Value="lineNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderDetailsVOIterator1" id="xxMyOrderDetailsVO1">
+      <nodeDefinition DefName="com.company.myorders.mobile.model.OrderDetails" Name="xxMyOrderDetailsVO10">
+        <AttrNames>
+          <Item Value="lineNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

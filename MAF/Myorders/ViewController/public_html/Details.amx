@@ -134,9 +134,28 @@
                               type="swipeRight" binding="#{OrdersManagedBean.backToDashboard}"/>
         </amx:commandLink>
         <amx:commandLink id="cl4" styleClass="remove_ul">
-          <amx:panelGroupLayout id="pgl2" rendered="#{pageFlowScope.detailCurrentTab=='LINES'}">
-            <amx:outputText value="Coming Soon..." id="ot2"/>
-            <amx:spacer id="s9" height="300"/>
+          <amx:panelGroupLayout id="pgl2">
+            <amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO.collectionModel}"
+                          fetchSize="#{bindings.xxMyOrderDetailsVO.rangeSize}"
+                          selectedRowKeys="#{bindings.xxMyOrderDetailsVO.collectionModel.selectedRow}"
+                          initialScrollRowKeys="#{bindings.xxMyOrderDetailsVO.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.xxMyOrderDetailsVO.collectionModel.makeCurrent}"
+                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
+                          rendered="#{pageFlowScope.detailCurrentTab=='LINES'}">
+              <amx:listItem id="li1" action="openLineDetails">
+                <amx:outputText value="#{row.lineNumber}" id="ot2"/>
+              </amx:listItem>
+            </amx:listView>
+            <!--<amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO1.collectionModel}"
+                          fetchSize="#{bindings.xxMyOrderDetailsVO1.rangeSize}"
+                          selectedRowKeys="#{bindings.xxMyOrderDetailsVO1.collectionModel.selectedRow}"
+                          initialScrollRowKeys="#{bindings.xxMyOrderDetailsVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.xxMyOrderDetailsVO1.collectionModel.makeCurrent}"
+                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2">
+              <amx:listItem id="li2" action="openLineDetails">
+                <amx:outputText value="#{row.lineNumber}" id="ot17"/>
+              </amx:listItem>
+            </amx:listView>-->
           </amx:panelGroupLayout>
           <amx:setPropertyListener id="spl6" to="#{pageFlowScope.detailCurrentTab}" type="swipeLeft"
                                    from="#{'ALERTS'}"/>

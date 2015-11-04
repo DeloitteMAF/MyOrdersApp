@@ -19,6 +19,9 @@
     <view id="Details">
       <page>/Details.amx</page>
     </view>
+    <view id="lineDetails">
+      <page>/OrderLines.amx</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>DashBoard</from-activity-id>
       <control-flow-case id="__3">
@@ -30,6 +33,21 @@
       <from-activity-id>Details</from-activity-id>
       <control-flow-case id="__5">
         <from-outcome>backToDashBoard</from-outcome>
+        <to-activity-id>DashBoard</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>openLineDetails</from-outcome>
+        <to-activity-id>lineDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>lineDetails</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>backToDetails</from-outcome>
+        <to-activity-id>Details</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>Home</from-outcome>
         <to-activity-id>DashBoard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
