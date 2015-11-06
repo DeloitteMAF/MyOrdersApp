@@ -48,11 +48,6 @@
         <Item Value="shippedQuantity"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="xxMyOrderDetailsVOIterator" id="shippingQuantityUom">
-      <AttrNames>
-        <Item Value="shippingQuantityUom"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="xxMyOrderDetailsVOIterator" id="backorderQuantity">
       <AttrNames>
         <Item Value="backorderQuantity"/>
@@ -96,6 +91,11 @@
     <attributeValues IterBinding="xxMyOrderDetailsVOIterator" id="orderedQuantity">
       <AttrNames>
         <Item Value="orderedQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator" id="shippingQuantityUom">
+      <AttrNames>
+        <Item Value="shippingQuantityUom"/>
       </AttrNames>
     </attributeValues>
   </bindings>

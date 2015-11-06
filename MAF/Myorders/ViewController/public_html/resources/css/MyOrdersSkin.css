@@ -128,3 +128,29 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
     left:20%!important;
     padding:2px;
 }
+
+.otLabel{
+    Font-Family:Helvetica;
+    Font-Size:12px;
+    Color:#6d6e71;
+}
+
+.otLabelBackorder{
+    Font-Family:Helvetica;
+    Font-Size:12px;
+    Color:#c0392b;
+}
+
+.otLabelHeader{
+    Padding-top:11px;
+    Font-Family:Helvetica;
+    Font-Weight:bold;
+    Font-Size:12px;
+    Color:#414042;
+}
+
+.otValue{
+    Font-Family:Helvetica;
+    Font-Size:12px;
+    Color:#414042;
+}
