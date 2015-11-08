@@ -55,7 +55,7 @@
           
         <amx:refreshContainer id="rc1" busyText="Refreshing"
                                 pullText="Pull to Refresh" actionListener="#{OrdersManagedBean.pullDownToRefreshAction}">
-          <amx:panelGroupLayout id="pgl9" rendered="false"
+          <amx:panelGroupLayout id="pgl9" rendered="#{pageFlowScope.lineCurrentTab!='PRICING'}"
                                 inlineStyle="background-color:#D7D7DA; width:100%;">
             <amx:tableLayout id="tl4" width="100%">
               <amx:rowLayout id="rl10">
@@ -149,7 +149,8 @@
               </amx:rowLayout>
             </amx:tableLayout>
           </amx:panelGroupLayout>
-          <amx:panelGroupLayout id="pgl10" inlineStyle="background-color:#e6e7e8;">
+          <amx:panelGroupLayout id="pgl10" inlineStyle="background-color:#e6e7e8;"
+                                rendered="#{pageFlowScope.lineCurrentTab=='PRICING'}">
             <amx:tableLayout id="tl3" width="100%">
               <amx:rowLayout id="rl18">
                 <amx:cellFormat id="cf25" width="16px" rowSpan="8"/>
@@ -158,29 +159,41 @@
               <amx:rowLayout id="rl3">
                 <amx:cellFormat id="cf3">
                   <amx:panelGroupLayout id="pgl7" layout="vertical">
-                    <amx:outputText value="Unit Selling Price" id="ot17"/>
-                    <amx:outputText value="#{bindings.unitSellingPrice.inputValue}" id="ot18"/>
+                    <amx:outputText value="Unit Selling Price" id="ot17" styleClass="otLabel"/>
+                    <amx:outputText value="#{bindings.unitSellingPrice.inputValue}" id="ot18" styleClass="otValue"/>
                   </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl24">
+                <amx:cellFormat id="cf34">
+                  <amx:spacer id="s6" height="15"/>
                 </amx:cellFormat>
               </amx:rowLayout>
               <amx:rowLayout id="rl17">
                 <amx:cellFormat id="cf14">
-                  <amx:panelGroupLayout id="pgl6" layout="horizontal">
-                    <amx:outputText value="Quantity" id="ot19"/>
-                    <amx:outputText value="#{bindings.orderedQuantity.inputValue} #{bindings.orderQuantityUom.inputValue}" id="ot20"/>
+                  <amx:panelGroupLayout id="pgl6">
+                    <amx:outputText value="Quantity" id="ot19" styleClass="otLabel"/>
+                    <amx:outputText value="#{bindings.orderedQuantity.inputValue} #{bindings.orderQuantityUom.inputValue}" id="ot20"
+                                    styleClass="otValue"/>
                   </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+                            <amx:rowLayout id="rl25">
+                <amx:cellFormat id="cf35">
+                  <amx:spacer id="s7" height="15"/>
                 </amx:cellFormat>
               </amx:rowLayout>
               <amx:rowLayout id="rl16">
                 <amx:cellFormat id="cf24">
                   <amx:panelGroupLayout id="pgl8" layout="vertical">
-                    <amx:outputText value="Line Total" id="ot22"/>
-                    <amx:outputText value="#{bindings.lineTotal.inputValue}" id="ot23"/>
-                    <amx:outputText value="Contact" id="ot27"/>
-                    <amx:outputText value="#{bindings.shipToContact.inputValue}" id="ot28"/>
-                    <amx:outputText value="Address" id="ot29"/>
-                    <amx:outputText value="#{bindings.address.inputValue}" id="ot30"/>
+                    <amx:outputText value="Line Total" id="ot22" styleClass="otLabel"/>
+                    <amx:outputText value="#{bindings.lineTotal.inputValue}" id="ot23" styleClass="otValue"/>
                   </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+                            <amx:rowLayout id="rl26">
+                <amx:cellFormat id="cf36">
+                  <amx:spacer id="s8" height="15"/>
                 </amx:cellFormat>
               </amx:rowLayout>
             </amx:tableLayout>
@@ -188,17 +201,36 @@
               <amx:rowLayout id="rl19">
                 <amx:cellFormat id="cf27" width="16px"/>
                 <amx:cellFormat id="cf28" width="90%">
-                  <amx:outputText value="Ship to" id="ot26"/>
+                  <amx:outputText value="Ship to" id="ot26" styleClass="otLabelHeader"/>
                 </amx:cellFormat>
               </amx:rowLayout>
             </amx:tableLayout>
             <amx:tableLayout id="tl8" width="100%">
               <amx:rowLayout id="rl20">
-                <amx:cellFormat id="cf29" rowSpan="3" width="16px"/>
+                <amx:cellFormat id="cf29" rowSpan="5" width="16px"/>
                 <amx:cellFormat id="cf30" height="20px"/>
               </amx:rowLayout>
-              <amx:rowLayout id="rl21"></amx:rowLayout>
-              <amx:rowLayout id="rl22"></amx:rowLayout>
+              <amx:rowLayout id="rl21">
+                <amx:cellFormat id="cf31">
+                  <amx:panelGroupLayout id="pgl12">
+                    <amx:outputText value="Contact" id="ot27" styleClass="otLabel"/>
+                    <amx:outputText value="#{bindings.shipToContact.inputValue}" id="ot28" styleClass="otValue"/>
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl23">
+                <amx:cellFormat id="cf33">
+                  <amx:spacer id="s5" height="15"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl22">
+                <amx:cellFormat id="cf32">
+                  <amx:panelGroupLayout id="pgl13">
+                    <amx:outputText value="Address" id="ot29" styleClass="otLabel"/>
+                    <amx:outputText value="#{bindings.address.inputValue}" id="ot30" styleClass="otValue"/>
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
             </amx:tableLayout>
           </amx:panelGroupLayout>
         </amx:refreshContainer>
