@@ -73,6 +73,8 @@
       <nodeDefinition DefName="com.company.myorders.mobile.model.AllOrderDetails" Name="xxMyOrderDetailsVO0">
         <AttrNames>
           <Item Value="lineNumber"/>
+          <Item Value="lineTotal"/>
+          <Item Value="orderedItem"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -80,6 +82,8 @@
       <nodeDefinition DefName="com.company.myorders.mobile.model.OrderDetails" Name="xxMyOrderDetailsVO10">
         <AttrNames>
           <Item Value="lineNumber"/>
+          <Item Value="lineTotal"/>
+          <Item Value="orderedItem"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

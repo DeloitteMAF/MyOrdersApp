@@ -134,28 +134,91 @@
                               type="swipeRight" binding="#{OrdersManagedBean.backToDashboard}"/>
         </amx:commandLink>
         <amx:commandLink id="cl4" styleClass="remove_ul">
-          <amx:panelGroupLayout id="pgl2">
+          <amx:panelGroupLayout id="pgl2" rendered="#{pageFlowScope.detailCurrentTab=='LINES'}">
             <amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO.collectionModel}"
                           fetchSize="#{bindings.xxMyOrderDetailsVO.rangeSize}"
                           selectedRowKeys="#{bindings.xxMyOrderDetailsVO.collectionModel.selectedRow}"
                           initialScrollRowKeys="#{bindings.xxMyOrderDetailsVO.collectionModel.selectedRow}"
                           selectionListener="#{bindings.xxMyOrderDetailsVO.collectionModel.makeCurrent}"
                           showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
-                          rendered="#{pageFlowScope.detailCurrentTab=='LINES'}">
-              <amx:listItem id="li1" action="openLineDetails">
-                <amx:outputText value="#{row.lineNumber}" id="ot2"/>
+                          rendered="#{pageFlowScope.currentTab=='ALL'}">
+              <amx:listItem id="li1" action="openLineDetails"
+                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}">
+                <amx:tableLayout id="tl7" width="100%">
+                  <amx:rowLayout id="rl9">
+                    <amx:cellFormat id="cf18" width="30%">
+                      <amx:image id="i5"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf19" width="70%">
+                      <amx:tableLayout id="tl8" width="100%">
+                        <amx:rowLayout id="rl7">
+                          <amx:cellFormat id="cf3" width="50%">
+                            <amx:panelGroupLayout id="pgl8">
+                              <amx:outputText value="Line Number" id="ot18" styleClass="detailhead"/>
+                              <amx:outputText value="#{row.lineNumber}" id="ot2" styleClass="value"/>
+                            </amx:panelGroupLayout>
+                          </amx:cellFormat>
+                          <amx:cellFormat id="cf16" width="50%">
+                            <amx:panelGroupLayout id="pgl9">
+                              <amx:outputText value="Price" id="ot19" styleClass="detailhead"/>
+                              <amx:outputText value="#{row.lineTotal}" id="ot20" styleClass="value"/>
+                            </amx:panelGroupLayout>
+                          </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl8">
+                          <amx:cellFormat id="cf15" width="100%">
+                            <amx:outputText value="Item" id="ot21" styleClass="detailhead"/>
+                            <amx:outputText value="#{row.orderedItem}" id="ot22" styleClass="value"/>
+                          </amx:cellFormat>
+                        </amx:rowLayout>
+                      </amx:tableLayout>
+                    </amx:cellFormat>
+                  </amx:rowLayout>
+                </amx:tableLayout>
               </amx:listItem>
             </amx:listView>
-            <!--<amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO1.collectionModel}"
+            <amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO1.collectionModel}"
                           fetchSize="#{bindings.xxMyOrderDetailsVO1.rangeSize}"
                           selectedRowKeys="#{bindings.xxMyOrderDetailsVO1.collectionModel.selectedRow}"
                           initialScrollRowKeys="#{bindings.xxMyOrderDetailsVO1.collectionModel.selectedRow}"
                           selectionListener="#{bindings.xxMyOrderDetailsVO1.collectionModel.makeCurrent}"
-                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2">
-              <amx:listItem id="li2" action="openLineDetails">
-                <amx:outputText value="#{row.lineNumber}" id="ot17"/>
+                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2"
+                          rendered="#{pageFlowScope.currentTab!='ALL'}">
+              <amx:listItem id="li2" action="openLineDetails"
+                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}">
+                <amx:tableLayout id="tl9" width="100%">
+                  <amx:rowLayout id="rl10">
+                    <amx:cellFormat id="cf17" width="30%">
+                      <amx:image id="i7"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf20" width="70%">
+                      <amx:tableLayout id="tl10" width="100%">
+                        <amx:rowLayout id="rl11">
+                          <amx:cellFormat id="cf21" width="50%">
+                            <amx:panelGroupLayout id="pgl10">
+                              <amx:outputText value="Line Number" id="ot23" styleClass="detailhead"/>
+                              <amx:outputText value="#{row.lineNumber}" id="ot24" styleClass="value"/>
+                            </amx:panelGroupLayout>
+                          </amx:cellFormat>
+                          <amx:cellFormat id="cf22" width="50%">
+                            <amx:panelGroupLayout id="pgl11">
+                              <amx:outputText value="Price" id="ot25" styleClass="detailhead"/>
+                              <amx:outputText value="#{row.lineTotal}" id="ot26" styleClass="value"/>
+                            </amx:panelGroupLayout>
+                          </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl18">
+                          <amx:cellFormat id="cf33" width="100%">
+                            <amx:outputText value="Item" id="ot38" styleClass="detailhead"/>
+                            <amx:outputText value="#{row.orderedItem}" id="ot17" styleClass="value"/>
+                          </amx:cellFormat>
+                        </amx:rowLayout>
+                      </amx:tableLayout>
+                    </amx:cellFormat>
+                  </amx:rowLayout>
+                </amx:tableLayout>
               </amx:listItem>
-            </amx:listView>-->
+            </amx:listView>
           </amx:panelGroupLayout>
           <amx:setPropertyListener id="spl6" to="#{pageFlowScope.detailCurrentTab}" type="swipeLeft"
                                    from="#{'ALERTS'}"/>
@@ -164,8 +227,90 @@
         </amx:commandLink>
         <amx:commandLink id="cl5" styleClass="remove_ul">
           <amx:panelGroupLayout id="pgl3" rendered="#{pageFlowScope.detailCurrentTab=='ALERTS'}">
-            <amx:outputText value="Coming Soon..." id="ot3"/>
-            <amx:spacer id="s10" height="300"/>
+            <amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO.collectionModel}"
+                          fetchSize="#{bindings.xxMyOrderDetailsVO.rangeSize}"
+                          selectedRowKeys="#{bindings.xxMyOrderDetailsVO.collectionModel.selectedRow}"
+                          initialScrollRowKeys="#{bindings.xxMyOrderDetailsVO.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.xxMyOrderDetailsVO.collectionModel.makeCurrent}"
+                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv3"
+                          rendered="#{pageFlowScope.currentTab=='ALL'}">
+              <amx:listItem id="li3" action="openLineDetails"
+                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}">
+                <amx:tableLayout id="tl11" width="100%">
+                  <amx:rowLayout id="rl12">
+                    <amx:cellFormat id="cf23" width="30%">
+                      <amx:image id="i8"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf24" width="70%">
+                      <amx:tableLayout id="tl12" width="100%">
+                        <amx:rowLayout id="rl13">
+                          <amx:cellFormat id="cf25" width="50%">
+                            <amx:panelGroupLayout id="pgl12">
+                              <amx:outputText value="Line Number" id="ot3" styleClass="detailhead"/>
+                              <amx:outputText value="#{row.lineNumber}" id="ot27" styleClass="value"/>
+                            </amx:panelGroupLayout>
+                          </amx:cellFormat>
+                          <amx:cellFormat id="cf26" width="50%">
+                            <amx:panelGroupLayout id="pgl13">
+                              <amx:outputText value="Price" id="ot29" styleClass="detailhead"/>
+                              <amx:outputText value="#{row.lineTotal}" id="ot28" styleClass="value"/>
+                            </amx:panelGroupLayout>
+                          </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl14">
+                          <amx:cellFormat id="cf27" width="100%">
+                            <amx:outputText value="Item" id="ot30" styleClass="detailhead"/>
+                            <amx:outputText value="#{row.orderedItem}" id="ot31" styleClass="value"/>
+                          </amx:cellFormat>
+                        </amx:rowLayout>
+                      </amx:tableLayout>
+                    </amx:cellFormat>
+                  </amx:rowLayout>
+                </amx:tableLayout>
+              </amx:listItem>
+            </amx:listView>
+            <amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO1.collectionModel}"
+                          fetchSize="#{bindings.xxMyOrderDetailsVO1.rangeSize}"
+                          selectedRowKeys="#{bindings.xxMyOrderDetailsVO1.collectionModel.selectedRow}"
+                          initialScrollRowKeys="#{bindings.xxMyOrderDetailsVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.xxMyOrderDetailsVO1.collectionModel.makeCurrent}"
+                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv4"
+                          rendered="#{pageFlowScope.currentTab!='ALL'}">
+              <amx:listItem id="li4" action="openLineDetails"
+                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}">
+                <amx:tableLayout id="tl13" width="100%">
+                  <amx:rowLayout id="rl15">
+                    <amx:cellFormat id="cf28" width="30%">
+                      <amx:image id="i9"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf29" width="70%">
+                      <amx:tableLayout id="tl14" width="100%">
+                        <amx:rowLayout id="rl16">
+                          <amx:cellFormat id="cf30" width="50%">
+                            <amx:panelGroupLayout id="pgl14">
+                              <amx:outputText value="Line Number" id="ot32" styleClass="detailhead"/>
+                              <amx:outputText value="#{row.lineNumber}" id="ot33" styleClass="value"/>
+                            </amx:panelGroupLayout>
+                          </amx:cellFormat>
+                          <amx:cellFormat id="cf31" width="50%">
+                            <amx:panelGroupLayout id="pgl15">
+                              <amx:outputText value="Price" id="ot34" styleClass="detailhead"/>
+                              <amx:outputText value="#{row.lineTotal}" id="ot35" styleClass="value"/>
+                            </amx:panelGroupLayout>
+                          </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl17">
+                          <amx:cellFormat id="cf32" width="100%">
+                            <amx:outputText value="Item" id="ot36" styleClass="detailhead"/>
+                            <amx:outputText value="#{row.orderedItem}" id="ot37" styleClass="value"/>
+                          </amx:cellFormat>
+                        </amx:rowLayout>
+                      </amx:tableLayout>
+                    </amx:cellFormat>
+                  </amx:rowLayout>
+                </amx:tableLayout>
+              </amx:listItem>
+            </amx:listView>
           </amx:panelGroupLayout>
           <amx:setPropertyListener id="spl8" to="#{pageFlowScope.detailCurrentTab}" from="#{'LINES'}"
                                    type="swipeRight"/>
