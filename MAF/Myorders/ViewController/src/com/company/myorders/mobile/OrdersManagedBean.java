@@ -151,7 +151,6 @@ public class OrdersManagedBean {
     
     
     public String getAlertCount(){
-        String currentTab = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentTab");
         
         AmxIteratorBinding ib =
                     (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator1}");
