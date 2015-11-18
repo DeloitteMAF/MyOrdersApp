@@ -17,7 +17,7 @@
             <amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot16"
                             rendered="#{pageFlowScope.currentTab!='ALL'}"/>
           </amx:cellFormat>
-          <amx:cellFormat id="cf7" valign="middle" halign="end" width="20px">
+          <amx:cellFormat id="cf7" width="20px">
           <amx:commandLink
                         id="cl1" action="Home">
               <amx:image id="i1" source="/resources/css/images/Home_Button.png" styleClass="iconstyle"/>
