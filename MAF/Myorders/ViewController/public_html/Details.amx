@@ -167,7 +167,7 @@
                           </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl8">
-                          <amx:cellFormat id="cf15" width="100%">
+                          <amx:cellFormat id="cf15" width="100%" columnSpan="2">
                             <amx:outputText value="Item" id="ot21" styleClass="detailhead"/>
                             <amx:outputText value="#{row.orderedItem}" id="ot22" styleClass="value"/>
                           </amx:cellFormat>
@@ -209,7 +209,7 @@
                           </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl18">
-                          <amx:cellFormat id="cf33" width="100%">
+                          <amx:cellFormat id="cf33" width="100%" rowSpan="1" columnSpan="2">
                             <amx:outputText value="Item" id="ot38" styleClass="detailhead"/>
                             <amx:outputText value="#{row.orderedItem}" id="ot17" styleClass="value"/>
                           </amx:cellFormat>
@@ -259,7 +259,7 @@
                           </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl14">
-                          <amx:cellFormat id="cf27" width="100%">
+                          <amx:cellFormat id="cf27" width="100%" rowSpan="1" columnSpan="2">
                             <amx:outputText value="Item" id="ot30" styleClass="detailhead"/>
                             <amx:outputText value="#{row.orderedItem}" id="ot31" styleClass="value"/>
                           </amx:cellFormat>
@@ -301,7 +301,7 @@
                           </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl17">
-                          <amx:cellFormat id="cf32" width="100%">
+                          <amx:cellFormat id="cf32" width="100%" rowSpan="1" columnSpan="2">
                             <amx:outputText value="Item" id="ot36" styleClass="detailhead"/>
                             <amx:outputText value="#{row.orderedItem}" id="ot37" styleClass="value"/>
                           </amx:cellFormat>

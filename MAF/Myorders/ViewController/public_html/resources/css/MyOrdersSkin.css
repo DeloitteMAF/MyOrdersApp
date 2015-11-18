@@ -98,6 +98,7 @@
     color:#414042;
     font-size:1em;
     font-weight:bold;
+    Font-Size:15px;
 }
 
 .remove_ul {
@@ -158,7 +159,7 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
 .otAlert{
     color: white;
     position: absolute;
-    left: 54%;
+    left: 63%;
     top: 13%;
     z-index: 1;
     background: #1EBE92;

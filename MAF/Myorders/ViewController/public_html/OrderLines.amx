@@ -11,7 +11,7 @@
               <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
             </amx:commandLink>
           </amx:cellFormat>
-          <amx:cellFormat id="cf2" valign="top" width="80%" halign="center">
+          <amx:cellFormat id="cf2" valign="top" width="30%" halign="center">
             <amx:outputText value="Order ##{bindings.orderNumber1.inputValue}" id="ot4"
                             rendered="#{pageFlowScope.currentTab=='ALL'}"/>
             <amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot16"
@@ -71,8 +71,8 @@
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
-                <amx:cellFormat id="cf17" width="50%">
-                  <amx:panelGroupLayout id="pgl11" layout="vertical">
+                <amx:cellFormat id="cf17" width="50%" halign="end">
+                  <amx:panelGroupLayout id="pgl11" layout="vertical" halign="end">
                     <amx:outputText value="Item Description" id="ot7" styleClass="otLabel"/>
                     <amx:outputText value="#{bindings.description.inputValue}" id="ot10" styleClass="otValue"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
