@@ -5,7 +5,7 @@
     <amx:facet name="header">
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
-          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="10%">
+          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
             <amx:commandLink
                         id="cl3" action="backToDetails">
               <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
@@ -17,7 +17,7 @@
             <amx:outputText value="Order ##{bindings.orderNumber1.inputValue}" id="ot16"
                             rendered="#{pageFlowScope.currentTab!='ALL'}"/>
           </amx:cellFormat>
-          <amx:cellFormat id="cf7" valign="middle" halign="end" width="10%">
+          <amx:cellFormat id="cf7" valign="middle" halign="end" width="20px">
           <amx:commandLink
                         id="cl1" action="Home">
               <amx:image id="i1" source="/resources/css/images/Home_Button.png" styleClass="iconstyle"/>

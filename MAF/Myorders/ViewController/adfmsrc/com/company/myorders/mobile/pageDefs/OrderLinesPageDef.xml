@@ -19,6 +19,16 @@
                       id="xxMyOrderDetailsVOIterator1"/>
   </executables>
   <bindings>
+    <attributeValues IterBinding="ordersIterator" id="orderNumber">
+      <AttrNames>
+        <Item Value="orderNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allOrdersIterator" id="orderNumber1">
+      <AttrNames>
+        <Item Value="orderNumber"/>
+      </AttrNames>
+    </attributeValues>
     <tree IterBinding="xxMyOrderDetailsVOIterator" id="xxMyOrderDetailsVO">
       <nodeDefinition DefName="com.company.myorders.mobile.model.OrderDetails" Name="xxMyOrderDetailsVO0">
         <AttrNames>
@@ -96,16 +106,6 @@
     <attributeValues IterBinding="xxMyOrderDetailsVOIterator" id="shippingQuantityUom">
       <AttrNames>
         <Item Value="shippingQuantityUom"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ordersIterator" id="orderNumber">
-      <AttrNames>
-        <Item Value="orderNumber"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="allOrdersIterator" id="orderNumber1">
-      <AttrNames>
-        <Item Value="orderNumber"/>
       </AttrNames>
     </attributeValues>
   </bindings>

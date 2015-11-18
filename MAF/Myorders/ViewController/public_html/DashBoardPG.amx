@@ -155,6 +155,8 @@
                                            type="tapHold"/>
                   <amx:setPropertyListener id="spl10" from="#{row.totalOrderedValue}"
                                            to="#{viewScope.totalOrderedValue}" type="tapHold"/>
+                  <amx:setPropertyListener id="spl14" from="#{''}" to="#{pageFlowScope.detailCurrentTab}"/>
+                  <amx:setPropertyListener id="spl15" to="#{pageFlowScope.lineCurrentTab}" from="#{''}"/>
                 </amx:listItem>
               </amx:listView>
               <amx:setPropertyListener id="spl3" to="#{pageFlowScope.currentTab}" from="#{'ALL'}" type="swipeLeft"/>
@@ -208,6 +210,8 @@
                       </amx:cellFormat>
                     </amx:rowLayout>
                   </amx:tableLayout>
+                  <amx:setPropertyListener id="spl16" from="#{''}" to="#{pageFlowScope.detailCurrentTab}"/>
+                  <amx:setPropertyListener id="spl17" to="#{pageFlowScope.lineCurrentTab}" from="#{''}"/>
                 </amx:listItem>
               </amx:listView>
             </amx:commandLink>
