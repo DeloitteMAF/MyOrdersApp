@@ -108,5 +108,70 @@
         <Item Value="shippingQuantityUom"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="unitSellingPrice1">
+      <AttrNames>
+        <Item Value="unitSellingPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="orderedItem1">
+      <AttrNames>
+        <Item Value="orderedItem"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="description1">
+      <AttrNames>
+        <Item Value="description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="lineTotal1">
+      <AttrNames>
+        <Item Value="lineTotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="orderQuantityUom1">
+      <AttrNames>
+        <Item Value="orderQuantityUom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="shippedQuantity1">
+      <AttrNames>
+        <Item Value="shippedQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="shippingQuantityUom1">
+      <AttrNames>
+        <Item Value="shippingQuantityUom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="backorderQuantity1">
+      <AttrNames>
+        <Item Value="backorderQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="freightCode1">
+      <AttrNames>
+        <Item Value="freightCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="actualArrivalDate1">
+      <AttrNames>
+        <Item Value="actualArrivalDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="orderedQuantity1">
+      <AttrNames>
+        <Item Value="orderedQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="shipToContact1">
+      <AttrNames>
+        <Item Value="shipToContact"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="xxMyOrderDetailsVOIterator1" id="address1">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
