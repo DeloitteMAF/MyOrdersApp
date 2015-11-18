@@ -43,11 +43,12 @@
               </amx:cellFormat>
             <amx:cellFormat id="cf6" width="50%"
                             inlineStyle="#{pageFlowScope.detailCurrentTab=='ALERTS' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
-              <amx:commandButton text="Alerts" id="cb3"
+              <amx:commandButton text="Alert" id="cb3"
                                  inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none;"
                                  styleClass="tab_btn">
                 <amx:setPropertyListener id="spl3" to="#{pageFlowScope.detailCurrentTab}" from="#{'ALERTS'}"/>
               </amx:commandButton>
+              <amx:outputText value="#{OrdersManagedBean.alertCount}" id="ot39" styleClass="otAlert"/>
             </amx:cellFormat>
           </amx:rowLayout>
           </amx:tableLayout>

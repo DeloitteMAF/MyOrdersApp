@@ -4,6 +4,7 @@ package com.company.myorders.mobile;
 import java.util.ArrayList;
 
 import oracle.adfmf.amx.event.ActionEvent;
+import oracle.adfmf.bindings.dbf.AmxIteratorBinding;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
@@ -146,5 +147,14 @@ public class OrdersManagedBean {
         } catch (InterruptedException e) {
         }
         return false;
+    }
+    
+    
+    public String getAlertCount(){
+        String currentTab = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentTab");
+        
+        AmxIteratorBinding ib =
+                    (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator1}");
+        return new Integer(ib.getIterator().getTotalRowCount()).toString();
     }
 }

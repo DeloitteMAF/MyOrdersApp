@@ -154,3 +154,18 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
     Font-Size:12px;
     Color:#414042;
 }
+
+.otAlert{
+    color: white;
+    position: absolute;
+    left: 54%;
+    top: 13%;
+    z-index: 1;
+    background: #1EBE92;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    border-radius: 25px;
+    font-size: x-small;
+    line-height: 226%;
+}
