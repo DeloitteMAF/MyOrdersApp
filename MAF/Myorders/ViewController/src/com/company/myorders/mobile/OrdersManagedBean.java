@@ -153,7 +153,7 @@ public class OrdersManagedBean {
     public String getAlertCount(){
         
         AmxIteratorBinding ib =
-                    (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator1}");
+                    (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator}");
         return new Integer(ib.getIterator().getTotalRowCount()).toString();
     }
 }

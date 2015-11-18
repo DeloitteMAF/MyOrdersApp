@@ -59,7 +59,7 @@
             <amx:tableLayout id="tl4" width="100%">
               <amx:rowLayout id="rl10">
                 <amx:cellFormat id="cf15" width="16px" rowSpan="10"/>
-                <amx:cellFormat id="cf16" columnSpan="3" height="20px"/>
+                <amx:cellFormat id="cf16" columnSpan="2" height="20px"/>
               </amx:rowLayout>
               <amx:rowLayout id="rl4">
                 <amx:cellFormat id="cf4" width="50%">
@@ -71,8 +71,8 @@
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
-                <amx:cellFormat id="cf17" width="50%" halign="end">
-                  <amx:panelGroupLayout id="pgl11" layout="vertical" halign="end">
+                <amx:cellFormat id="cf17" width="50%">
+                  <amx:panelGroupLayout id="pgl11" layout="vertical">
                     <amx:outputText value="Item Description" id="ot7" styleClass="otLabel"/>
                     <amx:outputText value="#{bindings.description.inputValue}" id="ot10" styleClass="otValue"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
