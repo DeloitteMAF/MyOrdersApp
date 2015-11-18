@@ -98,5 +98,15 @@
         <Item Value="shippingQuantityUom"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="ordersIterator" id="orderNumber">
+      <AttrNames>
+        <Item Value="orderNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allOrdersIterator" id="orderNumber1">
+      <AttrNames>
+        <Item Value="orderNumber"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

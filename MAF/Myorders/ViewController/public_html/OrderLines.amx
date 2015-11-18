@@ -12,11 +12,10 @@
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="top" width="80%" halign="center">
-            <!--<amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot4"
-                            rendered="#{pageFlowScope.lineCurrentTab=='DETAILS'}"/>
+            <amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot4"
+                            rendered="#{pageFlowScope.currentTab=='ALL'}"/>
             <amx:outputText value="Order ##{bindings.orderNumber1.inputValue}" id="ot16"
-                            rendered="#{pageFlowScope.currentTab=='PRICING'}"/>-->
-            <amx:outputText value="Order Number" id="ot4"/>
+                            rendered="#{pageFlowScope.currentTab!='ALL'}"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf7" valign="middle" halign="end" width="10%">
           <amx:commandLink
@@ -66,7 +65,7 @@
                 <amx:cellFormat id="cf4" width="50%">
                   <amx:panelGroupLayout id="pgl5" layout="vertical">
                     <amx:outputText value="Item Name" id="ot2" styleClass="otLabel"/>
-                    <amx:outputText value="#{bindings.orderedItem.inputValue}" id="ot16" styleClass="otValue"/>
+                    <amx:outputText value="#{bindings.orderedItem.inputValue}" id="ot11" styleClass="otValue"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf17" width="50%">
