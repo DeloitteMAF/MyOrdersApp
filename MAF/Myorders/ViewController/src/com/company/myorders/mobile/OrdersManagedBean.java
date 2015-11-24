@@ -149,6 +149,12 @@ public class OrdersManagedBean {
         return false;
     }
     
+    public void getOrdersDefault(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+        }
+    }   
     
     public String getAlertCount(){
         

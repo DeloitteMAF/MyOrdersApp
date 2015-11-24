@@ -12,9 +12,9 @@
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
-            <amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot4"
+            <amx:outputText value="Order# #{bindings.orderNumber.inputValue}" id="ot4"
                             rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-            <amx:outputText value="Order ##{bindings.orderNumber1.inputValue}" id="ot16"
+            <amx:outputText value="Order# #{bindings.orderNumber1.inputValue}" id="ot16"
                             rendered="#{pageFlowScope.currentTab!='ALL'}"/>
           </amx:cellFormat>
         </amx:rowLayout>
@@ -87,7 +87,7 @@
                     <amx:outputText value="Booking Date" id="ot9" styleClass="detailhead"/>
                     <amx:outputText value="#{bindings.orderedDate.inputValue}" id="ot5" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-                    <amx:outputText value="#{bindings.orderedDate1.inputValue}" id="ot13"
+                    <amx:outputText value="#{bindings.orderedDate1.inputValue}" id="ot13" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
@@ -105,7 +105,7 @@
                     <amx:outputText value="Purchase Order" id="ot10" styleClass="detailhead"/>
                     <amx:outputText value="#{bindings.custPoNumber.inputValue}" id="ot6" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-                    <amx:outputText value="#{bindings.custPoNumber1.inputValue}" id="ot14"
+                    <amx:outputText value="#{bindings.custPoNumber1.inputValue}" id="ot14" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
@@ -123,7 +123,7 @@
                     <amx:outputText value="Order Value" id="ot11" styleClass="detailhead"/>
                     <amx:outputText value="#{bindings.totalOrderedValue.inputValue}" id="ot7" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-                    <amx:outputText value="#{bindings.totalOrderedValue1.inputValue}" id="ot15"
+                    <amx:outputText value="#{bindings.totalOrderedValue1.inputValue}" id="ot15" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
@@ -174,6 +174,12 @@
                         </amx:rowLayout>
                       </amx:tableLayout>
                     </amx:cellFormat>
+                      <amx:cellFormat id="cf37" width="15px" halign="center">
+                        <amx:commandLink id="cl5">
+                          <amx:outputHtml id="oh3" styleClass="fa fa-chevron-right fa-2g"
+                                          inlineStyle="color: rgb(157, 157, 173);"/>
+                        </amx:commandLink>
+                      </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
               </amx:listItem>
@@ -216,6 +222,12 @@
                         </amx:rowLayout>
                       </amx:tableLayout>
                     </amx:cellFormat>
+                      <amx:cellFormat id="cf34" width="15px" halign="center">
+                        <amx:commandLink id="cl1">
+                          <amx:outputHtml id="oh1" styleClass="fa fa-chevron-right fa-2g"
+                                          inlineStyle="color: rgb(157, 157, 173);"/>
+                        </amx:commandLink>
+                      </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
               </amx:listItem>
@@ -267,6 +279,12 @@
                         </amx:rowLayout>
                       </amx:tableLayout>
                     </amx:cellFormat>
+                      <amx:cellFormat id="cf35" width="15px" halign="center">
+                        <amx:commandLink id="cl6">
+                          <amx:outputHtml id="oh2" styleClass="fa fa-chevron-right fa-2g"
+                                          inlineStyle="color: rgb(157, 157, 173);"/>
+                        </amx:commandLink>
+                      </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
               </amx:listItem>
@@ -310,6 +328,12 @@
                         </amx:rowLayout>
                       </amx:tableLayout>
                     </amx:cellFormat>
+                      <amx:cellFormat id="cf36" width="15px" halign="center">
+                        <amx:commandLink id="cl7">
+                          <amx:outputHtml id="oh4" styleClass="fa fa-chevron-right fa-2g"
+                                          inlineStyle="color: rgb(157, 157, 173);"/>
+                        </amx:commandLink>
+                      </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
               </amx:listItem>

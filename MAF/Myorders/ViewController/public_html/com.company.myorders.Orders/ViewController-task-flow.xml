@@ -22,6 +22,9 @@
     <view id="lineDetails">
       <page>/OrderLines.amx</page>
     </view>
+    <method-call id="getOrders">
+      <method>#{applicationScope.OrdersManagedBean.getOrdersDefault}</method>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>DashBoard</from-activity-id>
       <control-flow-case id="__3">

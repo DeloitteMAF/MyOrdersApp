@@ -63,9 +63,9 @@
 }
 
 .detailhead{
-    color:#6d6e71;
+    color:#414042;
     width:auto;
-    font-size:.8em;
+    font-size:1em;
 }
 
 .detailimages{
@@ -95,10 +95,9 @@
 
 .value{
     width:auto;
-    color:#414042;
+    color:#6d6e71;
     font-size:1em;
     font-weight:bold;
-    Font-Size:15px;
 }
 
 .remove_ul {
