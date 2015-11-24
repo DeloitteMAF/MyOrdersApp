@@ -13,9 +13,9 @@
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
             <amx:outputText value="Order# #{bindings.orderNumber.inputValue}" id="ot4"
-                            rendered="#{pageFlowScope.currentTab=='ALL'}"/>
+                            rendered="#{pageFlowScope.currentTab=='ALL'}" inlineStyle="padding-top:0px"/>
             <amx:outputText value="Order# #{bindings.orderNumber1.inputValue}" id="ot16"
-                            rendered="#{pageFlowScope.currentTab!='ALL'}"/>
+                            rendered="#{pageFlowScope.currentTab!='ALL'}" inlineStyle="padding-top:0px"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>

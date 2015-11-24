@@ -13,13 +13,13 @@
             </amx:commandLink>
                 <amx:commandLink actionListener="#{OrdersManagedBean.closeSpringBoard}"
                               id="cl1" rendered="#{applicationScope.OrdersManagedBean.springBoardStatus}">
-                <amx:outputHtml id="oh1" styleClass="fa fa-chevron-left fa-lg"/>
+                <amx:outputHtml id="oh1" styleClass="fa fa-chevron-left fa-lg" inlineStyle="padding: 13px;"/>
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
             <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="baseline">
               <amx:panelGroupLayout id="pgl2" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
-                <amx:outputText value="My Orders" id="ot1"/>
+                <amx:outputText value="My Orders" id="ot1" inlineStyle="padding: 13px;"/>
               </amx:panelGroupLayout>
               <amx:panelGroupLayout id="pgl4" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}"
                                     layout="vertical" valign="baseline">

@@ -33,7 +33,7 @@
                 <amx:spacer id="s5" height="#{applicationScope.OrdersManagedBean.sbRowSpacer}"/>
               </amx:cellFormat>
               <amx:cellFormat width="80%" id="cf3" halign="start">
-                <amx:commandLink id="cl1" actionListener="#{bindings.gotoFeature.execute}" inlineStyle="text-wrap:none;"
+                <amx:commandLink id="cl1" actionListener="#{bindings.resetFeature.execute}" inlineStyle="text-wrap:none;"
                                  styleClass="remove_ul">
                   <amx:outputText value="#{row.name}" id="ot2" inlineStyle="padding-left:10%"/>
                   <amx:setPropertyListener id="spl4" from="#{'false'}"

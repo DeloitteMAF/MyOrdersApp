@@ -12,9 +12,9 @@
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="top" width="30%" halign="center">
-            <amx:outputText value="Order ##{bindings.orderNumber1.inputValue}" id="ot4"
+            <amx:outputText value="Order# #{bindings.orderNumber1.inputValue}" id="ot4"
                             rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-            <amx:outputText value="Order ##{bindings.orderNumber.inputValue}" id="ot16"
+            <amx:outputText value="Order# #{bindings.orderNumber.inputValue}" id="ot16"
                             rendered="#{pageFlowScope.currentTab!='ALL'}"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf7" width="20px">

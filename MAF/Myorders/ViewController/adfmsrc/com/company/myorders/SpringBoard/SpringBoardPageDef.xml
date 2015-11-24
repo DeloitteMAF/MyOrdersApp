@@ -32,5 +32,10 @@
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDValue="#{pageFlowScope.FeatureId}" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="resetFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="fid" NDValue="#{pageFlowScope.FeatureId}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
