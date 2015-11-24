@@ -1,6 +1,8 @@
 package com.company.myorders.mobile;
 
 
+import com.company.myorders.mobile.model.OrderDetails;
+
 import java.util.ArrayList;
 
 import oracle.adfmf.amx.event.ActionEvent;
@@ -10,6 +12,7 @@ import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.java.beans.ProviderChangeSupport;
+import oracle.adfmf.util.GenericType;
 
 public class OrdersManagedBean {
     boolean getSearchStatus = false;
@@ -157,9 +160,26 @@ public class OrdersManagedBean {
     }   
     
     public String getAlertCount(){
-        
-        AmxIteratorBinding ib =
-                    (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator}");
-        return new Integer(ib.getIterator().getTotalRowCount()).toString();
+        String currentTab = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentTab}");
+        AmxIteratorBinding ib =null;
+        int alertCount=0;
+        if(currentTab==null){
+            currentTab="TOP";
+        }
+        if(currentTab.equals("TOP")){
+            ib= (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator}");
+        }else{
+            ib= (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator1}");   
+        }
+        ib.getIterator().first();
+        for(int i=0;i<ib.getIterator().getTotalRowCount();i++){
+            GenericType row = (GenericType) ib.getIterator().getCurrentRow();
+            if(row.getAttribute("alertFlag").toString().equals("Y")){
+                alertCount++;
+            }            
+            ib.getIterator().next();
+        }
+                   
+        return new Integer(alertCount).toString();
     }
 }
