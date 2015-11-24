@@ -148,7 +148,7 @@
                 <amx:tableLayout id="tl7" width="100%">
                   <amx:rowLayout id="rl9">
                     <amx:cellFormat id="cf18" width="30%">
-                      <amx:image id="i5"/>
+                      <amx:image id="i5" source="/resources/css/images/Line/#{row.lineStatus}.png"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf19" width="70%">
                       <amx:tableLayout id="tl8" width="100%">
@@ -190,7 +190,7 @@
                 <amx:tableLayout id="tl9" width="100%">
                   <amx:rowLayout id="rl10">
                     <amx:cellFormat id="cf17" width="30%">
-                      <amx:image id="i7"/>
+                      <amx:image id="i7" source="/resources/css/images/Line/#{row.lineStatus}.png"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf20" width="70%">
                       <amx:tableLayout id="tl10" width="100%">
@@ -236,11 +236,12 @@
                           showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv3"
                           rendered="#{pageFlowScope.currentTab=='ALL'}">
               <amx:listItem id="li3" action="openLineDetails"
-                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}">
+                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
+                            rendered="#{row.alertFlag == 'Y'}">
                 <amx:tableLayout id="tl11" width="100%">
                   <amx:rowLayout id="rl12">
                     <amx:cellFormat id="cf23" width="30%">
-                      <amx:image id="i8"/>
+                      <amx:image id="i8" source="/resources/css/images/Line/#{row.lineStatus}.png"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf24" width="70%">
                       <amx:tableLayout id="tl12" width="100%">
@@ -278,11 +279,12 @@
                           showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv4"
                           rendered="#{pageFlowScope.currentTab!='ALL'}">
               <amx:listItem id="li4" action="openLineDetails"
-                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}">
+                            inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
+                            rendered="#{row.alertFlag == 'Y'}">
                 <amx:tableLayout id="tl13" width="100%">
                   <amx:rowLayout id="rl15">
                     <amx:cellFormat id="cf28" width="30%">
-                      <amx:image id="i9"/>
+                      <amx:image id="i9" source="/resources/css/images/Line/#{row.lineStatus}.png"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf29" width="70%">
                       <amx:tableLayout id="tl14" width="100%">

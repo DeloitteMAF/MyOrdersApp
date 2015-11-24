@@ -93,6 +93,7 @@
          <directMapping attributeName="backorderQuantity" payloadAttributeName="BackorderQuantity" columnName="BACKORDER_QUANTITY" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="address" payloadAttributeName="Address" columnName="ADDRESS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="shipToContact" payloadAttributeName="ShipToContact" columnName="SHIP_TO_CONTACT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>
@@ -120,6 +121,7 @@
          <directMapping attributeName="backorderQuantity" payloadAttributeName="BackorderQuantity" columnName="BACKORDER_QUANTITY" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="address" payloadAttributeName="Address" columnName="ADDRESS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="shipToContact" payloadAttributeName="ShipToContact" columnName="SHIP_TO_CONTACT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>

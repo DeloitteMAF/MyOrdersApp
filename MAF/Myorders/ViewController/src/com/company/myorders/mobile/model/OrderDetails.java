@@ -25,6 +25,7 @@ public class OrderDetails extends Entity {
     private String backorderQuantity;
     private String address;
     private String shipToContact;
+    private String alertFlag;
 
 
     public BigDecimal getHeaderId() {
@@ -169,6 +170,14 @@ public class OrderDetails extends Entity {
 
     public void setShipToContact(String shipToContact) {
         this.shipToContact = shipToContact;
+    }
+
+    public void setAlertFlag(String alertFlag) {
+        this.alertFlag = alertFlag;
+    }
+
+    public String getAlertFlag() {
+        return alertFlag;
     }
 
 

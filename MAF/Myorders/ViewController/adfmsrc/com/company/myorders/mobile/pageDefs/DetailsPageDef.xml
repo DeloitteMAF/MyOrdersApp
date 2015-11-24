@@ -69,21 +69,25 @@
         <Item Value="orderNumber"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="xxMyOrderDetailsVOIterator1" id="xxMyOrderDetailsVO">
-      <nodeDefinition DefName="com.company.myorders.mobile.model.AllOrderDetails" Name="xxMyOrderDetailsVO0">
-        <AttrNames>
-          <Item Value="lineNumber"/>
-          <Item Value="lineTotal"/>
-          <Item Value="orderedItem"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="xxMyOrderDetailsVOIterator" id="xxMyOrderDetailsVO1">
       <nodeDefinition DefName="com.company.myorders.mobile.model.OrderDetails" Name="xxMyOrderDetailsVO10">
         <AttrNames>
           <Item Value="lineNumber"/>
           <Item Value="lineTotal"/>
           <Item Value="orderedItem"/>
+          <Item Value="alertFlag"/>
+          <Item Value="lineStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderDetailsVOIterator1" id="xxMyOrderDetailsVO">
+      <nodeDefinition DefName="com.company.myorders.mobile.model.AllOrderDetails" Name="xxMyOrderDetailsVO0">
+        <AttrNames>
+          <Item Value="lineNumber"/>
+          <Item Value="lineTotal"/>
+          <Item Value="orderedItem"/>
+          <Item Value="alertFlag"/>
+          <Item Value="lineStatus"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
