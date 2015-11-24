@@ -238,7 +238,7 @@
           <amx:setPropertyListener id="spl7" to="#{pageFlowScope.detailCurrentTab}" from="#{'DETAILS'}"
                                    type="swipeRight"/>
         </amx:commandLink>
-        <amx:commandLink id="cl5" styleClass="remove_ul">
+        <amx:commandLink id="cl8" styleClass="remove_ul">
           <amx:panelGroupLayout id="pgl3" rendered="#{pageFlowScope.detailCurrentTab=='ALERTS'}">
             <amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO.collectionModel}"
                           fetchSize="#{bindings.xxMyOrderDetailsVO.rangeSize}"
