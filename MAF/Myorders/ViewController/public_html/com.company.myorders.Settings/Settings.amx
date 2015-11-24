@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="pp1">
+  <amx:panelPage id="pp1" inlineStyle="background-color:#D7D7DA;">
        <amx:facet name="header">
            <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
@@ -31,8 +31,32 @@
                          rendered="false">
       <amx:selectItems value="#{bindings.partyName.items}" id="si1"/>
     </amx:selectOneChoice>
-    
-    <amx:inputText label="Location" id="it1"/>
+        <amx:tableLayout id="tl3" width="100%"  cellPadding="10">
+      <amx:rowLayout id="rl4">
+        <amx:cellFormat id="cf7" width="10px"/>
+        <amx:cellFormat id="cf9" width="50%">
+          <amx:outputText value="Location" id="ot4" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf8" width="50%">
+          <amx:inputText label="Location" id="it1" simple="true"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:tableLayout id="tl4" width="100%" inlineStyle="background-color:#ECECEC;" cellPadding="10">
+      <amx:rowLayout id="rl5">
+        <amx:cellFormat id="cf10" width="10px"/>
+        <amx:cellFormat id="cf12" width="50%">
+          <amx:outputText value="Arrange my orders by" id="ot5" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf11" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.orderby}" label="Arrange my orders by"
+                               simple="true">
+            <amx:selectItem label="Date" value="date" id="si2"/>
+            <amx:selectItem label="Amount" value="amount" id="si3"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
     <amx:commandButton text="commandButton2" id="cb2" inlineStyle="display:none;">
       <amx:showPopupBehavior id="spb1" popupId="p1" alignId="it1"/>
     </amx:commandButton>
