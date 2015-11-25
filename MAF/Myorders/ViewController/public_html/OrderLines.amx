@@ -138,9 +138,9 @@
               </amx:rowLayout>
             </amx:tableLayout>
             <amx:tableLayout id="tl5" width="100%"
-                             inlineStyle="background-attachment:scroll; background-color:#e6e7e8; height:30px;">
+                             inlineStyle=" background-color:#e6e7e8;" cellSpacing="7">
               <amx:rowLayout id="rl8">
-                <amx:cellFormat id="cf12" width="16px" valign="middle"/>
+                <amx:cellFormat id="cf12" width="1px" valign="middle"/>
                 <amx:cellFormat id="cf11" width="90%" valign="middle">
                   <amx:outputText value="Shipping Deliveries" id="ot3" styleClass="otLabelHeader"/>
                 </amx:cellFormat>
@@ -224,9 +224,10 @@
                 </amx:cellFormat>
               </amx:rowLayout>
             </amx:tableLayout>
-            <amx:tableLayout id="tl7" width="100%" inlineStyle="background-color:#D7D7DA; height:30px;">
+            <amx:tableLayout id="tl7" width="100%" inlineStyle="background-color:#D7D7DA;" cellPadding="0"
+                             cellSpacing="7">
               <amx:rowLayout id="rl19">
-                <amx:cellFormat id="cf27" width="16px"/>
+                <amx:cellFormat id="cf27" width="1px"/>
                 <amx:cellFormat id="cf28" width="90%">
                   <amx:outputText value="Ship to" id="ot26" styleClass="otLabelHeader"/>
                 </amx:cellFormat>

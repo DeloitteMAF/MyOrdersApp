@@ -142,7 +142,7 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
 }
 
 .otLabelHeader{
-    Padding-top:11px;
+    /*Padding-top:11px;*/
     Font-Family:Helvetica;
     Font-Weight:bold;
     Font-Size:12px;
