@@ -13,7 +13,7 @@
             </amx:commandLink>
                 <amx:commandLink actionListener="#{OrdersManagedBean.closeSpringBoard}"
                               id="cl1" rendered="#{applicationScope.OrdersManagedBean.springBoardStatus}">
-                <amx:outputHtml id="oh1" styleClass="fa fa-chevron-left fa-lg" inlineStyle="padding: 13px;"/>
+                <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
@@ -244,7 +244,7 @@
             </amx:panelGroupLayout>
             <amx:outputText value="Status #{viewScope.flowStatusCode}" id="ot13"
                             inlineStyle="width:auto; font-size:small; font-weight:bold;" rendered="false"/>
-            <amx:image id="i6"
+            <amx:image id="i8"
                        source="/resources/css/images/#{viewScope.flowStatusCode eq 'In Process' ? 'InProcess' : viewScope.flowStatusCode}.png"
                        inlineStyle="width:95%;"/>
           </amx:panelGroupLayout>
