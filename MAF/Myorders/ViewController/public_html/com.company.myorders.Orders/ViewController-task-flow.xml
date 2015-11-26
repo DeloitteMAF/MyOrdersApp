@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="ViewController-task-flow">
-    <default-activity>DashBoard</default-activity>
+    <default-activity>getOrders</default-activity>
     <managed-bean id="__1">
       <managed-bean-name>OrdersManagedBean</managed-bean-name>
       <managed-bean-class>com.company.myorders.mobile.OrdersManagedBean</managed-bean-class>
@@ -23,7 +23,10 @@
       <page>/OrderLines.amx</page>
     </view>
     <method-call id="getOrders">
-      <method>#{applicationScope.OrdersManagedBean.getOrdersDefault}</method>
+      <method>#{applicationScope.OrdersManagedBean.initiateDashboard}</method>
+      <outcome>
+        <fixed-outcome>goToDashboard</fixed-outcome>
+      </outcome>
     </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>DashBoard</from-activity-id>
@@ -51,6 +54,13 @@
       </control-flow-case>
       <control-flow-case id="__9">
         <from-outcome>Home</from-outcome>
+        <to-activity-id>DashBoard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>getOrders</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>goToDashboard</from-outcome>
         <to-activity-id>DashBoard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

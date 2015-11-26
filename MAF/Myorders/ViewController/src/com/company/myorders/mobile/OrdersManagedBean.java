@@ -144,6 +144,35 @@ public class OrdersManagedBean {
             e.getMessage();
         }
     }
+    
+    public void initiateDashboard(){
+        try {
+            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            Thread.sleep(5000);
+            AdfmfJavaUtilities.flushDataChangeEvent();
+            providerChangeSupport.fireProviderRefresh("orders");   
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.clearSearch}", "true");
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+    public void refreshOrders(ActionEvent ae){
+        try {
+            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.flushDataChangeEvent();
+//            providerChangeSupport.fireProviderRefresh("orders");       
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.clearSearch}", "true");
+//            clearSearch=true;
+//            getSearchStatus=false;
+        } catch (Exception e) {
+            e.getMessage();
+        }           
+    }
+    
     public Boolean getRefreshStatus(){
         try {
             Thread.sleep(5000);
@@ -151,13 +180,7 @@ public class OrdersManagedBean {
         }
         return false;
     }
-    
-    public void getOrdersDefault(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-        }
-    }   
+       
     
     public String getAlertCount(){
         String currentTab = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentTab}");

@@ -7,7 +7,7 @@
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
             <amx:commandLink
-                        id="cl3" action="backToDashBoard">
+                        id="cl3" action="backToDashBoard" actionListener="#{OrdersManagedBean.refreshOrders}">
               <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
             </amx:commandLink>
           </amx:cellFormat>

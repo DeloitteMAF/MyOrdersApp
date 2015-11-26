@@ -19,7 +19,7 @@
           </amx:cellFormat>
           <amx:cellFormat id="cf7" width="20px">
           <amx:commandLink
-                        id="cl1" action="Home">
+                        id="cl1" action="Home" actionListener="#{OrdersManagedBean.refreshOrders}">
               <amx:image id="i1" source="/resources/css/images/Home_Button.png" styleClass="iconstyle"/>
             </amx:commandLink>
           </amx:cellFormat>
