@@ -20,9 +20,9 @@ function backKeyDown()
 			//Call the	java script nav directly
 			adf.mf.api.amx.doNavigation("backToDashboard");
 			}
-		else if ($('#dlpp1').length) {
+		else if ($('#linespp1').length) {
 			//Call the	java script nav directly
-			adf.mf.api.amx.doNavigation("backToDashboard");
+			adf.mf.api.amx.doNavigation("backToDetails");
 			}
 		else
 			var cFirm = confirm("Are you sure you want to exit the application?");
