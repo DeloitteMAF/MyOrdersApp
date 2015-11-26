@@ -175,7 +175,7 @@
                       </amx:tableLayout>
                     </amx:cellFormat>
                       <amx:cellFormat id="cf37" width="15px" halign="center">
-                        <amx:commandLink id="cl5">
+                        <amx:commandLink id="cl5" action="openLineDetails">
                           <amx:outputHtml id="oh3" styleClass="fa fa-chevron-right fa-2g"
                                           inlineStyle="color: rgb(157, 157, 173);"/>
                         </amx:commandLink>
@@ -223,7 +223,7 @@
                       </amx:tableLayout>
                     </amx:cellFormat>
                       <amx:cellFormat id="cf34" width="15px" halign="center">
-                        <amx:commandLink id="cl1">
+                        <amx:commandLink id="cl1" action="openLineDetails">
                           <amx:outputHtml id="oh1" styleClass="fa fa-chevron-right fa-2g"
                                           inlineStyle="color: rgb(157, 157, 173);"/>
                         </amx:commandLink>
@@ -249,7 +249,7 @@
                           rendered="#{pageFlowScope.currentTab=='ALL'}">
               <amx:listItem id="li3" action="openLineDetails"
                             inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
-                            rendered="#{row.alertFlag == 'Y'}">
+                            rendered="#{row.alertFlag=='Y'}">
                 <amx:tableLayout id="tl11" width="100%">
                   <amx:rowLayout id="rl12">
                     <amx:cellFormat id="cf23" width="30%">
@@ -280,7 +280,7 @@
                       </amx:tableLayout>
                     </amx:cellFormat>
                       <amx:cellFormat id="cf35" width="15px" halign="center">
-                        <amx:commandLink id="cl6">
+                        <amx:commandLink id="cl6" action="openLineDetails">
                           <amx:outputHtml id="oh2" styleClass="fa fa-chevron-right fa-2g"
                                           inlineStyle="color: rgb(157, 157, 173);"/>
                         </amx:commandLink>
@@ -298,7 +298,7 @@
                           rendered="#{pageFlowScope.currentTab!='ALL'}">
               <amx:listItem id="li4" action="openLineDetails"
                             inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
-                            rendered="#{row.alertFlag == 'Y'}">
+                            rendered="#{row.alertFlag=='Y'}">
                 <amx:tableLayout id="tl13" width="100%">
                   <amx:rowLayout id="rl15">
                     <amx:cellFormat id="cf28" width="30%">
@@ -329,7 +329,7 @@
                       </amx:tableLayout>
                     </amx:cellFormat>
                       <amx:cellFormat id="cf36" width="15px" halign="center">
-                        <amx:commandLink id="cl7">
+                        <amx:commandLink id="cl7" action="openLineDetails">
                           <amx:outputHtml id="oh4" styleClass="fa fa-chevron-right fa-2g"
                                           inlineStyle="color: rgb(157, 157, 173);"/>
                         </amx:commandLink>
