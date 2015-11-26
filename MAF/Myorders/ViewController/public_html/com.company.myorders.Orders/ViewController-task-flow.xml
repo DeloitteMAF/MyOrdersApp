@@ -54,7 +54,7 @@
       </control-flow-case>
       <control-flow-case id="__9">
         <from-outcome>Home</from-outcome>
-        <to-activity-id>DashBoard</to-activity-id>
+        <to-activity-id>getOrders</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__10">
