@@ -34,10 +34,11 @@
          </oneToManyMapping>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/myorder/SO/getAllOrders/{custAcctid}/-1/10/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+         <findAllMethod uri="/myorder/SO/getAllOrders/{custAcctid}/{dateRange}/10/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="loc" value="#{preferenceScope.application.userPref.location}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="showclosedorders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+            <parameter name="dateRange" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="custAcctid" value="#{securityContext.userName}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
          </findAllMethod>
       </methods>
@@ -61,10 +62,11 @@
          </oneToManyMapping>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/myorder/SO/getAllOrders/{custAcctid}/-1/-1/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+         <findAllMethod uri="/myorder/SO/getAllOrders/{custAcctid}/{dateRange}/-1/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="loc" value="#{preferenceScope.application.userPref.location}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="showclosedorders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+            <parameter name="dateRange" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="custAcctid" value="#{securityContext.userName}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
          </findAllMethod>
       </methods>

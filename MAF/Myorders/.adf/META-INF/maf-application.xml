@@ -13,6 +13,7 @@
                             default="No"/>
       <adfmf:preferenceText id="orderby" label="Order By" default="date"/>
       <adfmf:preferenceText id="locationName" label="Location Full Name" default="United States"/>
+      <adfmf:preferenceNumber id="dateRange" label="Date Range" default="30"/>
     </adfmf:preferenceGroup>
   </adfmf:preferences>
   <adfmf:navigation>

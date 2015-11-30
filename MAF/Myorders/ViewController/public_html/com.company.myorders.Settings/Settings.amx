@@ -57,6 +57,23 @@
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>
+    <amx:tableLayout id="tl5" width="100%"  cellPadding="10">
+      <amx:rowLayout id="rl6">
+        <amx:cellFormat id="cf13" width="10px"/>
+        <amx:cellFormat id="cf14" width="50%">
+          <amx:outputText value="Date Range" id="ot6" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf15" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.dateRange}" label="Date Range"
+                               simple="true">
+            <amx:selectItem label="0-30" value="30" id="si4"/>
+            <amx:selectItem label="0-60" value="60" id="si5"/>
+            <amx:selectItem label="0-90" value="90" id="si6"/>
+            <amx:selectItem label="All" value="-1" id="si7"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
     <amx:commandButton text="commandButton2" id="cb2" inlineStyle="display:none;">
       <amx:showPopupBehavior id="spb1" popupId="p1" alignId="it1"/>
     </amx:commandButton>
