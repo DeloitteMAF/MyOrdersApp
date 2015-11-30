@@ -6,7 +6,7 @@
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
-          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
+          <amx:cellFormat id="cf1" halign="center" valign="middle" width="20px">
             <amx:commandLink actionListener="#{applicationScope.OrdersManagedBean.openSpringboard}"
                         id="cl3" rendered="#{!applicationScope.OrdersManagedBean.springBoardStatus}">
               <amx:image id="i5" source="/resources/css/images/Menu.png" styleClass="iconstyle"/>
@@ -17,12 +17,12 @@
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
-            <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="baseline">
+            <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="middle">
               <amx:panelGroupLayout id="pgl2" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
                 <amx:outputText value="My Orders" id="ot1" inlineStyle="padding: 13px;"/>
               </amx:panelGroupLayout>
               <amx:panelGroupLayout id="pgl4" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}"
-                                    layout="vertical" valign="baseline">
+                                    layout="vertical" valign="middle" halign="center">
                 <amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"
                                readOnly="#{!applicationScope.OrdersManagedBean.clearSearch}"/>
               </amx:panelGroupLayout>
@@ -32,8 +32,9 @@
       </amx:tableLayout>
     </amx:facet>
     <amx:facet name="secondary">
-      <amx:panelGroupLayout id="pgl7" layout="vertical" halign="center" valign="baseline">
-        <amx:panelGroupLayout id="pgl5" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
+      <amx:panelGroupLayout id="pgl7" layout="vertical" halign="center" valign="middle">
+        <amx:panelGroupLayout id="pgl5" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}"
+                              halign="center" valign="middle">
           <amx:commandLink id="cl2">
             <amx:image id="i3" source="/resources/css/images/Search.png" styleClass="iconstyle"/>
             <amx:setPropertyListener id="spl6" type="action" to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
@@ -43,7 +44,8 @@
           </amx:commandLink>
         </amx:panelGroupLayout>
         <amx:panelGroupLayout id="pgl6"
-                              rendered="#{applicationScope.OrdersManagedBean.getSearchStatus &amp;&amp; applicationScope.OrdersManagedBean.clearSearch}">
+                              rendered="#{applicationScope.OrdersManagedBean.getSearchStatus &amp;&amp; applicationScope.OrdersManagedBean.clearSearch}"
+                              valign="middle" halign="center">
           <amx:commandLink id="cl4" actionListener="#{bindings.findOrders.execute}">
             <amx:image id="i4" source="/resources/css/images/Search.png"
                        styleClass="iconstyle"/>
@@ -54,7 +56,8 @@
             <amx:actionListener id="al1" binding="#{bindings.findAllOrders.execute}" type="action"/>
           </amx:commandLink>
         </amx:panelGroupLayout>
-        <amx:panelGroupLayout id="pgl16" rendered="#{!applicationScope.OrdersManagedBean.clearSearch}">
+        <amx:panelGroupLayout id="pgl16" rendered="#{!applicationScope.OrdersManagedBean.clearSearch}" halign="center"
+                              valign="middle">
           <amx:commandLink id="cl10" actionListener="#{bindings.findOrders.execute}">
             <amx:image id="i7" source="/resources/css/images/Clear Search icon.png"
                        styleClass="iconstyle"/>
