@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Search" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+    </amx:facet>
+    <amx:facet name="secondary">
+    </amx:facet>
+      <amx:inputText label="Order Number" id="it1"/>
+      <amx:inputText label="Item" id="it2"/>
+    <amx:inputText label="Customer PO Number" id="it3"/>
+  </amx:panelPage>
+</amx:view>

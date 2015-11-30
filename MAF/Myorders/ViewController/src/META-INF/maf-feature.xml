@@ -35,4 +35,9 @@
       </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
+  <adfmf:feature id="com.company.myorders.Search" name="Search">
+    <adfmf:content id="com.company.myorders.Search.1">
+      <adfmf:amx file="com.company.myorders.Search/Search.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
 </adfmf:features>
