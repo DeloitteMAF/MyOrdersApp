@@ -154,11 +154,12 @@
               <amx:rowLayout id="rl15">
                 <amx:cellFormat id="cf23" width="70%">
                   <amx:panelGroupLayout id="pgl4" layout="vertical">
+                    <amx:outputText value="Carrier" id="ot13" styleClass="otLabel"/>
                     <amx:outputText value="#{bindings.freightCode.inputValue}" id="ot12" styleClass="otValue"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                     <amx:outputText value="#{bindings.freightCode1.inputValue}" id="ot34" styleClass="otValue"
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-                    <amx:outputText value="Arrival Date" id="ot13" styleClass="otLabel"/>
+                    <amx:outputText value="Arrival Date" id="ot40" styleClass="otLabel"/>
                     <amx:outputText value="#{bindings.actualArrivalDate.inputValue}" id="ot14" styleClass="otValue"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                     <amx:outputText value="#{bindings.actualArrivalDate1.inputValue}" id="ot35" styleClass="otValue"
