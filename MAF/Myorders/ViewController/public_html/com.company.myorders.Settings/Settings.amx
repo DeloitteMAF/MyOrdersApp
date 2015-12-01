@@ -16,8 +16,14 @@
                 <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
             </amx:commandLink>
           </amx:cellFormat>
-          <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
+          <amx:cellFormat id="cf2" valign="middle" width="40%" halign="center">
             <amx:outputText value="Settings" id="ot1"/>
+          </amx:cellFormat>
+          <amx:cellFormat id="cf19" halign="center" valign="middle" width="20px">
+            <amx:commandLink actionListener="#{bindings.resetFeature.execute}"
+                             disabled="#{!bindings.resetFeature.enabled}" id="cl4">
+              <amx:image id="i1" source="/resources/css/images/Home_Button.png" styleClass="iconstyle"/>
+            </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>

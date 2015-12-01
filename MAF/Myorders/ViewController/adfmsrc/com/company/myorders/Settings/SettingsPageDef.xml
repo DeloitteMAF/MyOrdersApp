@@ -38,5 +38,10 @@
                   IsViewObjectMethod="false" DataControl="ResultService" InstanceName="data.ResultService.dataProvider">
       <NamedData NDName="searchValue" NDValue="${viewScope.searchString}" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="resetFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="fid" NDValue="com.company.myorders.Orders" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
