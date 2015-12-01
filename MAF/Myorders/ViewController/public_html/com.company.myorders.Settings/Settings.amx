@@ -70,6 +70,21 @@
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>
+     <amx:tableLayout id="tl6" width="100%" inlineStyle="background-color:#ECECEC;" cellPadding="10">
+      <amx:rowLayout id="rl7">
+        <amx:cellFormat id="cf16" width="10px"/>
+        <amx:cellFormat id="cf18" width="50%">
+          <amx:outputText value="Arrange my orders by" id="ot7" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf17" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.showclosedorders}" label="Show Closed Orders"
+                               simple="true">
+            <amx:selectItem label="Yes" value="Yes" id="si8"/>
+            <amx:selectItem label="No" value="No" id="si9"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
     <amx:commandButton text="commandButton2" id="cb2" inlineStyle="display:none;">
       <amx:showPopupBehavior id="spb1" popupId="p1" alignId="it1"/>
     </amx:commandButton>
