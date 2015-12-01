@@ -35,6 +35,7 @@
                                            to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
                   <amx:setPropertyListener id="spl3" to="#{pageFlowScope.FeatureId}" type="action"
                                            from="com.company.myorders.Orders"/>
+                <amx:actionListener id="al2" binding="#{WindowBean.hideSpringboard}"/>
             </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>
@@ -71,6 +72,7 @@
                                            to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
                   <amx:setPropertyListener id="spl5" to="#{pageFlowScope.FeatureId}" type="action"
                                            from="com.company.myorders.Search"/>
+                <amx:actionListener id="al3" binding="#{WindowBean.hideSpringboard}"/>
             </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>
@@ -121,6 +123,7 @@
             <amx:commandLink id="cl8" actionListener="#{applicationScope.OrdersManagedBean.Logout}"
                              inlineStyle="height:80%" styleClass="remove_ul">
               <amx:outputText value="Sign Out" id="ot9" inlineStyle="padding-left:10%"/>
+              <amx:actionListener id="al4" binding="#{WindowBean.hideSpringboard}"/>
             </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>
@@ -139,11 +142,12 @@
                                            to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
                   <amx:setPropertyListener id="spl1" to="#{pageFlowScope.FeatureId}" type="action"
                                            from="com.company.myorders.Settings"/>
+              <amx:actionListener id="al5" binding="#{WindowBean.hideSpringboard}"/>
             </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
-      <amx:actionListener id="al1" binding="#{OrdersManagedBean.closeSpringBoard}" type="swipeLeft"/>
+      <amx:actionListener id="al1" binding="#{WindowBean.hideSpringboard}" type="swipeLeft"/>
     </amx:commandLink>
   </amx:panelPage>
 </amx:view>

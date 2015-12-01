@@ -7,12 +7,12 @@
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="middle" width="20px">
-            <amx:commandLink actionListener="#{applicationScope.OrdersManagedBean.openSpringboard}"
-                        id="cl3" rendered="#{!applicationScope.OrdersManagedBean.springBoardStatus}">
+            <amx:commandLink actionListener="#{WindowBean.showSpringboard}"
+                        id="cl3" rendered="#{applicationScope.isSprinboardOpen!='Y'}">
               <amx:image id="i5" source="/resources/css/images/Menu.png" styleClass="iconstyle"/>
             </amx:commandLink>
-                <amx:commandLink actionListener="#{OrdersManagedBean.closeSpringBoard}"
-                              id="cl1" rendered="#{applicationScope.OrdersManagedBean.springBoardStatus}">
+                <amx:commandLink actionListener="#{WindowBean.showSpringboard}"
+                              id="cl1" rendered="#{applicationScope.isSprinboardOpen=='Y'}">
                 <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
             </amx:commandLink>
           </amx:cellFormat>

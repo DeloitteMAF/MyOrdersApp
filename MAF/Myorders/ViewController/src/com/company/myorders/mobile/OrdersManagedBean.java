@@ -70,8 +70,8 @@ public class OrdersManagedBean {
     }
 
     public void Logout(ActionEvent actionEvent) {
-        AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
-        AdfmfContainerUtilities.gotoFeature(currentFeature);
+//        AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
+//        AdfmfContainerUtilities.gotoFeature(currentFeature);
         AdfmfJavaUtilities.logout();
     }
     

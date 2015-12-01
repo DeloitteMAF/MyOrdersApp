@@ -14,9 +14,6 @@
                       DataControl="ResultService" BeanClass="com.company.myorders.mobile.model.Result"/>
   </executables>
   <bindings>
-    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
-                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
-                  InstanceName="data.ApplicationFeatures.dataProvider"/>
     <list StaticList="false" IterBinding="ordersIterator" ListIter="resultIterator" id="partyName" DTSupportsMRU="true"
           SelectItemValueMode="ListObject">
       <AttrNames>
@@ -29,11 +26,6 @@
         <Item Value="locationFullName"/>
       </ListDisplayAttrNames>
     </list>
-    <methodAction id="gotoFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
-                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
-                  InstanceName="data.ApplicationFeatures.dataProvider">
-      <NamedData NDName="featureId" NDValue="#{pageFlowScope.currentFeature}" NDType="java.lang.String"/>
-    </methodAction>
     <tree IterBinding="resultIterator" id="result">
       <nodeDefinition DefName="com.company.myorders.mobile.model.Result" Name="result0">
         <AttrNames>

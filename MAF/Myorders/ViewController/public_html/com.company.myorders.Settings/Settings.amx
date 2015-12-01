@@ -7,17 +7,13 @@
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px"/>
           <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
-            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}"
-                        id="cl3" rendered="#{viewScope.IsSpringboardActive!='YES'}">
-                <amx:outputHtml id="oh2" styleClass="fa fa-bars fa-lg"/>
-              <amx:setPropertyListener id="spl3" from="#{'YES'}" to="#{viewScope.IsSpringboardActive}"/>
-              <amx:setPropertyListener id="spl5" from="#{viewScope.SettingsBean.currentFeature}"
-                                       to="#{pageFlowScope.currentFeature}"/>
+            <amx:commandLink actionListener="#{WindowBean.showSpringboard}"
+                        id="cl3" rendered="#{applicationScope.isSprinboardOpen!='Y'}">
+                <amx:image id="i5" source="/resources/css/images/Menu.png" styleClass="iconstyle"/>
             </amx:commandLink>
-                        <amx:commandLink actionListener="#{bindings.gotoFeature.execute}"
-                              id="cl1" rendered="#{viewScope.IsSpringboardActive=='YES'}">
-                <amx:outputHtml id="oh1" styleClass="fa fa-chevron-left fa-lg"/>
-                <amx:setPropertyListener id="spl4" from="#{'NO'}" to="#{viewScope.IsSpringboardActive}"/>
+                        <amx:commandLink actionListener="#{WindowBean.showSpringboard}"
+                              id="cl1" rendered="#{applicationScope.isSprinboardOpen=='Y'}">
+                <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
