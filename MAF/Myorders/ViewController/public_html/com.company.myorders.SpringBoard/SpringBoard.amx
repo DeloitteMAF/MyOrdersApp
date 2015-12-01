@@ -34,7 +34,7 @@
                   <amx:setPropertyListener id="spl2" from="#{'false'}"
                                            to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
                   <amx:setPropertyListener id="spl3" to="#{pageFlowScope.FeatureId}" type="action"
-                                           from="{'com.company.myorders.Orders'}"/>
+                                           from="com.company.myorders.Orders"/>
             </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>
@@ -70,7 +70,7 @@
                   <amx:setPropertyListener id="spl6" from="#{'false'}"
                                            to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
                   <amx:setPropertyListener id="spl5" to="#{pageFlowScope.FeatureId}" type="action"
-                                           from="{'com.company.myorders.Search'}"/>
+                                           from="com.company.myorders.Search"/>
             </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>
@@ -138,7 +138,7 @@
                   <amx:setPropertyListener id="spl4" from="#{'false'}"
                                            to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
                   <amx:setPropertyListener id="spl1" to="#{pageFlowScope.FeatureId}" type="action"
-                                           from="{'com.company.myorders.Settings'}"/>
+                                           from="com.company.myorders.Settings"/>
             </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>

@@ -2,15 +2,27 @@
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
-    <amx:facet name="header">
-      <amx:outputText value="Search" id="ot1"/>
-    </amx:facet>
-    <amx:facet name="primary">
-    </amx:facet>
-    <amx:facet name="secondary">
-    </amx:facet>
+      <amx:commandLink id="cl3" styleClass="remove_ul">
+      <amx:panelGroupLayout id="pgl1">
+        <amx:tableLayout id="tl2" width="100%" layout="weighted" halign="center">
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1"
+                            inlineStyle="background-image:none; background-color:#1ebe92; min-height:15%; text-wrap:none;"
+                            columnSpan="1" rowSpan="1" valign="middle" halign="center">
+              <amx:spacer id="s6" height="25"/>
+              <amx:panelGroupLayout id="pgl2" layout="vertical" halign="center" valign="middle">
+              <amx:outputText value="#{bindings.partyName.inputValue}" id="ot1" styleClass="sbheader"/>
+              <amx:outputText value="Customer Id: #{securityContext.userName}" id="ot4" styleClass="sbheader1"/>
+               </amx:panelGroupLayout>
+              <amx:spacer id="s2" height="25"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:panelGroupLayout>
       <amx:inputText label="Order Number" id="it1"/>
       <amx:inputText label="Item" id="it2"/>
     <amx:inputText label="Customer PO Number" id="it3"/>
+      <amx:actionListener id="al1" binding="#{OrdersManagedBean.closeSpringBoard}" type="swipeLeft"/>
+    </amx:commandLink>
   </amx:panelPage>
 </amx:view>

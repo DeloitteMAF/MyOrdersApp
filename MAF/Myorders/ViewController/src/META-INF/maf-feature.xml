@@ -37,7 +37,11 @@
   </adfmf:feature>
   <adfmf:feature id="com.company.myorders.Search" name="Search" securityEnabled="true">
     <adfmf:content id="com.company.myorders.Search.1">
-      <adfmf:amx file="com.company.myorders.Search/Search.amx"/>
+      <adfmf:amx file="com.company.myorders.Search/Search.amx">
+        <adfmf:includes>
+          <adfmf:include type="StyleSheet" file="resources/css/MyOrdersSkin.css" id="i9"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
 </adfmf:features>
