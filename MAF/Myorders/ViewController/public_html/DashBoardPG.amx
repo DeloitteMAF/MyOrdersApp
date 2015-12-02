@@ -192,7 +192,7 @@
                           <amx:spacer id="s4" height="7"/>
                           <amx:panelGroupLayout id="pgl10" layout="horizontal">
                             <amx:spacer id="s8" width="25"/>
-                            <amx:outputText value="Order ##{row.orderNumber}" id="ot10"
+                            <amx:outputText value="Order# #{row.orderNumber}" id="ot10"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                             <amx:spacer id="s6" width="10"/>
                             <amx:outputText value="Amount: $#{row.totalOrderedValue}" id="ot6"

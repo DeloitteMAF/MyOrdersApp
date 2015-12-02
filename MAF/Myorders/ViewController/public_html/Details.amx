@@ -70,7 +70,7 @@
                     <amx:outputText value="#{bindings.flowStatusCode.inputValue}" id="ot1" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
                     <amx:outputText value="#{bindings.flowStatusCode1.inputValue}" id="ot12"
-                                    rendered="#{pageFlowScope.currentTab!='ALL'}"/>
+                                    rendered="#{pageFlowScope.currentTab!='ALL'}" styleClass="value"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
               </amx:rowLayout>
