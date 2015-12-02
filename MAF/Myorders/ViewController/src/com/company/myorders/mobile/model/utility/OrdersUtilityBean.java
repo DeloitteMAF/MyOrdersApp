@@ -17,8 +17,10 @@ public class OrdersUtilityBean {
         SimpleDateFormat newFormat = new SimpleDateFormat("dd-MMM-yyyy");
         String newDate = null;
         try {
+            if(value!=null){
             Date date = intialFormat.parse(value);
             newDate = newFormat.format(date);   
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }

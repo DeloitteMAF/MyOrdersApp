@@ -1,5 +1,7 @@
 package com.company.myorders.mobile.model;
 
+import com.company.myorders.mobile.model.utility.OrdersUtilityBean;
+
 import oracle.ateam.sample.mobile.v2.persistence.model.Entity;
 
 import java.math.BigDecimal;
@@ -149,7 +151,8 @@ public class OrderDetails extends Entity {
     }
 
     public String getBackorderQuantity() {
-        return this.backorderQuantity;
+        OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
+        return ordersUtilityBean.toDateTime(this.actualArrivalDate);
     }
 
     public void setBackorderQuantity(String backorderQuantity) {
