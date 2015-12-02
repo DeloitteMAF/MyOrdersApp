@@ -129,7 +129,7 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
     padding:2px;
 }
 
-.otLabel{
+.otValue{
     Font-Family:Helvetica;
     Font-Size:12px;
     Color:#6d6e71;
@@ -149,7 +149,7 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
     Color:#414042;
 }
 
-.otValue{
+.otLabel{
     Font-Family:Helvetica;
     Font-Size:12px;
     Color:#414042;
