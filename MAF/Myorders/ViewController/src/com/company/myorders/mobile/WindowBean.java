@@ -86,5 +86,13 @@ public class WindowBean {
         AdfmfSlidingWindowUtilities.hide(springboardWindow);
         AdfmfJavaUtilities.setELValue("#{applicationScope.isSprinboardOpen}", "N");
     }
+    
+    public String hideSpringboard(){
+        springboardToggleFlag = !springboardToggleFlag;
+        String springboardWindow = this.getSpringboardWindow();
+        AdfmfSlidingWindowUtilities.hide(springboardWindow);
+        AdfmfJavaUtilities.setELValue("#{applicationScope.isSprinboardOpen}", "N");
+        return null;
+    }
 
 }

@@ -18,8 +18,10 @@
     </adfmf:preferenceGroup>
   </adfmf:preferences>
   <adfmf:navigation>
-    <adfmf:springboard enabled="false" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
-                       width="200"/>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="200">
+      <adfmf:springboardFeatureReference refId="com.company.myorders.SpringBoard" id="sfr1"/>
+    </adfmf:springboard>
     <adfmf:navigationBar enabled="false"/>
   </adfmf:navigation>
   <adfmf:login defaultConnRefId="HTTP Basic">
