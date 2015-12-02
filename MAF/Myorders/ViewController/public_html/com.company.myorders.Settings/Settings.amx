@@ -17,7 +17,7 @@
             </amx:commandLink>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="40%" halign="center">
-            <amx:outputText value="Settings" id="ot1"/>
+            <amx:outputText value="Settings" id="ot1" inlineStyle="padding: 13px;"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf19" halign="center" valign="middle" width="20px">
             <amx:commandLink actionListener="#{bindings.resetFeature.execute}"
