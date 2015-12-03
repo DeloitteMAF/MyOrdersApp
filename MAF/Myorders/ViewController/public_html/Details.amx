@@ -255,7 +255,10 @@
                 <amx:tableLayout id="tl11" width="100%">
                   <amx:rowLayout id="rl12">
                     <amx:cellFormat id="cf23" width="30%">
-                      <amx:image id="i8" source="/resources/css/images/Line/#{row.lineStatus}.png"/>
+                      <amx:image id="i8" source="/resources/css/images/Line/#{row.lineStatus}.png"
+                                 rendered="#{row.lineStatus=='Back Order'}"/>
+                      <amx:image id="i10" source="/resources/css/images/Line/On Hold.png"
+                                 rendered="#{row.lineStatus!='Back Order'}"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf24" width="70%">
                       <amx:tableLayout id="tl12" width="100%">
@@ -304,7 +307,10 @@
                 <amx:tableLayout id="tl13" width="100%">
                   <amx:rowLayout id="rl15">
                     <amx:cellFormat id="cf28" width="30%">
-                      <amx:image id="i9" source="/resources/css/images/Line/#{row.lineStatus}.png"/>
+                      <amx:image id="i9" source="/resources/css/images/Line/#{row.lineStatus}.png"
+                                 rendered="#{row.lineStatus=='Back Order'}"/>
+                      <amx:image id="i11" source="/resources/css/images/Line/On Hold.png"
+                                 rendered="#{row.lineStatus!='Back Order'}"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf29" width="70%">
                       <amx:tableLayout id="tl14" width="100%">
