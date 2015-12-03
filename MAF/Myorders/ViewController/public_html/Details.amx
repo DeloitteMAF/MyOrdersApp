@@ -54,6 +54,8 @@
           </amx:tableLayout>
       </amx:facet>
       <amx:facet name="center">
+      <amx:refreshContainer id="rc1" busyText="Refreshing"
+                                pullText="Pull to Refresh" actionListener="#{OrdersManagedBean.pullDownToRefreshAction}">
         <amx:commandLink id="cl2" styleClass="remove_ul">
           <amx:panelGroupLayout id="pgl1"
                                 rendered="#{pageFlowScope.detailCurrentTab!='LINES' &amp;&amp; pageFlowScope.detailCurrentTab!='ALERTS'}">
@@ -342,6 +344,7 @@
           <amx:setPropertyListener id="spl8" to="#{pageFlowScope.detailCurrentTab}" from="#{'LINES'}"
                                    type="swipeRight"/>
         </amx:commandLink>
+        </amx:refreshContainer>
       </amx:facet>
     </amx:panelStretchLayout>
   </amx:panelPage>
