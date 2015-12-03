@@ -143,16 +143,16 @@ public class OrderDetails extends Entity {
     }
 
     public String getActualArrivalDate() {
-        return this.actualArrivalDate;
+        OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
+        return ordersUtilityBean.toDateTime(this.actualArrivalDate);
     }
 
     public void setActualArrivalDate(String actualArrivalDate) {
         this.actualArrivalDate = actualArrivalDate;
     }
 
-    public String getBackorderQuantity() {
-        OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
-        return ordersUtilityBean.toDateTime(this.actualArrivalDate);
+    public String getBackorderQuantity() {        
+        return this.backorderQuantity;
     }
 
     public void setBackorderQuantity(String backorderQuantity) {
