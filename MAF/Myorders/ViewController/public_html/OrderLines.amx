@@ -120,14 +120,21 @@
               </amx:rowLayout>
               <amx:rowLayout id="rl7">
                 <amx:cellFormat id="cf10" width="90%">
-                  <amx:panelGroupLayout id="pgl3">
+                  <amx:panelGroupLayout id="pgl3"
+                                        rendered="#{bindings.backorderQuantity.inputValue!='0' &amp;&amp; pageFlowScope.currentTab!='ALL'}">
                     <amx:outputText value="On Backorder" id="ot8" styleClass="otLabelBackorder"
-                                    rendered="#{bindings.backorderQuantity.inputValue!='0'}"/>
+                                    />
                     <amx:outputText value="#{bindings.backorderQuantity.inputValue} #{bindings.orderQuantityUom.inputValue}"
                                     id="ot9" styleClass="otValue"
-                                    rendered="#{bindings.backorderQuantity.inputValue!='0' &amp;&amp; pageFlowScope.currentTab!='ALL'}"/>
-                    <amx:outputText value="#{bindings.backorderQuantity1.inputValue}  #{bindings.orderQuantityUom1.inputValue}" id="ot33" styleClass="otValue"
-                                    rendered="#{bindings.backorderQuantity1.inputValue!='0' &amp;&amp; pageFlowScope.currentTab=='ALL'}"/>
+                                    />
+                  </amx:panelGroupLayout>
+                  <amx:panelGroupLayout id="pgl14"
+                                        rendered="#{bindings.backorderQuantity1.inputValue!='0' &amp;&amp; pageFlowScope.currentTab=='ALL'}">
+                    <amx:outputText value="On Backorder" id="ot41" styleClass="otLabelBackorder"
+                                    />
+                    <amx:outputText value="#{bindings.backorderQuantity1.inputValue}  #{bindings.orderQuantityUom1.inputValue}"
+                                    id="ot33" styleClass="otValue"
+                                    />
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
               </amx:rowLayout>
@@ -148,7 +155,7 @@
             </amx:tableLayout>
             <amx:tableLayout id="tl6" width="100%">
               <amx:rowLayout id="rl9">
-                <amx:cellFormat id="cf13" width="30%" rowSpan="2"/>
+                <amx:cellFormat id="cf13" width="30%" rowSpan="4"/>
                 <amx:cellFormat id="cf22" height="20px" columnSpan="2"/>
               </amx:rowLayout>
               <amx:rowLayout id="rl15">
@@ -159,6 +166,17 @@
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                     <amx:outputText value="#{bindings.freightCode1.inputValue}" id="ot34" styleClass="otValue"
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl28">
+                <amx:cellFormat id="cf37">
+                  <amx:spacer id="s9" height="15"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl27">
+                <amx:cellFormat id="cf38" width="70%">
+                  <amx:panelGroupLayout id="pgl15">
                     <amx:outputText value="Arrival Date" id="ot40" styleClass="otLabel"/>
                     <amx:outputText value="#{bindings.actualArrivalDate.inputValue}" id="ot14" styleClass="otValue"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>

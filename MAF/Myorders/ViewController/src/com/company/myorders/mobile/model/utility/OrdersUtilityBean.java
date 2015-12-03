@@ -26,6 +26,22 @@ public class OrdersUtilityBean {
         }
         return newDate;
     }
+    
+    public String toDateTimeTZ(String value){
+        SimpleDateFormat intialFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+        SimpleDateFormat newFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        String newDate = null;
+        try {
+            if(value!=null){
+            Date date = intialFormat.parse(value);
+            newDate = newFormat.format(date);   
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            newDate=value;
+        }
+        return newDate;
+    }
 
 
 }

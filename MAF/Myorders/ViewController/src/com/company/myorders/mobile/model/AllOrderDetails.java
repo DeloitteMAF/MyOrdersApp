@@ -142,9 +142,9 @@ public class AllOrderDetails extends Entity {
         this.freightCode = freightCode;
     }
 
-    public String getActualArrivalDate() {
+    public String getActualArrivalDate() {  
         OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
-        return ordersUtilityBean.toDateTime(this.actualArrivalDate);
+            return ordersUtilityBean.toDateTimeTZ(this.actualArrivalDate);       
     }
 
     public void setActualArrivalDate(String actualArrivalDate) {
