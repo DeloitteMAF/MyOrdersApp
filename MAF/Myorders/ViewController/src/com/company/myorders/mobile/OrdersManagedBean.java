@@ -97,6 +97,12 @@ public class OrdersManagedBean {
                                                                           new Object[] { "backToDashboard" });
     }
     
+    public void backToDetails(ActionEvent actionEvent) {
+        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureName(),
+                                                                          "adf.mf.api.amx.doNavigation",
+                                                                          new Object[] { "backToDetails" });
+    }
+    
     public void addPropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.addPropertyChangeListener(l);
     }
