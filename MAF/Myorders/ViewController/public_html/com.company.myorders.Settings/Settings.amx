@@ -40,7 +40,7 @@
           <amx:outputText value="Location" id="ot4" inlineStyle="font-size:small;"/>
         </amx:cellFormat>
         <amx:cellFormat id="cf8" width="50%">
-          <amx:inputText label="Location" id="it1" simple="true"/>
+          <amx:inputText label="Location" id="it1" simple="true" hintText="Country Name.."/>
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>
@@ -68,9 +68,9 @@
         <amx:cellFormat id="cf15" width="50%">
           <amx:selectOneChoice value="#{preferenceScope.application.userPref.dateRange}" label="Date Range"
                                simple="true">
-            <amx:selectItem label="0-30" value="30" id="si4"/>
-            <amx:selectItem label="0-60" value="60" id="si5"/>
-            <amx:selectItem label="0-90" value="90" id="si6"/>
+            <amx:selectItem label="Last 30 Days" value="30" id="si4"/>
+            <amx:selectItem label="Last 60 Days" value="60" id="si5"/>
+            <amx:selectItem label="Last 90 Days" value="90" id="si6"/>
             <amx:selectItem label="All" value="-1" id="si7"/>
           </amx:selectOneChoice>
         </amx:cellFormat>

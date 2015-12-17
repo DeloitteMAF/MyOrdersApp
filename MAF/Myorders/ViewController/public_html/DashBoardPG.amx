@@ -5,7 +5,7 @@
     <amx:facet name="header">
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
-          <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
+          <!--<amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="middle" width="20px">
             <amx:commandLink actionListener="#{WindowBean.showSpringboard}"
                         id="cl3" rendered="#{applicationScope.isSprinboardOpen!='Y'}">
@@ -15,11 +15,11 @@
                               id="cl1" rendered="#{applicationScope.isSprinboardOpen=='Y'}">
                 <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
             </amx:commandLink>
-          </amx:cellFormat>
+          </amx:cellFormat>-->
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
             <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="middle">
               <amx:panelGroupLayout id="pgl2" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
-                <amx:outputText value="My Orders" id="ot1" inlineStyle="padding: 13px;"/>
+                <amx:outputText value="#{bindings.partyName.inputValue}" id="ot1" inlineStyle="padding: 13px;"/>
               </amx:panelGroupLayout>
               <amx:panelGroupLayout id="pgl4" rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}"
                                     layout="vertical" valign="middle" halign="center">
@@ -82,7 +82,7 @@
             <amx:rowLayout id="rl2">
               <amx:cellFormat id="cf4" width="50%"
                               inlineStyle="#{pageFlowScope.currentTab!='ALL' ?' border-bottom: 5px solid #1EBE92;' : 'border-bottom:none none none'}">
-                <amx:commandButton text="Top Orders" id="cb1"
+                <amx:commandButton text="Top 10 Orders" id="cb1"
                                    inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; "
                                    styleClass="tab_btn">
                   <amx:setPropertyListener id="spl1" from="#{'TOP'}" to="#{pageFlowScope.currentTab}"/>
@@ -123,14 +123,17 @@
                             <amx:spacer id="s9" width="25"/>
                             <amx:outputText value="Order Date : #{row.orderedDate}" id="ot2"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                            <amx:spacer id="s5" width="10"/>
+                            <amx:outputText value=" PO# : #{row.custPoNumber}" id="ot5"
+                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                           </amx:panelGroupLayout>
                           <amx:spacer id="s2" height="7"/>
                           <amx:panelGroupLayout id="pgl9" layout="horizontal">
                             <amx:spacer id="s7" width="25"/>
                             <amx:outputText value="Order# #{row.orderNumber} " id="ot3"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
-                            <amx:spacer id="s5" width="10"/>
-                            <amx:outputText value=" Amount: $#{row.totalOrderedValue}" id="ot5"
+                            <amx:spacer id="s16" width="10"/>
+                            <amx:outputText value=" Amount: $#{row.totalOrderedValue}" id="ot14"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                           </amx:panelGroupLayout>
                           <amx:outputText value="Status #{row.flowStatusCode}" id="ot4"
@@ -164,7 +167,7 @@
                 </amx:listItem>
               </amx:listView>
               <amx:setPropertyListener id="spl3" to="#{pageFlowScope.currentTab}" from="#{'ALL'}" type="swipeLeft"/>
-              <amx:actionListener id="al2" type="swipeRight" binding="#{OrdersManagedBean.openSpringboard}"/>
+              <amx:actionListener id="al2" type="swipeRight" binding="#{WindowBean.showSpringboard}"/>
               
             </amx:commandLink>
             <amx:commandLink id="cl9" styleClass="remove_ul">
@@ -187,6 +190,9 @@
                           <amx:panelGroupLayout id="pgl12" layout="horizontal">
                             <amx:spacer id="s10" width="25"/>
                             <amx:outputText value="Order Date : #{row.orderedDate}" id="ot8"
+                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                            <amx:spacer id="s17" width="10"/>
+                            <amx:outputText value=" PO# : #{row.custPoNumber}" id="ot15"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                           </amx:panelGroupLayout>
                           <amx:spacer id="s4" height="7"/>
