@@ -50,10 +50,10 @@ public class XxMyOrdersAMImpl extends ApplicationModuleImpl {
             case "date":
                 myOrdersVO.setOrderByClause("ordered_date");
                 break;
-            case "Amount desc":
+            case "amount desc":
                 myOrdersVO.setOrderByClause("total_ordered_value desc");
                 break;
-            case "Amount":
+            case "amount":
                 myOrdersVO.setOrderByClause("total_ordered_value");
             }
         myOrdersVO.applyViewCriteria(null);
