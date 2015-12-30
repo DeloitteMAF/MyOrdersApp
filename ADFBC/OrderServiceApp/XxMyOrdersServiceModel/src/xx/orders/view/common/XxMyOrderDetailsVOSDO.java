@@ -74,6 +74,10 @@ public interface XxMyOrderDetailsVOSDO extends java.io.Serializable {
 
    public void setShipToContact(java.lang.String value);
 
+   public java.lang.String getAlertFlag();
+
+   public void setAlertFlag(java.lang.String value);
+
 
 }
 

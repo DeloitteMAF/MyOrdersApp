@@ -395,6 +395,16 @@
       <value n="j2eeWebAppName" v="OrdersService"/>
       <value n="j2eeWebContextRoot" v="OrdersService"/>
    </hash>
+   <hash n="oracle.jdeveloper.runner.RunConfigurations">
+      <hash n="runConfigurationDefinitions">
+         <hash n="Default">
+            <value n="custom" v="false"/>
+            <value n="javaOptions" v="-Djbo.debugoutput=console"/>
+            <value n="name" v="Default"/>
+            <value n="targetURL"/>
+         </hash>
+      </hash>
+   </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
          <hash>

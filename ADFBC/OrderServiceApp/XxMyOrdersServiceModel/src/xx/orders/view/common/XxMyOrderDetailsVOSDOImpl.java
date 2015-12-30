@@ -7,7 +7,7 @@ public class XxMyOrderDetailsVOSDOImpl extends SDODataObject implements XxMyOrde
 
    public static final int START_PROPERTY_INDEX = 0;
 
-   public static final int END_PROPERTY_INDEX = START_PROPERTY_INDEX + 17;
+   public static final int END_PROPERTY_INDEX = START_PROPERTY_INDEX + 18;
 
    public XxMyOrderDetailsVOSDOImpl() {}
 
@@ -153,6 +153,14 @@ public class XxMyOrderDetailsVOSDOImpl extends SDODataObject implements XxMyOrde
 
    public void setShipToContact(java.lang.String value) {
       set(START_PROPERTY_INDEX + 17 , value);
+   }
+
+   public java.lang.String getAlertFlag() {
+      return getString(START_PROPERTY_INDEX + 18);
+   }
+
+   public void setAlertFlag(java.lang.String value) {
+      set(START_PROPERTY_INDEX + 18 , value);
    }
 
 

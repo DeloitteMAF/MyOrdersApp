@@ -24,6 +24,7 @@ public class XxMyOrdersVORowImpl extends ViewRowImpl {
         CustPoNumber,
         TotalOrderedValue,
         HeaderId,
+        CurrencyCode,
         XxMyOrderDetailsVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -58,6 +59,7 @@ public class XxMyOrdersVORowImpl extends ViewRowImpl {
     public static final int CUSTPONUMBER = AttributesEnum.CustPoNumber.index();
     public static final int TOTALORDEREDVALUE = AttributesEnum.TotalOrderedValue.index();
     public static final int HEADERID = AttributesEnum.HeaderId.index();
+    public static final int CURRENCYCODE = AttributesEnum.CurrencyCode.index();
     public static final int XXMYORDERDETAILSVO = AttributesEnum.XxMyOrderDetailsVO.index();
 
     /**

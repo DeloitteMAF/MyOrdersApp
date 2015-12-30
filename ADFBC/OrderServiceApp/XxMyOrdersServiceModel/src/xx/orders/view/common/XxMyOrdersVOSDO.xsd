@@ -1,9 +1,7 @@
 <xsd:schema xmlns:sdoJava="commonj.sdo/java" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="/xx/orders/view/common/"
      xmlns="/xx/orders/view/common/" elementFormDefault="qualified" sdoJava:package="xx.orders.view.common">
     <xsd:annotation>
-        <xsd:documentation>
-            <name>Xx My Orders Vo</name>
-        </xsd:documentation>
+        <xsd:documentation/>
     </xsd:annotation>
     <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
     <xsd:include schemaLocation="XxMyOrderDetailsVOSDO.xsd"/>
@@ -24,6 +22,7 @@
             <xsd:element name="CustPoNumber" type="xsd:string" minOccurs="0" nillable="true"/>
             <xsd:element name="TotalOrderedValue" type="xsd:decimal" minOccurs="0" nillable="true"/>
             <xsd:element name="HeaderId" type="xsd:long" minOccurs="0" nillable="true"/>
+            <xsd:element name="CurrencyCode" type="xsd:string" minOccurs="0" nillable="true"/>
             <xsd:element name="XxMyOrderDetailsVO" type="XxMyOrderDetailsVOSDO" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>

@@ -7,7 +7,7 @@ public class XxMyOrdersVOSDOImpl extends SDODataObject implements XxMyOrdersVOSD
 
    public static final int START_PROPERTY_INDEX = 0;
 
-   public static final int END_PROPERTY_INDEX = START_PROPERTY_INDEX + 8;
+   public static final int END_PROPERTY_INDEX = START_PROPERTY_INDEX + 9;
 
    public XxMyOrdersVOSDOImpl() {}
 
@@ -75,12 +75,20 @@ public class XxMyOrdersVOSDOImpl extends SDODataObject implements XxMyOrdersVOSD
       set(START_PROPERTY_INDEX + 7 , value);
    }
 
+   public java.lang.String getCurrencyCode() {
+      return getString(START_PROPERTY_INDEX + 8);
+   }
+
+   public void setCurrencyCode(java.lang.String value) {
+      set(START_PROPERTY_INDEX + 8 , value);
+   }
+
    public java.util.List getXxMyOrderDetailsVO() {
-      return getList(START_PROPERTY_INDEX + 8);
+      return getList(START_PROPERTY_INDEX + 9);
    }
 
    public void setXxMyOrderDetailsVO(java.util.List value) {
-      set(START_PROPERTY_INDEX + 8 , value);
+      set(START_PROPERTY_INDEX + 9 , value);
    }
 
 

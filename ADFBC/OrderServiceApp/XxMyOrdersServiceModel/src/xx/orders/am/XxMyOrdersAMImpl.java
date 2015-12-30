@@ -33,21 +33,40 @@ public class XxMyOrdersAMImpl extends ApplicationModuleImpl {
     }
     
     public List<XxMyOrdersVORowImpl> getRequestedOrders(Long custAccountId, Integer noOfDays, Integer noOfRows, String location,String orderBy,String fetchClosedOrders) {
-        ViewObjectImpl myOrdersVO= (ViewObjectImpl)getXxMyOrdersVO();
+        ViewObjectImpl myOrdersVO= null;
+            myOrdersVO=(ViewObjectImpl)getXxMyOrdersVO();
+        /*if("date".equals(orderBy)){
+            myOrdersVO=(ViewObjectImpl)getXxMyOrdersDateSortedVO1();
+            myOrdersVO.setOrderByClause("ordered_date");
+        }
+        else {
+            //myOrdersVO=(ViewObjectImpl)getXxMyOrdersVO();
+            myOrdersVO.setOrderByClause("total_ordered_value");
+        }*/
+            switch(orderBy) {
+            case "date desc":
+                myOrdersVO.setOrderByClause("ordered_date desc");
+                break;
+            case "date":
+                myOrdersVO.setOrderByClause("ordered_date");
+                break;
+            case "Amount desc":
+                myOrdersVO.setOrderByClause("total_ordered_value desc");
+                break;
+            case "Amount":
+                myOrdersVO.setOrderByClause("total_ordered_value");
+            }
         myOrdersVO.applyViewCriteria(null);
         myOrdersVO.setNamedWhereClauseParam("bindCustAccountId", custAccountId);
         myOrdersVO.setNamedWhereClauseParam("bindNoOfDays", noOfDays);
         //myOrdersVO.setNamedWhereClauseParam("bindNoOfRows", NoOfRows);
         myOrdersVO.setNamedWhereClauseParam("bindLocation", location);
+        System.out.println("now setting closedorderstatus"+fetchClosedOrders);
         if("No".equals(fetchClosedOrders)) {
             myOrdersVO.setApplyViewCriteriaName("statusCriteria");
         }
-        if("date".equals(orderBy)){
-            myOrdersVO.setSortBy("OrderedDate desc");
-        }
-        else {
-            myOrdersVO.setSortBy("TotalOrderedValue desc");
-        }
+        System.out.println("now setting orderby"+orderBy);
+        System.out.println("now setting noOfRows"+noOfRows);
         myOrdersVO.setMaxFetchSize(noOfRows);
         myOrdersVO.executeQuery();
         ArrayList<XxMyOrdersVORowImpl> myOrderList=new ArrayList<XxMyOrdersVORowImpl>();
