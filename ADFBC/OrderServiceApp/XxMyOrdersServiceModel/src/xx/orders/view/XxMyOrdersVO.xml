@@ -70,7 +70,7 @@
                 - NVL (TRUNC (ool.fulfillment_date), TRUNC (SYSDATE)))) <= :bindNoOfDays                    
       AND hca.cust_account_id = :bindCustAccountId                    
  GROUP BY ooh.order_number, hp.party_name, hca.account_number, ooh.flow_status_code,                     
-          ooh.ordered_date, ooh.cust_po_number, ooh.header_id   
+          ooh.ordered_date, ooh.cust_po_number, ooh.header_id, ooh.transactional_curr_code   
  ORDER BY total_ordered_value desc]]></SQLQuery>
   <ViewAttribute
     Name="OrderNumber"
