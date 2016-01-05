@@ -36,6 +36,7 @@
             <xsd:element name="Address" type="xsd:string" minOccurs="0" nillable="true"/>
             <xsd:element name="ShipToContact" type="xsd:string" minOccurs="0" nillable="true"/>
             <xsd:element name="AlertFlag" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="CurrencyCode" type="xsd:string" minOccurs="0" nillable="true"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:element name="xxMyOrderDetailsVOSDO" type="XxMyOrderDetailsVOSDO"/>
