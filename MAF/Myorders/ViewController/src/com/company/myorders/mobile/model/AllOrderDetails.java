@@ -28,10 +28,19 @@ public class AllOrderDetails extends Entity {
     private String address;
     private String shipToContact;
     private String alertFlag;
+    private String currencyCode;
 
 
     public BigDecimal getHeaderId() {
         return this.headerId;
+    }
+
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+
+    public String getCurrencyCode() {
+        return currencyCode;
     }
 
     public void setHeaderId(BigDecimal headerId) {

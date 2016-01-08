@@ -29,6 +29,7 @@
           <Item Value="headerId"/>
           <Item Value="isNewEntity"/>
           <Item Value="partyName"/>
+          <Item Value="currencyCode"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -44,6 +45,7 @@
           <Item Value="partyName"/>
           <Item Value="totalOrderedValue"/>
           <Item Value="headerId"/>
+          <Item Value="currencyCode"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

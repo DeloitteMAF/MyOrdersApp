@@ -29,13 +29,13 @@
          <directMapping attributeName="custPoNumber" payloadAttributeName="CustPoNumber" columnName="CUST_PO_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
          <directMapping attributeName="headerId" payloadAttributeName="HeaderId" columnName="HEADER_ID" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <oneToManyMapping attributeName="xxMyOrderDetailsVO" payloadAttributeName="XxMyOrderDetailsVO" referenceClassName="com.company.myorders.mobile.model.OrderDetails" sendAsArrayIfOnlyOneEntry="true">
             <foreignKeyColumnReference sourceTable="ORDER_DETAILS" sourceColumn="HEADER_ID" targetTable="ORDERS" targetColumn="HEADER_ID"/>
          </oneToManyMapping>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/myorder/SO/getAllOrders/{custAcctid}/{dateRange}/10/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
-            <parameter name="loc" value="#{preferenceScope.application.userPref.location}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+         <findAllMethod uri="/myorder/SO/getAllOrders/{dateRange}/10/US_1146/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="showclosedorders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="dateRange" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
@@ -57,13 +57,13 @@
          <directMapping attributeName="custPoNumber" payloadAttributeName="CustPoNumber" columnName="CUST_PO_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
          <directMapping attributeName="headerId" payloadAttributeName="HeaderId" columnName="HEADER_ID" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <oneToManyMapping attributeName="xxMyOrderDetailsVO" payloadAttributeName="XxMyOrderDetailsVO" referenceClassName="com.company.myorders.mobile.model.AllOrderDetails" sendAsArrayIfOnlyOneEntry="true">
             <foreignKeyColumnReference sourceTable="ALL_ORDER_DETAILS" sourceColumn="HEADER_ID" targetTable="ALL_ORDERS" targetColumn="HEADER_ID"/>
          </oneToManyMapping>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/myorder/SO/getAllOrders/{custAcctid}/{dateRange}/-1/{loc}/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
-            <parameter name="loc" value="#{preferenceScope.application.userPref.location}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+         <findAllMethod uri="/myorder/SO/getAllOrders/{dateRange}/-1/US_1146/{orderby}/{showclosedorders}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="showclosedorders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="dateRange" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
@@ -96,6 +96,7 @@
          <directMapping attributeName="address" payloadAttributeName="Address" columnName="ADDRESS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="shipToContact" payloadAttributeName="ShipToContact" columnName="SHIP_TO_CONTACT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>
@@ -124,6 +125,7 @@
          <directMapping attributeName="address" payloadAttributeName="Address" columnName="ADDRESS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="shipToContact" payloadAttributeName="ShipToContact" columnName="SHIP_TO_CONTACT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>

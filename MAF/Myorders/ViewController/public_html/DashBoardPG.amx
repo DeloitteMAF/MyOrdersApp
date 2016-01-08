@@ -5,7 +5,7 @@
     <amx:facet name="header">
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
-          <!--<amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
+          <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="middle" width="20px">
             <amx:commandLink actionListener="#{WindowBean.showSpringboard}"
                         id="cl3" rendered="#{applicationScope.isSprinboardOpen!='Y'}">
@@ -15,7 +15,7 @@
                               id="cl1" rendered="#{applicationScope.isSprinboardOpen=='Y'}">
                 <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
             </amx:commandLink>
-          </amx:cellFormat>-->
+          </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
             <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="middle">
               <amx:panelGroupLayout id="pgl2" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">

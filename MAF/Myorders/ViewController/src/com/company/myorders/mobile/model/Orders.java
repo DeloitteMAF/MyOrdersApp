@@ -22,12 +22,21 @@ public class Orders extends Entity {
     private String custPoNumber;
     private BigDecimal totalOrderedValue;
     private BigDecimal headerId;
+    private String currencyCode;
 
     private List<OrderDetails> xxMyOrderDetailsVO = createIndirectList("xxMyOrderDetailsVO");
 
 
     public BigDecimal getOrderNumber() {
         return this.orderNumber;
+    }
+
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+
+    public String getCurrencyCode() {
+        return currencyCode;
     }
 
     public void setOrderNumber(BigDecimal orderNumber) {
