@@ -55,6 +55,7 @@
             <!--<amx:image id="i4" source="/resources/css/images/Search.png"
                    inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
             <amx:actionListener id="al1" binding="#{bindings.findAllOrders.execute}" type="action"/>
+            <amx:actionListener id="al4" binding="#{OrdersManagedBean.getSearchCount}"/>
           </amx:commandLink>
         </amx:panelGroupLayout>
         <amx:panelGroupLayout id="pgl16" rendered="#{!applicationScope.OrdersManagedBean.clearSearch}" halign="center"
@@ -133,7 +134,7 @@
                             <amx:outputText value="Order# #{row.orderNumber} " id="ot3"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                             <amx:spacer id="s16" width="10"/>
-                            <amx:outputText value=" Amount: $#{row.totalOrderedValue}" id="ot14"
+                            <amx:outputText value=" Amount: #{row.currencyCode} #{row.totalOrderedValue}" id="ot14"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                           </amx:panelGroupLayout>
                           <amx:outputText value="Status #{row.flowStatusCode}" id="ot4"
@@ -201,7 +202,7 @@
                             <amx:outputText value="Order# #{row.orderNumber}" id="ot10"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                             <amx:spacer id="s6" width="10"/>
-                            <amx:outputText value="Amount: $#{row.totalOrderedValue}" id="ot6"
+                            <amx:outputText value=" Amount: #{row.currencyCode} #{row.totalOrderedValue}" id="ot6"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                           </amx:panelGroupLayout>
                           <amx:outputText value="Status #{row.flowStatusCode}" id="ot9"
@@ -224,6 +225,9 @@
                   <amx:setPropertyListener id="spl17" to="#{pageFlowScope.lineCurrentTab}" from="#{''}"/>
                 </amx:listItem>
               </amx:listView>
+              <amx:outputText value="Searched Order Not found" id="ot16"
+                        rendered="#{pageFlowScope.OrdersCount == 0}"
+                        inlineStyle="padding-top: 20px; padding-left: 45%; position: absolute; width:auto; font-size:small; font-weight:bold;"/>
             </amx:commandLink>
             
           </amx:refreshContainer>

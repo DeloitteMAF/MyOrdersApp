@@ -211,4 +211,11 @@ public class OrdersManagedBean {
                    
         return new Integer(alertCount).toString();
     }
+
+    public void getSearchCount(ActionEvent actionEvent) {
+        // Add event code here...
+        Integer i =
+            (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.allOrdersIterator.iterator.totalRowCount}");
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
+    }
 }
