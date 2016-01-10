@@ -11,36 +11,41 @@ import oracle.ateam.sample.mobile.v2.persistence.model.Entity;
 
 import java.math.BigDecimal;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
+import java.util.Locale;
+
 
 public class Orders extends Entity {
 
-    private BigDecimal orderNumber;
+    private String orderNumber;
     private String partyName;
     private String accountNumber;
     private String flowStatusCode;
     private String orderedDate;
     private String custPoNumber;
-    private BigDecimal totalOrderedValue;
+    private String totalOrderedValue;
     private BigDecimal headerId;
     private String currencyCode;
 
     private List<OrderDetails> xxMyOrderDetailsVO = createIndirectList("xxMyOrderDetailsVO");
 
 
-    public BigDecimal getOrderNumber() {
+    public String getOrderNumber() {
         return this.orderNumber;
     }
 
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+    
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
     }
 
     public String getCurrencyCode() {
         return currencyCode;
-    }
-
-    public void setOrderNumber(BigDecimal orderNumber) {
-        this.orderNumber = orderNumber;
     }
 
     public String getPartyName() {
@@ -84,11 +89,12 @@ public class Orders extends Entity {
         this.custPoNumber = custPoNumber;
     }
 
-    public BigDecimal getTotalOrderedValue() {
-        return this.totalOrderedValue;
+    public String getTotalOrderedValue() {
+        DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+        return formatter.format(new BigDecimal(this.totalOrderedValue).longValue());
     }
 
-    public void setTotalOrderedValue(BigDecimal totalOrderedValue) {
+    public void setTotalOrderedValue(String totalOrderedValue) {
         this.totalOrderedValue = totalOrderedValue;
     }
 

@@ -94,7 +94,7 @@
       </amx:rowLayout>
     </amx:tableLayout>
     <amx:commandButton text="commandButton2" id="cb2" inlineStyle="display:none;">
-      <amx:showPopupBehavior id="spb1" popupId="p1" alignId="it1"/>
+      <!--<amx:showPopupBehavior id="spb1" popupId="p1" alignId="it1"/>-->
     </amx:commandButton>
     <amx:commandButton text="commandButton3" id="cb1" actionListener="#{bindings.findResult.execute}"
                        inlineStyle="display:none;"/>

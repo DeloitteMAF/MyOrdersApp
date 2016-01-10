@@ -21,13 +21,13 @@
          <primaryKeyColumn name="ORDER_NUMBER"/>
       </table>
       <attributeMappings>
-         <directMapping attributeName="orderNumber" payloadAttributeName="OrderNumber" columnName="ORDER_NUMBER" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="orderNumber" payloadAttributeName="OrderNumber" columnName="ORDER_NUMBER" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
          <directMapping attributeName="partyName" payloadAttributeName="PartyName" columnName="PARTY_NAME" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="accountNumber" payloadAttributeName="AccountNumber" columnName="ACCOUNT_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="flowStatusCode" payloadAttributeName="FlowStatusCode" columnName="FLOW_STATUS_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="orderedDate" payloadAttributeName="OrderedDate" columnName="ORDERED_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="custPoNumber" payloadAttributeName="CustPoNumber" columnName="CUST_PO_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="headerId" payloadAttributeName="HeaderId" columnName="HEADER_ID" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
          <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <oneToManyMapping attributeName="xxMyOrderDetailsVO" payloadAttributeName="XxMyOrderDetailsVO" referenceClassName="com.company.myorders.mobile.model.OrderDetails" sendAsArrayIfOnlyOneEntry="true">
@@ -49,13 +49,13 @@
          <primaryKeyColumn name="ORDER_NUMBER"/>
       </table>
       <attributeMappings>
-         <directMapping attributeName="orderNumber" payloadAttributeName="OrderNumber" columnName="ORDER_NUMBER" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="orderNumber" payloadAttributeName="OrderNumber" columnName="ORDER_NUMBER" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
          <directMapping attributeName="partyName" payloadAttributeName="PartyName" columnName="PARTY_NAME" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="accountNumber" payloadAttributeName="AccountNumber" columnName="ACCOUNT_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="flowStatusCode" payloadAttributeName="FlowStatusCode" columnName="FLOW_STATUS_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="orderedDate" payloadAttributeName="OrderedDate" columnName="ORDERED_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="custPoNumber" payloadAttributeName="CustPoNumber" columnName="CUST_PO_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="headerId" payloadAttributeName="HeaderId" columnName="HEADER_ID" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
          <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <oneToManyMapping attributeName="xxMyOrderDetailsVO" payloadAttributeName="XxMyOrderDetailsVO" referenceClassName="com.company.myorders.mobile.model.AllOrderDetails" sendAsArrayIfOnlyOneEntry="true">

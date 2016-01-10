@@ -5,6 +5,8 @@ import com.company.myorders.mobile.model.OrderDetails;
 
 import java.util.ArrayList;
 
+import java.util.List;
+
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.bindings.dbf.AmxIteratorBinding;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
@@ -217,5 +219,36 @@ public class OrdersManagedBean {
         Integer i =
             (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.allOrdersIterator.iterator.totalRowCount}");
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
+}
+public void callButtonActionJS(String btn) {
+        String featureID = AdfmfJavaUtilities.getFeatureId();
+        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "showPopup", new Object[] { btn });
+    }
+
+    
+    public void onKeyDownSearch(String searchStr){
+        try{
+        System.out.println("test keydown search: " +searchStr);
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchValue");
+        params.add(searchStr);
+        ptypes.add(String.class);
+      
+        AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+        AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+        
+        callButtonActionJS("cl4");
+            Integer i =
+                (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.allOrdersIterator.iterator.totalRowCount}");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
+    //        String featureID = AdfmfJavaUtilities.getFeatureId();
+    //        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setFocusOnInput", new Object[] {});
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+        
     }
 }
