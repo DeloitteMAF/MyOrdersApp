@@ -33,7 +33,7 @@
                          rendered="false">
       <amx:selectItems value="#{bindings.partyName.items}" id="si1"/>
     </amx:selectOneChoice>
-        <amx:tableLayout id="tl3" width="100%"  cellPadding="10">
+        <!--<amx:tableLayout id="tl3" width="100%"  cellPadding="10">
       <amx:rowLayout id="rl4">
         <amx:cellFormat id="cf7" width="10px"/>
         <amx:cellFormat id="cf9" width="50%">
@@ -43,7 +43,7 @@
           <amx:inputText label="Location" id="it1" simple="true" hintText="Country Name.."/>
         </amx:cellFormat>
       </amx:rowLayout>
-    </amx:tableLayout>
+    </amx:tableLayout>-->
     <amx:tableLayout id="tl4" width="100%" inlineStyle="background-color:#ECECEC;" cellPadding="10">
       <amx:rowLayout id="rl5">
         <amx:cellFormat id="cf10" width="10px"/>
@@ -54,7 +54,9 @@
           <amx:selectOneChoice value="#{preferenceScope.application.userPref.orderby}" label="Arrange my orders by"
                                simple="true">
             <amx:selectItem label="Date" value="date" id="si2"/>
+            <amx:selectItem label="Date Desc" value="date desc" id="si10"/>
             <amx:selectItem label="Amount" value="amount" id="si3"/>
+            <amx:selectItem label="Amount Desc" value="amount desc" id="si11"/>
           </amx:selectOneChoice>
         </amx:cellFormat>
       </amx:rowLayout>
@@ -99,7 +101,7 @@
     <amx:commandButton text="commandButton4" id="cb3" inlineStyle="display:none;">
       <amx:closePopupBehavior id="cpb2" popupId="p1"/>
     </amx:commandButton>
-    <amx:verbatim id="v1">
+    <!--<amx:verbatim id="v1">
     <![CDATA[
     <html>
     <body>
@@ -168,9 +170,9 @@ alert('error '+adf.mf.util.stringify(response));
 </body>
 </html>
     ]]>
-    </amx:verbatim>
+    </amx:verbatim>-->
   </amx:panelPage>
-  <amx:popup id="p1" backgroundDimming="off" autoDismiss="true" animation="slideUp"
+  <!--<amx:popup id="p1" backgroundDimming="off" autoDismiss="true" animation="slideUp"
              inlineStyle="width:70%; left:7% !important; overflow:auto; max-height:50%;" styleClass="lovPopUp">
     <amx:listView var="row" value="#{bindings.result.collectionModel}" fetchSize="-1"
                   selectedRowKeys="#{bindings.result.collectionModel.selectedRow}"
@@ -199,5 +201,5 @@ alert('error '+adf.mf.util.stringify(response));
                                  from="#{row.locationFullName}"/>
       </amx:listItem>
     </amx:listView>
-  </amx:popup>
+  </amx:popup>-->
 </amx:view>

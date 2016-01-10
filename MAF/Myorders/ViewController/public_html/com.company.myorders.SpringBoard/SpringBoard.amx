@@ -77,13 +77,13 @@
           </amx:cellFormat>
         </amx:rowLayout>
         <amx:rowLayout id="rl7">
-          <amx:cellFormat id="cf12" width="20%" valign="middle" halign="center">
+          <amx:cellFormat id="cf12" width="20%" valign="middle" halign="center" inlineStyle="background-color:#ECECEC;">
             <amx:spacer id="s13" height="#{applicationScope.OrdersManagedBean.sbRowSpacer}"/>
             <amx:image id="i6" source="/resources/css/images/My alerts.png" styleClass="sbimages"
                        inlineStyle="paddin-left:20%;"/>
             <amx:spacer id="s14" height="#{applicationScope.OrdersManagedBean.sbRowSpacer}"/>
           </amx:cellFormat>
-          <amx:cellFormat id="cf13" width="80%" halign="start">
+          <amx:cellFormat id="cf13" width="80%" halign="start" inlineStyle="background-color:#ECECEC;">
             <amx:commandLink id="cl7"
                              inlineStyle="height:80%" styleClass="remove_ul">
               <amx:outputText value="My Alerts" id="ot8" inlineStyle="padding-left:10%"/>
@@ -95,13 +95,13 @@
           </amx:cellFormat>
         </amx:rowLayout>
         <amx:rowLayout id="rl9">
-          <amx:cellFormat id="cf16" width="20%" valign="middle" halign="center" inlineStyle="background-color:#ECECEC;">
+          <amx:cellFormat id="cf16" width="20%" valign="middle" halign="center">
             <amx:spacer id="s17" height="#{applicationScope.OrdersManagedBean.sbRowSpacer}"/>
             <amx:image id="i8" source="/resources/css/images/Settings.png" styleClass="sbimages"
                        inlineStyle="paddin-left:20%;"/>
             <amx:spacer id="s18" height="#{applicationScope.OrdersManagedBean.sbRowSpacer}"/>
           </amx:cellFormat>
-          <amx:cellFormat id="cf17" width="80%" halign="start" inlineStyle="background-color:#ECECEC;">
+          <amx:cellFormat id="cf17" width="80%" halign="start">
             <amx:commandLink id="cl9" actionListener="#{bindings.resetFeature.execute}"
                              inlineStyle="height:80%" styleClass="remove_ul">
               <amx:outputText value="Settings" id="ot10" inlineStyle="padding-left:10%"/>
