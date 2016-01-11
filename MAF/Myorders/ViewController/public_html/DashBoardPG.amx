@@ -55,7 +55,7 @@ alert('error '+adf.mf.util.stringify(response));
                             <amx:panelGroupLayout id="pgl4"
                                                   rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}"
                                                   layout="vertical" valign="middle" halign="center">
-                                <amx:inputText id="it2" hintText="Order Number" simple="true"/>
+                                <amx:inputText id="it2" hintText="Order Number" simple="true" inputType="number"/>
                                 <!--<amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"
                                readOnly="#{!applicationScope.OrdersManagedBean.clearSearch}"/>-->
                             </amx:panelGroupLayout>
@@ -107,6 +107,8 @@ alert('error '+adf.mf.util.stringify(response));
                                                  to="#{applicationScope.OrdersManagedBean.clearSearch}"
                                                  from="#{'true'}"/>
                         <amx:setPropertyListener id="spl13" to="#{bindings.searchValue.inputValue}" from="#{''}"/>
+                        <amx:setPropertyListener id="spl21" from="#{'1'}" to="#{pageFlowScope.OrdersCount}"/>
+                        <amx:setPropertyListener id="spl22" from="#{'1'}" to="#{pageFlowScope.topOrdersCount}"/>
                         <!--<amx:image id="i4" source="/resources/css/images/Search.png"
                    inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
                         <amx:actionListener id="al3" binding="#{bindings.findAllOrders.execute}" type="action"/>
@@ -167,7 +169,8 @@ alert('error '+adf.mf.util.stringify(response));
                                                                         inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         <amx:spacer id="s5" width="10"/>
                                                         <amx:outputText value=" PO# : #{row.custPoNumber}" id="ot5"
-                                                                        inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                                        inlineStyle="width:auto; font-size:small; font-weight:bold;"
+                                                                        rendered="#{row.custPoNumber!=''}"/>
                                                     </amx:panelGroupLayout>
                                                     <amx:spacer id="s2" height="7"/>
                                                     <amx:panelGroupLayout id="pgl9" layout="horizontal">
@@ -210,7 +213,10 @@ alert('error '+adf.mf.util.stringify(response));
                                     <amx:setPropertyListener id="spl15" to="#{pageFlowScope.lineCurrentTab}"
                                                              from="#{''}"/>
                                 </amx:listItem>
-                            </amx:listView>
+                            </amx:listView>                            
+                            <amx:outputText value="Searched Order Not found" id="ot16"
+                                            rendered="#{pageFlowScope.topOrdersCount == 0 &amp;&amp; pageFlowScope.currentTab!='ALL'}"
+                                            inlineStyle="padding-top: 20px; padding-left: 45%; position: absolute; width:auto; font-size:small; font-weight:bold;"/>
                             <amx:setPropertyListener id="spl3" to="#{pageFlowScope.currentTab}" from="#{'ALL'}"
                                                      type="swipeLeft"/>
                             <amx:actionListener id="al2" type="swipeRight" binding="#{WindowBean.showSpringboard}"/>
@@ -240,7 +246,8 @@ alert('error '+adf.mf.util.stringify(response));
                                                                         inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         <amx:spacer id="s17" width="10"/>
                                                         <amx:outputText value=" PO# : #{row.custPoNumber}" id="ot15"
-                                                                        inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                                        inlineStyle="width:auto; font-size:small; font-weight:bold;"
+                                                                        rendered="#{row.custPoNumber!=''}"/>
                                                     </amx:panelGroupLayout>
                                                     <amx:spacer id="s4" height="7"/>
                                                     <amx:panelGroupLayout id="pgl10" layout="horizontal">
@@ -274,8 +281,8 @@ alert('error '+adf.mf.util.stringify(response));
                                                              from="#{''}"/>
                                 </amx:listItem>
                             </amx:listView>
-                            <amx:outputText value="Searched Order Not found" id="ot16"
-                                            rendered="#{pageFlowScope.OrdersCount == 0}"
+                            <amx:outputText value="Searched Order Not found" id="ot17"
+                                            rendered="#{pageFlowScope.OrdersCount == 0  &amp;&amp; pageFlowScope.currentTab=='ALL'}"
                                             inlineStyle="padding-top: 20px; padding-left: 45%; position: absolute; width:auto; font-size:small; font-weight:bold;"/>
                         </amx:commandLink>
                     </amx:refreshContainer>

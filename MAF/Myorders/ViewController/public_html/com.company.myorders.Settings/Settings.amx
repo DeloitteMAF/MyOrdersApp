@@ -54,9 +54,9 @@
           <amx:selectOneChoice value="#{preferenceScope.application.userPref.orderby}" label="Arrange my orders by"
                                simple="true">
             <amx:selectItem label="Date" value="date" id="si2"/>
-            <amx:selectItem label="Date Desc" value="date desc" id="si10"/>
+            <amx:selectItem label="Date Desc" value="datedesc" id="si10"/>
             <amx:selectItem label="Amount" value="amount" id="si3"/>
-            <amx:selectItem label="Amount Desc" value="amount desc" id="si11"/>
+            <amx:selectItem label="Amount Desc" value="amountdesc" id="si11"/>
           </amx:selectOneChoice>
         </amx:cellFormat>
       </amx:rowLayout>

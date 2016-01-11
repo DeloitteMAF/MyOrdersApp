@@ -214,12 +214,20 @@ public class OrdersManagedBean {
         return new Integer(alertCount).toString();
     }
 
+/*
     public void getSearchCount(ActionEvent actionEvent) {
         // Add event code here...
         Integer i =
             (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.allOrdersIterator.iterator.totalRowCount}");
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
 }
+    public void getTopSearchCount(ActionEvent actionEvent) {
+        // Add event code here...
+        Integer i =
+            (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.ordersIterator.iterator.totalRowCount}");
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}",i);
+}*/
+    
 public void callButtonActionJS(String btn) {
         String featureID = AdfmfJavaUtilities.getFeatureId();
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "showPopup", new Object[] { btn });
@@ -243,6 +251,9 @@ public void callButtonActionJS(String btn) {
             Integer i =
                 (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.allOrdersIterator.iterator.totalRowCount}");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
+            Integer j =
+                (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.ordersIterator.iterator.totalRowCount}");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}",j);
     //        String featureID = AdfmfJavaUtilities.getFeatureId();
     //        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setFocusOnInput", new Object[] {});
         }

@@ -360,6 +360,9 @@
                 </amx:tableLayout>
               </amx:listItem>
             </amx:listView>
+             <amx:outputText value="There are no lines on Alert for this Order" id="ot40"
+                             rendered="#{OrdersManagedBean.alertCount == 0}"
+                             inlineStyle="padding-top: 20px; padding-left: 45%; position: absolute; width:auto; font-size:small; font-weight:bold;"/>
           </amx:panelGroupLayout>
           <amx:setPropertyListener id="spl8" to="#{pageFlowScope.detailCurrentTab}" from="#{'LINES'}"
                                    type="swipeRight"/>
