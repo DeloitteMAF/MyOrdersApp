@@ -171,6 +171,7 @@
                   <value n="deployTarget" v="Emulator"/>
                </hash>
                <value n="custom" v="false"/>
+               <value n="debugPort" v="8001"/>
                <value n="mobilePlatform" v="Android"/>
                <value n="name" v="Android Emulator"/>
                <value n="profileName" v="Android_4_Myorders"/>

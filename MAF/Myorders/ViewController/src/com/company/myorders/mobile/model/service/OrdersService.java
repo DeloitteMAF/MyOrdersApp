@@ -1,6 +1,8 @@
 package com.company.myorders.mobile.model.service;
 
 
+import com.company.myorders.mobile.model.AllOrders;
+
 import java.util.ArrayList;
 
 import java.util.List;
@@ -9,6 +11,11 @@ import oracle.ateam.sample.mobile.v2.persistence.util.EntityUtils;
 import oracle.ateam.sample.mobile.v2.persistence.service.EntityCRUDService;
 
 import com.company.myorders.mobile.model.Orders;
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
 
 /**
@@ -62,7 +69,27 @@ public class OrdersService extends EntityCRUDService<Orders> {
     }
 
     public List<Orders> getOrders() {
-        return getEntityList();
+        if(AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.isFilterApplier}")=="Y"){
+            Stream<Orders> allOrderRow=getEntityList().stream();
+            String orderNo = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.fOrderNo}");
+            String item = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.fOrderValue}");
+            String po = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.fPO}");
+            String status = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.fStatus}");       
+            if(orderNo!=null){
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getOrderNumber().startsWith(orderNo));
+            }else if(item!=null){
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getTotalOrderedValue().startsWith(item));
+            }else if(po!=null){
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getCustPoNumber().startsWith(po));
+            }else if(status!=null){
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getFlowStatusCode().equalsIgnoreCase(status));
+            }  
+            List<Orders> ordersList=allOrderRow.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}", ordersList.size());
+            return ordersList;
+        }else{
+            return getEntityList();
+        }
     }
 
     /**

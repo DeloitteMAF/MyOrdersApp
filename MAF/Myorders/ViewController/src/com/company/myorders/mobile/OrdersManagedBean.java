@@ -11,6 +11,7 @@ import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.bindings.dbf.AmxIteratorBinding;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+import oracle.adfmf.framework.exception.AdfInvocationException;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.java.beans.ProviderChangeSupport;
@@ -259,6 +260,52 @@ public void callButtonActionJS(String btn) {
         }
         catch(Exception e){
             e.getMessage();
+        }
+        
+    }
+
+    public String applyFilters() {
+        // Add event code here...
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchValue");
+        params.add("");
+        ptypes.add(String.class);
+        try {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","Y");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
+            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+        } catch (AdfInvocationException e) {
+            e.getMessage();
+        }
+        return "back";
+    }
+
+    public String createFilter() {
+        // Add event code here...
+        if(AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.isFilterApplier}")=="Y"){
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderNo}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderValue}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fPO}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
+            try {
+                List pnames = new ArrayList();
+                List params = new ArrayList();
+                List ptypes = new ArrayList();
+                pnames.add("searchValue");
+                params.add("");
+                ptypes.add(String.class);
+                AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+                AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+            } catch (AdfInvocationException e) {
+                e.getMessage();
+            }
+            return null;
+        }else{
+            return "search"; 
         }
         
     }

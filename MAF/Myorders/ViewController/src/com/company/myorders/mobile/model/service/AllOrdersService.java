@@ -10,6 +10,12 @@ import oracle.ateam.sample.mobile.v2.persistence.service.EntityCRUDService;
 
 import com.company.myorders.mobile.model.AllOrders;
 
+import java.util.stream.Collectors;
+
+import java.util.stream.Stream;
+
+import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+
 
 /**
  *  Service class that provides CRUD and custom operations against the allOrders data object.
@@ -62,7 +68,29 @@ public class AllOrdersService extends EntityCRUDService<AllOrders> {
     }
 
     public List<AllOrders> getAllOrders() {
-        return getEntityList();
+//        AllOrders allOrdersNew=new AllOrders();
+        if(AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.isFilterApplier}")=="Y"){
+            Stream<AllOrders> allOrderRow=getEntityList().stream();
+            String orderNo = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.fOrderNo}");
+            String item = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.fOrderValue}");
+            String po = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.fPO}");
+            String status = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.fStatus}");       
+            if(orderNo!=null){
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getOrderNumber().startsWith(orderNo));
+            }else if(item!=null){
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getTotalOrderedValue().startsWith(item));
+            }else if(po!=null){
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getCustPoNumber().startsWith(po));
+            }else if(status!=null){
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getFlowStatusCode().equalsIgnoreCase(status));
+            }  
+            List<AllOrders> allOrdersList=allOrderRow.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}", allOrdersList.size());
+            return allOrdersList;
+        }else{
+            return getEntityList();
+        }
+       
     }
 
     /**
@@ -130,7 +158,6 @@ public class AllOrdersService extends EntityCRUDService<AllOrders> {
     public void findAllOrders(String searchValue) {
         super.find(searchValue);
     }
-
 
     /**
      * Synchronizes all pending data sync actions using the remote persistence manager

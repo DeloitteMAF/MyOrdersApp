@@ -169,3 +169,9 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
     font-size: x-small;
     line-height: 226%;
 }
+*:focus {
+    outline: none;
+    outline-style:none;
+    box-shadow:none;
+    border-color:transparent;
+   }

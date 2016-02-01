@@ -287,6 +287,19 @@ alert('error '+adf.mf.util.stringify(response));
                         </amx:commandLink>
                     </amx:refreshContainer>
                 </amx:facet>
+                <amx:facet name="bottom">
+                    <amx:commandLink id="cl11" action="#{OrdersManagedBean.createFilter}">
+                        <amx:tableLayout id="tl6" width="100%" cellPadding="10"
+                                         inlineStyle="background-color:#{pageFlowScope.isFilterApplier == 'Y' ? '#1EBE92' : 'rgb(60,60,73)'};">
+                            <amx:rowLayout id="rl6">
+                                <amx:cellFormat id="cf14" width="100%" halign="center">
+                                    <amx:outputText value="#{pageFlowScope.isFilterApplier == 'Y' ? 'Clear Filters' : 'Filter'}" id="ot18"
+                                                    inlineStyle="color:White; font-weight:bold;"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:commandLink>
+                </amx:facet>
             </amx:panelStretchLayout>
         </amx:commandLink>
     </amx:panelPage>
