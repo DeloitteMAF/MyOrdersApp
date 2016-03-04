@@ -44,17 +44,32 @@
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>-->
-    <amx:tableLayout id="tl4" width="100%" inlineStyle="background-color:#ECECEC;" cellPadding="10">
+    <amx:tableLayout id="tl4" width="100%" cellPadding="10">
       <amx:rowLayout id="rl5">
         <amx:cellFormat id="cf10" width="10px"/>
         <amx:cellFormat id="cf12" width="50%">
-          <amx:outputText value="Arrange my orders by" id="ot5" inlineStyle="font-size:small;"/>
+          <amx:outputText value="Date Criteria" id="ot5" inlineStyle="font-size:small;"/>
         </amx:cellFormat>
         <amx:cellFormat id="cf11" width="50%">
           <amx:selectOneChoice value="#{preferenceScope.application.userPref.orderby}" label="Arrange my orders by"
                                simple="true">
-            <amx:selectItem label="Date" value="date" id="si2"/>
-            <amx:selectItem label="Date Desc" value="datedesc" id="si10"/>
+            <amx:selectItem label="Ordered Date" value="OrderedDate" id="si2"/>
+            <amx:selectItem label="Fulfillment Date" value="FulfillmentDate" id="si10"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color:#ECECEC;" cellPadding="10">
+      <amx:rowLayout id="rl2">
+        <amx:cellFormat id="cf4" width="10px"/>
+        <amx:cellFormat id="cf5" width="50%">
+          <amx:outputText value="Arrange my orders by" id="ot2" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf6" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.orderby}" label="Arrange my orders by"
+                               simple="true">
+            <amx:selectItem label="Date" value="date" id="si12"/>
+            <amx:selectItem label="Date Desc" value="datedesc" id="si13"/>
             <amx:selectItem label="Amount" value="amount" id="si3"/>
             <amx:selectItem label="Amount Desc" value="amountdesc" id="si11"/>
           </amx:selectOneChoice>
