@@ -7,10 +7,8 @@
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
           <amx:cellFormat id="cf1" halign="center" valign="middle" width="20px">
-            <amx:commandLink action="back">
-              <amx:outputHtml id="oh1"/>
-              <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
-            </amx:commandLink>              
+            <amx:commandButton id="cb1" icon="/resources/css/images/Back.png" action="back"
+                               styleClass="iconstyle iconstyle-buttonBackground"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
             <amx:outputText value="Filters" id="ot4" inlineStyle="padding: 13px;"/>

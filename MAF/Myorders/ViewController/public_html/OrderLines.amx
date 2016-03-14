@@ -6,10 +6,8 @@
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf1" halign="center" valign="middle" width="20px">
-            <amx:commandLink
-                        id="cl3" action="backToDetails">
-              <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
-            </amx:commandLink>
+            <amx:commandButton id="cb1" styleClass="iconstyle iconstyle-buttonBackground"
+                               icon="/resources/css/images/Back.png" action="backToDetails"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="30%" halign="center">
             <amx:outputText value="Order# #{bindings.orderNumber1.inputValue}" id="ot4"
@@ -18,10 +16,9 @@
                             rendered="#{pageFlowScope.currentTab!='ALL'}" inlineStyle="padding-top:0px"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf7" width="20px" halign="center" valign="middle">
-          <amx:commandLink
-                        id="cl1" action="Home" actionListener="#{OrdersManagedBean.refreshOrders}">
-              <amx:image id="i1" source="/resources/css/images/Home_Button.png" styleClass="iconstyle"/>
-            </amx:commandLink>
+            <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
+                               icon="/resources/css/images/Home_Button.png" action="Home"
+                               actionListener="#{OrdersManagedBean.refreshOrders}"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>

@@ -6,24 +6,27 @@
            <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px"/>
-          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="20px">
-            <amx:commandLink actionListener="#{WindowBean.showSpringboard}"
+          <amx:cellFormat id="cf1" halign="center" valign="bottom" width="25px">
+            <!--<amx:commandLink actionListener="#{WindowBean.showSpringboard}"
                         id="cl3" rendered="#{applicationScope.isSprinboardOpen!='Y'}">
                 <amx:image id="i5" source="/resources/css/images/Menu.png" styleClass="iconstyle"/>
             </amx:commandLink>
                         <amx:commandLink actionListener="#{WindowBean.showSpringboard}"
                               id="cl1" rendered="#{applicationScope.isSprinboardOpen=='Y'}">
                 <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
-            </amx:commandLink>
+            </amx:commandLink>-->
+          <amx:commandButton id="cb3"
+                                           icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
+                                           actionListener="#{WindowBean.showSpringboard}"
+                                           styleClass="iconstyle iconstyle-buttonBackground"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="40%" halign="center">
             <amx:outputText value="Settings" id="ot1" inlineStyle="padding: 13px;"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf19" halign="center" valign="middle" width="20px">
-            <amx:commandLink actionListener="#{bindings.resetFeature.execute}"
-                             disabled="#{!bindings.resetFeature.enabled}" id="cl4">
-              <amx:image id="i1" source="/resources/css/images/Home_Button.png" styleClass="iconstyle"/>
-            </amx:commandLink>
+            <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
+                               icon="/resources/css/images/Home_Button.png"
+                               actionListener="#{bindings.resetFeature.execute}"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>

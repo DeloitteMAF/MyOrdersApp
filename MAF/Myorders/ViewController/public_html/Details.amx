@@ -6,10 +6,9 @@
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf1" halign="center" valign="middle" width="20px">
-            <amx:commandLink
-                        id="cl3" action="backToDashBoard" actionListener="#{OrdersManagedBean.refreshOrders}">
-              <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
-            </amx:commandLink>
+            <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
+                               icon="/resources/css/images/Back.png" action="backToDashBoard"
+                               actionListener="#{OrdersManagedBean.refreshOrders}"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
             <amx:outputText value="Order# #{bindings.orderNumber.inputValue}" id="ot4"

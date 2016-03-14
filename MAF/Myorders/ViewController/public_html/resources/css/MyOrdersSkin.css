@@ -104,13 +104,17 @@
 text-decoration: none;
 }
 
-.iconstyle{
-    padding-bottom:10px;
-    padding-left:10px;
-    padding-right:10px;
-    padding-top:10px;
-    max-height:24px;
-    max-width:24px;
+.iconstyle text{
+    color:#ffffff;
+}
+.iconstyle label{
+    color:#ffffff; 
+}
+.iconstyle-buttonBackground{
+    background: #1EBE92;
+}
+.iconstyle-buttonBackground:active{
+    background: #1EBE92;
 }
 
 .ordAppStretchLyt .amx-panelStretchLayout_center{
@@ -174,4 +178,13 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
     outline-style:none;
     box-shadow:none;
     border-color:transparent;
+   }
+   
+.amx-commandButton.amx-selected {
+    outline: none;
+    outline-style:none;
+    box-shadow:none;
+    border-color:transparent;
+    background-color:transparent;
+    background-image:none;
    }

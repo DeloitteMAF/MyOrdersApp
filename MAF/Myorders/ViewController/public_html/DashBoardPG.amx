@@ -35,15 +35,19 @@ alert('error '+adf.mf.util.stringify(response));
             <amx:tableLayout id="tl1" width="100%">
                 <amx:rowLayout id="rl1">
                     <amx:cellFormat id="cf3" width="10px" halign="center" valign="middle"/>
-                    <amx:cellFormat id="cf1" halign="center" valign="middle" width="20px">
-                        <amx:commandLink actionListener="#{WindowBean.showSpringboard}" id="cl3"
+                    <amx:cellFormat id="cf1" halign="center" valign="middle" width="25px">
+                        <!--<amx:commandLink actionListener="#{WindowBean.showSpringboard}" id="cl3"
                                          rendered="#{applicationScope.isSprinboardOpen!='Y'}">
                             <amx:image id="i5" source="/resources/css/images/Menu.png" styleClass="iconstyle"/>
                         </amx:commandLink>
                         <amx:commandLink actionListener="#{WindowBean.showSpringboard}" id="cl1"
                                          rendered="#{applicationScope.isSprinboardOpen=='Y'}">
                             <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
-                        </amx:commandLink>
+                        </amx:commandLink>-->
+                        <amx:commandButton id="cb3"
+                                           icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
+                                           actionListener="#{WindowBean.showSpringboard}"
+                                           styleClass="iconstyle iconstyle-buttonBackground"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
                         <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="middle">
@@ -68,8 +72,8 @@ alert('error '+adf.mf.util.stringify(response));
             <amx:panelGroupLayout id="pgl7" layout="vertical" halign="center" valign="middle">
                 <amx:panelGroupLayout id="pgl5" rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}"
                                       halign="center" valign="middle">
-                    <amx:commandLink id="cl2">
-                        <amx:image id="i3" source="/resources/css/images/Search.png" styleClass="iconstyle"/>
+                    <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
+                                       icon="/resources/css/images/Search.png">
                         <amx:setPropertyListener id="spl6" type="action"
                                                  to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
                                                  from="#{'true'}"/>
@@ -79,27 +83,26 @@ alert('error '+adf.mf.util.stringify(response));
                                                  from="#{'false'}"/>
                         <!--<amx:image id="i3" source="/resources/css/images/Search.png"
                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
-                    </amx:commandLink>
+                    </amx:commandButton>
                 </amx:panelGroupLayout>
                 <amx:panelGroupLayout id="pgl6"
                                       rendered="#{applicationScope.OrdersManagedBean.getSearchStatus &amp;&amp; applicationScope.OrdersManagedBean.clearSearch}"
                                       valign="middle" halign="center">
-                    <amx:commandLink id="cl4">
-                        <amx:image id="i4" source="/resources/css/images/Search.png" styleClass="iconstyle"/>
+                    <amx:commandButton id="cb5" styleClass="iconstyle iconstyle-buttonBackground"
+                                       icon="/resources/css/images/Search.png">
                         <amx:setPropertyListener id="spl20" type="action"
                                                  to="#{applicationScope.OrdersManagedBean.clearSearch}"
                                                  from="#{'false'}"/>
                         <amx:setPropertyListener id="spl19" to="#{pageFlowScope.currentTab}" from="#{'ALL'}"/>
-                        <!--<amx:image id="i4" source="/resources/css/images/Search.png"
-                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
-                        <!--<amx:actionListener id="al4" binding="#{OrdersManagedBean.getSearchCount}"/>-->
-                        <!--<amx:actionListener id="al1" binding="#{bindings.findAllOrders.execute}" type="action"/>-->
-                    </amx:commandLink>
+                    </amx:commandButton>
                 </amx:panelGroupLayout>
                 <amx:panelGroupLayout id="pgl16" rendered="#{!applicationScope.OrdersManagedBean.clearSearch}"
                                       halign="center" valign="middle">
-                    <amx:commandLink id="cl10" actionListener="#{bindings.findOrders.execute}">
-                        <amx:image id="i7" source="/resources/css/images/Clear Search icon.png" styleClass="iconstyle"/>
+                    <amx:commandButton id="cb6"
+                                       styleClass="iconstyle iconstyle-buttonBackground"
+                                       icon="/resources/css/images/Clear Search icon.png"
+                                       action="#{bindings.findOrders.execute}"
+                                       actionListener="#{bindings.findAllOrders.execute}">
                         <amx:setPropertyListener id="spl11" type="action"
                                                  to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
                                                  from="#{'false'}"/>
@@ -109,10 +112,7 @@ alert('error '+adf.mf.util.stringify(response));
                         <amx:setPropertyListener id="spl13" to="#{bindings.searchValue.inputValue}" from="#{''}"/>
                         <amx:setPropertyListener id="spl21" from="#{'1'}" to="#{pageFlowScope.OrdersCount}"/>
                         <amx:setPropertyListener id="spl22" from="#{'1'}" to="#{pageFlowScope.topOrdersCount}"/>
-                        <!--<amx:image id="i4" source="/resources/css/images/Search.png"
-                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
-                        <amx:actionListener id="al3" binding="#{bindings.findAllOrders.execute}" type="action"/>
-                    </amx:commandLink>
+                    </amx:commandButton>
                 </amx:panelGroupLayout>
             </amx:panelGroupLayout>
         </amx:facet>
