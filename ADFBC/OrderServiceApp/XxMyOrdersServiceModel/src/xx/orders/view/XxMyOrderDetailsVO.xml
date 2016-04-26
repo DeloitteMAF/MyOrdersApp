@@ -21,88 +21,89 @@
         ResId="xx.orders.view.XxMyOrderDetailsVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT             
-         ooh.header_id,     
-         ool.line_id,          
-         line_number     
-         || (DECODE (shipment_number, NULL, '', '.' || shipment_number))     
-         || (DECODE (option_number, NULL, '', '.' || option_number))     
-         || (DECODE (component_number, NULL, '', '.' || component_number))     
-         || (DECODE (service_number, NULL, '', '.' || service_number))     
-                                                                   line_number,     
-         ool.ordered_item, msi.description, flv.description line_status,     
-         NVL(ool.ordered_quantity,0) ordered_quantity, ool.order_quantity_uom, NVL(ool.shipped_quantity,0) shipped_quantity,     
-         ool.shipping_quantity_uom, ool.unit_selling_price,     
-         (ool.ordered_quantity * ool.unit_selling_price) line_total,     
-         wnd.NAME delivery_name, wc.freight_code, wts.actual_arrival_date,     
-         DECODE (wdd.released_status,     
-                 'B', ool.ordered_quantity,     
-                 0     
-                ) backorder_quantity,     
-            hl.address1     
-         || DECODE (hl.address2, NULL, '', ',')     
-         || hl.address2     
-         || DECODE (hl.address3, NULL, '', ',')     
-         || hl.address3     
-         || DECODE (hl.address4, NULL, '', ',')     
-         || hl.address4     
-         || DECODE (hl.city, NULL, '', ',')     
-         || hl.city     
-         || DECODE (hl.state, NULL, '', ',')     
-         || hl.state     
-         || DECODE (hl.postal_code, NULL, '', ',')     
-         || hl.postal_code     
-         || DECODE (hl.country, NULL, '', ',')     
-         || hl.country address,     
-            hp.person_last_name     
-         || DECODE (hp.person_first_name, NULL, '', ',')     
-         || hp.person_first_name ship_to_contact,     
-         xxmyorders_return_alert(ooh.header_id,ool.line_id,wdd.released_status) alert_flag,  
-          ooh.transactional_curr_code currency_code 
-    FROM mtl_system_items_b msi,     
-         oe_order_headers_all ooh,     
-         oe_order_lines_all ool,     
-         wsh_delivery_details wdd,     
-         wsh_delivery_assignments wda,     
-         wsh_new_deliveries wnd,     
-         wsh_delivery_legs wdl,     
-         wsh_trip_stops wts,     
-         wsh_carriers wc,     
-         hz_cust_acct_sites_all hcs,     
-         hz_cust_site_uses_all hcu,     
-         hz_party_sites hps,     
-         hz_locations hl,     
-         hz_cust_account_roles hcar,     
-         hz_relationships hr,     
-         hz_parties hp,     
-         fnd_lookup_values flv,     
-         fnd_lookup_values flv1     
-   WHERE    
-     msi.inventory_item_id = ool.inventory_item_id     
-     AND msi.organization_id = ool.ship_from_org_id      
-     AND ooh.header_id = ool.header_id     
-     AND flv1.lookup_type = 'LINE_FLOW_STATUS'     
-     AND UPPER(flv1.lookup_code) = UPPER(ool.flow_status_code)     
-     AND flv1.enabled_flag = 'Y'     
-     AND flv1.language = USERENV('lang')     
-     AND flv.lookup_type = 'LINE LEVEL DISPLAY STATUS'     
-     AND flv.language = USERENV('lang')     
-     AND flv.enabled_flag = 'Y'     
-     AND UPPER(flv.meaning) = UPPER(flv1.meaning)     
-     AND ool.ship_to_org_id = hcu.site_use_id     
-     AND ool.ship_to_contact_id = hcar.cust_account_role_id(+)     
-     AND hr.party_id(+) = hcar.party_id     
-     AND hr.subject_id = hp.party_id(+)     
-     AND hr.subject_type(+) = 'PERSON'     
-     AND hcu.cust_acct_site_id = hcs.cust_acct_site_id     
-     AND hcs.party_site_id = hps.party_site_id     
-     AND hps.location_id = hl.location_id         
-     AND ool.line_id = wdd.source_line_id (+)     
-     AND wdd.delivery_detail_id = wda.delivery_detail_id (+)     
-     AND wda.delivery_id = wnd.delivery_id (+)     
-     AND wnd.delivery_id = wdl.delivery_id (+)     
-     AND wdl.drop_off_stop_id = wts.stop_id(+)     
-     AND wnd.carrier_id = wc.carrier_id(+)     
+  <SQLQuery><![CDATA[SELECT              
+         ooh.header_id,      
+         ool.line_id,           
+         line_number      
+         || (DECODE (shipment_number, NULL, '', '.' || shipment_number))      
+         || (DECODE (option_number, NULL, '', '.' || option_number))      
+         || (DECODE (component_number, NULL, '', '.' || component_number))      
+         || (DECODE (service_number, NULL, '', '.' || service_number))      
+                                                                   line_number,      
+         ool.ordered_item, msi.description, flv.description line_status,      
+         NVL(ool.ordered_quantity,0) ordered_quantity, ool.order_quantity_uom, NVL(ool.shipped_quantity,0) shipped_quantity,      
+         ool.shipping_quantity_uom, ool.unit_selling_price,      
+         (ool.ordered_quantity * ool.unit_selling_price) line_total,      
+         wnd.NAME delivery_name, wc.freight_code, wts.actual_arrival_date,      
+         DECODE (wdd.released_status,      
+                 'B', ool.ordered_quantity,      
+                 0      
+                ) backorder_quantity,      
+            hl.address1      
+         || DECODE (hl.address2, NULL, '', ',')      
+         || hl.address2      
+         || DECODE (hl.address3, NULL, '', ',')      
+         || hl.address3      
+         || DECODE (hl.address4, NULL, '', ',')      
+         || hl.address4      
+         || DECODE (hl.city, NULL, '', ',')      
+         || hl.city      
+         || DECODE (hl.state, NULL, '', ',')      
+         || hl.state      
+         || DECODE (hl.postal_code, NULL, '', ',')      
+         || hl.postal_code      
+         || DECODE (hl.country, NULL, '', ',')      
+         || hl.country address,      
+            hp.person_last_name      
+         || DECODE (hp.person_first_name, NULL, '', ',')      
+         || hp.person_first_name ship_to_contact,      
+         xxmyorders_return_alert(ooh.header_id,ool.line_id,wdd.released_status) alert_flag,   
+          ooh.transactional_curr_code currency_code, 
+          ool.fulfillment_date 
+    FROM mtl_system_items_b msi,      
+         oe_order_headers_all ooh,      
+         oe_order_lines_all ool,      
+         wsh_delivery_details wdd,      
+         wsh_delivery_assignments wda,      
+         wsh_new_deliveries wnd,      
+         wsh_delivery_legs wdl,      
+         wsh_trip_stops wts,      
+         wsh_carriers wc,      
+         hz_cust_acct_sites_all hcs,      
+         hz_cust_site_uses_all hcu,      
+         hz_party_sites hps,      
+         hz_locations hl,      
+         hz_cust_account_roles hcar,      
+         hz_relationships hr,      
+         hz_parties hp,      
+         fnd_lookup_values flv,      
+         fnd_lookup_values flv1      
+   WHERE     
+     msi.inventory_item_id = ool.inventory_item_id      
+     AND msi.organization_id = ool.ship_from_org_id       
+     AND ooh.header_id = ool.header_id      
+     AND flv1.lookup_type = 'LINE_FLOW_STATUS'      
+     AND UPPER(flv1.lookup_code) = UPPER(ool.flow_status_code)      
+     AND flv1.enabled_flag = 'Y'      
+     AND flv1.language = USERENV('lang')      
+     AND flv.lookup_type = 'LINE LEVEL DISPLAY STATUS'      
+     AND flv.language = USERENV('lang')      
+     AND flv.enabled_flag = 'Y'      
+     AND UPPER(flv.meaning) = UPPER(flv1.meaning)      
+     AND ool.ship_to_org_id = hcu.site_use_id      
+     AND ool.ship_to_contact_id = hcar.cust_account_role_id(+)      
+     AND hr.party_id(+) = hcar.party_id      
+     AND hr.subject_id = hp.party_id(+)      
+     AND hr.subject_type(+) = 'PERSON'      
+     AND hcu.cust_acct_site_id = hcs.cust_acct_site_id      
+     AND hcs.party_site_id = hps.party_site_id      
+     AND hps.location_id = hl.location_id          
+     AND ool.line_id = wdd.source_line_id (+)      
+     AND wdd.delivery_detail_id = wda.delivery_detail_id (+)      
+     AND wda.delivery_id = wnd.delivery_id (+)      
+     AND wnd.delivery_id = wdl.delivery_id (+)      
+     AND wdl.drop_off_stop_id = wts.stop_id(+)      
+     AND wnd.carrier_id = wc.carrier_id(+)      
 ORDER BY line_number]]></SQLQuery>
   <ViewAttribute
     Name="HeaderId"
@@ -355,6 +356,16 @@ ORDER BY line_number]]></SQLQuery>
     AliasName="CURRENCY_CODE"
     SQLType="VARCHAR"
     Expression="CURRENCY_CODE"/>
+  <ViewAttribute
+    Name="FulfillmentDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="FULFILLMENT_DATE"
+    Expression="FULFILLMENT_DATE"
+    SQLType="DATE"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="LineId"/>
   </AttrArray>
