@@ -24,15 +24,11 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="bindCustAccountId"
-    Kind="where"
-    Type="java.lang.Long"/>
-  <Variable
     Name="bindNoOfDays"
     Kind="where"
     Type="java.lang.Integer"/>
-<Variable
-    Name="bindLocation"
+  <Variable
+    Name="bindUserName"
     Kind="where"
     Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT ooh.order_number order_number, hp.party_name customer,                    
@@ -48,7 +44,8 @@
           hz_locations hl,                    
           hz_cust_accounts_all hca,                    
           hz_cust_acct_sites_all hcs,                    
-          hz_cust_site_uses_all hcu                    
+          hz_cust_site_uses_all hcu,
+          xxmyorder_user_details xud                    
     WHERE ooh.header_id = ool.header_id                    
       AND ooh.org_id = hcu.org_id                    
       AND ooh.sold_to_org_id = hca.cust_account_id                    
@@ -65,10 +62,11 @@
       AND hca.status = 'A'                    
       AND hp.status = 'A'                    
       AND hps.status = 'A'                    
-      AND hl.country = NVL(:bindLocation,'US')                    
+      AND hl.country = NVL((xud.country),'US')
+      AND hca.cust_account_id = xud.customer_id
+      AND xud.user_name = :bindUserName                  
       AND   decode(:bindNoOfDays,-1,-1,(TRUNC (SYSDATE)                    
-                - NVL (TRUNC (ool.fulfillment_date), TRUNC (SYSDATE)))) <= :bindNoOfDays                    
-      AND hca.cust_account_id = :bindCustAccountId                    
+                - NVL (TRUNC (ooh.ordered_date), TRUNC (SYSDATE)))) <= :bindNoOfDays  
  GROUP BY ooh.order_number, hp.party_name, hca.account_number, ooh.flow_status_code,                     
           ooh.ordered_date, ooh.cust_po_number, ooh.header_id, ooh.transactional_curr_code   
  ORDER BY total_ordered_value desc]]></SQLQuery>
