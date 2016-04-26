@@ -26,6 +26,7 @@ import xx.orders.view.common.XxMyOrdersVOSDO;
                     wsdlLocation = "xx/orders/am/common/serviceinterface/XxMyOrdersService.wsdl")
 @SDODatabinding(schemaLocation = "xx/orders/am/common/serviceinterface/XxMyOrdersService.xsd")
 public interface XxMyOrdersService {
+
     public static final String NAME = "{/xx/orders/am/common/}XxMyOrdersService";
 
     /**
@@ -38,7 +39,7 @@ public interface XxMyOrdersService {
     List<xx.orders.view.common.XxMyLocationsVOSDO> getCustomerLocations(@WebParam(mode = WebParam.Mode.IN,
                                                                                   name = "custAccountId")
                                                                         Long custAccountId) throws ServiceException;
-    
+
     /**
      * Exported method getRequestedOrders from XxMyOrdersAM.
      */
@@ -46,18 +47,13 @@ public interface XxMyOrdersService {
     @RequestWrapper(targetNamespace = "/xx/orders/am/common/types/", localName = "getRequestedOrders")
     @ResponseWrapper(targetNamespace = "/xx/orders/am/common/types/", localName = "getRequestedOrdersResponse")
     @WebResult(name = "result")
-    List<xx.orders.view.common.XxMyOrdersVOSDO> getRequestedOrders(@WebParam(mode = WebParam.Mode.IN,
-                                                                             name = "custAccountId") Long custAccountId,
-                                                                   @WebParam(mode = WebParam.Mode.IN, name = "noOfDays")
-                                                                   Integer noOfDays,
-                                                                   @WebParam(mode = WebParam.Mode.IN, name = "noOfRows")
-                                                                   Integer noOfRows,
-                                                                   @WebParam(mode = WebParam.Mode.IN, name = "location")
-                                                                   String location,
-                                                                   @WebParam(mode = WebParam.Mode.IN, name = "orderBy")
-                                                                   String orderBy,
-                                                                   @WebParam(mode = WebParam.Mode.IN,
-                                                                             name = "fetchClosedOrders")
-                                                                   String fetchClosedOrders) throws ServiceException;
+    List<XxMyOrdersVOSDO> getRequestedOrders(@WebParam(mode = WebParam.Mode.IN, name = "noOfDays") Integer noOfDays,
+                                             @WebParam(mode = WebParam.Mode.IN, name = "noOfRows") Integer noOfRows,
+                                             @WebParam(mode = WebParam.Mode.IN, name = "userName") String userName,
+                                             @WebParam(mode = WebParam.Mode.IN, name = "orderBy") String orderBy,
+                                             @WebParam(mode = WebParam.Mode.IN, name = "fetchClosedOrders")
+                                             String fetchClosedOrders,
+                                             @WebParam(mode = WebParam.Mode.IN, name = "filterDateType")
+                                             String filterDateType) throws ServiceException;
 }
 

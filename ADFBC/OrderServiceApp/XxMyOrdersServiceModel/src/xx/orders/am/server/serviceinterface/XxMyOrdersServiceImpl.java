@@ -38,8 +38,10 @@ import xx.orders.view.common.XxMyOrdersVOSDO;
 @PortableWebService(targetNamespace = "/xx/orders/am/common/", serviceName = "XxMyOrdersService",
                     portName = "XxMyOrdersServiceSoapHttpPort",
                     endpointInterface = "xx.orders.am.common.serviceinterface.XxMyOrdersService")
+@PolicySet(references = { @PolicyReference(value = "oracle/wss_username_token_service_policy") })
 public class XxMyOrdersServiceImpl extends ServiceImpl implements XxMyOrdersService {
     private static boolean _isInited = false;
+
     private static final Map _map = new HashMap();
 
     /**
@@ -64,13 +66,13 @@ public class XxMyOrdersServiceImpl extends ServiceImpl implements XxMyOrdersServ
             }
             try {
                 SDOHelper.INSTANCE.defineSchema("xx/orders/am/common/serviceinterface/", "XxMyOrdersService.xsd");
-                _map.put("getRequestedOrders", XxMyOrdersAMImpl.class.getMethod("getRequestedOrders", new Class[] {
-                                                                                Long.class, Integer.class,
-                                                                                Integer.class, String.class,
-                                                                                String.class, String.class
-                }));
                 _map.put("getCustomerLocations", XxMyOrdersAMImpl.class.getMethod("getCustomerLocations", new Class[] {
                                                                                   Long.class }));
+                _map.put("getRequestedOrders", XxMyOrdersAMImpl.class.getMethod("getRequestedOrders", new Class[] {
+                                                                                Integer.class, Integer.class,
+                                                                                String.class, String.class,
+                                                                                String.class, String.class
+                }));
                 _isInited = true;
             } catch (Throwable t) {
                 ADFLogger.createADFLogger(Diagnostic.SERVINT_RT_LOGGER).severe(t);
@@ -80,19 +82,6 @@ public class XxMyOrdersServiceImpl extends ServiceImpl implements XxMyOrdersServ
 
 
     /**
-     * getRequestedOrders: generated method. Do not modify.
-     */
-    public List<xx.orders.view.common.XxMyOrdersVOSDO> getRequestedOrders(Long custAccountId, Integer noOfDays,
-                                                                          Integer noOfRows, String location,
-                                                                          String orderBy,
-                                                                          String fetchClosedOrders) throws ServiceException {
-        return (List<xx.orders.view.common.XxMyOrdersVOSDO>) invokeCustom((Method) _map.get("getRequestedOrders"), new Object[] {
-                                                                          custAccountId, noOfDays, noOfRows, location,
-                                                                          orderBy, fetchClosedOrders
-    }, new String[] { null, null, null, null, null, null }, xx.orders.view.common.XxMyOrdersVOSDO.class, false);
-    }
-
-    /**
      * getCustomerLocations: generated method. Do not modify.
      */
     public List<xx.orders.view.common.XxMyLocationsVOSDO> getCustomerLocations(Long custAccountId) throws ServiceException {
@@ -100,6 +89,18 @@ public class XxMyOrdersServiceImpl extends ServiceImpl implements XxMyOrdersServ
                                                                              custAccountId }, new String[] { null },
                                                                              xx.orders.view.common.XxMyLocationsVOSDO.class,
                                                                              false);
+    }
+
+    /**
+     * getRequestedOrders: generated method. Do not modify.
+     */
+    public List<XxMyOrdersVOSDO> getRequestedOrders(Integer noOfDays, Integer noOfRows, String userName, String orderBy,
+                                                    String fetchClosedOrders,
+                                                    String filterDateType) throws ServiceException {
+        return (List<XxMyOrdersVOSDO>) invokeCustom((Method) _map.get("getRequestedOrders"), new Object[] {
+                                                    noOfDays, noOfRows, userName, orderBy, fetchClosedOrders,
+                                                    filterDateType
+    }, new String[] { null, null, null, null, null, null }, XxMyOrdersVOSDO.class, false);
     }
 }
 

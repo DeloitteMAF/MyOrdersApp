@@ -32,35 +32,43 @@ public class XxMyOrdersAMImpl extends ApplicationModuleImpl {
         return (ViewObjectImpl) findViewObject("XxMyOrdersVO");
     }
     
-    public List<XxMyOrdersVORowImpl> getRequestedOrders(Long custAccountId, Integer noOfDays, Integer noOfRows, String location,String orderBy,String fetchClosedOrders) {
+    public List<XxMyOrdersVORowImpl> getRequestedOrders(Integer noOfDays, Integer noOfRows, String userName,String orderBy,String fetchClosedOrders,String filterDateType) {
+        System.out.println("+++++++++++++++++++++++++++"+filterDateType);
         ViewObjectImpl myOrdersVO= null;
-            myOrdersVO=(ViewObjectImpl)getXxMyOrdersVO();
-        /*if("date".equals(orderBy)){
-            myOrdersVO=(ViewObjectImpl)getXxMyOrdersDateSortedVO1();
-            myOrdersVO.setOrderByClause("ordered_date");
+            myOrdersVO=getXxMyOrdersVO();
+        if("FulfillmentDate".equals(filterDateType)){
+            myOrdersVO=getXxMyOrdersDateSortedVO1();
+            System.out.println("using datesortedvo");
+            //myOrdersVO.setOrderByClause("ordered_date");
         }
         else {
-            //myOrdersVO=(ViewObjectImpl)getXxMyOrdersVO();
-            myOrdersVO.setOrderByClause("total_ordered_value");
-        }*/
+            myOrdersVO=getXxMyOrdersVO();
+            //myOrdersVO.setOrderByClause("total_ordered_value");
+        }
             switch(orderBy) {
-            case "date desc":
+            case "datedesc":
                 myOrdersVO.setOrderByClause("ordered_date desc");
                 break;
             case "date":
                 myOrdersVO.setOrderByClause("ordered_date");
                 break;
-            case "amount desc":
+            case "amountdesc":
                 myOrdersVO.setOrderByClause("total_ordered_value desc");
                 break;
             case "amount":
                 myOrdersVO.setOrderByClause("total_ordered_value");
+                break;
+            case "fuldatedesc":
+                myOrdersVO.setOrderByClause("fulfillment_date desc");
+                break;
+            case "fuldate":
+                myOrdersVO.setOrderByClause("fulfillment_date");
             }
         myOrdersVO.applyViewCriteria(null);
-        myOrdersVO.setNamedWhereClauseParam("bindCustAccountId", custAccountId);
+        myOrdersVO.setNamedWhereClauseParam("bindUserName", userName);
         myOrdersVO.setNamedWhereClauseParam("bindNoOfDays", noOfDays);
         //myOrdersVO.setNamedWhereClauseParam("bindNoOfRows", NoOfRows);
-        myOrdersVO.setNamedWhereClauseParam("bindLocation", location);
+        //myOrdersVO.setNamedWhereClauseParam("bindLocation", location);
         System.out.println("now setting closedorderstatus"+fetchClosedOrders);
         if("No".equals(fetchClosedOrders)) {
             myOrdersVO.setApplyViewCriteriaName("statusCriteria");
@@ -118,6 +126,30 @@ public class XxMyOrdersAMImpl extends ApplicationModuleImpl {
      */
     public ViewLinkImpl getXxMyOrdersVOToXxMyOrderDetailsVO() {
         return (ViewLinkImpl) findViewLink("XxMyOrdersVOToXxMyOrderDetailsVO");
+    }
+
+    /**
+     * Container's getter for XxMyOrdersDateSortedVO1.
+     * @return XxMyOrdersDateSortedVO1
+     */
+    public ViewObjectImpl getXxMyOrdersDateSortedVO1() {
+        return (ViewObjectImpl) findViewObject("XxMyOrdersDateSortedVO1");
+    }
+
+    /**
+     * Container's getter for XxMyOrderDetailsVO2.
+     * @return XxMyOrderDetailsVO2
+     */
+    public ViewObjectImpl getXxMyOrderDetailsVO2() {
+        return (ViewObjectImpl) findViewObject("XxMyOrderDetailsVO2");
+    }
+
+    /**
+     * Container's getter for XxMyordersDateSortedVOToXxMyOrderDetailsVO1.
+     * @return XxMyordersDateSortedVOToXxMyOrderDetailsVO1
+     */
+    public ViewLinkImpl getXxMyordersDateSortedVOToXxMyOrderDetailsVO1() {
+        return (ViewLinkImpl) findViewLink("XxMyordersDateSortedVOToXxMyOrderDetailsVO1");
     }
 }
 

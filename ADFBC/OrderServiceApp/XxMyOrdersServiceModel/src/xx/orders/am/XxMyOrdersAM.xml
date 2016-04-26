@@ -24,11 +24,23 @@
   <ViewUsage
     Name="XxMyOrderDetailsVO1"
     ViewObjectName="xx.orders.view.XxMyOrderDetailsVO"/>
+  <ViewUsage
+    Name="XxMyOrdersDateSortedVO1"
+    ViewObjectName="xx.orders.view.XxMyOrdersDateSortedVO"/>
+  <ViewUsage
+    Name="XxMyOrderDetailsVO2"
+    ViewObjectName="xx.orders.view.XxMyOrderDetailsVO"/>
   <ViewLinkUsage
     Name="XxMyOrdersVOToXxMyOrderDetailsVO"
     ViewLinkObjectName="xx.orders.view.link.XxMyOrdersVOToXxMyOrderDetailsVO"
     SrcViewUsageName="xx.orders.am.XxMyOrdersAM.XxMyOrdersVO1"
     DstViewUsageName="xx.orders.am.XxMyOrdersAM.XxMyOrderDetailsVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="XxMyordersDateSortedVOToXxMyOrderDetailsVO1"
+    ViewLinkObjectName="xx.orders.view.link.XxMyordersDateSortedVOToXxMyOrderDetailsVO"
+    SrcViewUsageName="xx.orders.am.XxMyOrdersAM.XxMyOrdersDateSortedVO1"
+    DstViewUsageName="xx.orders.am.XxMyOrdersAM.XxMyOrderDetailsVO2"
     Reversed="false"/>
   <Remote
     Name="ServiceInterface"
@@ -70,16 +82,13 @@
           ViewObjectName="XxMyOrdersVO"/>
       </Return>
       <Parameter
-        Name="custAccountId"
-        Type="java.lang.Long"/>
-      <Parameter
         Name="noOfDays"
         Type="java.lang.Integer"/>
       <Parameter
         Name="noOfRows"
         Type="java.lang.Integer"/>
       <Parameter
-        Name="location"
+        Name="userName"
         Type="java.lang.String"/>
       <Parameter
         Name="orderBy"
@@ -87,52 +96,8 @@
       <Parameter
         Name="fetchClosedOrders"
         Type="java.lang.String"/>
-    </Method>
-    <Method
-      Name="getCustomerLocations"
-      MethodName="getCustomerLocations">
-      <Return
-        Name="_return_type_"
-        Type="java.util.List"
-        IsGeneric="true">
-        <Element
-          Name="XxMyLocationsVORowImpl"
-          Type="xx.orders.view.XxMyLocationsVORowImpl"
-          ViewObjectName="XxMyLocationsVO"/>
-      </Return>
       <Parameter
-        Name="custAccountId"
-        Type="java.lang.Long"/>
-    </Method>
-    <Method
-      Name="getRequestedOrders"
-      MethodName="getRequestedOrders">
-      <Return
-        Name="_return_type_"
-        Type="java.util.List"
-        IsGeneric="true">
-        <Element
-          Name="XxMyOrdersVORowImpl"
-          Type="xx.orders.view.XxMyOrdersVORowImpl"
-          ViewObjectName="XxMyOrdersVO"/>
-      </Return>
-      <Parameter
-        Name="custAccountId"
-        Type="java.lang.Long"/>
-      <Parameter
-        Name="noOfDays"
-        Type="java.lang.Integer"/>
-      <Parameter
-        Name="noOfRows"
-        Type="java.lang.Integer"/>
-      <Parameter
-        Name="location"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="orderBy"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="fetchClosedOrders"
+        Name="filterDateType"
         Type="java.lang.String"/>
     </Method>
   </ServiceInterface>
