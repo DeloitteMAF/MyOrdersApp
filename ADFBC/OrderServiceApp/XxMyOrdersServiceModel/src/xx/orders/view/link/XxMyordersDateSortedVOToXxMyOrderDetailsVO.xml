@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxMyordersDateSortedVOToXxMyOrderDetailsVO"
+  Version="12.1.3.13.26"
+  InheritPersonalization="merge">
+  <Properties>
+    <CustomProperties>
+      <Property
+        Name="SERVICE_PROCESS_CHILDREN"
+        Value="true"/>
+    </CustomProperties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="xx.orders.view.link.XxMyOrdersVOToXxMyOrderDetailsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XxMyOrdersDateSortedVO"
+    Cardinality="1"
+    Source="true"
+    Owner="xx.orders.view.XxMyOrdersDateSortedVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="XxMyOrdersDateSortedVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="xx.orders.view.XxMyOrdersDateSortedVO.HeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XxMyOrderDetailsVO"
+    Cardinality="-1"
+    Owner="xx.orders.view.XxMyOrderDetailsVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="XxMyOrderDetailsVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="xx.orders.view.XxMyOrderDetailsVO.HeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="xx.orders.XxMyOrdersServiceModelBundle"/>
+  </ResourceBundle>
+</ViewLink>
