@@ -7,7 +7,7 @@ public class XxMyOrderDetailsVOSDOImpl extends SDODataObject implements XxMyOrde
 
    public static final int START_PROPERTY_INDEX = 0;
 
-   public static final int END_PROPERTY_INDEX = START_PROPERTY_INDEX + 19;
+   public static final int END_PROPERTY_INDEX = START_PROPERTY_INDEX + 20;
 
    public XxMyOrderDetailsVOSDOImpl() {}
 
@@ -169,6 +169,14 @@ public class XxMyOrderDetailsVOSDOImpl extends SDODataObject implements XxMyOrde
 
    public void setCurrencyCode(java.lang.String value) {
       set(START_PROPERTY_INDEX + 19 , value);
+   }
+
+   public java.sql.Timestamp getFulfillmentDate() {
+      return (java.sql.Timestamp)get(START_PROPERTY_INDEX + 20);
+   }
+
+   public void setFulfillmentDate(java.sql.Timestamp value) {
+      set(START_PROPERTY_INDEX + 20 , value);
    }
 
 

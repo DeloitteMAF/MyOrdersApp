@@ -82,6 +82,10 @@ public interface XxMyOrderDetailsVOSDO extends java.io.Serializable {
 
    public void setCurrencyCode(java.lang.String value);
 
+   public java.sql.Timestamp getFulfillmentDate();
+
+   public void setFulfillmentDate(java.sql.Timestamp value);
+
 
 }
 
