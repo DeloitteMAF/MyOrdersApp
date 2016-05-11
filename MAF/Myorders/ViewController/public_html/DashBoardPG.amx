@@ -157,9 +157,6 @@ alert('error '+adf.mf.util.stringify(response));
                                                         <amx:outputText value=" PO# : #{row.custPoNumber}" id="ot5"
                                                                         inlineStyle="width:auto; font-size:small; font-weight:bold;"
                                                                         rendered="#{row.custPoNumber!=''}"/>
-                                                        <amx:image id="i3" source="/resources/css/images/Alert.png"
-                                                                   inlineStyle="width:95%;"
-                                                                   rendered="#{row.orderAlertFlag == 'Y'}"/>
                                                     </amx:panelGroupLayout>
                                                     <amx:spacer id="s2" height="7"/>
                                                     <amx:panelGroupLayout id="pgl9" layout="horizontal">
@@ -180,6 +177,10 @@ alert('error '+adf.mf.util.stringify(response));
                                                 </amx:panelGroupLayout>
                                             </amx:cellFormat>
                                             <amx:cellFormat id="cf10" width="15px" halign="center">
+                                                <amx:image id="i3" source="/resources/css/images/Alert.png"
+                                                                   inlineStyle="width:95%;"
+                                                                   rendered="#{row.orderAlertFlag == 'Y'}"/>
+                                                <amx:spacer id="s18" width="5"/>
                                                 <amx:commandLink id="cl5" action="openDetail">
                                                     <amx:outputHtml id="oh3" styleClass="fa fa-chevron-right fa-2g"
                                                                     inlineStyle="color: rgb(157, 157, 173);"/>
@@ -238,9 +239,6 @@ alert('error '+adf.mf.util.stringify(response));
                                                         <amx:outputText value=" PO# : #{row.custPoNumber}" id="ot15"
                                                                         inlineStyle="width:auto; font-size:small; font-weight:bold;"
                                                                         rendered="#{row.custPoNumber!=''}"/>
-                                                        <amx:image id="i4" source="/resources/css/images/Alert.png"
-                                                                   inlineStyle="width:95%;"
-                                                                   rendered="#{row.orderAlertFlag == 'Y'}"/>
                                                     </amx:panelGroupLayout>
                                                     <amx:spacer id="s4" height="7"/>
                                                     <amx:panelGroupLayout id="pgl10" layout="horizontal">
@@ -261,6 +259,10 @@ alert('error '+adf.mf.util.stringify(response));
                                                 </amx:panelGroupLayout>
                                             </amx:cellFormat>
                                             <amx:cellFormat id="cf11" width="15px" halign="center">
+                                                <amx:image id="i4" source="/resources/css/images/Alert.png"
+                                                                   inlineStyle="width:95%;"
+                                                                   rendered="#{row.orderAlertFlag == 'Y'}"/>
+                                                <amx:spacer id="s19" width="5"/>
                                                 <amx:commandLink id="cl6" action="openDetail">
                                                     <amx:outputHtml id="oh4" styleClass="fa fa-chevron-right fa-2g"
                                                                     inlineStyle="color: rgb(157, 157, 173);"/>
