@@ -16,6 +16,8 @@
       <adfmf:preferenceText id="locationName" label="Location Full Name" default="United States"/>
       <adfmf:preferenceNumber id="dateRange" label="Date Range" default="-1"/>
       <adfmf:preferenceText id="datetype" label="Date Type" default="OrderedDate"/>
+      <adfmf:preferenceText id="gcmSenderId" label="GCM Sender Id" default="418168426760"/>
+      <adfmf:preferenceText id="isDeviceRegistered" label="Is Device Registered" default="false"/>
     </adfmf:preferenceGroup>
   </adfmf:preferences>
   <adfmf:navigation>

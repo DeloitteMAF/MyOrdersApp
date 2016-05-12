@@ -2,7 +2,7 @@
 <orawsp:wsm-assembly xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" orawsp:resource="APPLICATION[generic]">
   <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
                    appliesTo="SA_REST_CLIENT()"
-                   attachTo="MODULE('OSBService') and PATH('http://ussltcsnl3432.solutions.glbsnet.com:7004')"
+                   attachTo="MODULE('OSBService') and PATH('https://ussltcsnl3432.solutions.glbsnet.com:7002')"
                    orawsp:highId="1"
                    xml:id="SA_REST_CLIENT__MODULE__OSBService___and_PATH__http___ussltcsnl3432_solutions_glbsnet_com_7004__">
     <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"

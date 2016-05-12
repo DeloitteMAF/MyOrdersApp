@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="ViewController-task-flow">
-    <default-activity>getOrders</default-activity>
+    <default-activity>router1</default-activity>
     <managed-bean id="__1">
       <managed-bean-name>OrdersManagedBean</managed-bean-name>
       <managed-bean-class>com.company.myorders.mobile.OrdersManagedBean</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__17">
+      <managed-bean-name>PushRegisterBean</managed-bean-name>
+      <managed-bean-class>com.company.myorders.mobile.PushRegisterBean</managed-bean-class>
       <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
     <view id="DashBoard">
@@ -31,6 +36,23 @@
     <view id="Search">
       <page>/com.company.myorders.Search/Search.amx</page>
     </view>
+    <router id="router1">
+      <case id="__21">
+        <expression>#{preferenceScope.application.userPref.isDeviceRegistered == true}</expression>
+        <outcome>registered</outcome>
+      </case>
+      <case id="__22">
+        <expression>#{preferenceScope.application.userPref.isDeviceRegistered == false}</expression>
+        <outcome>registerNow</outcome>
+      </case>
+      <default-outcome>registered</default-outcome>
+    </router>
+    <method-call id="PushRegisterBean">
+      <method>#{applicationScope.PushRegisterBean.registerDevice}</method>
+      <outcome>
+        <fixed-outcome>goToOrders</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>DashBoard</from-activity-id>
       <control-flow-case id="__3">
@@ -78,6 +100,24 @@
         <from-outcome>back</from-outcome>
         <to-activity-id>DashBoard</to-activity-id>
         <transition>slideDown</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>registered</from-outcome>
+        <to-activity-id>getOrders</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>registerNow</from-outcome>
+        <to-activity-id>PushRegisterBean</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>PushRegisterBean</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>goToOrders</from-outcome>
+        <to-activity-id>getOrders</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

@@ -7,47 +7,47 @@
       <property
          name="activityId">DashBoard</property>
       <property
-         name="page">/DashBoardPG.amx</property>
+         name="x">215.0</property>
       <property
          name="start">false</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>DashBoard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="exceptionHandler">false</property>
-      <property
          name="y">272.5459</property>
       <property
-         name="x">215.0</property>
+         name="page">/DashBoardPG.amx</property>
+      <property
+         name="exceptionHandler">false</property>
    </View>
    <View
       id="View3">
       <property
          name="activityId">SpringBoard</property>
       <property
-         name="page">/com.company.myorders.SpringBoard/SpringBoard.amx</property>
+         name="x">171.35449</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SpringBoard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="exceptionHandler">false</property>
-      <property
          name="y">381.99414</property>
       <property
-         name="x">171.35449</property>
+         name="page">/com.company.myorders.SpringBoard/SpringBoard.amx</property>
+      <property
+         name="exceptionHandler">false</property>
    </View>
    <View
       id="View4">
       <property
          name="activityId">Settings</property>
       <property
-         name="page">/com.company.myorders.Settings/Settings.amx</property>
+         name="x">43.5</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Settings&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="exceptionHandler">false</property>
-      <property
          name="y">320.09766</property>
       <property
-         name="x">43.5</property>
+         name="page">/com.company.myorders.Settings/Settings.amx</property>
+      <property
+         name="exceptionHandler">false</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -64,15 +64,15 @@
       <property
          name="activityId">Details</property>
       <property
-         name="page">/Details.amx</property>
+         name="x">525.0</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Details&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="exceptionHandler">false</property>
-      <property
          name="y">264.89648</property>
       <property
-         name="x">525.0</property>
+         name="page">/Details.amx</property>
+      <property
+         name="exceptionHandler">false</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -80,9 +80,9 @@
       from="View8"
       to="View2">
       <property
-         name="fromOutcome">backToDashBoard</property>
-      <property
          name="tosrcid">__5</property>
+      <property
+         name="fromOutcome">backToDashBoard</property>
       <property
          name="fromsrcid">__4</property>
       <property
@@ -93,15 +93,15 @@
       <property
          name="activityId">lineDetails</property>
       <property
-         name="page">/OrderLines.amx</property>
+         name="x">825.0</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>lineDetails&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="exceptionHandler">false</property>
-      <property
          name="y">287.59766</property>
       <property
-         name="x">825.0</property>
+         name="page">/OrderLines.amx</property>
+      <property
+         name="exceptionHandler">false</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -138,15 +138,15 @@
       <property
          name="activityId">getOrders</property>
       <property
-         name="start">true</property>
+         name="x">27.0</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>getOrders&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="start">false</property>
       <property
-         name="exceptionHandler">false</property>
+         name="description">&lt;html>&lt;p>&lt;b>getOrders&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="y">113.79297</property>
       <property
-         name="x">27.0</property>
+         name="exceptionHandler">false</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -154,9 +154,9 @@
       from="MethodCall13"
       to="View2">
       <property
-         name="fromOutcome">goToDashboard</property>
-      <property
          name="tosrcid">__11</property>
+      <property
+         name="fromOutcome">goToDashboard</property>
       <property
          name="fromsrcid">__10</property>
       <property
@@ -167,15 +167,15 @@
       <property
          name="activityId">Search</property>
       <property
-         name="page">/com.company.myorders.Search/Search.amx</property>
+         name="x">348.5</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Search&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="exceptionHandler">false</property>
-      <property
          name="y">469.79883</property>
       <property
-         name="x">348.5</property>
+         name="page">/com.company.myorders.Search/Search.amx</property>
+      <property
+         name="exceptionHandler">false</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -196,5 +196,63 @@
          name="fromOutcome">back</property>
       <property
          name="sdm:polyPoints">T56,352.0,411.66348,218.5,326.1953,B56</property>
+   </ControlFlowCase>
+   <Router
+      id="Router18">
+      <property
+         name="activityId">router1</property>
+      <property
+         name="x">-341.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>router1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="y">155.29883</property>
+      <property
+         name="exceptionHandler">false</property>
+   </Router>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase19"
+      from="Router18"
+      to="MethodCall13">
+      <property
+         name="fromOutcome">registered</property>
+      <property
+         name="sdm:polyPoints">R50,-300.0,154.94824,-15.684144,109.94238,L46</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall20">
+      <property
+         name="activityId">PushRegisterBean</property>
+      <property
+         name="x">-208.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>PushRegisterBean&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">354.59766</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase21"
+      from="Router18"
+      to="MethodCall20">
+      <property
+         name="fromOutcome">registerNow</property>
+      <property
+         name="sdm:polyPoints">B50,-341.0,208.94824,-211.5,300.24707,T44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase22"
+      from="MethodCall20"
+      to="MethodCall13">
+      <property
+         name="fromOutcome">goToOrders</property>
+      <property
+         name="sdm:polyPoints">T56,-204.5,300.24707,-14.0,116.94238,L54</property>
    </ControlFlowCase>
 </SDM>
