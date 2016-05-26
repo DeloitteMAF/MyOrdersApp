@@ -230,7 +230,7 @@ public class SlidingDrawerBean {
     public void leftPin(ActionEvent actionEvent) {
         setShowTopAndBottomFacets(false);
         slidingDrawerWindowSize = getSlidingDrawerWindowSize();
-        setWindowOptions(AdfmfSlidingWindowOptions.DIRECTION_LEFT, AdfmfSlidingWindowOptions.STYLE_PINNED,
+        setWindowOptions(AdfmfSlidingWindowOptions.DIRECTION_LEFT, AdfmfSlidingWindowOptions.STYLE_OVERLAID,
                          slidingDrawerWindowSize);
 
     }
