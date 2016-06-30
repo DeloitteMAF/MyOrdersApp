@@ -7,6 +7,7 @@
   <adfmf:featureReference refId="SpringBoard" id="fr3" showOnNavigationBar="false"
                           showOnSpringboard="false" loginConnRefId="MyOrderAppAuth"/>
   <adfmf:featureReference refId="com.company.myorders.Search" id="fr4" loginConnRefId="MyOrderAppAuth"/>
+  <adfmf:featureReference refId="com.company.myorders.Transactions" id="fr5" loginConnRefId="MyOrderAppAuth"/>
   <adfmf:preferences>
     <adfmf:preferenceGroup id="userPref">
       <adfmf:preferenceText id="location" default="US" secret="false" label="Location"/>

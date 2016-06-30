@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-import oracle.ateam.sample.mobile.v2.persistence.util.EntityUtils;
-import oracle.ateam.sample.mobile.v2.persistence.service.EntityCRUDService;
+import oracle.maf.api.cdm.persistence.util.EntityUtils;
+import oracle.maf.impl.cdm.persistence.service.EntityCRUDService;
 
 import com.company.myorders.mobile.model.AllOrders;
 

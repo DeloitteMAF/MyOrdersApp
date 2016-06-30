@@ -2,7 +2,7 @@ package com.company.myorders.mobile.model;
 
 import com.company.myorders.mobile.model.utility.OrdersUtilityBean;
 
-import oracle.ateam.sample.mobile.v2.persistence.model.Entity;
+import oracle.maf.api.cdm.persistence.model.Entity;
 
 import java.math.BigDecimal;
 

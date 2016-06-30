@@ -1,6 +1,6 @@
 package com.company.myorders.mobile.model;
 
-import oracle.ateam.sample.mobile.v2.persistence.model.Entity;
+import oracle.maf.api.cdm.persistence.model.Entity;
 
 
 public class Result extends Entity {

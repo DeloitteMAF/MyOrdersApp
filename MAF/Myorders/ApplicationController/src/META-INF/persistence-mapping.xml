@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mobileObjectPersistence xmlns="http://www.oracle.com/ateam/mobile/persistenceMapping" logWebServiceCalls="true">
+<mobileObjectPersistence xmlns="http://xmlns.oracle.com/adf/mf/amx/cdm/persistenceMapping" logWebServiceCalls="true">
    <classMappingDescriptor className="com.company.myorders.mobile.model.Result" persisted="true">
-      <crudServiceClass className="com.company.myorders.mobile.model.service.ResultService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.ateam.sample.mobile.v2.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.ateam.sample.mobile.v2.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+      <crudServiceClass className="com.company.myorders.mobile.model.service.ResultService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
       <table name="RESULT">
          <primaryKeyColumn name="LOCATION_CODE"/>
       </table>
@@ -16,7 +16,7 @@
       </methods>
    </classMappingDescriptor>
    <classMappingDescriptor className="com.company.myorders.mobile.model.Orders" persisted="true">
-      <crudServiceClass className="com.company.myorders.mobile.model.service.OrdersService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.ateam.sample.mobile.v2.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.ateam.sample.mobile.v2.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+      <crudServiceClass className="com.company.myorders.mobile.model.service.OrdersService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
       <table name="ORDERS">
          <primaryKeyColumn name="ORDER_NUMBER"/>
       </table>
@@ -46,7 +46,7 @@
       </methods>
    </classMappingDescriptor>
    <classMappingDescriptor className="com.company.myorders.mobile.model.AllOrders" persisted="true">
-      <crudServiceClass className="com.company.myorders.mobile.model.service.AllOrdersService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.ateam.sample.mobile.v2.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.ateam.sample.mobile.v2.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+      <crudServiceClass className="com.company.myorders.mobile.model.service.AllOrdersService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
       <table name="ALL_ORDERS">
          <primaryKeyColumn name="ORDER_NUMBER"/>
       </table>
@@ -133,7 +133,7 @@
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>
-   <classMappingDescriptor className="oracle.ateam.sample.mobile.v2.persistence.service.DataSynchAction" dateFormat="dd-MMM-yyyy">
+   <classMappingDescriptor className="oracle.maf.api.cdm.persistence.service.DataSynchAction" dateFormat="dd-MMM-yyyy">
       <table name="DATA_SYNCH_ACTIONS">
          <primaryKeyColumn name="SERVICE_CLASS_NAME"/>
          <primaryKeyColumn name="ID"/>
@@ -150,8 +150,8 @@
          <directMapping attributeName="customMethodName" columnName="CUSTOM_METHOD_NAME" columnDataType="VARCHAR" javaType="java.lang.String"/>
       </attributeMappings>
    </classMappingDescriptor>
-   <classMappingDescriptor className="oracle.ateam.sample.mobile.logging.WebServiceCall" persisted="true" orderBy="TIMESTAMP desc">
-      <crudServiceClass className="oracle.ateam.sample.mobile.logging.WebServiceCallService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.ateam.sample.mobile.v2.persistence.manager.DBPersistenceManager" remoteReadInBackground="false" remoteWriteInBackground="false" showWebServiceInvocationErrors="false" autoQuery="true" enableOfflineTransactions="false"/>
+   <classMappingDescriptor className="oracle.maf.impl.cdm.logging.WebServiceCall" persisted="true" orderBy="TIMESTAMP desc">
+      <crudServiceClass className="oracle.maf.impl.cdm.logging.WebServiceCallService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remoteReadInBackground="false" remoteWriteInBackground="false" showWebServiceInvocationErrors="false" autoQuery="true" enableOfflineTransactions="false"/>
       <table name="WEB_SERVICE_CALL">
          <primaryKeyColumn name="ID"/>
       </table>

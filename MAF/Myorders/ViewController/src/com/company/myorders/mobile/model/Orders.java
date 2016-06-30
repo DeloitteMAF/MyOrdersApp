@@ -8,9 +8,9 @@ import java.util.List;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 
-import oracle.ateam.sample.mobile.v2.persistence.util.EntityUtils;
-import oracle.ateam.sample.mobile.v2.persistence.manager.DBPersistenceManager;
-import oracle.ateam.sample.mobile.v2.persistence.model.Entity;
+import oracle.maf.api.cdm.persistence.util.EntityUtils;
+import oracle.maf.api.cdm.persistence.manager.DBPersistenceManager;
+import oracle.maf.api.cdm.persistence.model.Entity;
 
 import java.math.BigDecimal;
 

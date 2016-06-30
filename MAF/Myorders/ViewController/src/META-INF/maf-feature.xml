@@ -2,6 +2,7 @@
 <adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
   <adfmf:feature id="com.company.myorders.Orders" name="My Orders" securityEnabled="true"
                  image="resources/css/images/My orders.png">
+    <adfmf:constraints/>
     <adfmf:content id="com.company.myorders.Orders.1" image="resources/css/images/My orders.png">
       <adfmf:amx file="com.company.myorders.Orders/ViewController-task-flow.xml#ViewController-task-flow">
         <adfmf:includes>
@@ -36,6 +37,11 @@
       <adfmf:amx file="com.company.myorders.Search/Search.amx">
         <adfmf:includes/>
       </adfmf:amx>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="com.company.myorders.Transactions" name="Transactions" securityEnabled="true">
+    <adfmf:content id="com.company.myorders.Transactions.1">
+      <adfmf:amx file="com.company.myorders.Transactions/TransactionTF.xml#TransactionTF"/>
     </adfmf:content>
   </adfmf:feature>
 </adfmf:features>

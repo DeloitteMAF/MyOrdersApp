@@ -44,7 +44,7 @@ import oracle.adfmf.framework.event.EventSourceFactory;
  *
  * @see oracle.adfmf.application.LifeCycleListener
  */
-public class LifeCycleListenerImpl extends oracle.ateam.sample.mobile.lifecycle.InitDBLifeCycleListener implements PushNotificationConfig
+public class LifeCycleListenerImpl extends oracle.maf.impl.cdm.lifecycle.InitDBLifeCycleListener implements PushNotificationConfig
 {
   public LifeCycleListenerImpl()
   {
