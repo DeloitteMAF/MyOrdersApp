@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxMyOrderARHeaderDDVO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="xx.orders.view.XxMyOrderARHeaderVORowImpl"
+  SdoGen="true"
+  SdoName="xx.orders.view.common.XxMyOrderARHeaderVOSDO"
+  SdoNameSpace="/xx/orders/view/common/">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="xx.orders.view.XxMyOrderARHeaderDDVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="user_name"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindNoOfDays"
+    Kind="where"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="bindOrderNum"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT rct.customer_trx_id,            
+         rct.trx_number,            
+         rct.trx_date,            
+         rct.ct_reference sales_order,       
+          aps.due_date,      
+          aps.amount_due_original invoice_amount,    
+         aps.amount_due_remaining amount_due,    
+         flv1.meaning closed_flag    
+    FROM ra_customer_trx_all rct,    
+         ra_batch_sources_all rbs,    
+         hz_parties hp,    
+         hz_party_sites hps,    
+         hz_locations hl,    
+         hz_cust_accounts_all hca,    
+         hz_cust_acct_sites_all hcs,    
+         xxmyorder_user_details xud,    
+         fnd_lookup_values flv,    
+         ar_payment_schedules_all aps,    
+         fnd_lookup_values flv1    
+   WHERE 1 = 1    
+     AND rct.bill_to_customer_id = hca.cust_account_id    
+     AND rct.customer_trx_id     = aps.customer_trx_id    
+     AND UPPER(aps.status)       = UPPER(flv1.lookup_code)    
+     AND flv1.lookup_type        = 'INVOICE_TRX_STATUS'    
+     AND flv1.language           = USERENV('lang')    
+     AND flv1.enabled_flag       = 'Y'    
+     AND rct.org_id              = hcs.org_id    
+     AND rct.batch_source_id     = rbs.batch_source_id    
+     AND rct.org_id              = rbs.org_id    
+     AND UPPER(rbs.name)         = UPPER(flv.description)    
+     AND flv.lookup_type         = 'XXMYORDER_BATCH_SOURCES'    
+     AND flv.language            = USERENV('lang')    
+     AND flv.enabled_flag        = 'Y'    
+     AND rbs.status              = 'A'    
+     AND hca.party_id            = hp.party_id    
+     AND hca.cust_account_id     = hcs.cust_account_id    
+     AND hcs.party_site_id       = hps.party_site_id    
+     AND hp.party_id             = hps.party_id    
+     AND hps.location_id         = hl.location_id    
+     AND hcs.status              = 'A'    
+     AND hca.status              = 'A'    
+     AND hp.status               = 'A'    
+     AND hps.status              = 'A'    
+     AND hl.country              = NVL((xud.country),'US')    
+     AND hca.cust_account_id     = xud.customer_id    
+     AND xud.user_name           = :user_name    
+     AND   decode(:bindNoOfDays,-1,-1,(TRUNC (SYSDATE)                              
+                - NVL (TRUNC (rct.trx_date), TRUNC (SYSDATE)))) <= :bindNoOfDays          
+                AND  rct.ct_reference   =  decode(:bindOrderNum,'-1',rct.ct_reference ,:bindOrderNum)        
+GROUP BY rct.customer_trx_id,    
+         rct.trx_number,    
+         rct.trx_date,    
+         rct.ct_reference,    
+         aps.due_date,    
+         aps.amount_due_original,    
+         aps.amount_due_remaining,    
+         flv1.meaning    
+ORDER BY due_date DESC]]></SQLQuery>
+  <ViewAttribute
+    Name="CustomerTrxId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Long"
+    ColumnType="LONGINT"
+    AliasName="CUSTOMER_TRX_ID"
+    Expression="CUSTOMER_TRX_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="TrxNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TRX_NUMBER"
+    Expression="TRX_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TrxDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="TRX_DATE"
+    Expression="TRX_DATE"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="SalesOrder"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SALES_ORDER"
+    Expression="SALES_ORDER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DueDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="DUE_DATE"
+    Expression="DUE_DATE"
+    SQLType="DATE"/>
+  <ViewAttribute
+    Name="InvoiceAmount"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="INVOICE_AMOUNT"
+    Expression="INVOICE_AMOUNT"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="AmountDue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="AMOUNT_DUE"
+    Expression="AMOUNT_DUE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="ClosedFlag"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="CLOSED_FLAG"
+    Expression="CLOSED_FLAG"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ARAlertFlag"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[if (XxMyOrderARLinesVO.rowCount > 0){
+
+
+for (int j = 0; j < XxMyOrderARLinesVO.rowCount; j++) {
+          if (XxMyOrderARLinesVO.getRowAtRangeIndex(j).getAttribute("AlertFlag") == "Y"){ 
+               
+               return "Y";
+               }
+     
+     }
+}
+return "N";]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="statusCriteria"
+    ViewObjectName="xx.orders.view.XxMyOrderARHeaderDDVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XxMyOrderARHeaderDDVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ClosedFlag"
+        ViewAttribute="ClosedFlag"
+        Operator="="
+        Conjunction="AND"
+        Value="'Open'"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="CustomerTrxId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="XxMyOrderARLinesVO"
+    ViewLink="xx.orders.view.link.XxMyOrderARHeaderDDToLinesVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="xx.orders.XxMyOrdersServiceModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

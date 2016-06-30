@@ -8,11 +8,11 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  RowClass="xx.orders.view.XxMyLocationsVORowImpl"
   PageIterMode="Full"
+  RowClass="xx.orders.view.XxMyLocationsVORowImpl"
   SdoGen="true"
-  SdoName="xx.orders.common.XxMyLocationsVOSDO"
-  SdoNameSpace="/xx/orders/common/">
+  SdoName="xx.orders.view.common.XxMyLocationsVOSDO"
+  SdoNameSpace="/xx/orders/view/common/">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_isCodegen" Value="true"/>

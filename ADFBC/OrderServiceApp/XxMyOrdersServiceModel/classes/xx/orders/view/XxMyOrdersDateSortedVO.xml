@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxMyOrdersDateSortedVO"
+  Version="12.1.3.2.1"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="xx.orders.view.XxMyOrdersVORowImpl"
+  SdoGen="true"
+  SdoName="xx.orders.view.common.XxMyOrdersVOSDO"
+  SdoNameSpace="/xx/orders/view/common/">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="bindNoOfDays"
+    Kind="where"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="bindUserName"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT ooh.order_number order_number, hp.party_name customer,                     
+          hca.account_number customer_number,                     
+          xxmyorders_get_order_status (ooh.header_id) status, ooh.ordered_date, ooh.cust_po_number,                     
+          xxmyorders_get_total_value (ooh.header_id) as total_ordered_value,                     
+          ooh.header_id,   
+          ooh.transactional_curr_code currency_code   
+     FROM oe_order_headers_all ooh,                     
+          oe_order_lines_all ool,                     
+          hz_parties hp,                     
+          hz_party_sites hps,                     
+          hz_locations hl,                     
+          hz_cust_accounts_all hca,                     
+          hz_cust_acct_sites_all hcs,                     
+          hz_cust_site_uses_all hcu, 
+          xxmyorder_user_details xud                     
+    WHERE ooh.header_id = ool.header_id                     
+      AND ooh.org_id = hcu.org_id                     
+      AND ooh.sold_to_org_id = hca.cust_account_id                     
+      AND ool.ship_to_org_id = hcu.site_use_id                     
+      AND hcu.site_use_code = 'SHIP_TO'                     
+      AND hca.party_id = hp.party_id                     
+      AND hca.cust_account_id = hcs.cust_account_id                     
+      AND hcs.cust_acct_site_id = hcu.cust_acct_site_id                     
+      AND hcs.party_site_id = hps.party_site_id                     
+      AND hp.party_id = hps.party_id                     
+      AND hps.location_id = hl.location_id                     
+      AND hcu.status = 'A'                     
+      AND hcs.status = 'A'                     
+      AND hca.status = 'A'                     
+      AND hp.status = 'A'                     
+      AND hps.status = 'A'                     
+      AND hl.country = NVL((xud.country),'US') 
+      AND hca.cust_account_id = xud.customer_id 
+      AND xud.user_name = :bindUserName                   
+      AND   decode(:bindNoOfDays,-1,-1,(TRUNC (SYSDATE)                     
+                - NVL (TRUNC (ool.fulfillment_date), TRUNC (SYSDATE)))) <= :bindNoOfDays   
+ GROUP BY ooh.order_number, hp.party_name, hca.account_number, ooh.flow_status_code,                      
+          ooh.ordered_date, ooh.cust_po_number, ooh.header_id, ooh.transactional_curr_code    
+ ORDER BY total_ordered_value desc]]></SQLQuery>
+   <ViewAttribute
+    Name="OrderNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ORDER_NUMBER"
+    SQLType="NUMERIC" Expression="ORDER_NUMBER">
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartyName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="360"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PARTY_NAME"
+    Expression="PARTY_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="360"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccountNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ACCOUNT_NUMBER"
+    Expression="ACCOUNT_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FlowStatusCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATUS"
+    Expression="STATUS"
+    SQLType="VARCHAR"
+    IsQueriable="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderedDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="DATE"
+    AliasName="ORDERED_DATE"
+    Expression="ORDERED_DATE"
+    SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="CustPoNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUST_PO_NUMBER"
+    Expression="CUST_PO_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalOrderedValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="TOTAL_ORDERED_VALUE"
+    SQLType="NUMERIC"
+    Expression="TOTAL_ORDERED_VALUE"
+    IsQueriable="false"/>
+  <ViewAttribute
+    Name="HeaderId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Long"
+    ColumnType="LONGINT"
+    AliasName="HEADER_ID"
+    SQLType="NUMERIC"
+    Expression="HEADER_ID"/>
+  <ViewAttribute
+    Name="CurrencyCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENCY_CODE"
+    SQLType="VARCHAR"
+    Expression="CURRENCY_CODE"/>
+  <ViewAttribute
+    Name="OrderAlertFlag"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[if (XxMyOrderDetailsVO.rowCount > 0){
+
+
+for (int j = 0; j < XxMyOrderDetailsVO.rowCount; j++) {
+          if (XxMyOrderDetailsVO.getRowAtRangeIndex(j).getAttribute("AlertFlag") == "Y"){ 
+               
+               return "Y";
+               }
+     
+     }
+}
+return "N";]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="statusCriteria"
+    ViewObjectName="xx.orders.view.XxMyOrdersDateSortedVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="XxMyOrdersVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FlowStatusCode"
+        ViewAttribute="FlowStatusCode"
+        Operator="&lt;>"
+        Conjunction="AND"
+        Value="'CLOSED'"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="HeaderId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="XxMyOrderDetailsVO"
+    ViewLink="xx.orders.view.link.XxMyordersDateSortedVOToXxMyOrderDetailsVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="xx.orders.XxMyOrdersServiceModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

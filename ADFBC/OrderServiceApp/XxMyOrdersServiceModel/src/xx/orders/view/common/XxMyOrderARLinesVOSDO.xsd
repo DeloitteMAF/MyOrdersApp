@@ -1,0 +1,33 @@
+<xsd:schema xmlns:sdoJava="commonj.sdo/java" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     targetNamespace="/xx/orders/view/common/" xmlns="/xx/orders/view/common/" elementFormDefault="qualified"
+     sdoJava:package="xx.orders.view.common">
+    <xsd:annotation>
+        <xsd:documentation>
+            <name>Xx My Order Ar Lines Vo</name>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import schemaLocation="classpath:/META-INF/wsdl/BC4JService.xsd" namespace="http://xmlns.oracle.com/adf/svc/types/"/>
+    <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
+    <xsd:complexType name="XxMyOrderARLinesVOSDO">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CustomerTrxId" type="xsd:long" minOccurs="0" nillable="true"/>
+            <xsd:element name="LineNumber" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="QuantityInvoiced" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Description" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="UnitSellingPrice" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Status" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="Amount" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="ApplicationType" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="DueDate" type="ns0:dateTime-Timestamp" minOccurs="0" nillable="true"/>
+            <xsd:element name="InvoiceAmount" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="InvoiceDueAmount" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="AlertFlag" type="xsd:string" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="xxMyOrderARLinesVOSDO" type="XxMyOrderARLinesVOSDO"/>
+</xsd:schema>

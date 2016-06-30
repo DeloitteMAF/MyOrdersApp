@@ -25,6 +25,24 @@
     <wsdl:message name="XxMyOrdersService_getRequestedOrdersResponse">
         <wsdl:part name="parameters" element="types:getRequestedOrdersResponse"/>
     </wsdl:message>
+    <wsdl:message name="XxMyOrdersService_pushNotifications">
+        <wsdl:part name="parameters" element="types:pushNotifications"/>
+    </wsdl:message>
+    <wsdl:message name="XxMyOrdersService_pushNotificationsResponse">
+        <wsdl:part name="parameters" element="types:pushNotificationsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="XxMyOrdersService_startPollingJob">
+        <wsdl:part name="parameters" element="types:startPollingJob"/>
+    </wsdl:message>
+    <wsdl:message name="XxMyOrdersService_startPollingJobResponse">
+        <wsdl:part name="parameters" element="types:startPollingJobResponse"/>
+    </wsdl:message>
+    <wsdl:message name="XxMyOrdersService_getARForUser">
+        <wsdl:part name="parameters" element="types:getARForUser"/>
+    </wsdl:message>
+    <wsdl:message name="XxMyOrdersService_getARForUserResponse">
+        <wsdl:part name="parameters" element="types:getARForUserResponse"/>
+    </wsdl:message>
     <wsdl:portType name="XxMyOrdersService">
         <wsdl:documentation/>
         <wsdl:operation name="getCustomerLocations">
@@ -35,6 +53,21 @@
         <wsdl:operation name="getRequestedOrders">
             <wsdl:input message="tns:XxMyOrdersService_getRequestedOrders"/>
             <wsdl:output message="tns:XxMyOrdersService_getRequestedOrdersResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="pushNotifications">
+            <wsdl:input message="tns:XxMyOrdersService_pushNotifications"/>
+            <wsdl:output message="tns:XxMyOrdersService_pushNotificationsResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="startPollingJob">
+            <wsdl:input message="tns:XxMyOrdersService_startPollingJob"/>
+            <wsdl:output message="tns:XxMyOrdersService_startPollingJobResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getARForUser">
+            <wsdl:input message="tns:XxMyOrdersService_getARForUser"/>
+            <wsdl:output message="tns:XxMyOrdersService_getARForUserResponse"/>
             <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
         </wsdl:operation>
     </wsdl:portType>
@@ -54,6 +87,42 @@
         </wsdl:operation>
         <wsdl:operation name="getRequestedOrders">
             <soap:operation soapAction="/xx/orders/am/common/getRequestedOrders"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="pushNotifications">
+            <soap:operation soapAction="/xx/orders/am/common/pushNotifications"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startPollingJob">
+            <soap:operation soapAction="/xx/orders/am/common/startPollingJob"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getARForUser">
+            <soap:operation soapAction="/xx/orders/am/common/getARForUser"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

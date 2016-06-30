@@ -4,13 +4,15 @@
 <JboProject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="XxMyOrdersServiceModel"
-  Version="12.1.3.13.26"
+  Version="12.1.3.10.8"
   SeparateXMLFiles="true"
   PackageName="xx.orders">
   <DesignTime>
     <Attr Name="_jprName" Value="../../../XxMyOrdersServiceModel.jpr"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="EBSConn"/>
+    <Attr Name="_appModuleNames0" Value="xx.orders.am.XxMyOrdersAM"/>
+    <Attr Name="_domainNames0" Value="xx.orders.view.Type"/>
   </DesignTime>
   <Containee
     Name="am"
@@ -21,11 +23,28 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="eo"
+    PackageName="xx.orders.eo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="link"
+    PackageName="xx.orders.view.link"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="view"
     PackageName="xx.orders.view"
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_VO" Value="true"/>
+      <Attr Name="_DO" Value="true"/>
     </DesignTime>
   </Containee>
 </JboProject>

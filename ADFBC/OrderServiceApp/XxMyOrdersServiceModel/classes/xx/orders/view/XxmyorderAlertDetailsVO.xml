@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxmyorderAlertDetailsVO"
+  Version="12.1.3.2.1"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="xx.orders.view.XxmyorderAlertDetailsVORowImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT r.device_token,   
+XxmyorderAlertDetails.ORDER_NUMBER,     
+       XxmyorderAlertDetails.USER_NAME,     
+       XxmyorderAlertDetails.RELEASED_FLAG,     
+       XxmyorderAlertDetails.PROCESS_FLAG,     
+       XxmyorderAlertDetails.MESSAGE,     
+       XxmyorderAlertDetails.LAST_UPDATE_DATE,     
+       XxmyorderAlertDetails.LAST_UPDATED_BY,     
+       XxmyorderAlertDetails.CREATION_DATE,     
+       XxmyorderAlertDetails.CREATED_BY,     
+       XxmyorderAlertDetails.LAST_UPDATE_LOGIN    
+FROM  XXMYORDER_ALERT_DETAILS XxmyorderAlertDetails, REGISTRATIONS r   
+WHERE r.user_id = XxmyorderAlertDetails.USER_NAME   
+AND XxmyorderAlertDetails.PROCESS_FLAG = 'N']]></SQLQuery>
+  <EntityUsage
+    Name="XxmyorderAlertDetails"
+    Entity="xx.orders.eo.XxmyorderAlertDetails"/>
+  <ViewAttribute
+    Name="DeviceToken"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="360"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DEVICE_TOKEN"
+    Expression="DEVICE_TOKEN"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="360"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderNumber"
+    PrecisionRule="true"
+    EntityAttrName="OrderNumber"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="ORDER_NUMBER"/>
+  <ViewAttribute
+    Name="UserName"
+    PrecisionRule="true"
+    EntityAttrName="UserName"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="USER_NAME"/>
+  <ViewAttribute
+    Name="ReleasedFlag"
+    PrecisionRule="true"
+    EntityAttrName="ReleasedFlag"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="RELEASED_FLAG"/>
+  <ViewAttribute
+    Name="ProcessFlag"
+    PrecisionRule="true"
+    EntityAttrName="ProcessFlag"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="PROCESS_FLAG"/>
+  <ViewAttribute
+    Name="Message"
+    PrecisionRule="true"
+    EntityAttrName="Message"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="MESSAGE"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdateLogin"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateLogin"
+    EntityUsage="XxmyorderAlertDetails"
+    AliasName="LAST_UPDATE_LOGIN"/>
+</ViewObject>

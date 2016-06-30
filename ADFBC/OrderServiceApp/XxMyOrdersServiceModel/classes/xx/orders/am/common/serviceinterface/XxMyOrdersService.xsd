@@ -1,8 +1,9 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/xx/orders/am/common/types/"
-     xmlns:tns="/xx/orders/am/common/types/" xmlns:ns0="/xx/orders/common/" xmlns:ns1="http://xmlns.oracle.com/adf/svc/errors/">
-    <import namespace="/xx/orders/common/" schemaLocation="../../../common/XxMyLocationsVOSDO.xsd"/>
-    <import namespace="http://xmlns.oracle.com/adf/svc/errors/" schemaLocation="classpath:/META-INF/wsdl/ServiceException.xsd"/>
-    <import namespace="/xx/orders/common/" schemaLocation="../../../common/XxMyOrdersVOSDO.xsd"/>
+     xmlns:tns="/xx/orders/am/common/types/" xmlns:ns0="/xx/orders/view/common/" xmlns:ns1="http://xmlns.oracle.com/adf/svc/types/">
+    <import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="classpath:/META-INF/wsdl/BC4JService.xsd"/>
+    <import namespace="/xx/orders/view/common/" schemaLocation="../../../view/common/XxMyOrdersVOSDO.xsd"/>
+    <import namespace="/xx/orders/view/common/" schemaLocation="../../../view/common/XxMyOrderARHeaderVOSDO.xsd"/>
+    <import namespace="/xx/orders/view/common/" schemaLocation="../../../view/common/XxMyLocationsVOSDO.xsd"/>
     <element name="getCustomerLocations">
         <complexType>
             <sequence>
@@ -20,10 +21,12 @@
     <element name="getRequestedOrders">
         <complexType>
             <sequence>
-                <element name="custAccountId" type="long"/>
-                <element name="NoOfDays" type="int"/>
-                <element name="NoOfRows" type="int"/>
-                <element name="Location" type="string"/>
+                <element name="noOfDays" type="int"/>
+                <element name="noOfRows" type="int"/>
+                <element name="userName" type="string"/>
+                <element name="orderBy" type="string"/>
+                <element name="fetchClosedOrders" type="string"/>
+                <element name="filterDateType" type="string"/>
             </sequence>
         </complexType>
     </element>
@@ -31,6 +34,48 @@
         <complexType>
             <sequence>
                 <element name="result" type="ns0:XxMyOrdersVOSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="pushNotifications">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="pushNotificationsResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="string"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="startPollingJob">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="startPollingJobResponse">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="getARForUser">
+        <complexType>
+            <sequence>
+                <element name="orderNumber" type="string"/>
+                <element name="noOfDays" type="int"/>
+                <element name="noOfRows" type="int"/>
+                <element name="userName" type="string"/>
+                <element name="orderBy" type="string"/>
+                <element name="fetchClosedOrders" type="string"/>
+                <element name="filterDateType" type="string"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="getARForUserResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:XxMyOrderARHeaderVOSDO" minOccurs="0" maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>

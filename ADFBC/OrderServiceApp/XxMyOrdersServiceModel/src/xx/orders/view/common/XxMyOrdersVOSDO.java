@@ -38,6 +38,10 @@ public interface XxMyOrdersVOSDO extends java.io.Serializable {
 
    public void setCurrencyCode(java.lang.String value);
 
+   public java.lang.String getOrderAlertFlag();
+
+   public void setOrderAlertFlag(java.lang.String value);
+
    public java.util.List getXxMyOrderDetailsVO();
 
    public void setXxMyOrderDetailsVO(java.util.List value);
