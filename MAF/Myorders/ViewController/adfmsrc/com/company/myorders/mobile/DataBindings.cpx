@@ -6,9 +6,9 @@
     <page path="/com.company.myorders.Settings/Settings.amx" usageId="com_company_myorders_mobile_SettingsPageDef"/>
     <page path="/com.company.myorders.SpringBoard/SpringBoard.amx"
           usageId="com_company_myorders_mobile_SpringBoardPageDef"/>
-    <page path="/OrderDetails.amx" usageId="com_company_myorders_mobile_OrderDetailsPageDef"/>
     <page path="/Details.amx" usageId="com_company_myorders_mobile_DetailsPageDef"/>
     <page path="/OrderLines.amx" usageId="com_company_myorders_mobile_OrderLinesPageDef"/>
+    <page path="/DashboardTransPG.amx" usageId="com_company_myorders_mobile_DashboardTransPGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_company_myorders_mobile_DashBoardPGPageDef"
@@ -16,17 +16,18 @@
     <page id="com_company_myorders_mobile_SettingsPageDef" path="com.company.myorders.Settings.SettingsPageDef"/>
     <page id="com_company_myorders_mobile_SpringBoardPageDef"
           path="com.company.myorders.SpringBoard.SpringBoardPageDef"/>
-    <page id="com_company_myorders_mobile_OrderDetailsPageDef"
-          path="com.company.myorders.mobile.pageDefs.OrderDetailsPageDef"/>
     <page id="com_company_myorders_mobile_DetailsPageDef" path="com.company.myorders.mobile.pageDefs.DetailsPageDef"/>
     <page id="com_company_myorders_mobile_OrderLinesPageDef"
           path="com.company.myorders.mobile.pageDefs.OrderLinesPageDef"/>
+    <page id="com_company_myorders_mobile_DashboardTransPGPageDef"
+          path="com.company.myorders.mobile.pageDefs.DashboardTransPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
-    <dc id="AllOrdersService"
-        path="com.company.myorders.mobile.AllOrdersService"/>
-    <dc id="OrdersService" path="com.company.myorders.mobile.OrdersService"/>
-    <dc id="ResultService" path="com.company.myorders.mobile.ResultService"/>
+    <dc id="AllTransactionsService" path="com.company.myorders.application.AllTransactionsService"/>
+    <dc id="TransactionsService" path="com.company.myorders.application.TransactionsService"/>
+    <dc id="AllOrdersService"   path="com.company.myorders.application.AllOrdersService"/>
+    <dc id="OrdersService" path="com.company.myorders.application.OrdersService"/>
+    <dc id="ResultService" path="com.company.myorders.application.ResultService"/>
     <dc id="ApplicationFeatures" path="com.company.myorders.application.ApplicationFeatures"/>
   </dataControlUsages>
 </Application>

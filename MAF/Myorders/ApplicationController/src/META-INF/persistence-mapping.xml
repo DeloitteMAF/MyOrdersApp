@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mobileObjectPersistence xmlns="http://xmlns.oracle.com/adf/mf/amx/cdm/persistenceMapping" logWebServiceCalls="true">
-   <classMappingDescriptor className="com.company.myorders.mobile.model.Result" persisted="true">
-      <crudServiceClass className="com.company.myorders.mobile.model.service.ResultService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+   <classMappingDescriptor className="com.company.myorders.application.model.Result" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.ResultService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
       <table name="RESULT">
          <primaryKeyColumn name="LOCATION_CODE"/>
       </table>
@@ -11,12 +11,12 @@
       </attributeMappings>
       <methods>
          <findAllMethod uri="/myorder/SO/getAllCustomerLocations/{custAcctid}" connectionName="OSBService" requestType="GET" secured="false" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
-            <parameter name="custAcctid" value="#{securityContext.userName}" valueProvider="ELExpression" dataObjectAttribute="locationCode" pathParam="true"/>
+            <parameter name="custAcctid" value="#{securityContext.userName}" valueProvider="DataObjectAttribute" dataObjectAttribute="locationCode" pathParam="true"/>
          </findAllMethod>
       </methods>
    </classMappingDescriptor>
-   <classMappingDescriptor className="com.company.myorders.mobile.model.Orders" persisted="true">
-      <crudServiceClass className="com.company.myorders.mobile.model.service.OrdersService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+   <classMappingDescriptor className="com.company.myorders.application.model.Orders" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.OrdersService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
       <table name="ORDERS">
          <primaryKeyColumn name="ORDER_NUMBER"/>
       </table>
@@ -30,23 +30,23 @@
          <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="headerId" payloadAttributeName="HeaderId" columnName="HEADER_ID" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
          <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="OrderAlertFlag" payloadAttributeName="OrderAlertFlag" columnName="ORDER_ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <oneToManyMapping attributeName="xxMyOrderDetailsVO" payloadAttributeName="XxMyOrderDetailsVO" referenceClassName="com.company.myorders.mobile.model.OrderDetails" sendAsArrayIfOnlyOneEntry="true">
+         <directMapping attributeName="orderAlertFlag" payloadAttributeName="OrderAlertFlag" columnName="ORDER_ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <oneToManyMapping attributeName="xxMyOrderDetailsVO" payloadAttributeName="XxMyOrderDetailsVO" referenceClassName="com.company.myorders.application.model.OrderDetails" sendAsArrayIfOnlyOneEntry="true">
             <foreignKeyColumnReference sourceTable="ORDER_DETAILS" sourceColumn="HEADER_ID" targetTable="ORDERS" targetColumn="HEADER_ID"/>
          </oneToManyMapping>
       </attributeMappings>
       <methods>
          <findAllMethod uri="/myorder/SO/getAllOrders/{dateRange}/10/{custAcctid}/{orderby}/{showclosedorders}/{datetype}" connectionName="OSBService" requestType="GET" secured="true" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
-            <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+            <parameter name="orderby" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" pathParam="true"/>
             <parameter name="showclosedorders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
             <parameter name="datetype" value="#{preferenceScope.application.userPref.datetype}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
-            <parameter name="dateRange" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
+            <parameter name="dateRange" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" pathParam="true"/>
             <parameter name="custAcctid" value="#{securityContext.userName}" valueProvider="ELExpression" dataObjectAttribute="orderNumber" pathParam="true"/>
          </findAllMethod>
       </methods>
    </classMappingDescriptor>
-   <classMappingDescriptor className="com.company.myorders.mobile.model.AllOrders" persisted="true">
-      <crudServiceClass className="com.company.myorders.mobile.model.service.AllOrdersService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+   <classMappingDescriptor className="com.company.myorders.application.model.AllOrders" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.AllOrdersService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
       <table name="ALL_ORDERS">
          <primaryKeyColumn name="ORDER_NUMBER"/>
       </table>
@@ -60,8 +60,8 @@
          <directMapping attributeName="totalOrderedValue" payloadAttributeName="TotalOrderedValue" columnName="TOTAL_ORDERED_VALUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="headerId" payloadAttributeName="HeaderId" columnName="HEADER_ID" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
          <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="OrderAlertFlag" payloadAttributeName="OrderAlertFlag" columnName="ORDER_ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <oneToManyMapping attributeName="xxMyOrderDetailsVO" payloadAttributeName="XxMyOrderDetailsVO" referenceClassName="com.company.myorders.mobile.model.AllOrderDetails" sendAsArrayIfOnlyOneEntry="true">
+         <directMapping attributeName="orderAlertFlag" payloadAttributeName="OrderAlertFlag" columnName="ORDER_ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <oneToManyMapping attributeName="xxMyOrderDetailsVO" payloadAttributeName="XxMyOrderDetailsVO" referenceClassName="com.company.myorders.application.model.AllOrderDetails" sendAsArrayIfOnlyOneEntry="true">
             <foreignKeyColumnReference sourceTable="ALL_ORDER_DETAILS" sourceColumn="HEADER_ID" targetTable="ALL_ORDERS" targetColumn="HEADER_ID"/>
          </oneToManyMapping>
       </attributeMappings>
@@ -75,8 +75,8 @@
          </findAllMethod>
       </methods>
    </classMappingDescriptor>
-   <classMappingDescriptor className="com.company.myorders.mobile.model.OrderDetails" persisted="true">
-      <crudServiceClass className="com.company.myorders.mobile.model.service.OrdersService" autoIncrementPrimaryKey="true"/>
+   <classMappingDescriptor className="com.company.myorders.application.model.OrderDetails" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.OrdersService" autoIncrementPrimaryKey="true"/>
       <table name="ORDER_DETAILS">
          <primaryKeyColumn name="LINE_ID"/>
       </table>
@@ -104,8 +104,112 @@
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>
-   <classMappingDescriptor className="com.company.myorders.mobile.model.AllOrderDetails" persisted="true">
-      <crudServiceClass className="com.company.myorders.mobile.model.service.AllOrdersService" autoIncrementPrimaryKey="true"/>
+   <classMappingDescriptor className="com.company.myorders.application.model.Transactions" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.TransactionsService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+      <table name="TRANSACTIONS">
+         <primaryKeyColumn name="CUSTOMER_TRX_ID"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="trxNumber" payloadAttributeName="TrxNumber" columnName="TRX_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="trxDate" payloadAttributeName="TrxDate" columnName="TRX_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="salesOrder" payloadAttributeName="SalesOrder" columnName="SALES_ORDER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="invoiceAmount" payloadAttributeName="InvoiceAmount" columnName="INVOICE_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="amountDue" payloadAttributeName="AmountDue" columnName="AMOUNT_DUE" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="closedFlag" payloadAttributeName="ClosedFlag" columnName="CLOSED_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="aRAlertFlag" payloadAttributeName="ARAlertFlag" columnName="A_RALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <oneToManyMapping attributeName="xxMyOrderARLinesVO" payloadAttributeName="XxMyOrderARLinesVO" referenceClassName="com.company.myorders.application.model.TransactionDetails" sendAsArrayIfOnlyOneEntry="true">
+            <foreignKeyColumnReference sourceTable="TRANSACTION_DETAILS" sourceColumn="CUSTOMER_TRX_ID" targetTable="TRANSACTIONS" targetColumn="CUSTOMER_TRX_ID"/>
+         </oneToManyMapping>
+      </attributeMappings>
+      <methods>
+         <findAllMethod uri="/GetARDetails/GetARDetailsRestService/-1/{noOfDays}/10/{userName}/{orderBy}/{fetchClosedOrders}/TrxDate" connectionName="OSBService" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+            <parameter name="orderNumber" value="#{preferenceScope.application.userPref.orderNumber}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="noOfDays" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="userName" value="#{securityContext.userName}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="orderBy" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="fetchClosedOrders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="filterDateType" value="#{preferenceScope.application.userPref.datetype}" valueProvider="ELExpression" pathParam="true"/>
+         </findAllMethod>
+      </methods>
+   </classMappingDescriptor>
+   <classMappingDescriptor className="com.company.myorders.application.model.TransactionDetails" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.TransactionsService" autoIncrementPrimaryKey="true"/>
+      <table name="TRANSACTION_DETAILS">
+         <primaryKeyColumn name="CUSTOMER_TRX_ID"/>
+         <primaryKeyColumn name="LINE_NUMBER"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="lineNumber" payloadAttributeName="LineNumber" columnName="LINE_NUMBER" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="quantityInvoiced" payloadAttributeName="QuantityInvoiced" columnName="QUANTITY_INVOICED" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="description" payloadAttributeName="Description" columnName="DESCRIPTION" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="unitSellingPrice" payloadAttributeName="UnitSellingPrice" columnName="UNIT_SELLING_PRICE" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="status" payloadAttributeName="Status" columnName="STATUS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="amount" payloadAttributeName="Amount" columnName="AMOUNT" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="applicationType" payloadAttributeName="ApplicationType" columnName="APPLICATION_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="invoiceAmount" payloadAttributeName="InvoiceAmount" columnName="INVOICE_AMOUNT" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="invoiceDueAmount" payloadAttributeName="InvoiceDueAmount" columnName="INVOICE_DUE_AMOUNT" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+      </attributeMappings>
+      <methods/>
+   </classMappingDescriptor>
+   <classMappingDescriptor className="com.company.myorders.application.model.AllTransactions" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.AllTransactionsService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+      <table name="ALL_TRANSACTIONS">
+         <primaryKeyColumn name="CUSTOMER_TRX_ID"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="trxNumber" payloadAttributeName="TrxNumber" columnName="TRX_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="trxDate" payloadAttributeName="TrxDate" columnName="TRX_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="salesOrder" payloadAttributeName="SalesOrder" columnName="SALES_ORDER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="invoiceAmount" payloadAttributeName="InvoiceAmount" columnName="INVOICE_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="amountDue" payloadAttributeName="AmountDue" columnName="AMOUNT_DUE" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="closedFlag" payloadAttributeName="ClosedFlag" columnName="CLOSED_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="aRAlertFlag" payloadAttributeName="ARAlertFlag" columnName="A_RALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <oneToManyMapping attributeName="xxMyOrderARLinesVO" payloadAttributeName="XxMyOrderARLinesVO" referenceClassName="com.company.myorders.application.model.AllTransactionDetails" sendAsArrayIfOnlyOneEntry="true">
+            <foreignKeyColumnReference sourceTable="ALL_TRANSACTION_DETAILS" sourceColumn="CUSTOMER_TRX_ID" targetTable="ALL_TRANSACTIONS" targetColumn="CUSTOMER_TRX_ID"/>
+         </oneToManyMapping>
+      </attributeMappings>
+      <methods>
+         <findAllMethod uri="/GetARDetails/GetARDetailsRestService/-1/{noOfDays}/-1/{userName}/{orderBy}/{fetchClosedOrders}/TrxDate" connectionName="OSBService" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+            <parameter name="orderNumber" value="#{preferenceScope.application.userPref.orderNumber}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="noOfDays" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="userName" value="#{securityContext.userName}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="orderBy" value="#{preferenceScope.application.userPref.orderby}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="fetchClosedOrders" value="#{preferenceScope.application.userPref.showclosedorders}" valueProvider="ELExpression" pathParam="true"/>
+            <parameter name="filterDateType" value="#{preferenceScope.application.userPref.datetype}" valueProvider="ELExpression" pathParam="true"/>
+         </findAllMethod>
+      </methods>
+   </classMappingDescriptor>
+   <classMappingDescriptor className="com.company.myorders.application.model.AllTransactionDetails" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.AllTransactionsService" autoIncrementPrimaryKey="true"/>
+      <table name="ALL_TRANSACTION_DETAILS">
+         <primaryKeyColumn name="CUSTOMER_TRX_ID"/>
+         <primaryKeyColumn name="LINE_NUMBER"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="lineNumber" payloadAttributeName="LineNumber" columnName="LINE_NUMBER" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="quantityInvoiced" payloadAttributeName="QuantityInvoiced" columnName="QUANTITY_INVOICED" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="description" payloadAttributeName="Description" columnName="DESCRIPTION" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="unitSellingPrice" payloadAttributeName="UnitSellingPrice" columnName="UNIT_SELLING_PRICE" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="status" payloadAttributeName="Status" columnName="STATUS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="amount" payloadAttributeName="Amount" columnName="AMOUNT" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="applicationType" payloadAttributeName="ApplicationType" columnName="APPLICATION_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="invoiceAmount" payloadAttributeName="InvoiceAmount" columnName="INVOICE_AMOUNT" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="invoiceDueAmount" payloadAttributeName="InvoiceDueAmount" columnName="INVOICE_DUE_AMOUNT" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.math.BigDecimal" keyAttribute="false"/>
+         <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+      </attributeMappings>
+      <methods/>
+   </classMappingDescriptor>
+   <classMappingDescriptor className="com.company.myorders.application.model.AllOrderDetails" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.AllOrdersService" autoIncrementPrimaryKey="true"/>
       <table name="ALL_ORDER_DETAILS">
          <primaryKeyColumn name="LINE_ID"/>
       </table>

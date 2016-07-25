@@ -4,7 +4,7 @@
     <default-activity>router1</default-activity>
     <managed-bean id="__1">
       <managed-bean-name>OrdersManagedBean</managed-bean-name>
-      <managed-bean-class>com.company.myorders.mobile.OrdersManagedBean</managed-bean-class>
+      <managed-bean-class>com.company.myorders.application.OrdersManagedBean</managed-bean-class>
       <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
     <managed-bean id="__17">
@@ -53,6 +53,17 @@
         <fixed-outcome>goToOrders</fixed-outcome>
       </outcome>
     </method-call>
+    <router id="router2">
+      <case id="__23">
+        <expression>#{applicationScope.OrdersManagedBean.comingFromNotification==true}</expression>
+        <outcome>goToOrder</outcome>
+      </case>
+      <case id="__24">
+        <expression>#{applicationScope.OrdersManagedBean.comingFromNotification!=true}</expression>
+        <outcome>getAllOrder</outcome>
+      </case>
+      <default-outcome>getAllOrder</default-outcome>
+    </router>
     <control-flow-rule id="__2">
       <from-activity-id>DashBoard</from-activity-id>
       <control-flow-case id="__3">
@@ -106,7 +117,7 @@
       <from-activity-id>router1</from-activity-id>
       <control-flow-case id="__16">
         <from-outcome>registered</from-outcome>
-        <to-activity-id>getOrders</to-activity-id>
+        <to-activity-id>router2</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__18">
         <from-outcome>registerNow</from-outcome>
@@ -117,7 +128,18 @@
       <from-activity-id>PushRegisterBean</from-activity-id>
       <control-flow-case id="__20">
         <from-outcome>goToOrders</from-outcome>
+        <to-activity-id>router2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>router2</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>getAllOrder</from-outcome>
         <to-activity-id>getOrders</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome>goToOrder</from-outcome>
+        <to-activity-id>Details</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

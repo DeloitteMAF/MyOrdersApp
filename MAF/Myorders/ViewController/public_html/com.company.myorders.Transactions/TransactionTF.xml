@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="TransactionTF">
-    <default-activity>Dashboard</default-activity>
+    <default-activity>getTrans</default-activity>
+    <managed-bean id="__1">
+      <managed-bean-name>OrdersManagedBean</managed-bean-name>
+      <managed-bean-class>com.company.myorders.application.OrdersManagedBean</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
     <view id="Dashboard">
       <page>/DashboardTransPG.amx</page>
     </view>
+    <method-call id="getTrans">
+      <method>#{applicationScope.OrdersManagedBean.initiateDashboardTrans}</method>
+      <outcome>
+        <fixed-outcome>gotoDashboard</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>getTrans</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>gotoDashboard</from-outcome>
+        <to-activity-id>Dashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <page-flow-scope-behavior>
       <push-new/>
     </page-flow-scope-behavior>

@@ -6,7 +6,7 @@
     <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
     <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25" DataControl="OrdersService"
-                      BeanClass="com.company.myorders.mobile.model.Orders" id="ordersIterator"/>
+                      BeanClass="com.company.myorders.application.model.Orders" id="ordersIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ordersIterator" id="partyName">

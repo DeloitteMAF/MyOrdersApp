@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20" id="DashboardTransPGPageDef"
+                Package="com.company.myorders.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="TransactionsService" id="TransactionsServiceIterator"/>
+    <accessorIterator MasterBinding="TransactionsServiceIterator" Binds="transactions" RangeSize="25"
+                      DataControl="TransactionsService" BeanClass="com.company.myorders.application.model.Transactions"
+                      id="transactionsIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="AllTransactionsService" id="AllTransactionsServiceIterator"/>
+    <accessorIterator MasterBinding="AllTransactionsServiceIterator" Binds="allTransactions" RangeSize="25"
+                      DataControl="AllTransactionsService"
+                      BeanClass="com.company.myorders.application.model.AllTransactions" id="allTransactionsIterator"/>
+    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="25"
+                      DataControl="TransactionsService"
+                      BeanClass="com.company.myorders.application.model.TransactionDetails"
+                      id="xxMyOrderARLinesVOIterator"/>
+    <accessorIterator MasterBinding="allTransactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="25"
+                      DataControl="AllTransactionsService"
+                      BeanClass="com.company.myorders.application.model.AllTransactionDetails"
+                      id="xxMyOrderARLinesVOIterator1"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="transactionsIterator" id="transactions">
+      <nodeDefinition DefName="com.company.myorders.application.model.Transactions" Name="transactions0">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="amountDue"/>
+          <Item Value="ARAlertFlag"/>
+          <Item Value="closedFlag"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceAmount"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+          <Item Value="salesOrder"/>
+          <Item Value="trxDate"/>
+          <Item Value="trxNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="allTransactionsIterator" id="allTransactions">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactions" Name="allTransactions0">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="amountDue"/>
+          <Item Value="ARAlertFlag"/>
+          <Item Value="closedFlag"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceAmount"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+          <Item Value="salesOrder"/>
+          <Item Value="trxDate"/>
+          <Item Value="trxNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderARLinesVOIterator" id="xxMyOrderARLinesVO">
+      <nodeDefinition DefName="com.company.myorders.application.model.TransactionDetails" Name="xxMyOrderARLinesVO0">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="amount"/>
+          <Item Value="description"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceAmount"/>
+          <Item Value="invoiceDueAmount"/>
+          <Item Value="key"/>
+          <Item Value="lineNumber"/>
+          <Item Value="quantityInvoiced"/>
+          <Item Value="status"/>
+          <Item Value="unitSellingPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderARLinesVOIterator1" id="xxMyOrderARLinesVO1">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionDetails"
+                      Name="xxMyOrderARLinesVO10">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="amount"/>
+          <Item Value="description"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceAmount"/>
+          <Item Value="invoiceDueAmount"/>
+          <Item Value="key"/>
+          <Item Value="lineNumber"/>
+          <Item Value="quantityInvoiced"/>
+          <Item Value="status"/>
+          <Item Value="unitSellingPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="findAllTransactions" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="findAllTransactions" IsViewObjectMethod="false" DataControl="AllTransactionsService"
+                  InstanceName="data.AllTransactionsService.dataProvider">
+      <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="findTransactions" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findTransactions"
+                  IsViewObjectMethod="false" DataControl="TransactionsService"
+                  InstanceName="data.TransactionsService.dataProvider">
+      <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
+    </methodAction>
+        <attributeValues id="searchValue" IterBinding="variables">
+            <AttrNames>
+                <Item Value="find_searchValue"/>
+            </AttrNames>
+        </attributeValues>
+  </bindings>
+</pageDefinition>

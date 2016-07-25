@@ -7,7 +7,7 @@
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf3" width="10px"/>
           <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
-            <amx:outputText value="Settings :: #{preferenceScope.application.userPref.isDeviceRegistered}" id="ot1" inlineStyle="padding: 13px;"/>
+            <amx:outputText value="Settings" id="ot1" inlineStyle="padding: 13px;"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>

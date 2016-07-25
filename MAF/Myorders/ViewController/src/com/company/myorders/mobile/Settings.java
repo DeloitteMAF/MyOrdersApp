@@ -28,7 +28,7 @@ public class Settings {
     }
     public void onKeyDownSearch(String searchStr){
         System.out.println("test: " +searchStr);
-        if(AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.isPopupOpen}")==null){
+        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isPopupOpen}")==null){
             callButtonActionJS("cb2");            
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.isPopupOpen}", "Y");
         }
@@ -37,7 +37,7 @@ public class Settings {
 
     }
     public void onFocusSearch(String searchVal){
-        if(AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.isPopupOpen}")==null){
+        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isPopupOpen}")==null){
             callButtonActionJS("cb2");            
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.isPopupOpen}", "Y");
             AdfmfJavaUtilities.setELValue("#{viewScope.searchString}", "");
@@ -49,14 +49,14 @@ public class Settings {
         // Add event code here...
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.isPopupOpen}", null);
         callButtonActionJS("cb3");  
-        String txtValue = (String) AdfmfJavaUtilities.evaluateELExpression("#{preferenceScope.application.userPref.locationName}");
+        String txtValue = (String) AdfmfJavaUtilities.getELValue("#{preferenceScope.application.userPref.locationName}");
 //        AdfmfJavaUtilities.setELValue("#{preferenceScope.application.userPref.location}", txtValue);        
         String featureID = AdfmfJavaUtilities.getFeatureId();
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setInputText", new Object[] { txtValue });
     }
     
     public void onFocusOutSearch(String searchVal){        
-        if(AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.isPopupOpen}")=="Y"){
+        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isPopupOpen}")=="Y"){
 //            callButtonActionJS("cb3");            
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.isPopupOpen}", null);
         }                    

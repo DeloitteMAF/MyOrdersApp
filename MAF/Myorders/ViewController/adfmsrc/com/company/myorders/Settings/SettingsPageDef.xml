@@ -8,10 +8,10 @@
     </variableIterator>
     <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
     <accessorIterator id="ordersIterator" MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25"
-                      DataControl="OrdersService" BeanClass="com.company.myorders.mobile.model.Orders"/>
+                      DataControl="OrdersService" BeanClass="com.company.myorders.application.model.Orders"/>
     <iterator Binds="root" RangeSize="25" DataControl="ResultService" id="ResultServiceIterator"/>
     <accessorIterator id="resultIterator" MasterBinding="ResultServiceIterator" Binds="result" RangeSize="-1"
-                      DataControl="ResultService" BeanClass="com.company.myorders.mobile.model.Result"/>
+                      DataControl="ResultService" BeanClass="com.company.myorders.application.model.Result"/>
   </executables>
   <bindings>
     <list StaticList="false" IterBinding="ordersIterator" ListIter="resultIterator" id="partyName" DTSupportsMRU="true"
@@ -27,7 +27,7 @@
       </ListDisplayAttrNames>
     </list>
     <tree IterBinding="resultIterator" id="result">
-      <nodeDefinition DefName="com.company.myorders.mobile.model.Result" Name="result0">
+      <nodeDefinition DefName="com.company.myorders.application.model.Result" Name="result0">
         <AttrNames>
           <Item Value="locationFullName"/>
           <Item Value="locationCode"/>

@@ -6,16 +6,16 @@
     <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
     <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25" DataControl="OrdersService"
-                      BeanClass="com.company.myorders.mobile.model.Orders" id="ordersIterator"/>
+                      BeanClass="com.company.myorders.application.model.Orders" id="ordersIterator"/>
     <accessorIterator MasterBinding="ordersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
-                      DataControl="OrdersService" BeanClass="com.company.myorders.mobile.model.OrderDetails"
+                      DataControl="OrdersService" BeanClass="com.company.myorders.application.model.OrderDetails"
                       id="xxMyOrderDetailsVOIterator"/>
     <iterator Binds="root" RangeSize="25" DataControl="AllOrdersService" id="AllOrdersServiceIterator"/>
     <accessorIterator MasterBinding="AllOrdersServiceIterator" Binds="allOrders" RangeSize="25"
-                      DataControl="AllOrdersService" BeanClass="com.company.myorders.mobile.model.AllOrders"
+                      DataControl="AllOrdersService" BeanClass="com.company.myorders.application.model.AllOrders"
                       id="allOrdersIterator"/>
     <accessorIterator MasterBinding="allOrdersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
-                      DataControl="AllOrdersService" BeanClass="com.company.myorders.mobile.model.AllOrderDetails"
+                      DataControl="AllOrdersService" BeanClass="com.company.myorders.application.model.AllOrderDetails"
                       id="xxMyOrderDetailsVOIterator1"/>
   </executables>
   <bindings>
@@ -30,16 +30,18 @@
       </AttrNames>
     </attributeValues>
     <tree IterBinding="xxMyOrderDetailsVOIterator" id="xxMyOrderDetailsVO">
-      <nodeDefinition DefName="com.company.myorders.mobile.model.OrderDetails" Name="xxMyOrderDetailsVO0">
+      <nodeDefinition DefName="com.company.myorders.application.model.OrderDetails" Name="xxMyOrderDetailsVO0">
         <AttrNames>
           <Item Value="orderedItem"/>
+          <Item Value="key"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <tree IterBinding="xxMyOrderDetailsVOIterator1" id="xxMyOrderDetailsVO1">
-      <nodeDefinition DefName="com.company.myorders.mobile.model.AllOrderDetails" Name="xxMyOrderDetailsVO10">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllOrderDetails" Name="xxMyOrderDetailsVO10">
         <AttrNames>
           <Item Value="orderedItem"/>
+          <Item Value="key"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

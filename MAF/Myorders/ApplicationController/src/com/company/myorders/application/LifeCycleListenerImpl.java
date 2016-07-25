@@ -157,6 +157,6 @@ public class LifeCycleListenerImpl extends oracle.maf.impl.cdm.lifecycle.InitDBL
 
     public String getSourceAuthorizationId() {
         // Return the GCM sender id
-        return (String)AdfmfJavaUtilities.evaluateELExpression("#{preferenceScope.application.userPref.gcmSenderId}");
+        return (String)AdfmfJavaUtilities.getELValue("#{preferenceScope.application.userPref.gcmSenderId}");
     }
 }

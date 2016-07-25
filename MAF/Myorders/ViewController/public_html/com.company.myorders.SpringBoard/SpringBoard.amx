@@ -47,13 +47,14 @@
             <amx:spacer id="s8" height="#{applicationScope.OrdersManagedBean.sbRowSpacer}"/>
           </amx:cellFormat>
           <amx:cellFormat id="cf7" width="80%" halign="start" inlineStyle="background-color:#ECECEC;">
-            <amx:commandLink id="cl4"
+            <amx:commandLink id="cl4" actionListener="#{bindings.resetFeature.execute}"
                              inlineStyle="height:80%" styleClass="remove_ul">
               <amx:outputText value="My Transactions" id="ot5" inlineStyle="padding-left:10%"/>
-                  <!--<amx:setPropertyListener id="spl8" from="#{'false'}"
+                  <amx:setPropertyListener id="spl8" from="#{'false'}"
                                            to="#{applicationScope.OrdersManagedBean.springBoardStatus}" type="action"/>
                   <amx:setPropertyListener id="spl7" to="#{pageFlowScope.FeatureId}" type="action"
-                                           from="{'com.company.myorders.Orders'}"/>-->
+                                           from="com.company.myorders.Transactions"/>
+                  <amx:actionListener id="al3" binding="#{SlidingDrawerBean.leftPin}"/>                                           
             </amx:commandLink>
           </amx:cellFormat>
         </amx:rowLayout>

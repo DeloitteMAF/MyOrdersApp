@@ -14,7 +14,7 @@ $( 'html').on('keyup','#it2__inputElement',function() {
  // alert("on keyup");
   var searchVal=$('#it2__inputElement').val();
  // alert( "Handler for .keydown() called. "+searchVal );
-  adf.mf.api.invokeMethod("com.company.myorders.mobile.OrdersManagedBean", "onKeyDownSearch",searchVal , onSuccess, onFail);
+  adf.mf.api.invokeMethod("com.company.myorders.application.OrdersManagedBean", "onKeyDownSearch",searchVal , onSuccess, onFail);
 });
 
 function onSuccess(request,response) { 

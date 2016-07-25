@@ -1,7 +1,5 @@
-package com.company.myorders.mobile;
+package com.company.myorders.application;
 
-
-import com.company.myorders.mobile.model.OrderDetails;
 
 import java.util.ArrayList;
 
@@ -21,6 +19,7 @@ public class OrdersManagedBean {
     boolean getSearchStatus = false;
     boolean clearSearch = true;
     String currentFeature;
+    boolean comingFromNotification;
     boolean springBoardStatus = false;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     private int detailRowSpacer = 15;
@@ -153,6 +152,20 @@ public class OrdersManagedBean {
             e.getMessage();
         }
     }
+
+    public void pullDownToRefreshTransAction(ActionEvent actionEvent) {
+        // Add event code here...        
+        try {
+            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            Thread.sleep(5000);
+            AdfmfJavaUtilities.flushDataChangeEvent();
+            providerChangeSupport.fireProviderRefresh("transactions");            
+            isRefreshComplete=true;
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
     
     public void initiateDashboard(){
         try {
@@ -167,6 +180,21 @@ public class OrdersManagedBean {
             e.getMessage();
         }
     }
+    
+    public void initiateDashboardTrans(){
+        try {
+            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            Thread.sleep(5000);
+            AdfmfJavaUtilities.flushDataChangeEvent();
+            providerChangeSupport.fireProviderRefresh("transactions");   
+            //AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
+            //AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.clearSearch}", "true");
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+    
     public void refreshOrders(ActionEvent ae){
         try {
             AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
@@ -192,16 +220,16 @@ public class OrdersManagedBean {
        
     
     public void getAlertCount(ActionEvent ae){
-        String currentTab = (String) AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.currentTab}");
+        String currentTab = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.currentTab}");
         AmxIteratorBinding ib =null;
         int alertCount=0;
         if(currentTab==null){
             currentTab="TOP";
         }
         if(currentTab.equals("TOP")){
-            ib= (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator}");
+            ib= (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.xxMyOrderDetailsVOIterator}");
         }else{
-            ib= (AmxIteratorBinding) AdfmfJavaUtilities.evaluateELExpression("#{bindings.xxMyOrderDetailsVOIterator1}");   
+            ib= (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.xxMyOrderDetailsVOIterator1}");   
         }
         ib.getIterator().first();
         for(int i=0;i<ib.getIterator().getTotalRowCount();i++){
@@ -218,13 +246,13 @@ public class OrdersManagedBean {
     public void getSearchCount(ActionEvent actionEvent) {
         // Add event code here...
         Integer i =
-            (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.allOrdersIterator.iterator.totalRowCount}");
+            (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator.iterator.totalRowCount}");
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
 }
     public void getTopSearchCount(ActionEvent actionEvent) {
         // Add event code here...
         Integer i =
-            (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.ordersIterator.iterator.totalRowCount}");
+            (Integer) AdfmfJavaUtilities.getELValue("#{bindings.ordersIterator.iterator.totalRowCount}");
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}",i);
 }*/
     
@@ -249,11 +277,41 @@ public void callButtonActionJS(String btn) {
         
         callButtonActionJS("cl4");
             Integer i =
-                (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.allOrdersIterator.iterator.totalRowCount}");
+                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator.iterator.totalRowCount}");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
             Integer j =
-                (Integer) AdfmfJavaUtilities.evaluateELExpression("#{bindings.ordersIterator.iterator.totalRowCount}");
+                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.ordersIterator.iterator.totalRowCount}");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}",j);
+    //        String featureID = AdfmfJavaUtilities.getFeatureId();
+    //        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setFocusOnInput", new Object[] {});
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+        
+    }
+
+    
+    public void onKeyDownTransSearch(String searchStr){
+        try{
+        System.out.println("test keydown search: " +searchStr);
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchValue");
+        params.add(searchStr);
+        ptypes.add(String.class);
+      
+        AdfmfJavaUtilities.invokeDataControlMethod("TransacionsService", null, "findTransacions", pnames, params, ptypes);
+        AdfmfJavaUtilities.invokeDataControlMethod("AllTransacionsService", null, "findAllTransacions", pnames, params, ptypes);
+        
+        callButtonActionJS("cl4");
+            Integer i =
+                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allTransacionsIterator.iterator.totalRowCount}");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.TransacionsCount}",i);
+            Integer j =
+                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.transacionsIterator.iterator.totalRowCount}");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topTransacionsCount}",j);
     //        String featureID = AdfmfJavaUtilities.getFeatureId();
     //        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setFocusOnInput", new Object[] {});
         }
@@ -284,7 +342,7 @@ public void callButtonActionJS(String btn) {
 
     public String createFilter() {
         // Add event code here...
-        if(AdfmfJavaUtilities.evaluateELExpression("#{pageFlowScope.isFilterApplier}")=="Y"){
+        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isFilterApplier}")=="Y"){
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderNo}",null);
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderValue}",null);
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.fPO}",null);
@@ -308,5 +366,16 @@ public void callButtonActionJS(String btn) {
             return "search"; 
         }
         
+    }
+
+    public void setComingFromNotification(boolean comingFromNotification) {
+        boolean oldComingFromNotification = this.comingFromNotification;
+        this.comingFromNotification = comingFromNotification;
+        propertyChangeSupport.firePropertyChange("comingFromNotification", oldComingFromNotification,
+                                                 comingFromNotification);
+    }
+
+    public boolean isComingFromNotification() {
+        return comingFromNotification;
     }
 }
