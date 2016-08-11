@@ -11,15 +11,15 @@ public class TransactionDetails extends Entity {
 
     private BigDecimal customerTrxId;
     private BigDecimal lineNumber;
-    private BigDecimal quantityInvoiced;
+    private String quantityInvoiced;
     private String description;
-    private BigDecimal unitSellingPrice;
+    private String unitSellingPrice;
     private String status;
-    private BigDecimal amount;
+    private String amount;
     private String applicationType;
     private String dueDate;
-    private BigDecimal invoiceAmount;
-    private BigDecimal invoiceDueAmount;
+    private String invoiceAmount;
+    private String invoiceDueAmount;
     private String alertFlag;
 
 
@@ -39,11 +39,11 @@ public class TransactionDetails extends Entity {
         this.lineNumber = lineNumber;
     }
 
-    public BigDecimal getQuantityInvoiced() {
+    public String getQuantityInvoiced() {
         return this.quantityInvoiced;
     }
 
-    public void setQuantityInvoiced(BigDecimal quantityInvoiced) {
+    public void setQuantityInvoiced(String quantityInvoiced) {
         this.quantityInvoiced = quantityInvoiced;
     }
 
@@ -55,11 +55,11 @@ public class TransactionDetails extends Entity {
         this.description = description;
     }
 
-    public BigDecimal getUnitSellingPrice() {
+    public String getUnitSellingPrice() {
         return this.unitSellingPrice;
     }
 
-    public void setUnitSellingPrice(BigDecimal unitSellingPrice) {
+    public void setUnitSellingPrice(String unitSellingPrice) {
         this.unitSellingPrice = unitSellingPrice;
     }
 
@@ -71,11 +71,11 @@ public class TransactionDetails extends Entity {
         this.status = status;
     }
 
-    public BigDecimal getAmount() {
+    public String getAmount() {
         return this.amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
@@ -96,19 +96,19 @@ public class TransactionDetails extends Entity {
         this.dueDate = dueDate;
     }
 
-    public BigDecimal getInvoiceAmount() {
+    public String getInvoiceAmount() {
         return this.invoiceAmount;
     }
 
-    public void setInvoiceAmount(BigDecimal invoiceAmount) {
+    public void setInvoiceAmount(String invoiceAmount) {
         this.invoiceAmount = invoiceAmount;
     }
 
-    public BigDecimal getInvoiceDueAmount() {
+    public String getInvoiceDueAmount() {
         return this.invoiceDueAmount;
     }
 
-    public void setInvoiceDueAmount(BigDecimal invoiceDueAmount) {
+    public void setInvoiceDueAmount(String invoiceDueAmount) {
         this.invoiceDueAmount = invoiceDueAmount;
     }
 

@@ -5,6 +5,9 @@ import com.company.myorders.application.model.utility.OrdersUtilityBean;
 import java.util.Arrays;
 import java.util.List;
 
+import oracle.adfmf.java.beans.PropertyChangeListener;
+import oracle.adfmf.java.beans.PropertyChangeSupport;
+
 import oracle.maf.api.cdm.persistence.util.EntityUtils;
 import oracle.maf.api.cdm.persistence.manager.DBPersistenceManager;
 import oracle.maf.api.cdm.persistence.model.Entity;
@@ -19,12 +22,14 @@ public class AllTransactions extends Entity {
     private String trxDate;
     private String salesOrder;
     private String invoiceAmount;
-    private BigDecimal amountDue;
+    private String amountDue;
+    private String trxStatus;
     private String dueDate;
     private String closedFlag;
     private String aRAlertFlag;
 
     private List<AllTransactionDetails> xxMyOrderARLinesVO = createIndirectList("xxMyOrderARLinesVO");
+    private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
 
     public BigDecimal getCustomerTrxId() {
@@ -68,12 +73,22 @@ public class AllTransactions extends Entity {
         this.invoiceAmount = invoiceAmount;
     }
 
-    public BigDecimal getAmountDue() {
+    public String getAmountDue() {
         return this.amountDue;
     }
 
-    public void setAmountDue(BigDecimal amountDue) {
+    public void setAmountDue(String amountDue) {
         this.amountDue = amountDue;
+    }
+
+    public String getTrxStatus() {
+        return trxStatus;
+    }
+
+    public void setTrxStatus(String trxStatus) {
+        String oldTrxStatus = this.trxStatus;
+        this.trxStatus = trxStatus;
+        _propertyChangeSupport.firePropertyChange("trxStatus", oldTrxStatus, trxStatus);
     }
 
     public String getDueDate() {
@@ -165,5 +180,12 @@ public class AllTransactions extends Entity {
         pm.removeEntity(allTransactionDetails, true);
     }
 
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.removePropertyChangeListener(l);
+    }
 
 }

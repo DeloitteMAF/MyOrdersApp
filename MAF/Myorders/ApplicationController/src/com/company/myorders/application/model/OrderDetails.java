@@ -19,8 +19,8 @@ public class OrderDetails extends Entity {
     private String orderQuantityUom;
     private BigDecimal shippedQuantity;
     private String shippingQuantityUom;
-    private BigDecimal unitSellingPrice;
-    private BigDecimal lineTotal;
+    private String unitSellingPrice;
+    private String lineTotal;
     private String deliveryName;
     private String freightCode;
     private String actualArrivalDate;
@@ -119,19 +119,19 @@ public class OrderDetails extends Entity {
         this.shippingQuantityUom = shippingQuantityUom;
     }
 
-    public BigDecimal getUnitSellingPrice() {
+    public String getUnitSellingPrice() {
         return this.unitSellingPrice;
     }
 
-    public void setUnitSellingPrice(BigDecimal unitSellingPrice) {
+    public void setUnitSellingPrice(String unitSellingPrice) {
         this.unitSellingPrice = unitSellingPrice;
     }
 
-    public BigDecimal getLineTotal() {
+    public String getLineTotal() {
         return this.lineTotal;
     }
 
-    public void setLineTotal(BigDecimal lineTotal) {
+    public void setLineTotal(String lineTotal) {
         this.lineTotal = lineTotal;
     }
 
