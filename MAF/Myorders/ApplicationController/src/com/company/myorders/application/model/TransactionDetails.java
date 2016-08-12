@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class TransactionDetails extends Entity {
 
     private BigDecimal customerTrxId;
-    private BigDecimal lineNumber;
+    private String lineNumber;
     private String quantityInvoiced;
     private String description;
     private String unitSellingPrice;
@@ -31,11 +31,11 @@ public class TransactionDetails extends Entity {
         this.customerTrxId = customerTrxId;
     }
 
-    public BigDecimal getLineNumber() {
+    public String getLineNumber() {
         return this.lineNumber;
     }
 
-    public void setLineNumber(BigDecimal lineNumber) {
+    public void setLineNumber(String lineNumber) {
         this.lineNumber = lineNumber;
     }
 

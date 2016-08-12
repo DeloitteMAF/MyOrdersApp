@@ -15,9 +15,9 @@ public class AllOrderDetails extends Entity {
     private String orderedItem;
     private String description;
     private String lineStatus;
-    private BigDecimal orderedQuantity;
+    private String orderedQuantity;
     private String orderQuantityUom;
-    private BigDecimal shippedQuantity;
+    private String shippedQuantity;
     private String shippingQuantityUom;
     private String unitSellingPrice;
     private String lineTotal;
@@ -87,11 +87,11 @@ public class AllOrderDetails extends Entity {
         this.lineStatus = lineStatus;
     }
 
-    public BigDecimal getOrderedQuantity() {
+    public String getOrderedQuantity() {
         return this.orderedQuantity;
     }
 
-    public void setOrderedQuantity(BigDecimal orderedQuantity) {
+    public void setOrderedQuantity(String orderedQuantity) {
         this.orderedQuantity = orderedQuantity;
     }
 
@@ -103,11 +103,11 @@ public class AllOrderDetails extends Entity {
         this.orderQuantityUom = orderQuantityUom;
     }
 
-    public BigDecimal getShippedQuantity() {
+    public String getShippedQuantity() {
         return this.shippedQuantity;
     }
 
-    public void setShippedQuantity(BigDecimal shippedQuantity) {
+    public void setShippedQuantity(String shippedQuantity) {
         this.shippedQuantity = shippedQuantity;
     }
 
