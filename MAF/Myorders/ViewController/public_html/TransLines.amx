@@ -384,7 +384,7 @@
     </amx:panelStretchLayout>
     <amx:facet name="primary">
       <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
-                         icon="/resources/css/images/Back.png" action="backToDashBoard"
+                         icon="/resources/css/images/Back.png" action="backToDashboard"
                          actionListener="#{OrdersManagedBean.refreshOrders}"/>
     </amx:facet>
   </amx:panelPage>
