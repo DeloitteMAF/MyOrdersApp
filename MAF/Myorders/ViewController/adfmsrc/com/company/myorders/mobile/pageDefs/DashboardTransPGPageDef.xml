@@ -36,6 +36,7 @@
           <Item Value="salesOrder"/>
           <Item Value="trxDate"/>
           <Item Value="trxNumber"/>
+          <Item Value="trxStatus"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -53,6 +54,7 @@
           <Item Value="salesOrder"/>
           <Item Value="trxDate"/>
           <Item Value="trxNumber"/>
+          <Item Value="trxStatus"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -93,20 +95,28 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+        <attributeValues id="searchTransValue" IterBinding="variables">
+            <AttrNames>
+                <Item Value="find_searchTransValue"/>
+            </AttrNames>
+        </attributeValues>
     <methodAction id="findAllTransactions" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="findAllTransactions" IsViewObjectMethod="false" DataControl="AllTransactionsService"
                   InstanceName="data.AllTransactionsService.dataProvider">
-      <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
+      <NamedData NDName="searchTransValue" NDValue="${bindings.find_searchTransValue}" NDType="java.lang.String"/>
     </methodAction>
     <methodAction id="findTransactions" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findTransactions"
                   IsViewObjectMethod="false" DataControl="TransactionsService"
                   InstanceName="data.TransactionsService.dataProvider">
-      <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
+      <NamedData NDName="searchTransValue" NDValue="${bindings.find_searchTransValue}" NDType="java.lang.String"/>
     </methodAction>
-        <attributeValues id="searchValue" IterBinding="variables">
-            <AttrNames>
-                <Item Value="find_searchValue"/>
-            </AttrNames>
-        </attributeValues>
+    <methodAction id="findAllAllTransactionsRemote" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="findAllAllTransactionsRemote" IsViewObjectMethod="false"
+                  DataControl="AllTransactionsService" InstanceName="data.AllTransactionsService.dataProvider"/>
+    <methodAction id="gotoFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="featureId" NDValue="#{pageFlowScope.currentFeature}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

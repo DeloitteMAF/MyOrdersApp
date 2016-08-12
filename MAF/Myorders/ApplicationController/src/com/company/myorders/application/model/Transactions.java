@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 public class Transactions extends Entity {
 
     private BigDecimal customerTrxId;
+    private String trxType;
     private String trxNumber;
     private String trxDate;
     private String salesOrder;
@@ -34,6 +35,14 @@ public class Transactions extends Entity {
 
     public void setCustomerTrxId(BigDecimal customerTrxId) {
         this.customerTrxId = customerTrxId;
+    }
+
+    public void setTrxType(String trxType) {
+        this.trxType = trxType;
+    }
+
+    public String getTrxType() {
+        return trxType;
     }
 
     public String getTrxNumber() {
@@ -82,9 +91,7 @@ public class Transactions extends Entity {
     }
 
     public void setTrxStatus(String trxStatus) {
-        String oldTrxStatus = this.trxStatus;
         this.trxStatus = trxStatus;
-        propertyChangeSupport.firePropertyChange("trxStatus", oldTrxStatus, trxStatus);
     }
 
     public String getDueDate() {

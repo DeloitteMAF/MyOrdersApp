@@ -12,9 +12,9 @@ jQuery(function($){
 
 $( 'html').on('keyup','#it2__inputElement',function() {
  // alert("on keyup");
-  var searchVal=$('#it2__inputElement').val();
- // alert( "Handler for .keydown() called. "+searchVal );
-  adf.mf.api.invokeMethod("com.company.myorders.application.OrdersManagedBean", "onKeyDownSearch",searchVal , onSuccess, onFail);
+  var searchTransVal=$('#it2__inputElement').val();
+ // alert( "Handler for .keydown() called. "+searchTransVal );
+  adf.mf.api.invokeMethod("com.company.myorders.application.OrdersManagedBean", "onKeyDownTransSearch",searchTransVal , onSuccess, onFail);
 });
 
 function onSuccess(request,response) { 
@@ -38,7 +38,7 @@ alert('error '+adf.mf.util.stringify(response));
                         <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="middle">
                             <amx:panelGroupLayout id="pgl2"
                                                   rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
-                                <amx:outputText value="ABC" id="ot1"
+                                <amx:outputText value="Transactions Dashboard" id="ot1"
                                                 inlineStyle="padding: 13px;"/>
                             </amx:panelGroupLayout>
                             <amx:panelGroupLayout id="pgl4"
@@ -86,17 +86,17 @@ alert('error '+adf.mf.util.stringify(response));
                     <amx:commandButton id="cb6"
                                        styleClass="iconstyle iconstyle-buttonBackground"
                                        icon="/resources/css/images/Clear Search icon.png"
-                                       action="#{bindings.findTransacions.execute}"
-                                       actionListener="#{bindings.findAllTransacions.execute}">
+                                       action="#{bindings.findTransactions.execute}"
+                                       actionListener="#{bindings.findAllTransactions.execute}">
                         <amx:setPropertyListener id="spl11" type="action"
                                                  to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
                                                  from="#{'false'}"/>
                         <amx:setPropertyListener id="spl12" type="action"
                                                  to="#{applicationScope.OrdersManagedBean.clearSearch}"
                                                  from="#{'true'}"/>
-                        <amx:setPropertyListener id="spl13" to="10" from="#{''}"/>
-                        <amx:setPropertyListener id="spl21" from="#{'1'}" to="#{pageFlowScope.TransacionsCount}"/>
-                        <amx:setPropertyListener id="spl22" from="#{'1'}" to="#{pageFlowScope.topTransacionsCount}"/>
+                        <amx:setPropertyListener id="spl13" to="#{bindings.searchTransValue.inputValue}" from="#{''}"/>
+                        <amx:setPropertyListener id="spl21" from="#{'1'}" to="#{pageFlowScope.transactionsCount}"/>
+                        <amx:setPropertyListener id="spl22" from="#{'1'}" to="#{pageFlowScope.topTransactionsCount}"/>
                     </amx:commandButton>
                 </amx:panelGroupLayout>
             </amx:panelGroupLayout>
@@ -149,7 +149,8 @@ alert('error '+adf.mf.util.stringify(response));
                                             </amx:cellFormat>
                                             <amx:cellFormat id="cf13" width="85%">
                                                 <amx:spacer id="s1" height="10"/>
-                                                <amx:tableLayout id="tl5" width="100%">
+                                                <amx:tableLayout id="tl5" width="100%"
+                                                     rendered="#{row.trxStatus!='CM'}">
                                                     <amx:rowLayout id="rl5">
                                                         <amx:cellFormat id="cf6" width="50%">
                                                             <amx:outputText value="Invoice# : #{row.trxNumber}" id="ot6"
@@ -176,6 +177,51 @@ alert('error '+adf.mf.util.stringify(response));
                                                             <amx:outputText value=" Invoice Amount: #{row.invoiceAmount}"
                                                                             id="ot14"
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                </amx:tableLayout>
+                                                <amx:tableLayout id="tl11" width="100%"
+                                                     rendered="#{row.trxStatus=='CM'}">
+                                                    <amx:rowLayout id="rl15">
+                                                        <amx:cellFormat id="cf25" width="50%">
+                                                            <amx:outputText value="CM# : #{row.trxNumber}" id="ot9"
+                                                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat id="cf26" width="50%">
+                                                            <amx:outputText value=" CM Date : #{row.trxDate}"
+                                                                            id="ot10"
+                                                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                    <amx:rowLayout id="rl16">
+                                                        <amx:cellFormat id="cf27">
+                                                            <amx:spacer id="s9" height="7"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                    <amx:rowLayout id="rl17">
+                                                        <amx:cellFormat id="cf28" width="50%">
+                                                            <amx:outputText value="Return Order# : #{row.salesOrder} "
+                                                                            id="ot11"
+                                                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat id="cf29" width="50%">
+                                                            <amx:outputText value=" CM Amount: #{row.invoiceAmount}"
+                                                                            id="ot12"
+                                                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                </amx:tableLayout>
+                                                <amx:tableLayout id="tl9" width="100%">
+                                                    <amx:rowLayout id="rl13">
+                                                        <amx:cellFormat id="cf22" width="100%">
+                                                            <amx:image id="i1"
+                                                                       source="/resources/css/images/#{row.trxStatus}.png"
+                                                                       inlineStyle="width:95%;"
+                                                                       rendered="#{row.trxStatus!='CM'}"/>
+                                                            <amx:image id="i4"
+                                                                       source="/resources/css/images/CM#{row.trxStatus}.png"
+                                                                       inlineStyle="width:95%;"
+                                                                       rendered="#{row.trxStatus=='CM'}"/>
                                                         </amx:cellFormat>
                                                     </amx:rowLayout>
                                                 </amx:tableLayout>
@@ -209,7 +255,8 @@ alert('error '+adf.mf.util.stringify(response));
                                             </amx:cellFormat>
                                             <amx:cellFormat id="cf3" width="85%">
                                                 <amx:spacer id="s3" height="10"/>
-                                                <amx:tableLayout id="tl8" width="100%">
+                                                <amx:tableLayout id="tl8" width="100%"
+                                                     rendered="#{row.trxStatus!='CM'}">
                                                     <amx:rowLayout id="rl9">
                                                         <amx:cellFormat id="cf8" width="50%">
                                                             <amx:outputText value="Invoice# : #{row.trxNumber}" id="ot2"
@@ -236,6 +283,51 @@ alert('error '+adf.mf.util.stringify(response));
                                                             <amx:outputText value=" Invoice Amount: #{row.invoiceAmount}"
                                                                             id="ot8"
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                </amx:tableLayout>
+                                                <amx:tableLayout id="tl10" width="100%"
+                                                     rendered="#{row.trxStatus=='CM'}">
+                                                    <amx:rowLayout id="rl14">
+                                                        <amx:cellFormat id="cf23" width="50%">
+                                                            <amx:outputText value="CM# : #{row.trxNumber}" id="ot13"
+                                                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat id="cf24" width="50%">
+                                                            <amx:outputText value=" CM Date : #{row.trxDate}"
+                                                                            id="ot15"
+                                                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                    <amx:rowLayout id="rl18">
+                                                        <amx:cellFormat id="cf30">
+                                                            <amx:spacer id="s6" height="7"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                    <amx:rowLayout id="rl19">
+                                                        <amx:cellFormat id="cf31" width="50%">
+                                                            <amx:outputText value="Return Order# : #{row.salesOrder} "
+                                                                            id="ot16"
+                                                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                        <amx:cellFormat id="cf33" width="50%">
+                                                            <amx:outputText value=" CM Amount: #{row.invoiceAmount}"
+                                                                            id="ot17"
+                                                                            inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
+                                                        </amx:cellFormat>
+                                                    </amx:rowLayout>
+                                                </amx:tableLayout>
+                                                <amx:tableLayout id="tl12" width="100%">
+                                                    <amx:rowLayout id="rl20">
+                                                        <amx:cellFormat id="cf32" width="100%">
+                                                            <amx:image id="i2"
+                                                                       source="/resources/css/images/#{row.trxStatus}.png"
+                                                                       inlineStyle="width:95%;"
+                                                                       rendered="#{row.trxStatus!='CM'}"/>
+                                                            <amx:image id="i3"
+                                                                       source="/resources/css/images/CM#{row.trxStatus}.png"
+                                                                       inlineStyle="width:95%;"
+                                                                       rendered="#{row.trxStatus=='CM'}"/>
                                                         </amx:cellFormat>
                                                     </amx:rowLayout>
                                                 </amx:tableLayout>

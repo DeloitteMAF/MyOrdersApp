@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 public class AllTransactions extends Entity {
 
     private BigDecimal customerTrxId;
+    private String trxType;
     private String trxNumber;
     private String trxDate;
     private String salesOrder;
@@ -38,6 +39,14 @@ public class AllTransactions extends Entity {
 
     public void setCustomerTrxId(BigDecimal customerTrxId) {
         this.customerTrxId = customerTrxId;
+    }
+
+    public void setTrxType(String trxType) {
+        this.trxType = trxType;
+    }
+
+    public String getTrxType() {
+        return trxType;
     }
 
     public String getTrxNumber() {
@@ -86,9 +95,7 @@ public class AllTransactions extends Entity {
     }
 
     public void setTrxStatus(String trxStatus) {
-        String oldTrxStatus = this.trxStatus;
         this.trxStatus = trxStatus;
-        _propertyChangeSupport.firePropertyChange("trxStatus", oldTrxStatus, trxStatus);
     }
 
     public String getDueDate() {
@@ -187,5 +194,4 @@ public class AllTransactions extends Entity {
     public void removePropertyChangeListener(PropertyChangeListener l) {
         _propertyChangeSupport.removePropertyChangeListener(l);
     }
-
 }

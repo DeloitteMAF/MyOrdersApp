@@ -16,11 +16,21 @@
         <fixed-outcome>gotoDashboard</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="TransLines">
+      <page>/TransLines.amx</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>getTrans</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>gotoDashboard</from-outcome>
         <to-activity-id>Dashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>Dashboard</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>openDetail</from-outcome>
+        <to-activity-id>TransLines</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

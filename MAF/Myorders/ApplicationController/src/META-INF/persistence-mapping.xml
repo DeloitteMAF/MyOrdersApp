@@ -143,6 +143,7 @@
       </table>
       <attributeMappings>
          <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="trxType" payloadAttributeName="TrxType" columnName="TRX_TYPE" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
          <directMapping attributeName="lineNumber" payloadAttributeName="LineNumber" columnName="LINE_NUMBER" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
          <directMapping attributeName="quantityInvoiced" payloadAttributeName="QuantityInvoiced" columnName="QUANTITY_INVOICED" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="description" payloadAttributeName="Description" columnName="DESCRIPTION" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
@@ -196,6 +197,7 @@
       </table>
       <attributeMappings>
          <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="trxType" payloadAttributeName="TrxType" columnName="TRX_TYPE" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
          <directMapping attributeName="lineNumber" payloadAttributeName="LineNumber" columnName="LINE_NUMBER" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
          <directMapping attributeName="quantityInvoiced" payloadAttributeName="QuantityInvoiced" columnName="QUANTITY_INVOICED" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="description" payloadAttributeName="Description" columnName="DESCRIPTION" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>

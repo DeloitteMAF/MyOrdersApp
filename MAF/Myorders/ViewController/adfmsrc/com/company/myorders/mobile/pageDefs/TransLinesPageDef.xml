@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20" id="TransLinesPageDef"
+                Package="com.company.myorders.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="TransactionsService" id="TransactionsServiceIterator"/>
+    <accessorIterator MasterBinding="TransactionsServiceIterator" Binds="transactions" RangeSize="25"
+                      DataControl="TransactionsService" BeanClass="com.company.myorders.application.model.Transactions"
+                      id="transactionsIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="AllTransactionsService" id="AllTransactionsServiceIterator"/>
+    <accessorIterator MasterBinding="AllTransactionsServiceIterator" Binds="allTransactions" RangeSize="25"
+                      DataControl="AllTransactionsService"
+                      BeanClass="com.company.myorders.application.model.AllTransactions" id="allTransactionsIterator"/>
+    <accessorIterator MasterBinding="allTransactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="10"
+                      DataControl="AllTransactionsService"
+                      BeanClass="com.company.myorders.application.model.AllTransactionDetails"
+                      id="xxMyOrderARLinesVOIterator"/>
+    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="10"
+                      DataControl="TransactionsService"
+                      BeanClass="com.company.myorders.application.model.TransactionDetails"
+                      id="xxMyOrderARLinesVOIterator1"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="transactionsIterator" id="trxNumber">
+      <AttrNames>
+        <Item Value="trxNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="trxNumber1">
+      <AttrNames>
+        <Item Value="trxNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="amountDue">
+      <AttrNames>
+        <Item Value="amountDue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="dueDate">
+      <AttrNames>
+        <Item Value="dueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="invoiceAmount">
+      <AttrNames>
+        <Item Value="invoiceAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="amountDue1">
+      <AttrNames>
+        <Item Value="amountDue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="dueDate1">
+      <AttrNames>
+        <Item Value="dueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="invoiceAmount1">
+      <AttrNames>
+        <Item Value="invoiceAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="xxMyOrderARLinesVOIterator" id="xxMyOrderARLinesVO">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionDetails" Name="xxMyOrderARLinesVO0">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="applicationType"/>
+          <Item Value="description"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+          <Item Value="lineNumber"/>
+          <Item Value="quantityInvoiced"/>
+          <Item Value="status"/>
+          <Item Value="unitSellingPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderARLinesVOIterator1" id="xxMyOrderARLinesVO1">
+      <nodeDefinition DefName="com.company.myorders.application.model.TransactionDetails" Name="xxMyOrderARLinesVO10">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="applicationType"/>
+          <Item Value="description"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+          <Item Value="lineNumber"/>
+          <Item Value="quantityInvoiced"/>
+          <Item Value="status"/>
+          <Item Value="unitSellingPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
