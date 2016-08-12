@@ -48,9 +48,7 @@
           </amx:tableLayout>
       </amx:facet>
       <amx:facet name="center">
-      <amx:refreshContainer id="rc1" busyText="Refreshing"
-                                pullText="Pull to Refresh" actionListener="#{OrdersManagedBean.pullDownToRefreshTransAction}">
-        <amx:commandLink id="cl2" styleClass="remove_ul">
+      <amx:commandLink id="cl2" styleClass="remove_ul">
           <amx:panelGroupLayout id="pgl1"
                                 rendered="#{pageFlowScope.detailTranscurrentTransTab!='LINES' &amp;&amp; pageFlowScope.detailTranscurrentTransTab!='ACTIVITIES'}">
             <amx:tableLayout id="tl3" width="100%" cellSpacing="10" rendered="false">
@@ -131,7 +129,7 @@
                               type="swipeRight" binding="#{OrdersManagedBean.backToDashboard}"/>
         </amx:commandLink>
         <amx:commandLink id="cl4" styleClass="remove_ul">
-          <amx:panelGroupLayout id="pgl2" rendered="#{pageFlowScope.detailTranscurrentTransTab=='LINES'}">
+      <!--    <amx:panelGroupLayout id="pgl2" rendered="#{pageFlowScope.detailTranscurrentTransTab=='LINES'}">
             <amx:listView var="row" value="#{bindings.xxMyOrderARLinesVO.collectionModel}"
                           fetchSize="#{bindings.xxMyOrderARLinesVO.rangeSize}"
                           selectedRowKeys="#{bindings.xxMyOrderARLinesVO.collectionModel.selectedRow}"
@@ -377,9 +375,8 @@
                              inlineStyle="padding-top: 20px; padding-left: 15%; position: absolute; width:auto; font-size:small; font-weight:bold;"/>
           </amx:panelGroupLayout>
           <amx:setPropertyListener id="spl8" to="#{pageFlowScope.detailTranscurrentTransTab}" from="#{'LINES'}"
-                                   type="swipeRight"/>
+                                   type="swipeRight"/>-->
         </amx:commandLink>
-        </amx:refreshContainer>
       </amx:facet>
     </amx:panelStretchLayout>
     <amx:facet name="primary">
