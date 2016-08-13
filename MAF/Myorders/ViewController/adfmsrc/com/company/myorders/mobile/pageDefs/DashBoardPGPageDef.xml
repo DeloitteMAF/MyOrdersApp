@@ -64,10 +64,10 @@
                       InstanceName="data.ApplicationFeatures.dataProvider">
             <NamedData NDName="featureId" NDValue="#{pageFlowScope.currentFeature}" NDType="java.lang.String"/>
         </methodAction>
-        <methodAction id="findOrders" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findAllOrders"
-                      IsViewObjectMethod="false" DataControl="AllOrdersService"
-                      InstanceName="data.AllOrdersService.dataProvider">
-            <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
+        <methodAction id="findOrders" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findOrders"
+                      IsViewObjectMethod="false" DataControl="OrdersService"
+                      InstanceName="data.OrdersService.dataProvider">
+            <NamedData NDName="searchValue" NDType="java.lang.String"/>
         </methodAction>
         <attributeValues id="searchValue" IterBinding="variables">
             <AttrNames>
@@ -77,7 +77,7 @@
         <methodAction id="findAllOrders" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findAllOrders"
                       IsViewObjectMethod="false" DataControl="AllOrdersService"
                       InstanceName="data.AllOrdersService.dataProvider">
-            <NamedData NDName="searchValue" NDValue="${bindings.find_searchValue}" NDType="java.lang.String"/>
+            <NamedData NDName="searchValue" NDType="java.lang.String" NDValue="#{''}"/>
         </methodAction>
         <methodAction id="findAllAllOrdersRemote" RequiresUpdateModel="true" Action="invokeMethod"
                       MethodName="findAllAllOrdersRemote" IsViewObjectMethod="false" DataControl="AllOrdersService"

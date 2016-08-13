@@ -275,7 +275,7 @@ public void callButtonActionJS(String btn) {
         AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
         AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
         
-        callButtonActionJS("cl4");
+//        callButtonActionJS("cl4");
             Integer i =
                 (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator.iterator.totalRowCount}");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
@@ -302,10 +302,10 @@ public void callButtonActionJS(String btn) {
         params.add(searchStr);
         ptypes.add(String.class);
       
-        AdfmfJavaUtilities.invokeDataControlMethod("TransacionsService", null, "findTransacions", pnames, params, ptypes);
-        AdfmfJavaUtilities.invokeDataControlMethod("AllTransacionsService", null, "findAllTransacions", pnames, params, ptypes);
+        AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
+        AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
         
-        callButtonActionJS("cl4");
+//        callButtonActionJS("cl4");
             Integer i =
                 (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allTransacionsIterator.iterator.totalRowCount}");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.TransacionsCount}",i);

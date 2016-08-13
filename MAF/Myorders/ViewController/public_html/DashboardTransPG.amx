@@ -94,7 +94,6 @@ alert('error '+adf.mf.util.stringify(response));
                         <amx:setPropertyListener id="spl12" type="action"
                                                  to="#{applicationScope.OrdersManagedBean.clearSearch}"
                                                  from="#{'true'}"/>
-                        <amx:setPropertyListener id="spl13" to="#{bindings.searchTransValue.inputValue}" from="#{''}"/>
                         <amx:setPropertyListener id="spl21" from="#{'1'}" to="#{pageFlowScope.transactionsCount}"/>
                         <amx:setPropertyListener id="spl22" from="#{'1'}" to="#{pageFlowScope.topTransactionsCount}"/>
                     </amx:commandButton>

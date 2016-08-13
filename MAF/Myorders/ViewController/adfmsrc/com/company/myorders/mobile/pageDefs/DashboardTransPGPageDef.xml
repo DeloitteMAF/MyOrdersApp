@@ -102,16 +102,6 @@
                 <Item Value="find_searchTransValue"/>
             </AttrNames>
         </attributeValues>
-    <methodAction id="findAllTransactions" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="findAllTransactions" IsViewObjectMethod="false" DataControl="AllTransactionsService"
-                  InstanceName="data.AllTransactionsService.dataProvider">
-      <NamedData NDName="searchTransValue" NDValue="${bindings.find_searchTransValue}" NDType="java.lang.String"/>
-    </methodAction>
-    <methodAction id="findTransactions" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findTransactions"
-                  IsViewObjectMethod="false" DataControl="TransactionsService"
-                  InstanceName="data.TransactionsService.dataProvider">
-      <NamedData NDName="searchTransValue" NDValue="${bindings.find_searchTransValue}" NDType="java.lang.String"/>
-    </methodAction>
     <methodAction id="findAllAllTransactionsRemote" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="findAllAllTransactionsRemote" IsViewObjectMethod="false"
                   DataControl="AllTransactionsService" InstanceName="data.AllTransactionsService.dataProvider"/>
@@ -119,6 +109,16 @@
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDValue="#{pageFlowScope.currentFeature}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="findAllTransactions" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="findAllTransactions" IsViewObjectMethod="false" DataControl="AllTransactionsService"
+                  InstanceName="data.AllTransactionsService.dataProvider">
+      <NamedData NDName="searchValue" NDValue="#{''}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="findTransactions" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findTransactions"
+                  IsViewObjectMethod="false" DataControl="TransactionsService"
+                  InstanceName="data.TransactionsService.dataProvider">
+      <NamedData NDName="searchValue" NDValue="#{''}" NDType="java.lang.String"/>
     </methodAction>
   </bindings>
 </pageDefinition>
