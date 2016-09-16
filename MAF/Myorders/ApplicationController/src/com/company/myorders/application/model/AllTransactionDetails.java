@@ -1,7 +1,5 @@
 package com.company.myorders.application.model;
 
-import com.company.myorders.application.model.utility.OrdersUtilityBean;
-
 import oracle.maf.api.cdm.persistence.model.Entity;
 
 import java.math.BigDecimal;
@@ -14,13 +12,7 @@ public class AllTransactionDetails extends Entity {
     private String quantityInvoiced;
     private String description;
     private String unitSellingPrice;
-    private String status;
     private String amount;
-    private String applicationType;
-    private String dueDate;
-    private String invoiceAmount;
-    private String invoiceDueAmount;
-    private String alertFlag;
 
 
     public BigDecimal getCustomerTrxId() {
@@ -63,61 +55,12 @@ public class AllTransactionDetails extends Entity {
         this.unitSellingPrice = unitSellingPrice;
     }
 
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getAmount() {
         return this.amount;
     }
 
     public void setAmount(String amount) {
         this.amount = amount;
-    }
-
-    public String getApplicationType() {
-        return this.applicationType;
-    }
-
-    public void setApplicationType(String applicationType) {
-        this.applicationType = applicationType;
-    }
-
-    public String getDueDate() {
-        OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
-        return ordersUtilityBean.toDateTimeTZ(this.dueDate);
-    }
-
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
-    }
-
-    public String getInvoiceAmount() {
-        return this.invoiceAmount;
-    }
-
-    public void setInvoiceAmount(String invoiceAmount) {
-        this.invoiceAmount = invoiceAmount;
-    }
-
-    public String getInvoiceDueAmount() {
-        return this.invoiceDueAmount;
-    }
-
-    public void setInvoiceDueAmount(String invoiceDueAmount) {
-        this.invoiceDueAmount = invoiceDueAmount;
-    }
-
-    public String getAlertFlag() {
-        return this.alertFlag;
-    }
-
-    public void setAlertFlag(String alertFlag) {
-        this.alertFlag = alertFlag;
     }
 
 
