@@ -737,7 +737,7 @@
          </hash>
       </list>
       <hash n="jdkReference">
-         <url n="id" path="../../../../Users/kauspatel/AppData/Roaming/JDeveloper/system12.2.1.0.42.151011.0031/o.jdeveloper/MAF JDK 1.8 Compact 2 Profile1.jdk"/>
+         <url n="id" path="../../../../../../../../Users/himagarwal/AppData/Roaming/JDeveloper/system12.2.1.0.42.151011.0031/o.jdeveloper/MAF JDK 1.8 Compact 2 Profile.jdk"/>
          <value n="isJDK" v="true"/>
          <value n="jdkVersion" v="1.8.0_51"/>
       </hash>
