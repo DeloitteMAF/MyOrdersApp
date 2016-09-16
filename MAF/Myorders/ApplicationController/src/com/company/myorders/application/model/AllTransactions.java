@@ -1,12 +1,7 @@
 package com.company.myorders.application.model;
 
-import com.company.myorders.application.model.utility.OrdersUtilityBean;
-
 import java.util.Arrays;
 import java.util.List;
-
-import oracle.adfmf.java.beans.PropertyChangeListener;
-import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 import oracle.maf.api.cdm.persistence.util.EntityUtils;
 import oracle.maf.api.cdm.persistence.manager.DBPersistenceManager;
@@ -23,16 +18,19 @@ public class AllTransactions extends Entity {
     private String trxDate;
     private String salesOrder;
     private String invoiceAmount;
-    private String transactionAppliedAmt;
     private String amountDue;
+    private String transactionAppliedAmt;
     private String trxStatus;
     private String dueDate;
     private String closedFlag;
+    private String billToAddress;
+    private String remitToAddress;
+    private String currencyCode;
     private String aRAlertFlag;
     private String lineCount;
 
     private List<AllTransactionDetails> xxMyOrderARLinesVO = createIndirectList("xxMyOrderARLinesVO");
-    private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
+    private List<AllTransactionActivities> xxMyOrderARActivitiesVO = createIndirectList("xxMyOrderARActivitiesVO");
 
 
     public BigDecimal getCustomerTrxId() {
@@ -43,12 +41,12 @@ public class AllTransactions extends Entity {
         this.customerTrxId = customerTrxId;
     }
 
-    public void setTrxType(String trxType) {
-        this.trxType = trxType;
+    public String getTrxType() {
+        return this.trxType;
     }
 
-    public String getTrxType() {
-        return trxType;
+    public void setTrxType(String trxType) {
+        this.trxType = trxType;
     }
 
     public String getTrxNumber() {
@@ -92,8 +90,16 @@ public class AllTransactions extends Entity {
         this.amountDue = amountDue;
     }
 
+    public String getTransactionAppliedAmt() {
+        return this.transactionAppliedAmt;
+    }
+
+    public void setTransactionAppliedAmt(String transactionAppliedAmt) {
+        this.transactionAppliedAmt = transactionAppliedAmt;
+    }
+
     public String getTrxStatus() {
-        return trxStatus;
+        return this.trxStatus;
     }
 
     public void setTrxStatus(String trxStatus) {
@@ -117,6 +123,30 @@ public class AllTransactions extends Entity {
         this.closedFlag = closedFlag;
     }
 
+    public String getBillToAddress() {
+        return this.billToAddress;
+    }
+
+    public void setBillToAddress(String billToAddress) {
+        this.billToAddress = billToAddress;
+    }
+
+    public String getRemitToAddress() {
+        return this.remitToAddress;
+    }
+
+    public void setRemitToAddress(String remitToAddress) {
+        this.remitToAddress = remitToAddress;
+    }
+
+    public String getCurrencyCode() {
+        return this.currencyCode;
+    }
+
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+
     public String getARAlertFlag() {
         return this.aRAlertFlag;
     }
@@ -125,21 +155,12 @@ public class AllTransactions extends Entity {
         this.aRAlertFlag = aRAlertFlag;
     }
 
-
-    public void setTransactionAppliedAmt(String transactionAppliedAmt) {
-        this.transactionAppliedAmt = transactionAppliedAmt;
-    }
-
-    public String getTransactionAppliedAmt() {
-        return transactionAppliedAmt;
+    public String getLineCount() {
+        return this.lineCount;
     }
 
     public void setLineCount(String lineCount) {
         this.lineCount = lineCount;
-    }
-
-    public String getLineCount() {
-        return lineCount;
     }
 
 
@@ -206,11 +227,69 @@ public class AllTransactions extends Entity {
         pm.removeEntity(allTransactionDetails, true);
     }
 
-    public void addPropertyChangeListener(PropertyChangeListener l) {
-        _propertyChangeSupport.addPropertyChangeListener(l);
+
+    public void setXxMyOrderARActivitiesVO(List<AllTransactionActivities> xxMyOrderARActivitiesVO) {
+        this.xxMyOrderARActivitiesVO.clear();
+        this.xxMyOrderARActivitiesVO.addAll(xxMyOrderARActivitiesVO);
+        getProviderChangeSupport().fireProviderRefresh("xxMyOrderARActivitiesVO");
     }
 
-    public void removePropertyChangeListener(PropertyChangeListener l) {
-        _propertyChangeSupport.removePropertyChangeListener(l);
+    /**
+     * This method is called when entity instance is recreated from persisted JSON string in DataSynchAction
+     */
+    public void setXxMyOrderARActivitiesVO(AllTransactionActivities[] xxMyOrderARActivitiesVO) {
+        setXxMyOrderARActivitiesVO(Arrays.asList(xxMyOrderARActivitiesVO));
     }
+
+    public List<AllTransactionActivities> getXxMyOrderARActivitiesVO() {
+        return this.xxMyOrderARActivitiesVO;
+    }
+
+
+    /**
+     * This method is automatically called when using the Create operation on the allTransactionActivities collection
+     * in the data control palette.
+     *
+     * Note that this method does NOT add the allTransactionActivities to the entity list because this method is
+     * automatically called by MAF framework when using the Create operation from the data control palette.
+     * MAF will add the entity to the list AFTER this method has been executed.
+     *
+     * You can use this method to set default values.
+     * If you want to refresh data in the UI based on the size of the allTransactionActivities list, then you cannot do this in this
+     * method because the list is not updated yet (see above), instead override method childEntityAdded and add your
+     * logic there. The CDM IndirectList class ensures that this method is called after a allTransactionActivities has been added.
+     *
+     * Do NOT drag and drop this method from the data control palette, use the Create operation
+     * instead to ensure that iterator binding and allTransactionActivities list stay in sync.
+     * @param index
+     * @param allTransactionActivities
+     */
+    public void addAllTransactionActivities(int index, AllTransactionActivities allTransactionActivities) {
+        allTransactionActivities.setIsNewEntity(true);
+        allTransactionActivities.setCustomerTrxId(getCustomerTrxId());
+    }
+
+    /**
+     * This method is automatically called when using the Delete operation on the allTransactionActivities collection
+     * in the data control palette. It deletes the corresponding row from the database (if persisted) and
+     * calls the configured remove method on the remote persistence manager if applicable.
+     *
+     * Note that this method does NOT remove the allTransactionActivities from the allTransactionActivities list because this method is
+     * automatically called by MAF framework when using the Delete operation from the data control palette.
+     * MAF will remove the entity from the list AFTER this method has been executed.
+     *
+     * If you want to refresh data in the UI based on the size of the allTransactionActivities list, then you cannot do this in this
+     * method because the list is not updated yet (see above), instead override method childEntityTRemoved and add your
+     * logic there. The CDM IndirectList class ensures that this method is called after a allTransactionActivities has been added.
+     *
+     * Do NOT drag and drop this method from the data control palette, use the Delete operation
+     * instead to ensure that iterator binding and allTransactionActivities list stay in sync.
+     * @param allTransactionActivities
+     */
+    public void removeAllTransactionActivities(AllTransactionActivities allTransactionActivities) {
+        DBPersistenceManager pm = new DBPersistenceManager();
+        pm.removeEntity(allTransactionActivities, true);
+    }
+
+
 }
