@@ -23,11 +23,13 @@ public class AllTransactions extends Entity {
     private String trxDate;
     private String salesOrder;
     private String invoiceAmount;
+    private String transactionAppliedAmt;
     private String amountDue;
     private String trxStatus;
     private String dueDate;
     private String closedFlag;
     private String aRAlertFlag;
+    private String lineCount;
 
     private List<AllTransactionDetails> xxMyOrderARLinesVO = createIndirectList("xxMyOrderARLinesVO");
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
@@ -121,6 +123,23 @@ public class AllTransactions extends Entity {
 
     public void setARAlertFlag(String aRAlertFlag) {
         this.aRAlertFlag = aRAlertFlag;
+    }
+
+
+    public void setTransactionAppliedAmt(String transactionAppliedAmt) {
+        this.transactionAppliedAmt = transactionAppliedAmt;
+    }
+
+    public String getTransactionAppliedAmt() {
+        return transactionAppliedAmt;
+    }
+
+    public void setLineCount(String lineCount) {
+        this.lineCount = lineCount;
+    }
+
+    public String getLineCount() {
+        return lineCount;
     }
 
 
