@@ -20,11 +20,13 @@ public class Transactions extends Entity {
     private String trxDate;
     private String salesOrder;
     private String invoiceAmount;
+    private String transactionAppliedAmt;
     private String amountDue;
     private String trxStatus;
     private String dueDate;
     private String closedFlag;
     private String aRAlertFlag;
+    private String lineCount;
 
     private List<TransactionDetails> xxMyOrderARLinesVO = createIndirectList("xxMyOrderARLinesVO");
 
@@ -120,6 +122,23 @@ public class Transactions extends Entity {
     }
 
 
+    public void setTransactionAppliedAmt(String transactionAppliedAmt) {
+        this.transactionAppliedAmt = transactionAppliedAmt;
+    }
+
+    public String getTransactionAppliedAmt() {
+        return transactionAppliedAmt;
+    }
+
+    public void setLineCount(String lineCount) {
+        this.lineCount = lineCount;
+    }
+
+    public String getLineCount() {
+        return lineCount;
+    }
+
+
     public void setXxMyOrderARLinesVO(List<TransactionDetails> xxMyOrderARLinesVO) {
         this.xxMyOrderARLinesVO.clear();
         this.xxMyOrderARLinesVO.addAll(xxMyOrderARLinesVO);
@@ -182,6 +201,4 @@ public class Transactions extends Entity {
         DBPersistenceManager pm = new DBPersistenceManager();
         pm.removeEntity(transactionDetails, true);
     }
-
-
 }

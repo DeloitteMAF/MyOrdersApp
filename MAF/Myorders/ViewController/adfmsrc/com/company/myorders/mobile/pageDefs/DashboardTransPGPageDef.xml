@@ -38,6 +38,8 @@
           <Item Value="trxNumber"/>
           <Item Value="trxStatus"/>
           <Item Value="trxType"/>
+          <Item Value="lineCount"/>
+          <Item Value="transactionAppliedAmt"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -57,6 +59,8 @@
           <Item Value="trxNumber"/>
           <Item Value="trxStatus"/>
           <Item Value="trxType"/>
+          <Item Value="lineCount"/>
+          <Item Value="transactionAppliedAmt"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

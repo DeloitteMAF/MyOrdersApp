@@ -51,7 +51,7 @@
       <amx:commandLink id="cl2" styleClass="remove_ul">
           <amx:panelGroupLayout id="pgl1"
                                 rendered="#{pageFlowScope.detailTranscurrentTransTab!='LINES' &amp;&amp; pageFlowScope.detailTranscurrentTransTab!='ACTIVITIES'}">
-            <amx:tableLayout id="tl3" width="100%" cellSpacing="10" rendered="false">
+            <amx:tableLayout id="tl3" width="100%" cellSpacing="10">
               <amx:rowLayout id="rl3">
                 <amx:cellFormat id="cf7" width="20%" rowSpan="1">
                   <amx:spacer id="s1" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
@@ -60,10 +60,10 @@
                 </amx:cellFormat>
                 <amx:cellFormat id="cf11" width="80%">
                   <amx:panelGroupLayout id="pgl7">
-                    <amx:outputText value="Order Status" id="ot8" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.flowStatusCode.inputValue}" id="ot1" styleClass="value"
+                    <amx:outputText value="No. of Lines" id="ot8" styleClass="detailhead"/>
+                    <amx:outputText value="#{bindings.lineCount.inputValue}" id="ot1" styleClass="value"
                                     rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
-                    <amx:outputText value="#{bindings.flowStatusCode1.inputValue}" id="ot12"
+                    <amx:outputText value="#{bindings.lineCount1.inputValue}" id="ot12"
                                     rendered="#{pageFlowScope.currentTransTab!='ALL'}" styleClass="value"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>

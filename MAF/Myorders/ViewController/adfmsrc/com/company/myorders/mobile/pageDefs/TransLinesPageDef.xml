@@ -42,6 +42,11 @@
         <Item Value="dueDate"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="lineCount">
+      <AttrNames>
+        <Item Value="lineCount"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="allTransactionsIterator" id="invoiceAmount">
       <AttrNames>
         <Item Value="invoiceAmount"/>
@@ -55,6 +60,11 @@
     <attributeValues IterBinding="transactionsIterator" id="dueDate1">
       <AttrNames>
         <Item Value="dueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="lineCount1">
+      <AttrNames>
+        <Item Value="lineCount"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="transactionsIterator" id="invoiceAmount1">

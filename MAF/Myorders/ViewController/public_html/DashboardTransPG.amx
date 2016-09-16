@@ -12,9 +12,9 @@ jQuery(function($){
 
 $( 'html').on('keyup','#it2__inputElement',function() {
  // alert("on keyup");
-  var searchTransVal=$('#it2__inputElement').val();
- // alert( "Handler for .keydown() called. "+searchTransVal );
-  adf.mf.api.invokeMethod("com.company.myorders.application.OrdersManagedBean", "onKeyDownTransSearch",searchTransVal , onSuccess, onFail);
+  var searchVal=$('#it2__inputElement').val();
+ // alert( "Handler for .keydown() called. "+searchVal );
+  adf.mf.api.invokeMethod("com.company.myorders.application.OrdersManagedBean", "onKeyDownTransSearch",searchVal , onSuccess, onFail);
 });
 
 function onSuccess(request,response) { 
@@ -213,14 +213,21 @@ alert('error '+adf.mf.util.stringify(response));
                                                 <amx:tableLayout id="tl9" width="100%" cellPadding="5">
                                                     <amx:rowLayout id="rl13">
                                                         <amx:cellFormat id="cf22" width="100%">
-                                                            <amx:image id="i1"
+                                                            <!--<amx:image id="i1"
                                                                        source="/resources/css/images/#{row.trxStatus}.png"
                                                                        inlineStyle="width:95%;"
                                                                        rendered="#{row.trxType!='CM'}"/>
                                                             <amx:image id="i4"
                                                                        source="/resources/css/images/CM#{row.trxStatus}.png"
                                                                        inlineStyle="width:95%;"
-                                                                       rendered="#{row.trxType=='CM'}"/>
+                                                                       rendered="#{row.trxType=='CM'}"/>-->
+                                                            <dvtm:statusMeterGauge id="statusMeterGauge1"
+                                                                       maxValue="#{row.invoiceAmount}" minValue="0"
+                                                                       value="#{row.transactionAppliedAmt}"
+                                                                                   plotArea="on"
+                                                                                   plotAreaColor="#c47f00"
+                                                                                   color="#{row.transactionAppliedAmt/row.invoiceAmount eq 1 ? '#008000' : '#d7d738'}">
+                                                            </dvtm:statusMeterGauge>
                                                         </amx:cellFormat>
                                                     </amx:rowLayout>
                                                 </amx:tableLayout>
@@ -319,14 +326,20 @@ alert('error '+adf.mf.util.stringify(response));
                                                 <amx:tableLayout id="tl12" width="100%" cellPadding="5">
                                                     <amx:rowLayout id="rl20">
                                                         <amx:cellFormat id="cf32" width="100%">
-                                                            <amx:image id="i2"
+                                                            <!--<amx:image id="i2"
                                                                        source="/resources/css/images/#{row.trxStatus}.png"
                                                                        inlineStyle="width:95%;"
                                                                        rendered="#{row.trxType!='CM'}"/>
                                                             <amx:image id="i3"
                                                                        source="/resources/css/images/CM#{row.trxStatus}.png"
                                                                        inlineStyle="width:95%;"
-                                                                       rendered="#{row.trxType=='CM'}"/>
+                                                                       rendered="#{row.trxType=='CM'}"/>-->
+                                                            <dvtm:statusMeterGauge id="statusMeterGauge2"
+                                                                       maxValue="#{row.invoiceAmount}" minValue="0"
+                                                                                   plotArea="on"
+                                                                                   plotAreaColor="#c47f00"
+                                                                                   color="#{row.transactionAppliedAmt/row.invoiceAmount eq 1 ? '#008000' : '#d7d738'}">
+                                                            </dvtm:statusMeterGauge>
                                                         </amx:cellFormat>
                                                     </amx:rowLayout>
                                                 </amx:tableLayout>
