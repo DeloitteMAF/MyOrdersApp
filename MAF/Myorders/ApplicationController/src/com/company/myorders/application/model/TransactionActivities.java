@@ -1,24 +1,33 @@
 package com.company.myorders.application.model;
 
+import com.company.myorders.application.model.utility.OrdersUtilityBean;
+
+import java.math.BigDecimal;
+
+import oracle.adfmf.java.beans.PropertyChangeListener;
+import oracle.adfmf.java.beans.PropertyChangeSupport;
+
 import oracle.maf.api.cdm.persistence.model.Entity;
 
 
 public class TransactionActivities extends Entity {
 
-    private String customerTrxId;
+    private BigDecimal customerTrxId;
     private String applicationType;
     private String appliedAmount;
+    private String ApplicationStatus;
     private String dueDate;
     private String invoiceTotalAmount;
     private String invoiceDueAmount;
     private String alertFlag;
+    private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
 
-    public String getCustomerTrxId() {
+    public BigDecimal getCustomerTrxId() {
         return this.customerTrxId;
     }
 
-    public void setCustomerTrxId(String customerTrxId) {
+    public void setCustomerTrxId(BigDecimal customerTrxId) {
         this.customerTrxId = customerTrxId;
     }
 
@@ -72,4 +81,32 @@ public class TransactionActivities extends Entity {
     }
 
 
+    public void setPropertyChangeSupport(PropertyChangeSupport _propertyChangeSupport) {
+        PropertyChangeSupport oldPropertyChangeSupport = this._propertyChangeSupport;
+        this._propertyChangeSupport = _propertyChangeSupport;
+        _propertyChangeSupport.firePropertyChange("propertyChangeSupport", oldPropertyChangeSupport,
+                                                  _propertyChangeSupport);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.removePropertyChangeListener(l);
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return _propertyChangeSupport;
+    }
+
+    public void setApplicationStatus(String ApplicationStatus) {
+        String oldApplicationStatus = this.ApplicationStatus;
+        this.ApplicationStatus = ApplicationStatus;
+        _propertyChangeSupport.firePropertyChange("applicationStatus", oldApplicationStatus, ApplicationStatus);
+    }
+
+    public String getApplicationStatus() {
+        return ApplicationStatus;
+    }
 }

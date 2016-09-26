@@ -3,11 +3,14 @@
                 Package="com.company.myorders.mobile.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="TransactionsService" id="TransactionsServiceIterator"/>
     <accessorIterator MasterBinding="TransactionsServiceIterator" Binds="transactions" RangeSize="25"
                       DataControl="TransactionsService" BeanClass="com.company.myorders.application.model.Transactions"
                       id="transactionsIterator"/>
+    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="10"
+                      DataControl="TransactionsService"
+                      BeanClass="com.company.myorders.application.model.TransactionDetails"
+                      id="xxMyOrderARLinesVOIterator"/>
     <iterator Binds="root" RangeSize="25" DataControl="AllTransactionsService" id="AllTransactionsServiceIterator"/>
     <accessorIterator MasterBinding="AllTransactionsServiceIterator" Binds="allTransactions" RangeSize="25"
                       DataControl="AllTransactionsService"
@@ -15,13 +18,90 @@
     <accessorIterator MasterBinding="allTransactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="10"
                       DataControl="AllTransactionsService"
                       BeanClass="com.company.myorders.application.model.AllTransactionDetails"
-                      id="xxMyOrderARLinesVOIterator"/>
-    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="10"
-                      DataControl="TransactionsService"
-                      BeanClass="com.company.myorders.application.model.TransactionDetails"
                       id="xxMyOrderARLinesVOIterator1"/>
+    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
+                      DataControl="TransactionsService"
+                      BeanClass="com.company.myorders.application.model.TransactionActivities"
+                      id="xxMyOrderARActivitiesVOIterator"/>
+    <accessorIterator MasterBinding="allTransactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
+                      DataControl="AllTransactionsService"
+                      BeanClass="com.company.myorders.application.model.AllTransactionActivities"
+                      id="xxMyOrderARActivitiesVOIterator1"/>
   </executables>
   <bindings>
+    <tree IterBinding="xxMyOrderARLinesVOIterator" id="xxMyOrderARLinesVO">
+      <nodeDefinition DefName="com.company.myorders.application.model.TransactionDetails" Name="xxMyOrderARLinesVO0">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="amount"/>
+          <Item Value="description"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+          <Item Value="quantityInvoiced"/>
+          <Item Value="unitSellingPrice"/>
+          <Item Value="lineNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderARLinesVOIterator1" id="xxMyOrderARLinesVO1">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionDetails"
+                      Name="xxMyOrderARLinesVO10">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="amount"/>
+          <Item Value="description"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+          <Item Value="lineNumber"/>
+          <Item Value="quantityInvoiced"/>
+          <Item Value="unitSellingPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderARActivitiesVOIterator" id="xxMyOrderARActivitiesVO">
+      <nodeDefinition DefName="com.company.myorders.application.model.TransactionActivities"
+                      Name="xxMyOrderARActivitiesVO0">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="applicationType"/>
+          <Item Value="appliedAmount"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceDueAmount"/>
+          <Item Value="invoiceTotalAmount"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+          <Item Value="applicationStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderARActivitiesVOIterator1" id="xxMyOrderARActivitiesVO1">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionActivities"
+                      Name="xxMyOrderARActivitiesVO10">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="applicationType"/>
+          <Item Value="appliedAmount"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceDueAmount"/>
+          <Item Value="invoiceTotalAmount"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+          <Item Value="applicationStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="transactionsIterator" id="lineCount">
+      <AttrNames>
+        <Item Value="lineCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="lineCount1">
+      <AttrNames>
+        <Item Value="lineCount"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="transactionsIterator" id="trxNumber">
       <AttrNames>
         <Item Value="trxNumber"/>
@@ -32,77 +112,75 @@
         <Item Value="trxNumber"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="allTransactionsIterator" id="amountDue">
-      <AttrNames>
-        <Item Value="amountDue"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="allTransactionsIterator" id="dueDate">
+    <attributeValues IterBinding="transactionsIterator" id="dueDate">
       <AttrNames>
         <Item Value="dueDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="allTransactionsIterator" id="lineCount">
-      <AttrNames>
-        <Item Value="lineCount"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="allTransactionsIterator" id="invoiceAmount">
-      <AttrNames>
-        <Item Value="invoiceAmount"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="amountDue1">
-      <AttrNames>
-        <Item Value="amountDue"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="dueDate1">
+    <attributeValues IterBinding="allTransactionsIterator" id="dueDate1">
       <AttrNames>
         <Item Value="dueDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="lineCount1">
-      <AttrNames>
-        <Item Value="lineCount"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="invoiceAmount1">
+    <attributeValues IterBinding="transactionsIterator" id="invoiceAmount">
       <AttrNames>
         <Item Value="invoiceAmount"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="xxMyOrderARLinesVOIterator" id="xxMyOrderARLinesVO">
-      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionDetails" Name="xxMyOrderARLinesVO0">
-        <AttrNames>
-          <Item Value="customerTrxId"/>
-          <Item Value="alertFlag"/>
-          <Item Value="applicationType"/>
-          <Item Value="description"/>
-          <Item Value="isNewEntity"/>
-          <Item Value="key"/>
-          <Item Value="lineNumber"/>
-          <Item Value="quantityInvoiced"/>
-          <Item Value="status"/>
-          <Item Value="unitSellingPrice"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="xxMyOrderARLinesVOIterator1" id="xxMyOrderARLinesVO1">
-      <nodeDefinition DefName="com.company.myorders.application.model.TransactionDetails" Name="xxMyOrderARLinesVO10">
-        <AttrNames>
-          <Item Value="customerTrxId"/>
-          <Item Value="alertFlag"/>
-          <Item Value="applicationType"/>
-          <Item Value="description"/>
-          <Item Value="isNewEntity"/>
-          <Item Value="key"/>
-          <Item Value="lineNumber"/>
-          <Item Value="quantityInvoiced"/>
-          <Item Value="status"/>
-          <Item Value="unitSellingPrice"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
+    <attributeValues IterBinding="allTransactionsIterator" id="invoiceAmount1">
+      <AttrNames>
+        <Item Value="invoiceAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="amountDue">
+      <AttrNames>
+        <Item Value="amountDue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="amountDue1">
+      <AttrNames>
+        <Item Value="amountDue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="currencyCode">
+      <AttrNames>
+        <Item Value="currencyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="currencyCode1">
+      <AttrNames>
+        <Item Value="currencyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="billToAddress">
+      <AttrNames>
+        <Item Value="billToAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="billToAddress1">
+      <AttrNames>
+        <Item Value="billToAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="remitToAddress">
+      <AttrNames>
+        <Item Value="remitToAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="remitToAddress1">
+      <AttrNames>
+        <Item Value="remitToAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transactionsIterator" id="transactionAppliedAmt">
+      <AttrNames>
+        <Item Value="transactionAppliedAmt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allTransactionsIterator" id="transactionAppliedAmt1">
+      <AttrNames>
+        <Item Value="transactionAppliedAmt"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

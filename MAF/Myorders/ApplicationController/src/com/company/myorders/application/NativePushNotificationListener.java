@@ -23,8 +23,7 @@ public class NativePushNotificationListener implements EventListener {
         try
         {
           payload = (HashMap)JSONBeanSerializationHelper.fromJSON(HashMap.class, msg);
-          pushMsg = (String)payload.get("alert");          
-           if (event.getApplicationState() == event.APPLICATION_STATE_FOREGROUND){
+          pushMsg = (String)payload.get("alert"); 
                       String ordernum = msg.substring(msg.lastIndexOf(':'+1));
                       try {
                             OrdersManagedBean orderbean = new OrdersManagedBean();
@@ -34,7 +33,6 @@ public class NativePushNotificationListener implements EventListener {
                                 AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.comingFromNotification}", false);
                                 e.printStackTrace();
                                 }
-                  }
         }
         catch(Exception e) {
             e.printStackTrace();

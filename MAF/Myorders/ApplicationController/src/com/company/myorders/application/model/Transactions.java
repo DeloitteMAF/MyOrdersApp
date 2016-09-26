@@ -1,5 +1,7 @@
 package com.company.myorders.application.model;
 
+import com.company.myorders.application.model.utility.OrdersUtilityBean;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,6 +10,8 @@ import oracle.maf.api.cdm.persistence.manager.DBPersistenceManager;
 import oracle.maf.api.cdm.persistence.model.Entity;
 
 import java.math.BigDecimal;
+
+import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 
 public class Transactions extends Entity {
@@ -31,6 +35,7 @@ public class Transactions extends Entity {
 
     private List<TransactionDetails> xxMyOrderARLinesVO = createIndirectList("xxMyOrderARLinesVO");
     private List<TransactionActivities> xxMyOrderARActivitiesVO = createIndirectList("xxMyOrderARActivitiesVO");
+    private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
 
     public BigDecimal getCustomerTrxId() {
@@ -292,4 +297,11 @@ public class Transactions extends Entity {
     }
 
 
+    public void setPropertyChangeSupport(PropertyChangeSupport _propertyChangeSupport) {
+        this._propertyChangeSupport = _propertyChangeSupport;
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return _propertyChangeSupport;
+    }
 }

@@ -140,22 +140,28 @@
       </table>
       <attributeMappings>
          <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
-         <directMapping attributeName="trxType" payloadAttributeName="TrxType" columnName="TRX_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="trxType" payloadAttributeName="TrxType" columnName="TRX_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="trxNumber" payloadAttributeName="TrxNumber" columnName="TRX_NUMBER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="trxDate" payloadAttributeName="TrxDate" columnName="TRX_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="salesOrder" payloadAttributeName="SalesOrder" columnName="SALES_ORDER" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="invoiceAmount" payloadAttributeName="InvoiceAmount" columnName="INVOICE_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="transactionAppliedAmt" payloadAttributeName="TransactionAppliedAmt" columnName="TRANSACTION_APPLIED_AMT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="amountDue" payloadAttributeName="AmountDue" columnName="AMOUNT_DUE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="transactionAppliedAmt" payloadAttributeName="TransactionAppliedAmt" columnName="TRANSACTION_APPLIED_AMT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="trxStatus" payloadAttributeName="TrxStatus" columnName="TRX_STATUS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="closedFlag" payloadAttributeName="ClosedFlag" columnName="CLOSED_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="billToAddress" payloadAttributeName="BillToAddress" columnName="BILL_TO_ADDRESS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="remitToAddress" payloadAttributeName="RemitToAddress" columnName="REMIT_TO_ADDRESS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="aRAlertFlag" payloadAttributeName="ARAlertFlag" columnName="A_RALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="lineCount" payloadAttributeName="LineCount" columnName="LINE_COUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <oneToManyMapping attributeName="xxMyOrderARLinesVO" payloadAttributeName="XxMyOrderARLinesVO" referenceClassName="com.company.myorders.application.model.TransactionDetails" sendAsArrayIfOnlyOneEntry="true">
             <foreignKeyColumnReference sourceTable="TRANSACTION_DETAILS" sourceColumn="CUSTOMER_TRX_ID" targetTable="TRANSACTIONS" targetColumn="CUSTOMER_TRX_ID"/>
          </oneToManyMapping>
-      </attributeMappings>
+         <oneToManyMapping attributeName="xxMyOrderARActivitiesVO" payloadAttributeName="XxMyOrderARActivitiesVO" referenceClassName="com.company.myorders.application.model.TransactionActivities" sendAsArrayIfOnlyOneEntry="true">
+            <foreignKeyColumnReference sourceTable="TRANSACTION_ACTIVITIES" sourceColumn="CUSTOMER_TRX_ID" targetTable="TRANSACTIONS" targetColumn="CUSTOMER_TRX_ID"/>
+         </oneToManyMapping>
+      </attributeMappings>      
       <methods>
          <findAllMethod uri="/GetARDetails/GetARDetailsRestService/-1/{noOfDays}/10/{userName}/{orderBy}/{fetchClosedOrders}/TrxDate" connectionName="OSBService" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="orderNumber" value="#{preferenceScope.application.userPref.orderNumber}" valueProvider="ELExpression" pathParam="true"/>
@@ -179,13 +185,7 @@
          <directMapping attributeName="quantityInvoiced" payloadAttributeName="QuantityInvoiced" columnName="QUANTITY_INVOICED" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="description" payloadAttributeName="Description" columnName="DESCRIPTION" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="unitSellingPrice" payloadAttributeName="UnitSellingPrice" columnName="UNIT_SELLING_PRICE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="status" payloadAttributeName="Status" columnName="STATUS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="amount" payloadAttributeName="Amount" columnName="AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="applicationType" payloadAttributeName="ApplicationType" columnName="APPLICATION_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="invoiceAmount" payloadAttributeName="InvoiceAmount" columnName="INVOICE_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="invoiceDueAmount" payloadAttributeName="InvoiceDueAmount" columnName="INVOICE_DUE_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>
@@ -206,10 +206,16 @@
          <directMapping attributeName="trxStatus" payloadAttributeName="TrxStatus" columnName="TRX_STATUS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="closedFlag" payloadAttributeName="ClosedFlag" columnName="CLOSED_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="billToAddress" payloadAttributeName="BillToAddress" columnName="BILL_TO_ADDRESS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="remitToAddress" payloadAttributeName="RemitToAddress" columnName="REMIT_TO_ADDRESS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="currencyCode" payloadAttributeName="CurrencyCode" columnName="CURRENCY_CODE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="aRAlertFlag" payloadAttributeName="ARAlertFlag" columnName="A_RALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="lineCount" payloadAttributeName="LineCount" columnName="LINE_COUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <oneToManyMapping attributeName="xxMyOrderARLinesVO" payloadAttributeName="XxMyOrderARLinesVO" referenceClassName="com.company.myorders.application.model.AllTransactionDetails" sendAsArrayIfOnlyOneEntry="true">
             <foreignKeyColumnReference sourceTable="ALL_TRANSACTION_DETAILS" sourceColumn="CUSTOMER_TRX_ID" targetTable="ALL_TRANSACTIONS" targetColumn="CUSTOMER_TRX_ID"/>
+         </oneToManyMapping>
+         <oneToManyMapping attributeName="xxMyOrderARActivitiesVO" payloadAttributeName="XxMyOrderARActivitiesVO" referenceClassName="com.company.myorders.application.model.AllTransactionActivities" sendAsArrayIfOnlyOneEntry="true">
+            <foreignKeyColumnReference sourceTable="ALL_TRANSACTION_ACTIVITIES" sourceColumn="CUSTOMER_TRX_ID" targetTable="ALL_TRANSACTIONS" targetColumn="CUSTOMER_TRX_ID"/>
          </oneToManyMapping>
       </attributeMappings>
       <methods>
@@ -223,6 +229,44 @@
          </findAllMethod>
       </methods>
    </classMappingDescriptor>
+   <classMappingDescriptor className="com.company.myorders.application.model.AllTransactionActivities" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.AllTransactionsService" autoIncrementPrimaryKey="true"/>
+      <table name="ALL_TRANSACTION_ACTIVITIES">
+         <primaryKeyColumn name="CUSTOMER_TRX_ID"/>
+         <primaryKeyColumn name="INVOICE_TOTAL_AMOUNT"/>
+         <primaryKeyColumn name="INVOICE_DUE_AMOUNT"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="applicationType" payloadAttributeName="ApplicationType" columnName="APPLICATION_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="appliedAmount" payloadAttributeName="AppliedAmount" columnName="APPLIED_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="applicationStatus" payloadAttributeName="ApplicationStatus" columnName="APPLICATION_STATUS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="invoiceTotalAmount" payloadAttributeName="InvoiceTotalAmount" columnName="INVOICE_TOTAL_AMOUNT" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="invoiceDueAmount" payloadAttributeName="InvoiceDueAmount" columnName="INVOICE_DUE_AMOUNT" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+      </attributeMappings>
+      <methods/>
+   </classMappingDescriptor>
+   <classMappingDescriptor className="com.company.myorders.application.model.TransactionActivities" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.TransactionsService" autoIncrementPrimaryKey="true"/>
+      <table name="TRANSACTION_ACTIVITIES">
+         <primaryKeyColumn name="CUSTOMER_TRX_ID"/>
+         <primaryKeyColumn name="INVOICE_TOTAL_AMOUNT"/>
+         <primaryKeyColumn name="INVOICE_DUE_AMOUNT"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="customerTrxId" payloadAttributeName="CustomerTrxId" columnName="CUSTOMER_TRX_ID" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="applicationType" payloadAttributeName="ApplicationType" columnName="APPLICATION_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="appliedAmount" payloadAttributeName="AppliedAmount" columnName="APPLIED_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="applicationStatus" payloadAttributeName="ApplicationStatus" columnName="APPLICATION_STATUS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="invoiceTotalAmount" payloadAttributeName="InvoiceTotalAmount" columnName="INVOICE_TOTAL_AMOUNT" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="invoiceDueAmount" payloadAttributeName="InvoiceDueAmount" columnName="INVOICE_DUE_AMOUNT" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+      </attributeMappings>
+      <methods/>
+   </classMappingDescriptor>
    <classMappingDescriptor className="com.company.myorders.application.model.AllTransactionDetails" persisted="true">
       <crudServiceClass className="com.company.myorders.application.model.service.AllTransactionsService" autoIncrementPrimaryKey="true"/>
       <table name="ALL_TRANSACTION_DETAILS">
@@ -235,13 +279,7 @@
          <directMapping attributeName="quantityInvoiced" payloadAttributeName="QuantityInvoiced" columnName="QUANTITY_INVOICED" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="description" payloadAttributeName="Description" columnName="DESCRIPTION" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="unitSellingPrice" payloadAttributeName="UnitSellingPrice" columnName="UNIT_SELLING_PRICE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="status" payloadAttributeName="Status" columnName="STATUS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
          <directMapping attributeName="amount" payloadAttributeName="Amount" columnName="AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="applicationType" payloadAttributeName="ApplicationType" columnName="APPLICATION_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="dueDate" payloadAttributeName="DueDate" columnName="DUE_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="invoiceAmount" payloadAttributeName="InvoiceAmount" columnName="INVOICE_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="invoiceDueAmount" payloadAttributeName="InvoiceDueAmount" columnName="INVOICE_DUE_AMOUNT" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
-         <directMapping attributeName="alertFlag" payloadAttributeName="AlertFlag" columnName="ALERT_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>

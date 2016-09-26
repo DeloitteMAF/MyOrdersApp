@@ -20,6 +20,14 @@
                       DataControl="AllTransactionsService"
                       BeanClass="com.company.myorders.application.model.AllTransactionDetails"
                       id="xxMyOrderARLinesVOIterator1"/>
+    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
+                      DataControl="TransactionsService"
+                      BeanClass="com.company.myorders.application.model.TransactionActivities"
+                      id="xxMyOrderARActivitiesVOIterator"/>
+    <accessorIterator MasterBinding="allTransactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
+                      DataControl="AllTransactionsService"
+                      BeanClass="com.company.myorders.application.model.AllTransactionActivities"
+                      id="xxMyOrderARActivitiesVOIterator1"/>
   </executables>
   <bindings>
     <tree IterBinding="transactionsIterator" id="transactions">
@@ -40,6 +48,9 @@
           <Item Value="trxType"/>
           <Item Value="lineCount"/>
           <Item Value="transactionAppliedAmt"/>
+          <Item Value="billToAddress"/>
+          <Item Value="currencyCode"/>
+          <Item Value="remitToAddress"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -61,6 +72,9 @@
           <Item Value="trxType"/>
           <Item Value="lineCount"/>
           <Item Value="transactionAppliedAmt"/>
+          <Item Value="billToAddress"/>
+          <Item Value="currencyCode"/>
+          <Item Value="remitToAddress"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -124,5 +138,37 @@
                   InstanceName="data.TransactionsService.dataProvider">
       <NamedData NDName="searchValue" NDValue="#{''}" NDType="java.lang.String"/>
     </methodAction>
+    <tree IterBinding="xxMyOrderARActivitiesVOIterator" id="xxMyOrderARActivitiesVO">
+      <nodeDefinition DefName="com.company.myorders.application.model.TransactionActivities"
+                      Name="xxMyOrderARActivitiesVO0">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="applicationType"/>
+          <Item Value="appliedAmount"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceDueAmount"/>
+          <Item Value="invoiceTotalAmount"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="xxMyOrderARActivitiesVOIterator1" id="xxMyOrderARActivitiesVO1">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionActivities"
+                      Name="xxMyOrderARActivitiesVO10">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="applicationType"/>
+          <Item Value="appliedAmount"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceDueAmount"/>
+          <Item Value="invoiceTotalAmount"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

@@ -19,6 +19,9 @@
     <view id="TransLines">
       <page>/TransLines.amx</page>
     </view>
+    <view id="SearchTrans">
+      <page>/SearchTrans.amx</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>getTrans</from-activity-id>
       <control-flow-case id="__3">
@@ -32,11 +35,22 @@
         <from-outcome>openDetail</from-outcome>
         <to-activity-id>TransLines</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>search</from-outcome>
+        <to-activity-id>SearchTrans</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
       <from-activity-id>TransLines</from-activity-id>
       <control-flow-case id="__7">
         <from-outcome>backToDashboard</from-outcome>
+        <to-activity-id>Dashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>SearchTrans</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>back</from-outcome>
         <to-activity-id>Dashboard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

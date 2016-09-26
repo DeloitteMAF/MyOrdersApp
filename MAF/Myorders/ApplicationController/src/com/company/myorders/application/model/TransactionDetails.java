@@ -1,8 +1,12 @@
 package com.company.myorders.application.model;
 
+import oracle.adfmf.java.beans.PropertyChangeListener;
+
 import oracle.maf.api.cdm.persistence.model.Entity;
 
 import java.math.BigDecimal;
+
+import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 
 public class TransactionDetails extends Entity {
@@ -13,6 +17,7 @@ public class TransactionDetails extends Entity {
     private String description;
     private String unitSellingPrice;
     private String amount;
+    private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
 
     public BigDecimal getCustomerTrxId() {
@@ -64,4 +69,22 @@ public class TransactionDetails extends Entity {
     }
 
 
+    public void setPropertyChangeSupport(PropertyChangeSupport _propertyChangeSupport) {
+        PropertyChangeSupport oldPropertyChangeSupport = this._propertyChangeSupport;
+        this._propertyChangeSupport = _propertyChangeSupport;
+        _propertyChangeSupport.firePropertyChange("propertyChangeSupport", oldPropertyChangeSupport,
+                                                  _propertyChangeSupport);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.removePropertyChangeListener(l);
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return _propertyChangeSupport;
+    }
 }

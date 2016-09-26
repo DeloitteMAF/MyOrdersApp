@@ -1,13 +1,19 @@
 package com.company.myorders.application.model;
 
+import com.company.myorders.application.model.utility.OrdersUtilityBean;
+
 import java.util.Arrays;
 import java.util.List;
+
+import oracle.adfmf.java.beans.PropertyChangeListener;
 
 import oracle.maf.api.cdm.persistence.util.EntityUtils;
 import oracle.maf.api.cdm.persistence.manager.DBPersistenceManager;
 import oracle.maf.api.cdm.persistence.model.Entity;
 
 import java.math.BigDecimal;
+
+import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 
 public class AllTransactions extends Entity {
@@ -29,8 +35,19 @@ public class AllTransactions extends Entity {
     private String aRAlertFlag;
     private String lineCount;
 
+    public void setPropertyChangeSupport(PropertyChangeSupport _propertyChangeSupport) {
+        PropertyChangeSupport oldPropertyChangeSupport = this._propertyChangeSupport;
+        this._propertyChangeSupport = _propertyChangeSupport;
+        _propertyChangeSupport.firePropertyChange("propertyChangeSupport", oldPropertyChangeSupport,
+                                                  _propertyChangeSupport);
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return _propertyChangeSupport;
+    }
     private List<AllTransactionDetails> xxMyOrderARLinesVO = createIndirectList("xxMyOrderARLinesVO");
     private List<AllTransactionActivities> xxMyOrderARActivitiesVO = createIndirectList("xxMyOrderARActivitiesVO");
+    private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
 
     public BigDecimal getCustomerTrxId() {
@@ -292,4 +309,11 @@ public class AllTransactions extends Entity {
     }
 
 
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.removePropertyChangeListener(l);
+    }
 }

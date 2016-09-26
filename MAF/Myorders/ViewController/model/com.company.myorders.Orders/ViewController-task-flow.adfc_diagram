@@ -57,7 +57,7 @@
       <property
          name="fromOutcome">openDetail</property>
       <property
-         name="sdm:polyPoints">R54,256.0637,275.6953,484.0,271.5459,L58</property>
+         name="sdm:polyPoints">R54,256.1174,275.6953,484.0,268.0459,L54</property>
    </ControlFlowCase>
    <View
       id="View8">
@@ -121,7 +121,7 @@
       <property
          name="fromOutcome">backToDetails</property>
       <property
-         name="sdm:polyPoints">L54,783.6362,290.74707,566.0,268.0459,R54</property>
+         name="sdm:polyPoints">L58,782.9764,294.24707,566.0,268.0459,R54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

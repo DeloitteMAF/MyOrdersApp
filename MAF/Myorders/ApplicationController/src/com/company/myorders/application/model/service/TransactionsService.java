@@ -1,6 +1,8 @@
 package com.company.myorders.application.model.service;
 
 
+import com.company.myorders.application.model.AllOrders;
+
 import java.util.ArrayList;
 
 import java.util.List;
@@ -9,6 +11,11 @@ import oracle.maf.api.cdm.persistence.util.EntityUtils;
 import oracle.maf.impl.cdm.persistence.service.EntityCRUDService;
 
 import com.company.myorders.application.model.Transactions;
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
 
 /**
@@ -74,7 +81,30 @@ public class TransactionsService extends EntityCRUDService<Transactions> {
     }
 
     public List<Transactions> getTransactions() {
-        return getEntityList();
+        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isFilterAppliedTrans}")=="Y"){
+            Stream<Transactions> transRow=getEntityList().stream();
+            String transOrderNo = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.fTransOrderNo}");
+            String transValue = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.fTransValue}");
+            String transNo = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.fTransNo}");
+            String transStatus = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.fTransStatus}");
+            String transAlert = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.fTransAlert}");
+            if(transOrderNo!=null){
+                transRow=transRow.filter(transNew -> transNew.getSalesOrder().startsWith(transOrderNo));
+            }else if(transValue!=null){
+                transRow=transRow.filter(transNew -> transNew.getSalesOrder().startsWith(transValue));
+            }else if(transNo!=null){
+                transRow=transRow.filter(transNew -> transNew.getTrxNumber().startsWith(transNo));
+            }else if(transStatus!=null){
+                transRow=transRow.filter(transNew -> transNew.getTrxStatus().equalsIgnoreCase(transStatus));
+            }else if(transAlert!=null){
+                transRow=transRow.filter(transNew -> transNew.getARAlertFlag().equalsIgnoreCase(transAlert));
+            }  
+            List<Transactions> transList=transRow.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topTransactionsCount}", transList.size());
+            return transList;
+        }else{
+            return getEntityList();
+        }
     }
 
     /**

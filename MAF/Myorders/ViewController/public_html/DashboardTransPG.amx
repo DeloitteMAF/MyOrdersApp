@@ -212,7 +212,7 @@ alert('error '+adf.mf.util.stringify(response));
                                                 </amx:tableLayout>
                                                 <amx:tableLayout id="tl9" width="100%" cellPadding="5">
                                                     <amx:rowLayout id="rl13">
-                                                        <amx:cellFormat id="cf22" width="100%">
+                                                        <amx:cellFormat id="cf22" width="100%" rowSpan="1">
                                                             <!--<amx:image id="i1"
                                                                        source="/resources/css/images/#{row.trxStatus}.png"
                                                                        inlineStyle="width:95%;"
@@ -222,11 +222,16 @@ alert('error '+adf.mf.util.stringify(response));
                                                                        inlineStyle="width:95%;"
                                                                        rendered="#{row.trxType=='CM'}"/>-->
                                                             <dvtm:statusMeterGauge id="statusMeterGauge1"
-                                                                       maxValue="#{row.invoiceAmount}" minValue="0"
-                                                                       value="#{row.transactionAppliedAmt}"
+                                                                       maxValue="#{row.trxType!='CM' ? row.invoiceAmount :(-1)*row.invoiceAmount}" minValue="0"
+                                                                       value="#{row.trxType!='CM' ? row.transactionAppliedAmt:(-1)*row.transactionAppliedAmt}"
                                                                                    plotArea="on"
-                                                                                   plotAreaColor="#c47f00"
-                                                                                   color="#{row.transactionAppliedAmt/row.invoiceAmount eq 1 ? '#008000' : '#d7d738'}">
+                                                                                   plotAreaColor="#aebcbb"
+                                                                                   color="#{row.transactionAppliedAmt/row.invoiceAmount > '.5' ? (row.transactionAppliedAmt == row.invoiceAmount ? '#008000' : '#d7b969') : '#d7d738'}"
+                                                                                   indicatorSize="1"
+                                                                                   title="#{row.transactionAppliedAmt}"
+                                                                                   titlePosition="center"
+                                                                                   titleStyle="width:auto; font-size:small; font-weight:bold;"
+                                                                                   inlineStyle="height:1.5em;">
                                                             </dvtm:statusMeterGauge>
                                                         </amx:cellFormat>
                                                     </amx:rowLayout>
@@ -335,10 +340,16 @@ alert('error '+adf.mf.util.stringify(response));
                                                                        inlineStyle="width:95%;"
                                                                        rendered="#{row.trxType=='CM'}"/>-->
                                                             <dvtm:statusMeterGauge id="statusMeterGauge2"
-                                                                       maxValue="#{row.invoiceAmount}" minValue="0"
+                                                                       maxValue="#{row.trxType!='CM' ? row.invoiceAmount :(-1)*row.invoiceAmount}" minValue="0"
+                                                                       value="#{row.trxType!='CM' ? row.transactionAppliedAmt:(-1)*row.transactionAppliedAmt}"
                                                                                    plotArea="on"
-                                                                                   plotAreaColor="#c47f00"
-                                                                                   color="#{row.transactionAppliedAmt/row.invoiceAmount eq 1 ? '#008000' : '#d7d738'}">
+                                                                                   plotAreaColor="#aebcbb"
+                                                                                   color="#{row.transactionAppliedAmt/row.invoiceAmount > '.5' ? (row.transactionAppliedAmt == row.invoiceAmount ? '#008000' : '#d7b969') : '#d7d738'}"
+                                                                                   indicatorSize="1"
+                                                                                   title="#{row.transactionAppliedAmt}"
+                                                                                   titlePosition="center"
+                                                                                   titleStyle="width:auto; font-size:small; font-weight:bold;"
+                                                                                   inlineStyle="height:1.5em;">
                                                             </dvtm:statusMeterGauge>
                                                         </amx:cellFormat>
                                                     </amx:rowLayout>
@@ -358,12 +369,12 @@ alert('error '+adf.mf.util.stringify(response));
                     </amx:refreshContainer>
                 </amx:facet>
                 <amx:facet name="bottom">
-                    <amx:commandLink id="cl11" action="#{OrdersManagedBean.createFilter}">
+                    <amx:commandLink id="cl11" action="#{OrdersManagedBean.createFilterTrans}">
                         <amx:tableLayout id="tl6" width="100%" cellPadding="10"
-                                         inlineStyle="background-color:#{pageFlowScope.isFilterApplier == 'Y' ? '#1EBE92' : 'rgb(60,60,73)'};">
+                                         inlineStyle="background-color:#{pageFlowScope.isFilterAppliedTrans == 'Y' ? '#1EBE92' : 'rgb(60,60,73)'};">
                             <amx:rowLayout id="rl6">
                                 <amx:cellFormat id="cf14" width="100%" halign="center">
-                                    <amx:outputText value="#{pageFlowScope.isFilterApplier == 'Y' ? 'Clear Filters' : 'Filter'}" id="ot18"
+                                    <amx:outputText value="#{pageFlowScope.isFilterAppliedTrans == 'Y' ? 'Clear Filters' : 'Filter'}" id="ot18"
                                                     inlineStyle="color:White; font-weight:bold;"/>
                                 </amx:cellFormat>
                             </amx:rowLayout>

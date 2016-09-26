@@ -19,8 +19,8 @@ public class SlidingDrawerBean {
     protected static boolean showTopAndBottomFacets;
     private AdfmfSlidingWindowOptions controlOptions;
     protected static boolean controlBarToggleFlag = false;
-    protected static String controlBarHeight = "15%";
-    private String slidingDrawerWindowSize = "0";
+    protected static String controlBarHeight = "50%";
+    private String slidingDrawerWindowSize = "50%";
 
 
     public void setSlidingDrawerWindowSize(String slidingDrawerWindowSize) {
@@ -42,17 +42,17 @@ public class SlidingDrawerBean {
             if (deviceOS != null && deviceOS.equals("iOS")) { //Check if the device OS is iOS 
                 if (availableWidth > availableHeight) { // Check if the device is in landscape or portrait mode
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        slidingDrawerWindowSize = "150"; 
+                        slidingDrawerWindowSize = "50%"; 
                     } else {
-                        slidingDrawerWindowSize = "150";
+                        slidingDrawerWindowSize = "50%";
                     }
 
                 } else {
                     
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        slidingDrawerWindowSize = "160"; 
+                        slidingDrawerWindowSize = "50%"; 
                     } else {
-                        slidingDrawerWindowSize = "160";
+                        slidingDrawerWindowSize = "50%";
                     }
 
 
@@ -62,16 +62,16 @@ public class SlidingDrawerBean {
             } else if (deviceOS != null && deviceOS.equals("Android")) { //Check if the device OS is Android 
                 if (availableWidth > availableHeight) { // Check if the device is in landscape or portrait mode
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        slidingDrawerWindowSize = "350"; 
+                        slidingDrawerWindowSize = "50%"; 
                     } else {
-                        slidingDrawerWindowSize = "350";
+                        slidingDrawerWindowSize = "50%";
                     }
 
                 } else {
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        slidingDrawerWindowSize = "360"; 
+                        slidingDrawerWindowSize = "50%"; 
                     } else {
-                        slidingDrawerWindowSize = "360";
+                        slidingDrawerWindowSize = "50%";
                     }
 
 
@@ -332,17 +332,17 @@ public class SlidingDrawerBean {
             if (deviceOS != null && deviceOS.equals("iOS")) { //Check if the device OS is iOS 
                 if (availableWidth > availableHeight) { // Check if the device is in landscape or portrait mode
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        controlBarHeight = "100"; 
+                        controlBarHeight = "50%"; 
                     } else {
-                        controlBarHeight = "100";
+                        controlBarHeight = "50%";
                     }
 
                 } else {
                     
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        controlBarHeight = "100"; 
+                        controlBarHeight = "50%"; 
                     } else {
-                        controlBarHeight = "100";
+                        controlBarHeight = "50%";
                     }
 
 
@@ -352,16 +352,16 @@ public class SlidingDrawerBean {
             } else if (deviceOS != null && deviceOS.equals("Android")) { //Check if the device OS is Android 
                 if (availableWidth > availableHeight) { // Check if the device is in landscape or portrait mode
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        controlBarHeight = "156"; 
+                        controlBarHeight = "50%"; 
                     } else {
-                        controlBarHeight = "156";
+                        controlBarHeight = "50%";
                     }
 
                 } else {
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        controlBarHeight = "156"; 
+                        controlBarHeight = "50%"; 
                     } else {
-                        controlBarHeight = "156";
+                        controlBarHeight = "50%";
                     }
 
 
