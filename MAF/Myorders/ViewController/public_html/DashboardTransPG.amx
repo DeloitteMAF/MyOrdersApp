@@ -173,7 +173,7 @@ alert('error '+adf.mf.util.stringify(response));
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         </amx:cellFormat>
                                                         <amx:cellFormat id="cf12" width="50%">
-                                                            <amx:outputText value=" Invoice Amount: #{row.invoiceAmount}"
+                                                            <amx:outputText value=" Invoice Amount: #{row.currencyCode} #{row.invoiceAmount}"
                                                                             id="ot14"
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         </amx:cellFormat>
@@ -204,7 +204,7 @@ alert('error '+adf.mf.util.stringify(response));
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         </amx:cellFormat>
                                                         <amx:cellFormat id="cf29" width="50%">
-                                                            <amx:outputText value=" CM Amount: #{row.invoiceAmount}"
+                                                            <amx:outputText value=" CM Amount: #{row.currencyCode} #{row.invoiceAmount}"
                                                                             id="ot12"
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         </amx:cellFormat>
@@ -291,7 +291,7 @@ alert('error '+adf.mf.util.stringify(response));
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         </amx:cellFormat>
                                                         <amx:cellFormat id="cf16" width="50%" halign="start">
-                                                            <amx:outputText value=" Invoice Amount: #{row.invoiceAmount}"
+                                                            <amx:outputText value=" Invoice Amount: #{row.currencyCode} #{row.invoiceAmount}"
                                                                             id="ot8"
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         </amx:cellFormat>
@@ -322,7 +322,7 @@ alert('error '+adf.mf.util.stringify(response));
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         </amx:cellFormat>
                                                         <amx:cellFormat id="cf33" width="50%">
-                                                            <amx:outputText value=" CM Amount: #{row.invoiceAmount}"
+                                                            <amx:outputText value=" CM Amount: #{row.currencyCode} #{row.invoiceAmount}"
                                                                             id="ot17"
                                                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         </amx:cellFormat>

@@ -1,5 +1,7 @@
 package com.company.myorders.application.model;
 
+import com.company.myorders.application.model.utility.OrdersUtilityBean;
+
 import java.util.Arrays;
 import java.util.List;
 import oracle.maf.api.cdm.persistence.util.EntityUtils;
@@ -307,7 +309,7 @@ public class Transactions extends Entity
   public void addTransactionActivities(int index, TransactionActivities transactionActivities)
   {
     transactionActivities.setIsNewEntity(true);
-         transactionActivities.setCustomerTrxId(getCustomerTrxId());
+         transactionActivities.setCustomerTrxId(getCustomerTrxId().toString());
       }
 
   /**

@@ -1,5 +1,7 @@
 package com.company.myorders.application.model;
 
+import com.company.myorders.application.model.utility.OrdersUtilityBean;
+
 import oracle.maf.api.cdm.persistence.model.Entity;
 
 

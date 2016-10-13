@@ -98,7 +98,28 @@
                                 </amx:cellFormat>
                             </amx:rowLayout>
                         </amx:tableLayout>
-                        <amx:tableLayout id="tl6" width="100%" cellSpacing="10">
+                        <amx:tableLayout id="tl4" width="100%" cellSpacing="10">
+                            <amx:rowLayout id="rl6">
+                                <amx:cellFormat id="cf10" width="20%">
+                                    <amx:spacer id="s3" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                                    <amx:image id="i4" source="/resources/css/images/Order value.png"
+                                               styleClass="detailimages"/>
+                                    <amx:spacer id="s4" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
+                                </amx:cellFormat>
+                                <amx:cellFormat id="cf14" width="80%">
+                                    <amx:panelGroupLayout id="pgl4">
+                                        <amx:outputText value="Transaction Amount" id="ot11" styleClass="detailhead"/>
+                                        <amx:outputText value="#{bindings.currencyCode.inputValue} #{bindings.invoiceAmount.inputValue}" id="ot7"
+                                                        styleClass="value"
+                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
+                                        <amx:outputText value="#{bindings.currencyCode1.inputValue} #{bindings.invoiceAmount1.inputValue}" id="ot15"
+                                                        styleClass="value"
+                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
+                                    </amx:panelGroupLayout>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                        <amx:tableLayout id="tl6" width="100%" inlineStyle="background-color:#ECECEC;" cellSpacing="10">
                             <amx:rowLayout id="rl5">
                                 <amx:cellFormat id="cf9" width="20%">
                                     <amx:spacer id="s6" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
@@ -110,31 +131,10 @@
                                     <amx:panelGroupLayout id="pgl5">
                                         <amx:outputText value="Transaction Open Amount" id="ot10"
                                                         styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.amountDue.inputValue}" id="ot6"
+                                        <amx:outputText value="#{bindings.currencyCode.inputValue} #{bindings.amountDue.inputValue}" id="ot6"
                                                         styleClass="value"
                                                         rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
-                                        <amx:outputText value="#{bindings.amountDue1.inputValue}" id="ot14"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
-                                    </amx:panelGroupLayout>
-                                </amx:cellFormat>
-                            </amx:rowLayout>
-                        </amx:tableLayout>
-                        <amx:tableLayout id="tl4" width="100%" inlineStyle="background-color:#ECECEC;" cellSpacing="10">
-                            <amx:rowLayout id="rl6">
-                                <amx:cellFormat id="cf10" width="20%">
-                                    <amx:spacer id="s3" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                                    <amx:image id="i4" source="/resources/css/images/Order value.png"
-                                               styleClass="detailimages"/>
-                                    <amx:spacer id="s4" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                                </amx:cellFormat>
-                                <amx:cellFormat id="cf14" width="80%">
-                                    <amx:panelGroupLayout id="pgl4">
-                                        <amx:outputText value="Transaction Amount" id="ot11" styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.invoiceAmount.inputValue}" id="ot7"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
-                                        <amx:outputText value="#{bindings.invoiceAmount1.inputValue}" id="ot15"
+                                        <amx:outputText value="#{bindings.currencyCode1.inputValue} #{bindings.amountDue1.inputValue}" id="ot14"
                                                         styleClass="value"
                                                         rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
                                     </amx:panelGroupLayout>
@@ -151,11 +151,11 @@
                                 </amx:cellFormat>
                                 <amx:cellFormat id="cf46" width="80%">
                                     <amx:panelGroupLayout id="pgl10">
-                                        <amx:outputText value="Applied Amount" id="ot39" styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.transactionAppliedAmt.inputValue}" id="ot50"
+                                        <amx:outputText value="Transaction Applied Amount" id="ot39" styleClass="detailhead"/>
+                                        <amx:outputText value="#{bindings.currencyCode.inputValue} #{bindings.transactionAppliedAmt.inputValue}" id="ot50"
                                                         styleClass="value"
                                                         rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
-                                        <amx:outputText value="#{bindings.transactionAppliedAmt1.inputValue}" id="ot51"
+                                        <amx:outputText value="#{bindings.currencyCode1.inputValue} #{bindings.transactionAppliedAmt1.inputValue}" id="ot51"
                                                         styleClass="value"
                                                         rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
                                     </amx:panelGroupLayout>
@@ -220,7 +220,7 @@
                                       rendered="#{pageFlowScope.currentTransTab!='ALL'}">
                             <amx:listItem id="li1"
                                           inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
-                                          showLinkIcon="false">
+                                          showLinkIcon="false" rendered="#{row.unitSellingPrice!=''}">
                                 <amx:tableLayout id="tl7" width="100%">
                                     <amx:rowLayout id="rl7">
                                         <amx:cellFormat id="cf37" width="10%"/>
@@ -244,7 +244,7 @@
                                                             styleClass="value"/>
                                         </amx:cellFormat>
                                         <amx:cellFormat id="cf50" width="30%">
-                                            <amx:outputText value="#{row.unitSellingPrice}" id="ot57"
+                                            <amx:outputText value="#{bindings.currencyCode.inputValue} #{row.unitSellingPrice}" id="ot57"
                                                             styleClass="value"/>
                                         </amx:cellFormat>
                                     </amx:rowLayout>
@@ -267,7 +267,7 @@
                                       rendered="#{pageFlowScope.currentTransTab=='ALL'}">
                             <amx:listItem id="li2"
                                           inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
-                                          showLinkIcon="false">
+                                          showLinkIcon="false" rendered="#{row.unitSellingPrice!=''}">
                                 <amx:tableLayout id="tl9" width="100%">
                                     <amx:rowLayout id="rl11">
                                         <amx:cellFormat id="cf39" width="10%"/>
@@ -277,7 +277,7 @@
                                         <amx:cellFormat id="cf22" width="30%">
                                             <amx:outputText value="Quantity" id="ot24" styleClass="detailhead"/>
                                         </amx:cellFormat>
-                                        <amx:cellFormat id="cf34" width="30%" columnSpan="2">
+                                        <amx:cellFormat id="cf34" width="30%">
                                             <amx:outputText value="Price" id="ot43" styleClass="detailhead"/>
                                         </amx:cellFormat>
                                     </amx:rowLayout>
@@ -291,7 +291,7 @@
                                                             styleClass="value"/>
                                         </amx:cellFormat>
                                         <amx:cellFormat id="cf51" width="30%">
-                                            <amx:outputText value="#{row.unitSellingPrice}" id="ot44"
+                                            <amx:outputText value="#{bindings.currencyCode1.inputValue} #{row.unitSellingPrice}" id="ot44"
                                                             styleClass="value"/>
                                         </amx:cellFormat>
                                     </amx:rowLayout>
@@ -343,7 +343,7 @@
                                             <amx:outputText value="#{row.applicationType}" id="ot27" styleClass="value"/>
                                         </amx:cellFormat>
                                         <amx:cellFormat id="cf18" width="30%">
-                                            <amx:outputText value="#{row.appliedAmount}" id="ot28" styleClass="value"/>
+                                            <amx:outputText value="#{bindings.currencyCode.inputValue} #{row.appliedAmount}" id="ot28" styleClass="value"/>
                                         </amx:cellFormat>
                                         <amx:cellFormat id="cf23" width="30%">
                                             <amx:outputText value="#{row.applicationStatus}" id="ot31" styleClass="value"/>
@@ -361,7 +361,7 @@
                                       rendered="#{pageFlowScope.currentTransTab=='ALL'}">
                             <amx:listItem id="li4"
                                           inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
-                                          showLinkIcon="false">
+                                          showLinkIcon="false" rendered="#{row.appliedAmount!=''}">
                                 <amx:tableLayout id="tl12" width="100%">
                                     <amx:rowLayout id="rl12">
                                         <amx:cellFormat id="cf42" width="10%"/>
@@ -381,7 +381,7 @@
                                             <amx:outputText value="#{row.applicationType}" id="ot35" styleClass="value"/>
                                         </amx:cellFormat>
                                         <amx:cellFormat id="cf31" width="30%">
-                                            <amx:outputText value="#{row.appliedAmount}" id="ot36" styleClass="value"/>
+                                            <amx:outputText value="#{bindings.currencyCode1.inputValue} #{row.appliedAmount}" id="ot36" styleClass="value"/>
                                         </amx:cellFormat>
                                         <amx:cellFormat id="cf32" width="30%">
                                             <amx:outputText value="#{row.applicationStatus}" id="ot37" styleClass="value"/>

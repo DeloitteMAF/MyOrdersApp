@@ -6,8 +6,8 @@
     <RefAddresses>
       <XmlRefAddr addrType="adfmfLogin">
         <Contents>
-          <login url="https://10.118.37.123:7005/OrderServiceApp/faces/Home.jspx"/>
-          <logout url="https://10.118.37.123:7005/OrderServiceApp/faces/Home.jspx"/>
+          <login url="https://app101111.glbsnet.com:444/OrderServiceApp/faces/Home.jspx"/>
+          <logout url="https://app101111.glbsnet.com:444/OrderServiceApp/faces/Home.jspx"/>
           <authenticationMode value="hybrid"/>
           <idleTimeout value="28800"/>
           <sessionTimeout value="28800"/>
@@ -32,7 +32,7 @@
     <RefAddresses>
       <XmlRefAddr addrType="OSBService">
         <Contents>
-          <restconnection name="OSBService" url="https://ussltcsnl3432.solutions.glbsnet.com:7002"/>
+          <restconnection name="OSBService" url="https://app101111.glbsnet.com:444"/>
         </Contents>
       </XmlRefAddr>
     </RefAddresses>

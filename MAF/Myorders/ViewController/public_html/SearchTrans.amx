@@ -61,9 +61,9 @@
         <amx:cellFormat id="cf7" width="50%">
               <amx:selectOneChoice id="soc1" value="#{pageFlowScope.fTransStatus}">
               <amx:selectItem id="si1" label="Choose Status" value=""/>
-                <amx:selectItem id="si8" label="Applied" value="F"/>
-                <amx:selectItem id="si2" label="Unapplied" value="U"/>
-                <amx:selectItem id="si3" label="Partially Applied" value="P"/>
+                <amx:selectItem id="si8" label="Applied" value="CF"/>
+                <amx:selectItem id="si2" label="Unapplied" value="CU"/>
+                <amx:selectItem id="si3" label="Partially Applied" value="CP"/>
                 <amx:selectItem id="si4" label="Paid" value="F"/>
                 <amx:selectItem id="si5" label="Unpaid" value="U"/>
                 <amx:selectItem id="si6" label="Partially Paid" value="P"/>

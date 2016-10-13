@@ -28,26 +28,11 @@
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>-->
-    <amx:tableLayout id="tl4" width="100%" cellPadding="10">
-      <amx:rowLayout id="rl5">
-        <amx:cellFormat id="cf10" width="10px"/>
-        <amx:cellFormat id="cf12" width="50%">
-          <amx:outputText value="Date Criteria" id="ot5" inlineStyle="font-size:small;"/>
-        </amx:cellFormat>
-        <amx:cellFormat id="cf11" width="50%">
-          <amx:selectOneChoice value="#{preferenceScope.application.userPref.orderby}" label="Arrange my orders by"
-                               simple="true">
-            <amx:selectItem label="Ordered Date" value="OrderedDate" id="si2"/>
-            <amx:selectItem label="Fulfillment Date" value="FulfillmentDate" id="si10"/>
-          </amx:selectOneChoice>
-        </amx:cellFormat>
-      </amx:rowLayout>
-    </amx:tableLayout>
-    <amx:tableLayout id="tl2" width="100%" inlineStyle="background-color:#ECECEC;" cellPadding="10">
+    <amx:tableLayout id="tl2" width="100%" cellPadding="10">
       <amx:rowLayout id="rl2">
         <amx:cellFormat id="cf4" width="10px"/>
         <amx:cellFormat id="cf5" width="50%">
-          <amx:outputText value="Arrange my orders by" id="ot2" inlineStyle="font-size:small;"/>
+          <amx:outputText value="Arrange Records By" id="ot2" inlineStyle="font-size:small;"/>
         </amx:cellFormat>
         <amx:cellFormat id="cf6" width="50%">
           <amx:selectOneChoice value="#{preferenceScope.application.userPref.orderby}" label="Arrange my orders by"
@@ -60,7 +45,7 @@
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>
-    <amx:tableLayout id="tl5" width="100%"  cellPadding="10">
+    <amx:tableLayout id="tl5" width="100%" inlineStyle="background-color:#ECECEC;"  cellPadding="10">
       <amx:rowLayout id="rl6">
         <amx:cellFormat id="cf13" width="10px"/>
         <amx:cellFormat id="cf14" width="50%">
@@ -77,17 +62,63 @@
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>
-     <amx:tableLayout id="tl6" width="100%" inlineStyle="background-color:#ECECEC;" cellPadding="10">
+     <amx:tableLayout id="tl6" width="100%" cellPadding="10">
       <amx:rowLayout id="rl7">
         <amx:cellFormat id="cf16" width="10px"/>
         <amx:cellFormat id="cf18" width="50%">
-          <amx:outputText value="Show closed orders" id="ot7" inlineStyle="font-size:small;"/>
+          <amx:outputText value="Show closed Records" id="ot7" inlineStyle="font-size:small;"/>
         </amx:cellFormat>
         <amx:cellFormat id="cf17" width="50%">
           <amx:selectOneChoice value="#{preferenceScope.application.userPref.showclosedorders}" label="Show Closed Orders"
                                simple="true">
             <amx:selectItem label="Yes" value="Yes" id="si8"/>
             <amx:selectItem label="No" value="No" id="si9"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:tableLayout id="tl4" width="100%" inlineStyle="background-color:#000000;" cellPadding="10">
+      <amx:rowLayout id="rl5">
+        <amx:cellFormat id="cf10" width="10px"/>
+        <amx:cellFormat id="cf12" width="100%">
+          <amx:outputText value="Orders Specific:" id="ot5" inlineStyle="font-size:large; color:White;"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:tableLayout id="tl3" width="100%" cellPadding="10">
+      <amx:rowLayout id="rl3">
+        <amx:cellFormat id="cf1" width="10px"/>
+        <amx:cellFormat id="cf7" width="50%">
+          <amx:outputText value="Orders Date Criteria" id="ot3" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf11" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.datetype}" label="Orders Date Criteria"
+                               simple="true">
+            <amx:selectItem label="Ordered Date" value="OrderedDate" id="si2"/>
+            <amx:selectItem label="Fulfillment Date" value="FulfillmentDate" id="si10"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:tableLayout id="tl7" width="100%" inlineStyle="background-color:#000000;" cellPadding="10">
+      <amx:rowLayout id="rl4">
+        <amx:cellFormat id="cf8" width="10px"/>
+        <amx:cellFormat id="cf9" width="100%">
+          <amx:outputText value="Transactions Specific:" id="ot4" inlineStyle="font-size:large; color:White;"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:tableLayout id="tl8" width="100%" cellPadding="10">
+      <amx:rowLayout id="rl8">
+        <amx:cellFormat id="cf19" width="10px"/>
+        <amx:cellFormat id="cf20" width="50%">
+          <amx:outputText value="Transactions Date Criteria" id="ot8" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf21" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.transdatetype}" label="Transactions Date Criteria"
+                               simple="true">
+            <amx:selectItem label="Transaction Date" value="TrxDate" id="si14"/>
+            <amx:selectItem label="Due Date" value="DueDate" id="si15"/>
           </amx:selectOneChoice>
         </amx:cellFormat>
       </amx:rowLayout>

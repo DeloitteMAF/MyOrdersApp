@@ -163,7 +163,7 @@
          </oneToManyMapping>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/GetARDetails/GetARDetailsRestService/-1/{noOfDays}/10/{userName}/{orderBy}/{fetchClosedOrders}/TrxDate" connectionName="OSBService" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+         <findAllMethod uri="/GetARDetails/GetARDetailsRestService/-1/{noOfDays}/10/{userName}/{orderBy}/{fetchClosedOrders}/{filterDateType}" connectionName="OSBService" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="orderNumber" value="#{preferenceScope.application.userPref.orderNumber}" valueProvider="ELExpression" pathParam="true"/>
             <parameter name="noOfDays" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" pathParam="true"/>
             <parameter name="userName" value="#{securityContext.userName}" valueProvider="ELExpression" pathParam="true"/>
@@ -219,7 +219,7 @@
          </oneToManyMapping>
       </attributeMappings>
       <methods>
-         <findAllMethod uri="/GetARDetails/GetARDetailsRestService/-1/{noOfDays}/-1/{userName}/{orderBy}/{fetchClosedOrders}/TrxDate" connectionName="OSBService" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+         <findAllMethod uri="/GetARDetails/GetARDetailsRestService/-1/{noOfDays}/-1/{userName}/{orderBy}/{fetchClosedOrders}/{filterDateType}" connectionName="OSBService" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
             <parameter name="orderNumber" value="#{preferenceScope.application.userPref.orderNumber}" valueProvider="ELExpression" pathParam="true"/>
             <parameter name="noOfDays" value="#{preferenceScope.application.userPref.dateRange}" valueProvider="ELExpression" pathParam="true"/>
             <parameter name="userName" value="#{securityContext.userName}" valueProvider="ELExpression" pathParam="true"/>
