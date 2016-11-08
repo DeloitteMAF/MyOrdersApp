@@ -157,7 +157,7 @@ public class OrdersManagedBean {
         // Add event code here...        
         try {
             AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
-            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
             providerChangeSupport.fireProviderRefresh("transactions");            
@@ -184,10 +184,11 @@ public class OrdersManagedBean {
     public void initiateDashboardTrans(){
         try {
             AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
-            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
-            providerChangeSupport.fireProviderRefresh("transactions");   
+            providerChangeSupport.fireProviderRefresh("transactions"); 
+           // providerChangeSupport.fireProviderRefresh("allTransactions");   
             //AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
             //AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.clearSearch}", "true");
         } catch (Exception e) {
@@ -199,6 +200,21 @@ public class OrdersManagedBean {
         try {
             AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.flushDataChangeEvent();
+//            providerChangeSupport.fireProviderRefresh("orders");       
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.clearSearch}", "true");
+//            clearSearch=true;
+//            getSearchStatus=false;
+        } catch (Exception e) {
+            e.getMessage();
+        }           
+    }
+    
+    public void refreshTrans(ActionEvent ae){
+        try {
+            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.flushDataChangeEvent();
 //            providerChangeSupport.fireProviderRefresh("orders");       
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
@@ -275,7 +291,7 @@ public void callButtonActionJS(String btn) {
         AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
         AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
         
-//        callButtonActionJS("cl4");
+ //       callButtonActionJS("cl4");
             Integer i =
                 (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator.iterator.totalRowCount}");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
@@ -306,12 +322,12 @@ public void callButtonActionJS(String btn) {
         AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
         
 //        callButtonActionJS("cl4");
-            Integer i =
-                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allTransacionsIterator.iterator.totalRowCount}");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.TransacionsCount}",i);
-            Integer j =
-                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.transacionsIterator.iterator.totalRowCount}");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topTransacionsCount}",j);
+//            Integer i =
+//                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allTransactionsIterator.iterator.totalRowCount}");
+//            AdfmfJavaUtilities.setELValue("#{pageFlowScope.TransactionsCount}",i);
+//            Integer j =
+//                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.transactionsIterator.iterator.totalRowCount}");
+//            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topTransactionsCount}",j);
     //        String featureID = AdfmfJavaUtilities.getFeatureId();
     //        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setFocusOnInput", new Object[] {});
         }
@@ -358,6 +374,53 @@ public void callButtonActionJS(String btn) {
                 ptypes.add(String.class);
                 AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
                 AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+            } catch (AdfInvocationException e) {
+                e.getMessage();
+            }
+            return null;
+        }else{
+            return "search"; 
+        }
+        
+    }
+
+    public String applyFiltersTrans() {
+        // Add event code here...
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchValue");
+        params.add("");
+        ptypes.add(String.class);
+        try {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterAppliedTrans}","Y");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
+            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
+            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
+        } catch (AdfInvocationException e) {
+            e.getMessage();
+        }
+        return "back";
+    }
+
+    public String createFilterTrans() {
+        // Add event code here...
+        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isFilterAppliedTrans}")=="Y"){
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderNo}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransValue}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransNo}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransStatus}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransAlert}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterAppliedTrans}","N");
+            try {
+                List pnames = new ArrayList();
+                List params = new ArrayList();
+                List ptypes = new ArrayList();
+                pnames.add("searchValue");
+                params.add("");
+                ptypes.add(String.class);
+                AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
+                AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
             } catch (AdfInvocationException e) {
                 e.getMessage();
             }
