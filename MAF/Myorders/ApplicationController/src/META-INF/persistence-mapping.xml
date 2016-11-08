@@ -283,6 +283,36 @@
       </attributeMappings>
       <methods/>
    </classMappingDescriptor>
+   <classMappingDescriptor className="com.company.myorders.application.model.Notifications" persisted="true">
+      <crudServiceClass className="com.company.myorders.application.model.service.NotificationsService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+      <table name="NOTIFICATIONS">
+         <primaryKeyColumn name="ORDER_NUMBER"/>
+         <primaryKeyColumn name="USER_NAME"/>
+         <primaryKeyColumn name="LAST_UPDATE_DATE"/>
+         <primaryKeyColumn name="LAST_UPDATED_BY"/>
+         <primaryKeyColumn name="LAST_UPDATE_LOGIN"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="orderNumber" payloadAttributeName="OrderNumber" columnName="ORDER_NUMBER" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.math.BigDecimal" keyAttribute="true"/>
+         <directMapping attributeName="userName" payloadAttributeName="UserName" columnName="USER_NAME" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="releasedFlag" payloadAttributeName="ReleasedFlag" columnName="RELEASED_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="processFlag" payloadAttributeName="ProcessFlag" columnName="PROCESS_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="message" payloadAttributeName="Message" columnName="MESSAGE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="lastUpdateDate" payloadAttributeName="LastUpdateDate" columnName="LAST_UPDATE_DATE" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="lastUpdatedBy" payloadAttributeName="LastUpdatedBy" columnName="LAST_UPDATED_BY" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="creationDate" payloadAttributeName="CreationDate" columnName="CREATION_DATE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="createdBy" payloadAttributeName="CreatedBy" columnName="CREATED_BY" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="lastUpdateLogin" payloadAttributeName="LastUpdateLogin" columnName="LAST_UPDATE_LOGIN" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="alertType" payloadAttributeName="AlertType" columnName="ALERT_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="publishedFlag" payloadAttributeName="PublishedFlag" columnName="PUBLISHED_FLAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+      </attributeMappings>
+      <methods>
+         <findAllMethod uri="/GetCustomerNotification/GetCustomerNotificationRestService/{userName}/{noOfDays}" connectionName="OSBService" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="result">
+            <parameter name="userName" pathParam="true"/>
+            <parameter name="noOfDays" pathParam="true"/>
+         </findAllMethod>
+      </methods>
+   </classMappingDescriptor>
    <classMappingDescriptor className="oracle.maf.api.cdm.persistence.service.DataSynchAction" dateFormat="dd-MMM-yyyy">
       <table name="DATA_SYNCH_ACTIONS">
          <primaryKeyColumn name="SERVICE_CLASS_NAME"/>

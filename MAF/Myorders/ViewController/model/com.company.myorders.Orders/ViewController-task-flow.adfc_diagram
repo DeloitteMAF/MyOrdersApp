@@ -220,7 +220,7 @@
       <property
          name="fromOutcome">registered</property>
       <property
-         name="sdm:polyPoints">R50,-300.0,154.94824,-14.106897,-0.9368477,L46</property>
+         name="sdm:polyPoints">R50,-300.0,154.94824,-14.109859,-1.2874336,L46</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall20">
@@ -253,18 +253,18 @@
       <property
          name="fromOutcome">goToOrders</property>
       <property
-         name="sdm:polyPoints">T56,-204.5,300.24707,-11.333336,6.0631523,L54</property>
+         name="sdm:polyPoints">T56,-204.5,300.24707,-11.333313,5.7125664,L54</property>
    </ControlFlowCase>
    <Router
       id="Router23">
       <property
          name="activityId">router2</property>
       <property
-         name="x">29.666664</property>
+         name="x">29.666687</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>router2&lt;/b>&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
       <property
-         name="y">2.9137383</property>
+         name="y">2.5631523</property>
       <property
          name="exceptionHandler">false</property>
    </Router>
@@ -276,7 +276,7 @@
       <property
          name="fromOutcome">getAllOrder</property>
       <property
-         name="sdm:polyPoints">R54,70.666664,6.0631523,68.0,109.94238,R46</property>
+         name="sdm:polyPoints">R54,70.66669,5.7125664,68.0,109.94238,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -286,6 +286,6 @@
       <property
          name="fromOutcome">goToOrder</property>
       <property
-         name="sdm:polyPoints">R46,75.03235,-0.9368477,525.0,210.5459,T50</property>
+         name="sdm:polyPoints">R46,75.033226,-1.2874336,525.0,210.5459,T50</property>
    </ControlFlowCase>
 </SDM>
