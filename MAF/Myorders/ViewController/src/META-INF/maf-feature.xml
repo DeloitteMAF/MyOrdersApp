@@ -44,6 +44,7 @@
     <adfmf:content id="com.company.myorders.Transactions.1">
       <adfmf:amx file="com.company.myorders.Transactions/TransactionTF.xml#TransactionTF">
         <adfmf:includes>
+          <adfmf:include type="JavaScript" file="resources/NavigationHandler.js" id="i3"/>
           <adfmf:include type="JavaScript" file="resources/js/jquery.js" id="i2"/>
         </adfmf:includes>
       </adfmf:amx>
