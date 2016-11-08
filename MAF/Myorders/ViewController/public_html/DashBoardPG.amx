@@ -11,7 +11,7 @@
 jQuery(function($){
 
 $( 'html').on('keyup','#it2__inputElement',function() {
-  //alert("on keyup");
+ // alert("on keyup");
   var searchVal=$('#it2__inputElement').val();
  // alert( "Handler for .keydown() called. "+searchVal );
   adf.mf.api.invokeMethod("com.company.myorders.application.OrdersManagedBean", "onKeyDownSearch",searchVal , onSuccess, onFail);
@@ -38,7 +38,7 @@ alert('error '+adf.mf.util.stringify(response));
                         <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="middle">
                             <amx:panelGroupLayout id="pgl2"
                                                   rendered="#{!applicationScope.OrdersManagedBean.getSearchStatus}">
-                                <amx:outputText value="#{bindings.partyName.inputValue}" id="ot1"
+                                <amx:outputText value="Orders Dashboard" id="ot1"
                                                 inlineStyle="padding: 13px;"/>
                             </amx:panelGroupLayout>
                             <amx:panelGroupLayout id="pgl4"
@@ -94,6 +94,7 @@ alert('error '+adf.mf.util.stringify(response));
                         <amx:setPropertyListener id="spl12" type="action"
                                                  to="#{applicationScope.OrdersManagedBean.clearSearch}"
                                                  from="#{'true'}"/>
+                        <amx:setPropertyListener id="spl13" to="#{bindings.searchValue.inputValue}" from="#{''}"/>
                         <amx:setPropertyListener id="spl21" from="#{'1'}" to="#{pageFlowScope.OrdersCount}"/>
                         <amx:setPropertyListener id="spl22" from="#{'1'}" to="#{pageFlowScope.topOrdersCount}"/>
                     </amx:commandButton>
