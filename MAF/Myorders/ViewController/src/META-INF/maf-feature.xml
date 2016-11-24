@@ -50,4 +50,14 @@
       </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
+  <adfmf:feature id="com.company.myorders.NotificationHistory" name="NotificationHistory" securityEnabled="true">
+    <adfmf:content id="com.company.myorders.NotificationHistory.1">
+      <adfmf:amx file="com.company.myorders.NotificationHistory/NotificationTF.xml#NotificationTF">
+        <adfmf:includes>
+          <adfmf:include type="JavaScript" file="resources/NavigationHandler.js" id="i7"/>
+          <adfmf:include type="JavaScript" file="resources/js/jquery.js" id="i9"/>
+        </adfmf:includes>
+      </adfmf:amx>
+    </adfmf:content>
+  </adfmf:feature>
 </adfmf:features>

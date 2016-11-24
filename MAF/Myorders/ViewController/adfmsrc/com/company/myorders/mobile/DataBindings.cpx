@@ -10,6 +10,8 @@
     <page path="/OrderLines.amx" usageId="com_company_myorders_mobile_OrderLinesPageDef"/>
     <page path="/DashboardTransPG.amx" usageId="com_company_myorders_mobile_DashboardTransPGPageDef"/>
     <page path="/TransLines.amx" usageId="com_company_myorders_mobile_TransLinesPageDef"/>
+    <page path="/NotificationHistory.amx"
+          usageId="com_company_myorders_mobile_NotificationHistoryPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_company_myorders_mobile_DashBoardPGPageDef"
@@ -24,8 +26,11 @@
           path="com.company.myorders.mobile.pageDefs.DashboardTransPGPageDef"/>
     <page id="com_company_myorders_mobile_TransLinesPageDef"
           path="com.company.myorders.mobile.pageDefs.TransLinesPageDef"/>
+    <page id="com_company_myorders_mobile_NotificationHistoryPageDef"
+          path="com.company.myorders.NotificationHistory.NotificationHistoryPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="NotificationsService" path="com.company.myorders.application.NotificationsService"/>
     <dc id="AllTransactionsService" path="com.company.myorders.application.AllTransactionsService"/>
     <dc id="TransactionsService" path="com.company.myorders.application.TransactionsService"/>
     <dc id="AllOrdersService"   path="com.company.myorders.application.AllOrdersService"/>

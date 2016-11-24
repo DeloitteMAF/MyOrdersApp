@@ -1,5 +1,7 @@
 package com.company.myorders.application.model;
 
+import com.company.myorders.application.model.utility.OrdersUtilityBean;
+
 import oracle.maf.api.cdm.persistence.model.Entity;
 
        import java.math.BigDecimal;
@@ -8,7 +10,7 @@ import oracle.maf.api.cdm.persistence.model.Entity;
 public class Notifications extends Entity
 {
 
-      private BigDecimal orderNumber;
+      private String orderNumber;
       private String userName;
       private String releasedFlag;
       private String processFlag;
@@ -23,12 +25,12 @@ public class Notifications extends Entity
   
   
   
-      public BigDecimal getOrderNumber()
+      public String getOrderNumber()
     {
             return this.orderNumber;
     }
 
-    public void setOrderNumber(BigDecimal orderNumber)
+    public void setOrderNumber(String orderNumber)
     {
       this.orderNumber = orderNumber;
     }
@@ -75,7 +77,8 @@ public class Notifications extends Entity
 
       public String getLastUpdateDate()
     {
-            return this.lastUpdateDate;
+        OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
+        return ordersUtilityBean.toDateTime(this.lastUpdateDate);
     }
 
     public void setLastUpdateDate(String lastUpdateDate)
@@ -95,7 +98,8 @@ public class Notifications extends Entity
 
       public String getCreationDate()
     {
-            return this.creationDate;
+        OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
+        return ordersUtilityBean.toDateTime(this.creationDate);
     }
 
     public void setCreationDate(String creationDate)

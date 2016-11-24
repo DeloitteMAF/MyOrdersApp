@@ -23,12 +23,20 @@ import java.util.Locale;
 public class AllOrders extends Entity {
 
     private String orderNumber;
-    private String partyName;
-    private String accountNumber;
+    private String customer;
+    private String customerNumber;
     private String flowStatusCode;
     private String orderedDate;
     private String custPoNumber;
-    private String totalOrderedValue;
+    private String totalActual;
+    private String total;
+    private String subTotal;
+    private String tax;
+    private String charges;
+    private String contact;
+    private String contactName;
+    private String emailAddres;
+    private String phoneNumber;
     private BigDecimal headerId;
     private String currencyCode;
     private String orderAlertFlag;
@@ -53,20 +61,20 @@ public class AllOrders extends Entity {
         return currencyCode;
     }
 
-    public String getPartyName() {
-        return this.partyName;
+    public String getCustomer() {
+        return this.customer;
     }
 
-    public void setPartyName(String partyName) {
-        this.partyName = partyName;
+    public void setCustomer(String customer) {
+        this.customer = customer;
     }
 
-    public String getAccountNumber() {
-        return this.accountNumber;
+    public String getCustomerNumber() {
+        return this.customerNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setCustomerNumber(String customerNumber) {
+        this.customerNumber = customerNumber;
     }
 
     public String getFlowStatusCode() {
@@ -94,13 +102,13 @@ public class AllOrders extends Entity {
         this.custPoNumber = custPoNumber;
     }
 
-    public String getTotalOrderedValue() {
+    public String getTotalActual() {
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
-        return formatter.format(new BigDecimal(this.totalOrderedValue).longValue());
+        return formatter.format(new BigDecimal(this.totalActual).longValue());
     }
 
-    public void setTotalOrderedValue(String totalOrderedValue) {
-        this.totalOrderedValue = totalOrderedValue;
+    public void setTotalActual(String totalActual) {
+        this.totalActual = totalActual;
     }
 
     public BigDecimal getHeaderId() {
@@ -158,5 +166,72 @@ public class AllOrders extends Entity {
 
     public String getOrderAlertFlag() {
         return orderAlertFlag;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setSubTotal(String subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    public String getSubTotal() {
+        DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+        return formatter.format(new BigDecimal(this.subTotal).longValue());
+    }
+
+    public void setTax(String tax) {
+        this.tax = tax;
+    }
+
+    public String getTax() {
+        DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+        return formatter.format(new BigDecimal(this.tax).longValue());
+    }
+
+    public void setCharges(String charges) {
+        this.charges = charges;
+    }
+
+    public String getCharges() {
+        DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+        return formatter.format(new BigDecimal(this.charges).longValue());
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
+    }
+
+    public String getContactName() {
+        return contactName;
+    }
+
+    public void setEmailAddres(String emailAddres) {
+        this.emailAddres = emailAddres;
+    }
+
+    public String getEmailAddres() {
+        return emailAddres;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }

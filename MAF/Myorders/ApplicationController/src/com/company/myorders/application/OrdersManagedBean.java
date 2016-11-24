@@ -166,6 +166,19 @@ public class OrdersManagedBean {
             e.getMessage();
         }
     }
+
+    public void pullDownToRefreshNotification(ActionEvent actionEvent) {
+        // Add event code here...        
+        try {
+            AdfmfJavaUtilities.invokeDataControlMethod("NotificationsService", null, "findAllNotificationsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            Thread.sleep(5000);
+            AdfmfJavaUtilities.flushDataChangeEvent();
+            providerChangeSupport.fireProviderRefresh("notifications");            
+            isRefreshComplete=true;
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
     
     public void initiateDashboard(){
         try {
@@ -191,6 +204,17 @@ public class OrdersManagedBean {
            // providerChangeSupport.fireProviderRefresh("allTransactions");   
             //AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
             //AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.clearSearch}", "true");
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+    
+    public void initiateNotifications(){
+        try {
+            AdfmfJavaUtilities.invokeDataControlMethod("NotificationsService", null, "findAllNotificationsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            Thread.sleep(5000);
+            AdfmfJavaUtilities.flushDataChangeEvent();
+            providerChangeSupport.fireProviderRefresh("notifications");
         } catch (Exception e) {
             e.getMessage();
         }

@@ -8,6 +8,7 @@
                           showOnSpringboard="false" loginConnRefId="MyOrderAppAuth"/>
   <adfmf:featureReference refId="com.company.myorders.Search" id="fr4" loginConnRefId="MyOrderAppAuth"/>
   <adfmf:featureReference refId="com.company.myorders.Transactions" id="fr5" loginConnRefId="MyOrderAppAuth"/>
+  <adfmf:featureReference refId="com.company.myorders.NotificationHistory" id="fr6"/>
   <adfmf:preferences>
     <adfmf:preferenceGroup id="userPref">
       <adfmf:preferenceText id="location" default="US" secret="false" label="Location"/>
@@ -16,6 +17,7 @@
       <adfmf:preferenceText id="orderby" label="Order By" default="datedesc"/>
       <adfmf:preferenceText id="locationName" label="Location Full Name" default="United States"/>
       <adfmf:preferenceNumber id="dateRange" label="Date Range" default="-1"/>
+      <adfmf:preferenceNumber id="dateRangeNot" label="Notification Date Range" default="-1"/>
       <adfmf:preferenceText id="datetype" label="Date Type" default="OrderedDate"/>
       <adfmf:preferenceText id="transdatetype" label="Transaction Date Type" default="TrxDate"/>
       <adfmf:preferenceText id="gcmSenderId" label="GCM Sender Id" default="418168426760"/>

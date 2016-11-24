@@ -14,10 +14,10 @@
                       DataControl="ResultService" BeanClass="com.company.myorders.application.model.Result"/>
   </executables>
   <bindings>
-    <list StaticList="false" IterBinding="ordersIterator" ListIter="resultIterator" id="partyName" DTSupportsMRU="true"
+    <list StaticList="false" IterBinding="ordersIterator" ListIter="resultIterator" id="customer" DTSupportsMRU="true"
           SelectItemValueMode="ListObject">
       <AttrNames>
-        <Item Value="partyName"/>
+        <Item Value="customer"/>
       </AttrNames>
       <ListAttrNames>
         <Item Value="locationCode"/>

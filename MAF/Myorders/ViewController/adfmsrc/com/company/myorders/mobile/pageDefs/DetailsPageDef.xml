@@ -39,9 +39,9 @@
         <Item Value="flowStatusCode"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="allOrdersIterator" id="totalOrderedValue">
+    <attributeValues IterBinding="allOrdersIterator" id="totalActual">
       <AttrNames>
-        <Item Value="totalOrderedValue"/>
+        <Item Value="totalActual"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="ordersIterator" id="flowStatusCode1">
@@ -59,9 +59,9 @@
         <Item Value="custPoNumber"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ordersIterator" id="totalOrderedValue1">
+    <attributeValues IterBinding="ordersIterator" id="totalActual1">
       <AttrNames>
-        <Item Value="totalOrderedValue"/>
+        <Item Value="totalActual"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="ordersIterator" id="orderNumber1">

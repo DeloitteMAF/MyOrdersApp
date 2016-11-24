@@ -29,13 +29,13 @@
                     <Item Value="orderNumber"/>
                     <Item Value="orderedDate"/>
                     <Item Value="flowStatusCode"/>
-                    <Item Value="totalOrderedValue"/>
-                    <Item Value="accountNumber"/>
+                    <Item Value="totalActual"/>
+                    <Item Value="customerNumber"/>
                     <Item Value="custPoNumber"/>
                     <Item Value="headerId"/>
                     <Item Value="isNewEntity"/>
                     <Item Value="key"/>
-                    <Item Value="partyName"/>
+                    <Item Value="customer"/>
                     <Item Value="currencyCode"/>
                     <Item Value="orderAlertFlag"/>
                 </AttrNames>
@@ -45,14 +45,14 @@
             <nodeDefinition DefName="com.company.myorders.application.model.AllOrders" Name="allOrders0">
                 <AttrNames>
                     <Item Value="orderNumber"/>
-                    <Item Value="accountNumber"/>
+                    <Item Value="customerNumber"/>
                     <Item Value="custPoNumber"/>
                     <Item Value="flowStatusCode"/>
                     <Item Value="isNewEntity"/>
                     <Item Value="key"/>
                     <Item Value="orderedDate"/>
-                    <Item Value="partyName"/>
-                    <Item Value="totalOrderedValue"/>
+                    <Item Value="customer"/>
+                    <Item Value="totalActual"/>
                     <Item Value="headerId"/>
                     <Item Value="currencyCode"/>
                     <Item Value="orderAlertFlag"/>
@@ -82,9 +82,9 @@
         <methodAction id="findAllAllOrdersRemote" RequiresUpdateModel="true" Action="invokeMethod"
                       MethodName="findAllAllOrdersRemote" IsViewObjectMethod="false" DataControl="AllOrdersService"
                       InstanceName="data.AllOrdersService.dataProvider"/>
-        <attributeValues IterBinding="ordersIterator" id="partyName">
+        <attributeValues IterBinding="ordersIterator" id="customer">
             <AttrNames>
-                <Item Value="partyName"/>
+                <Item Value="customer"/>
             </AttrNames>
         </attributeValues>
         <tree IterBinding="xxMyOrderDetailsVOIterator" id="xxMyOrderDetailsVO1">

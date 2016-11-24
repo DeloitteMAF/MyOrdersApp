@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.13.26" id="SettingsPageDef"
+                Package="com.company.myorders.NotificationsHistory">
+  <parameters/>
+  <executables>
+    <iterator Binds="root" RangeSize="25" DataControl="NotificationsService" id="NotificationsServiceIterator"/>
+    <accessorIterator MasterBinding="NotificationsServiceIterator" Binds="notifications" RangeSize="25"
+                      DataControl="NotificationsService"
+                      BeanClass="com.company.myorders.application.model.Notifications" id="notificationsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="notificationsIterator" id="notifications">
+      <nodeDefinition DefName="com.company.myorders.application.model.Notifications" Name="notifications0">
+        <AttrNames>
+          <Item Value="lastUpdateDate"/>
+          <Item Value="message"/>
+          <Item Value="orderNumber"/>
+          <Item Value="creationDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

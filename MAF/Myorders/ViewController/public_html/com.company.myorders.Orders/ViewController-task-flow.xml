@@ -64,6 +64,9 @@
       </case>
       <default-outcome>getAllOrder</default-outcome>
     </router>
+    <view id="NotificationHistory">
+      <page>/NotificationHistory.amx</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>DashBoard</from-activity-id>
       <control-flow-case id="__3">

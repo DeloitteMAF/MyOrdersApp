@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="NotificationTF">
+    <default-activity>getNotifications</default-activity>
+    <view id="NotificationHistory">
+      <page>/NotificationHistory.amx</page>
+    </view>
+    <method-call id="getNotifications">
+      <method>#{applicationScope.OrdersManagedBean.initiateNotifications}</method>
+      <outcome>
+        <fixed-outcome>goToNotifications</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>getNotifications</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>goToNotifications</from-outcome>
+        <to-activity-id>NotificationHistory</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

@@ -117,9 +117,9 @@
                 <amx:cellFormat id="cf14" width="80%">
                   <amx:panelGroupLayout id="pgl4">
                     <amx:outputText value="Order Value" id="ot11" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.totalOrderedValue.inputValue}" id="ot7" styleClass="value"
+                    <amx:outputText value="#{bindings.totalActual.inputValue}" id="ot7" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-                    <amx:outputText value="#{bindings.totalOrderedValue1.inputValue}" id="ot15" styleClass="value"
+                    <amx:outputText value="#{bindings.totalActual1.inputValue}" id="ot15" styleClass="value"
                                     rendered="#{pageFlowScope.currentTab!='ALL'}"/>
                   </amx:panelGroupLayout>
                 </amx:cellFormat>

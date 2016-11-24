@@ -111,7 +111,7 @@
       <property
          name="fromOutcome">openLineDetails</property>
       <property
-         name="sdm:polyPoints">R46,566.36346,261.0459,784.0,283.74707,L46</property>
+         name="sdm:polyPoints">R46,566.4191,261.0459,783.39594,287.24707,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -220,7 +220,7 @@
       <property
          name="fromOutcome">registered</property>
       <property
-         name="sdm:polyPoints">R50,-300.0,154.94824,-14.109859,-1.2874336,L46</property>
+         name="sdm:polyPoints">R50,-300.0,154.94824,-14.133627,-4.0921173,L46</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall20">
@@ -253,7 +253,7 @@
       <property
          name="fromOutcome">goToOrders</property>
       <property
-         name="sdm:polyPoints">T56,-204.5,300.24707,-11.333313,5.7125664,L54</property>
+         name="sdm:polyPoints">T56,-204.5,300.24707,-11.333313,2.9078827,L54</property>
    </ControlFlowCase>
    <Router
       id="Router23">
@@ -264,7 +264,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>router2&lt;/b>&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
       <property
-         name="y">2.5631523</property>
+         name="y">-0.24153137</property>
       <property
          name="exceptionHandler">false</property>
    </Router>
@@ -276,7 +276,7 @@
       <property
          name="fromOutcome">getAllOrder</property>
       <property
-         name="sdm:polyPoints">R54,70.66669,5.7125664,68.0,109.94238,R46</property>
+         name="sdm:polyPoints">R54,70.66669,2.9078827,68.0,109.94238,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -286,6 +286,21 @@
       <property
          name="fromOutcome">goToOrder</property>
       <property
-         name="sdm:polyPoints">R46,75.033226,-1.2874336,525.0,210.5459,T50</property>
+         name="sdm:polyPoints">R46,75.039246,-3.7415314,525.0,210.5459,T50</property>
    </ControlFlowCase>
+   <View
+      id="View26">
+      <property
+         name="activityId">NotificationHistory</property>
+      <property
+         name="x">2.3486328</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>NotificationHistory&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">432.79883</property>
+      <property
+         name="page">/com.company.myorders.NotificationHistory/NotificationHistory.amx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
 </SDM>

@@ -9,9 +9,9 @@
                       BeanClass="com.company.myorders.application.model.Orders" id="ordersIterator"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="ordersIterator" id="partyName">
+    <attributeValues IterBinding="ordersIterator" id="customer">
       <AttrNames>
-        <Item Value="partyName"/>
+        <Item Value="customer"/>
       </AttrNames>
     </attributeValues>
     <methodAction id="resetFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"

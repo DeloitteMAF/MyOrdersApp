@@ -164,7 +164,7 @@ alert('error '+adf.mf.util.stringify(response));
                                                         <amx:outputText value="Order# #{row.orderNumber} " id="ot3"
                                                                         inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         <amx:spacer id="s16" width="10"/>
-                                                        <amx:outputText value=" Amount: #{row.currencyCode} #{row.totalOrderedValue}"
+                                                        <amx:outputText value=" Amount: #{row.currencyCode} #{row.totalActual}"
                                                                         id="ot14"
                                                                         inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                     </amx:panelGroupLayout>
@@ -196,8 +196,8 @@ alert('error '+adf.mf.util.stringify(response));
                                                              to="#{viewScope.orderedDate}" type="tapHold"/>
                                     <amx:setPropertyListener id="spl9" from="#{row.orderNumber}"
                                                              to="#{viewScope.orderNumber}" type="tapHold"/>
-                                    <amx:setPropertyListener id="spl10" from="#{row.totalOrderedValue}"
-                                                             to="#{viewScope.totalOrderedValue}" type="tapHold"/>
+                                    <amx:setPropertyListener id="spl10" from="#{row.totalActual}"
+                                                             to="#{viewScope.totalActual}" type="tapHold"/>
                                     <amx:setPropertyListener id="spl14" from="#{''}"
                                                              to="#{pageFlowScope.detailCurrentTab}"/>
                                     <amx:setPropertyListener id="spl15" to="#{pageFlowScope.lineCurrentTab}"
@@ -246,7 +246,7 @@ alert('error '+adf.mf.util.stringify(response));
                                                         <amx:outputText value="Order# #{row.orderNumber}" id="ot10"
                                                                         inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                         <amx:spacer id="s6" width="10"/>
-                                                        <amx:outputText value=" Amount: #{row.currencyCode} #{row.totalOrderedValue}"
+                                                        <amx:outputText value=" Amount: #{row.currencyCode} #{row.totalActual}"
                                                                         id="ot6"
                                                                         inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                                                     </amx:panelGroupLayout>
@@ -336,7 +336,7 @@ alert('error '+adf.mf.util.stringify(response));
                             <amx:outputText value="Order ##{viewScope.orderNumber} " id="ot11"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                             <amx:spacer id="s15" width="10"/>
-                            <amx:outputText value=" Amount: $#{viewScope.totalOrderedValue}" id="ot12"
+                            <amx:outputText value=" Amount: $#{viewScope.totalActual}" id="ot12"
                                             inlineStyle="width:auto; font-size:small; font-weight:bold;"/>
                         </amx:panelGroupLayout>
                         <amx:outputText value="Status #{viewScope.flowStatusCode}" id="ot13"

@@ -15,7 +15,7 @@
     <!-- SuppressWarning: org.adfemg.audits.expressionlanguage.bean-scope-prefix -->
     <amx:selectOneChoice value="#{preferenceScope.application.userPref.location}" label="Location" id="soc1"
                          rendered="false">
-      <amx:selectItems value="#{bindings.partyName.items}" id="si1"/>
+      <amx:selectItems value="#{bindings.customer.items}" id="si1"/>
     </amx:selectOneChoice>
         <!--<amx:tableLayout id="tl3" width="100%"  cellPadding="10">
       <amx:rowLayout id="rl4">
@@ -119,6 +119,31 @@
                                simple="true">
             <amx:selectItem label="Transaction Date" value="TrxDate" id="si14"/>
             <amx:selectItem label="Due Date" value="DueDate" id="si15"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:tableLayout id="tl9" width="100%" inlineStyle="background-color:#000000;" cellPadding="10">
+      <amx:rowLayout id="rl9">
+        <amx:cellFormat id="cf22" width="10px"/>
+        <amx:cellFormat id="cf23" width="100%">
+          <amx:outputText value="Notification History Specific:" id="ot9" inlineStyle="font-size:large; color:White;"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    <amx:tableLayout id="tl10" width="100%" inlineStyle="background-color:#ECECEC;"  cellPadding="10">
+      <amx:rowLayout id="rl10">
+        <amx:cellFormat id="cf24" width="10px"/>
+        <amx:cellFormat id="cf25" width="50%">
+          <amx:outputText value="Date Range" id="ot10" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf26" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.dateRangeNot}" label="Date Range"
+                               simple="true">
+            <amx:selectItem label="Last 10 Days" value="10" id="si16"/>
+            <amx:selectItem label="Last 20 Days" value="20" id="si17"/>
+            <amx:selectItem label="Last 30 Days" value="30" id="si18"/>
+            <amx:selectItem label="All" value="-1" id="si19"/>
           </amx:selectOneChoice>
         </amx:cellFormat>
       </amx:rowLayout>

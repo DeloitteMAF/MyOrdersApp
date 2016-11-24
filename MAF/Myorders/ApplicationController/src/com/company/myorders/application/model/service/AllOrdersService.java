@@ -81,7 +81,7 @@ public class AllOrdersService extends EntityCRUDService<AllOrders> {
             if(orderNo!=null){
                 allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getOrderNumber().startsWith(orderNo));
             }else if(item!=null){
-                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getTotalOrderedValue().startsWith(item));
+                allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getTotalActual().startsWith(item));
             }else if(po!=null){
                 allOrderRow=allOrderRow.filter(allOrdersNew -> allOrdersNew.getCustPoNumber().startsWith(po));
             }else if(status!=null){
