@@ -22,21 +22,19 @@
                           selectedRowKeys="#{bindings.notifications.collectionModel.selectedRow}"
                           initialScrollRowKeys="#{bindings.notifications.collectionModel.selectedRow}"
                           selectionListener="#{bindings.notifications.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
-                          bufferStrategy="viewport" id="lv1">
+                          bufferStrategy="viewport" id="lv1" collapsibleDividers="true" showDividerCount="true"
+                          dividerMode="all" dividerAttribute="lastUpdateDate">
               <amx:listItem id="li1"
                             inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}&quot;">
                 <amx:tableLayout id="tl2" width="100%" layout="fixed">
                   <amx:rowLayout id="rl2">
+                    <amx:cellFormat id="cf5" width="5%">
+                        <amx:spacer id="s1" width="5"/>
+                    </amx:cellFormat>
                     <amx:cellFormat id="cf3" width="5%">
                       <amx:outputText value="#{row.orderNumber}" id="ot2"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf5" width="10%">
-                       <amx:outputText value="lastUpdateDate #{row.lastUpdateDate}" id="ot4"/>
-                    </amx:cellFormat>
-                    <amx:cellFormat id="cf6" width="10%">
-                       <amx:outputText value="creationDate #{row.creationDate}" id="ot5"/>
-                    </amx:cellFormat>
-                    <amx:cellFormat id="cf4" width="75%">
+                    <amx:cellFormat id="cf4" width="90%">
                        <amx:outputText value="#{row.message}" id="ot3"/>
                     </amx:cellFormat>
                   </amx:rowLayout>
