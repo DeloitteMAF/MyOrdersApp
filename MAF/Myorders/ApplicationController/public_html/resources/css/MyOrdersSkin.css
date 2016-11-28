@@ -4,6 +4,24 @@
 
 @import url('../font-awesome-4.3.0/css/font-awesome.css');
 
+.amx-listView-divider{
+    background-color: Black;
+}
+
+.amx-listView-divider .amx-listView-dividerText{
+    color: White;  
+}
+/*html[dir=ltr] .amx-listView-disclosedIcon{
+    background-image: url("../../expand-button.png");
+}
+html[dir=ltr] .amx-listView-undisclosedIcon{
+    background-image: url("../../collapse-button.png");    
+}
+*/
+.amx-listView-dividerCounter{
+    background-color:#1EBE92;
+    border-color:#1EBE92;
+}
 
 #it1__inputElement {
 
