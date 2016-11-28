@@ -78,7 +78,7 @@ public class Notifications extends Entity
       public String getLastUpdateDate()
     {
         OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
-        return ordersUtilityBean.toDateTime(this.lastUpdateDate);
+        return ordersUtilityBean.toDateTimeTZ(this.lastUpdateDate);
     }
 
     public void setLastUpdateDate(String lastUpdateDate)
@@ -99,7 +99,7 @@ public class Notifications extends Entity
       public String getCreationDate()
     {
         OrdersUtilityBean ordersUtilityBean=new OrdersUtilityBean();
-        return ordersUtilityBean.toDateTime(this.creationDate);
+        return ordersUtilityBean.toDateTimeTZ(this.creationDate);
     }
 
     public void setCreationDate(String creationDate)

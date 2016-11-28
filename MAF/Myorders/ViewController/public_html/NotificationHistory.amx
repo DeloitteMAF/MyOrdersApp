@@ -31,10 +31,7 @@
                     <amx:cellFormat id="cf5" width="5%">
                         <amx:spacer id="s1" width="5"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf3" width="5%">
-                      <amx:outputText value="#{row.orderNumber}" id="ot2"/>
-                    </amx:cellFormat>
-                    <amx:cellFormat id="cf4" width="90%">
+                    <amx:cellFormat id="cf4" width="95%">
                        <amx:outputText value="#{row.message}" id="ot3"/>
                     </amx:cellFormat>
                   </amx:rowLayout>
