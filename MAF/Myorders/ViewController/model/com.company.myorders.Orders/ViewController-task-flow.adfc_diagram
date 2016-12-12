@@ -24,11 +24,11 @@
       <property
          name="activityId">SpringBoard</property>
       <property
-         name="x">171.35449</property>
+         name="x">122.35449</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SpringBoard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">387.29297</property>
+         name="y">445.5918</property>
       <property
          name="page">/com.company.myorders.SpringBoard/SpringBoard.amx</property>
       <property
@@ -39,11 +39,11 @@
       <property
          name="activityId">Settings</property>
       <property
-         name="x">43.5</property>
+         name="x">-96.5</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Settings&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">320.09766</property>
+         name="y">422.39648</property>
       <property
          name="page">/com.company.myorders.Settings/Settings.amx</property>
       <property
@@ -152,7 +152,7 @@
       islink="true"
       id="ControlFlowCase27"
       from="MethodCall13"
-      to="View2">
+      to="View27">
       <property
          name="tosrcid">__11</property>
       <property
@@ -160,7 +160,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">B50,27.0,167.44238,174.0,272.1953,L50</property>
+         name="sdm:polyPoints">B50,27.0,167.44238,-71.0,202.19531,T50</property>
    </ControlFlowCase>
    <View
       id="View15">
@@ -208,7 +208,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>router1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
       <property
-         name="y">155.29883</property>
+         name="y">153.89648</property>
       <property
          name="exceptionHandler">false</property>
    </Router>
@@ -220,7 +220,7 @@
       <property
          name="fromOutcome">registered</property>
       <property
-         name="sdm:polyPoints">R50,-300.0,154.94824,-14.133627,-4.0921173,L46</property>
+         name="sdm:polyPoints">R50,-300.0,153.5459,-14.126662,-4.0921173,L46</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall20">
@@ -243,7 +243,7 @@
       <property
          name="fromOutcome">registerNow</property>
       <property
-         name="sdm:polyPoints">B50,-341.0,208.94824,-211.5,300.24707,T44</property>
+         name="sdm:polyPoints">B50,-341.0,207.5459,-211.5,300.24707,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -286,7 +286,7 @@
       <property
          name="fromOutcome">goToOrder</property>
       <property
-         name="sdm:polyPoints">R46,75.039246,-3.7415314,525.0,210.5459,T50</property>
+         name="sdm:polyPoints">R46,75.040115,-4.0921173,525.0,210.5459,T50</property>
    </ControlFlowCase>
    <View
       id="View26">
@@ -299,8 +299,33 @@
       <property
          name="y">432.79883</property>
       <property
-         name="page">/com.company.myorders.NotificationHistory/NotificationHistory.amx</property>
+         name="page">/NotificationHistory.amx</property>
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View27">
+      <property
+         name="activityId">GraphDashBoard</property>
+      <property
+         name="x">-71.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>GraphDashBoard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">256.1953</property>
+      <property
+         name="page">/GraphDashBoard.amx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase28"
+      from="View27"
+      to="View2">
+      <property
+         name="fromOutcome">goToFilteredDashboard</property>
+      <property
+         name="sdm:polyPoints">R50,-30.0,256.1953,174.0,272.1953,L50</property>
+   </ControlFlowCase>
 </SDM>

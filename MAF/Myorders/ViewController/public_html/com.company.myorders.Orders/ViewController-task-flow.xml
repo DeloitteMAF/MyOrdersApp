@@ -67,6 +67,9 @@
     <view id="NotificationHistory">
       <page>/NotificationHistory.amx</page>
     </view>
+    <view id="GraphDashBoard">
+      <page>/GraphDashBoard.amx</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>DashBoard</from-activity-id>
       <control-flow-case id="__3">
@@ -105,7 +108,7 @@
       <from-activity-id>getOrders</from-activity-id>
       <control-flow-case id="__11">
         <from-outcome>goToDashboard</from-outcome>
-        <to-activity-id>DashBoard</to-activity-id>
+        <to-activity-id>GraphDashBoard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__13">
@@ -143,6 +146,13 @@
       <control-flow-case id="__27">
         <from-outcome>goToOrder</from-outcome>
         <to-activity-id>Details</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>GraphDashBoard</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>goToFilteredDashboard</from-outcome>
+        <to-activity-id>DashBoard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>
