@@ -160,7 +160,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">B50,27.0,167.44238,-71.0,202.19531,T50</property>
+         name="sdm:polyPoints">B50,27.0,167.44238,-71.0,201.49414,T50</property>
    </ControlFlowCase>
    <View
       id="View15">
@@ -312,7 +312,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>GraphDashBoard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">256.1953</property>
+         name="y">255.49414</property>
       <property
          name="page">/GraphDashBoard.amx</property>
       <property
@@ -326,6 +326,6 @@
       <property
          name="fromOutcome">goToFilteredDashboard</property>
       <property
-         name="sdm:polyPoints">R50,-30.0,256.1953,174.0,272.1953,L50</property>
+         name="sdm:polyPoints">R50,-30.0,255.49414,174.0,272.1953,L50</property>
    </ControlFlowCase>
 </SDM>

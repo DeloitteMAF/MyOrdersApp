@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20" id="GraphDashBoardPageDef"
+                Package="com.company.myorders.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="AllOrdersService" id="AllOrdersServiceIterator"/>
+    <accessorIterator MasterBinding="AllOrdersServiceIterator" Binds="allOrders" RangeSize="-1"
+                      DataControl="AllOrdersService" BeanClass="com.company.myorders.application.model.AllOrders"
+                      id="allOrdersIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="allOrdersIterator" id="allOrders">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllOrders" Name="allOrders0">
+        <AttrNames>
+          <Item Value="flowStatusCode"/>
+          <Item Value="headerId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

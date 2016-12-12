@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.13.26" id="DataBindings"
              SeparateXMLFiles="false" Package="com.company.myorders.mobile" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/DashBoardPG.amx" usageId="com_company_myorders_mobile_DashBoardPGPageDef"/>
     <page path="/com.company.myorders.Settings/Settings.amx" usageId="com_company_myorders_mobile_SettingsPageDef"/>
@@ -12,6 +16,7 @@
     <page path="/TransLines.amx" usageId="com_company_myorders_mobile_TransLinesPageDef"/>
     <page path="/NotificationHistory.amx"
           usageId="com_company_myorders_mobile_NotificationHistoryPageDef"/>
+    <page path="/GraphDashBoard.amx" usageId="com_company_myorders_mobile_GraphDashBoardPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_company_myorders_mobile_DashBoardPGPageDef"
@@ -28,6 +33,8 @@
           path="com.company.myorders.mobile.pageDefs.TransLinesPageDef"/>
     <page id="com_company_myorders_mobile_NotificationHistoryPageDef"
           path="com.company.myorders.NotificationHistory.NotificationHistoryPageDef"/>
+    <page id="com_company_myorders_mobile_GraphDashBoardPageDef"
+          path="com.company.myorders.mobile.pageDefs.GraphDashBoardPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="NotificationsService" path="com.company.myorders.application.NotificationsService"/>
