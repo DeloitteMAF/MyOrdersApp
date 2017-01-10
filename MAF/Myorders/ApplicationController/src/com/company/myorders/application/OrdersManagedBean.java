@@ -377,7 +377,7 @@ public void callButtonActionJS(String btn) {
         } catch (AdfInvocationException e) {
             e.getMessage();
         }
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
+        //AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
         return "goToFilteredDashboard";
     }
 

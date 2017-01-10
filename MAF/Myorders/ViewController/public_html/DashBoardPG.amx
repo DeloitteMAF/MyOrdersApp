@@ -284,7 +284,7 @@ alert('error '+adf.mf.util.stringify(response));
                         </amx:commandLink>
                     </amx:refreshContainer>
                 </amx:facet>
-                <amx:facet name="bottom">
+                <!--<amx:facet name="bottom">
                     <amx:commandLink id="cl11" action="#{OrdersManagedBean.createFilter}">
                         <amx:tableLayout id="tl6" width="100%" cellPadding="10"
                                          inlineStyle="background-color:#{pageFlowScope.isFilterApplier == 'Y' ? '#1EBE92' : 'rgb(60,60,73)'};">
@@ -296,7 +296,7 @@ alert('error '+adf.mf.util.stringify(response));
                             </amx:rowLayout>
                         </amx:tableLayout>
                     </amx:commandLink>
-                </amx:facet>
+                </amx:facet>-->
             </amx:panelStretchLayout>
         </amx:commandLink>
         <amx:facet name="primary">
