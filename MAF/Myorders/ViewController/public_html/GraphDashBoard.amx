@@ -16,7 +16,7 @@
         <amx:facet name="center">
           <dvtm:pieChart var="row" value="#{bindings.allOrders.collectionModel}" id="pc1">
             <amx:facet name="dataStamp">
-              <dvtm:pieDataItem value="#{pageFlowScope.{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}OrdersCount}" id="pdi1"
+              <dvtm:pieDataItem value="#{row.headerId}" id="pdi1"
                                 action="#{OrdersManagedBean.applyGraphFilters}" displayInLegend="off"
                                 label="#{row.flowStatusCode}">
                 <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fStatus}" from="#{row.flowStatusCode}"/>
