@@ -3,27 +3,28 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
     <amx:facet name="header">
-      <amx:outputText value="Header" id="ot1"/>
+      <amx:tableLayout id="tl1" layout="weighted" halign="center" width="100%">
+        <amx:rowLayout id="rl1">
+          <amx:cellFormat id="cf1" halign="center" valign="middle" width="100%">
+            <amx:outputText value="Welcome to your Dashboard!" id="ot1"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+      </amx:tableLayout>
     </amx:facet>
-    <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
-    </amx:facet>
-    <amx:facet name="secondary">
-      <amx:commandButton id="cb2"/>
-      <amx:commandButton text="commandButton1" id="cb3" action="goToFilteredDashboard"/>
       <amx:panelStretchLayout id="psl1">
         <amx:facet name="top"/>
         <amx:facet name="center">
           <dvtm:pieChart var="row" value="#{bindings.allOrders.collectionModel}" id="pc1">
             <amx:facet name="dataStamp">
-              <dvtm:pieDataItem sliceId="#{row.flowStatusCode}" value="#{row.headerId}" id="pdi1"
-                                action="goToFilteredDashboard"/>
+              <dvtm:pieDataItem value="#{pageFlowScope.{row.flowStatusCode eq 'In Process' ? 'InProcess' : row.flowStatusCode}OrdersCount}" id="pdi1"
+                                action="#{OrdersManagedBean.applyGraphFilters}" displayInLegend="off"
+                                label="#{row.flowStatusCode}">
+                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fStatus}" from="#{row.flowStatusCode}"/>
+              </dvtm:pieDataItem>
             </amx:facet>
-            <dvtm:legend position="end" id="l1"/>
           </dvtm:pieChart>
         </amx:facet>
         <amx:facet name="bottom"/>
       </amx:panelStretchLayout>
-    </amx:facet>
   </amx:panelPage>
 </amx:view>

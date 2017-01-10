@@ -735,9 +735,17 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="jdkReference">
-         <url n="id" path="../../../../../../../../Users/himagarwal/AppData/Roaming/JDeveloper/system12.2.1.0.42.151011.0031/o.jdeveloper/MAF JDK 1.8 Compact 2 Profile.jdk"/>
+         <url n="id" protocol="file" path="/Users/himagarwal/AppData/Roaming/JDeveloper/system12.2.1.0.42.151011.0031/o.jdeveloper/MAF JDK 1.8 Compact 2 Profile.jdk"/>
          <value n="isJDK" v="true"/>
          <value n="jdkVersion" v="1.8.0_51"/>
       </hash>
@@ -772,6 +780,14 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

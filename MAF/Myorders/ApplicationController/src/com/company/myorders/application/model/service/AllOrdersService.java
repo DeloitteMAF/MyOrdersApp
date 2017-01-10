@@ -71,6 +71,36 @@ public class AllOrdersService extends EntityCRUDService<AllOrders> {
 
     public List<AllOrders> getAllOrders() {
 //        AllOrders allOrdersNew=new AllOrders();
+        //Get count of each status
+        Stream<AllOrders> bookedOrders=getEntityList().stream();
+        bookedOrders=bookedOrders.filter(bookedOrdersNew -> bookedOrdersNew.getFlowStatusCode().equalsIgnoreCase("Booked"));
+            List<AllOrders> bookedOrdersList=bookedOrders.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.BookedOrdersCount}", bookedOrdersList.size());
+        Stream<AllOrders> enteredOrders=getEntityList().stream();
+        enteredOrders=enteredOrders.filter(enteredOrdersNew -> enteredOrdersNew.getFlowStatusCode().equalsIgnoreCase("Entered"));
+            List<AllOrders> enteredOrdersList=enteredOrders.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.EnteredOrdersCount}", enteredOrdersList.size());
+        Stream<AllOrders> inProcessOrders=getEntityList().stream();
+        inProcessOrders=inProcessOrders.filter(inProcessOrdersNew -> inProcessOrdersNew.getFlowStatusCode().equalsIgnoreCase("In Process"));
+            List<AllOrders> inProcessOrdersList=inProcessOrders.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.InProcessOrdersCount}", inProcessOrdersList.size());
+        Stream<AllOrders> shippedOrders=getEntityList().stream();
+        shippedOrders=shippedOrders.filter(shippedOrdersNew -> shippedOrdersNew.getFlowStatusCode().equalsIgnoreCase("Shipped"));
+            List<AllOrders> shippedOrdersList=shippedOrders.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.ShippedOrdersCount}", shippedOrdersList.size());
+        Stream<AllOrders> deliveredOrders=getEntityList().stream();
+        deliveredOrders=deliveredOrders.filter(deliveredOrdersNew -> deliveredOrdersNew.getFlowStatusCode().equalsIgnoreCase("Delivered"));
+            List<AllOrders> deliveredOrdersList=deliveredOrders.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.DeliveredOrdersCount}", deliveredOrdersList.size());
+        Stream<AllOrders> returnedOrders=getEntityList().stream();
+        returnedOrders=returnedOrders.filter(returnedOrdersNew -> returnedOrdersNew.getFlowStatusCode().equalsIgnoreCase("Returned"));
+            List<AllOrders> returnedOrdersList=returnedOrders.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.ReturnedOrdersCount}", returnedOrdersList.size());
+        Stream<AllOrders> cancelledOrders=getEntityList().stream();
+        cancelledOrders=cancelledOrders.filter(cancelledOrdersNew -> cancelledOrdersNew.getFlowStatusCode().equalsIgnoreCase("Cancelled"));
+            List<AllOrders> cancelledOrdersList=cancelledOrders.collect(Collectors.toList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.CancelledOrdersCount}", cancelledOrdersList.size());
+        //Apply Filters
         if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isFilterApplier}")=="Y"){
             Stream<AllOrders> allOrderRow=getEntityList().stream();
             String orderNo = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.fOrderNo}");

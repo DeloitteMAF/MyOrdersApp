@@ -361,6 +361,26 @@ public void callButtonActionJS(String btn) {
         
     }
 
+    public String applyGraphFilters() {
+        // Add event code here...
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchValue");
+        params.add("");
+        ptypes.add(String.class);
+        try {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","Y");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
+            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+        } catch (AdfInvocationException e) {
+            e.getMessage();
+        }
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
+        return "goToFilteredDashboard";
+    }
+
     public String applyFilters() {
         // Add event code here...
         List pnames = new ArrayList();

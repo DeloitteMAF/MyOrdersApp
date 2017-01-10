@@ -160,7 +160,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">B50,27.0,167.44238,-71.0,201.49414,T50</property>
+         name="sdm:polyPoints">B50,27.0,167.44238,-71.0,201.14355,T50</property>
    </ControlFlowCase>
    <View
       id="View15">
@@ -326,6 +326,16 @@
       <property
          name="fromOutcome">goToFilteredDashboard</property>
       <property
-         name="sdm:polyPoints">R50,-30.0,255.49414,174.0,272.1953,L50</property>
+         name="sdm:polyPoints">R46,-29.707747,251.64355,174.0,268.6953,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase29"
+      from="View2"
+      to="View27">
+      <property
+         name="fromOutcome">backToGraph</property>
+      <property
+         name="sdm:polyPoints">L54,173.70796,275.6953,-30.0,258.64355,R54</property>
    </ControlFlowCase>
 </SDM>

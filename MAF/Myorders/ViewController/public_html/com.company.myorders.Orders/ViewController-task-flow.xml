@@ -75,11 +75,16 @@
       <control-flow-case id="__3">
         <from-outcome>openDetail</from-outcome>
         <to-activity-id>Details</to-activity-id>
+        <transition>flipUp</transition>
       </control-flow-case>
       <control-flow-case id="__12">
         <from-outcome>search</from-outcome>
         <to-activity-id>Search</to-activity-id>
         <transition>slideUp</transition>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome>backToGraph</from-outcome>
+        <to-activity-id>GraphDashBoard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
@@ -87,10 +92,12 @@
       <control-flow-case id="__5">
         <from-outcome>backToDashBoard</from-outcome>
         <to-activity-id>DashBoard</to-activity-id>
+        <transition>flipDown</transition>
       </control-flow-case>
       <control-flow-case id="__6">
         <from-outcome>openLineDetails</from-outcome>
         <to-activity-id>lineDetails</to-activity-id>
+        <transition>flipUp</transition>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__7">
@@ -98,10 +105,12 @@
       <control-flow-case id="__8">
         <from-outcome>backToDetails</from-outcome>
         <to-activity-id>Details</to-activity-id>
+        <transition>flipDown</transition>
       </control-flow-case>
       <control-flow-case id="__9">
         <from-outcome>Home</from-outcome>
         <to-activity-id>getOrders</to-activity-id>
+        <transition>flipDown</transition>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__10">
@@ -153,6 +162,7 @@
       <control-flow-case id="__29">
         <from-outcome>goToFilteredDashboard</from-outcome>
         <to-activity-id>DashBoard</to-activity-id>
+        <transition>flipUp</transition>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>
