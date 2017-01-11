@@ -37,6 +37,7 @@
           path="com.company.myorders.mobile.pageDefs.GraphDashBoardPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="DeviceFeatures" path="com.company.myorders.application.DeviceFeatures"/>
     <dc id="NotificationsService" path="com.company.myorders.application.NotificationsService"/>
     <dc id="AllTransactionsService" path="com.company.myorders.application.AllTransactionsService"/>
     <dc id="TransactionsService" path="com.company.myorders.application.TransactionsService"/>

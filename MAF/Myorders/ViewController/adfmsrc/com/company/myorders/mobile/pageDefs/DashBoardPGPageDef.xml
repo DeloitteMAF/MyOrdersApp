@@ -6,10 +6,10 @@
         <variableIterator id="variables">
             <variable Name="find_searchValue" Type="java.lang.String"/>
         </variableIterator>
-        <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
+        <!--<iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
         <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25"
                           DataControl="OrdersService" BeanClass="com.company.myorders.application.model.Orders"
-                          id="ordersIterator"/>
+                          id="ordersIterator"/>-->
         <iterator Binds="root" RangeSize="25" DataControl="AllOrdersService" id="AllOrdersServiceIterator"/>
         <accessorIterator MasterBinding="AllOrdersServiceIterator" Binds="allOrders" RangeSize="25"
                           DataControl="AllOrdersService" BeanClass="com.company.myorders.application.model.AllOrders"
@@ -18,12 +18,12 @@
                           DataControl="AllOrdersService"
                           BeanClass="com.company.myorders.application.model.AllOrderDetails"
                           id="xxMyOrderDetailsVOIterator1"/>
-        <accessorIterator MasterBinding="ordersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
+        <!--<accessorIterator MasterBinding="ordersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
                           DataControl="OrdersService" BeanClass="com.company.myorders.application.model.OrderDetails"
-                          id="xxMyOrderDetailsVOIterator"/>
+                          id="xxMyOrderDetailsVOIterator"/>-->
     </executables>
     <bindings>
-        <tree IterBinding="ordersIterator" id="orders">
+        <!--<tree IterBinding="ordersIterator" id="orders">
             <nodeDefinition DefName="com.company.myorders.application.model.Orders" Name="orders0">
                 <AttrNames>
                     <Item Value="orderNumber"/>
@@ -40,7 +40,7 @@
                     <Item Value="orderAlertFlag"/>
                 </AttrNames>
             </nodeDefinition>
-        </tree>
+        </tree>-->
         <tree IterBinding="allOrdersIterator" id="allOrders">
             <nodeDefinition DefName="com.company.myorders.application.model.AllOrders" Name="allOrders0">
                 <AttrNames>
@@ -64,11 +64,11 @@
                       InstanceName="data.ApplicationFeatures.dataProvider">
             <NamedData NDName="featureId" NDValue="#{pageFlowScope.currentFeature}" NDType="java.lang.String"/>
         </methodAction>
-        <methodAction id="findOrders" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findOrders"
+        <!--<methodAction id="findOrders" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findOrders"
                       IsViewObjectMethod="false" DataControl="OrdersService"
                       InstanceName="data.OrdersService.dataProvider">
             <NamedData NDName="searchValue" NDType="java.lang.String"/>
-        </methodAction>
+        </methodAction>-->
         <attributeValues id="searchValue" IterBinding="variables">
             <AttrNames>
                 <Item Value="find_searchValue"/>
@@ -82,12 +82,12 @@
         <methodAction id="findAllAllOrdersRemote" RequiresUpdateModel="true" Action="invokeMethod"
                       MethodName="findAllAllOrdersRemote" IsViewObjectMethod="false" DataControl="AllOrdersService"
                       InstanceName="data.AllOrdersService.dataProvider"/>
-        <attributeValues IterBinding="ordersIterator" id="customer">
+        <!--<attributeValues IterBinding="ordersIterator" id="customer">
             <AttrNames>
                 <Item Value="customer"/>
             </AttrNames>
-        </attributeValues>
-        <tree IterBinding="xxMyOrderDetailsVOIterator" id="xxMyOrderDetailsVO1">
+        </attributeValues>-->
+        <!--<tree IterBinding="xxMyOrderDetailsVOIterator" id="xxMyOrderDetailsVO1">
             <nodeDefinition DefName="com.company.myorders.application.model.OrderDetails" Name="xxMyOrderDetailsVO10">
                 <AttrNames>
                     <Item Value="key"/>
@@ -99,7 +99,7 @@
                     <Item Value="backorderQuantity"/>
                 </AttrNames>
             </nodeDefinition>
-        </tree>
+        </tree>-->
         <tree IterBinding="xxMyOrderDetailsVOIterator1" id="xxMyOrderDetailsVO">
             <nodeDefinition DefName="com.company.myorders.application.model.AllOrderDetails" Name="xxMyOrderDetailsVO0">
                 <AttrNames>

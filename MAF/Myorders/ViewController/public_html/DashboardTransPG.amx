@@ -239,7 +239,7 @@ alert('error '+adf.mf.util.stringify(response));
                                             </amx:cellFormat>
                                             <amx:cellFormat id="cf10" width="5%">
                                                 <amx:commandLink id="cl5" action="openDetail">
-                                                    <amx:outputHtml id="oh3" styleClass="fa fa-chevron-right fa-2g"
+                                                    <amx:outputHtml id="oh3" styleClass="fa fa-chevron-circle-right fa-2g"
                                                                     inlineStyle="color: rgb(157, 157, 173);"/>
                                                 </amx:commandLink>
                                             </amx:cellFormat>
@@ -357,7 +357,7 @@ alert('error '+adf.mf.util.stringify(response));
                                             </amx:cellFormat>
                                             <amx:cellFormat id="cf17" width="5%" halign="center">
                                                 <amx:commandLink id="cl1" action="openDetail">
-                                                    <amx:outputHtml id="oh1" styleClass="fa fa-chevron-right fa-2g"
+                                                    <amx:outputHtml id="oh1" styleClass="fa fa-chevron-circle-right fa-2g"
                                                                     inlineStyle="color: rgb(157, 157, 173);"/>
                                                 </amx:commandLink>
                                             </amx:cellFormat>

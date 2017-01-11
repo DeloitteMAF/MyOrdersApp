@@ -8,15 +8,15 @@
     <accessorIterator MasterBinding="AllOrdersServiceIterator" Binds="allOrders" RangeSize="25"
                       DataControl="AllOrdersService" BeanClass="com.company.myorders.application.model.AllOrders"
                       id="allOrdersIterator"/>
-    <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
+    <!--<iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
     <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25" DataControl="OrdersService"
-                      BeanClass="com.company.myorders.application.model.Orders" id="ordersIterator"/>
+                      BeanClass="com.company.myorders.application.model.Orders" id="ordersIterator"/>-->
     <accessorIterator MasterBinding="allOrdersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
                       DataControl="AllOrdersService" BeanClass="com.company.myorders.application.model.AllOrderDetails"
                       id="xxMyOrderDetailsVOIterator1"/>
-    <accessorIterator MasterBinding="ordersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
+    <!--<accessorIterator MasterBinding="ordersIterator" Binds="xxMyOrderDetailsVO" RangeSize="25"
                       DataControl="OrdersService" BeanClass="com.company.myorders.application.model.OrderDetails"
-                      id="xxMyOrderDetailsVOIterator"/>
+                      id="xxMyOrderDetailsVOIterator"/>-->
   </executables>
   <bindings>
     <attributeValues IterBinding="allOrdersIterator" id="orderNumber">
@@ -44,7 +44,42 @@
         <Item Value="totalActual"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ordersIterator" id="flowStatusCode1">
+    <attributeValues IterBinding="allOrdersIterator" id="contactName">
+      <AttrNames>
+        <Item Value="contactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allOrdersIterator" id="emailAddres">
+      <AttrNames>
+        <Item Value="emailAddres"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allOrdersIterator" id="phoneNumber">
+      <AttrNames>
+        <Item Value="phoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allOrdersIterator" id="subTotal">
+      <AttrNames>
+        <Item Value="subTotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allOrdersIterator" id="tax">
+      <AttrNames>
+        <Item Value="tax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allOrdersIterator" id="charges">
+      <AttrNames>
+        <Item Value="charges"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allOrdersIterator" id="currencyCode">
+      <AttrNames>
+        <Item Value="currencyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <!--<attributeValues IterBinding="ordersIterator" id="flowStatusCode1">
       <AttrNames>
         <Item Value="flowStatusCode"/>
       </AttrNames>
@@ -81,7 +116,7 @@
           <Item Value="key"/>
         </AttrNames>
       </nodeDefinition>
-    </tree>
+    </tree>-->
     <tree IterBinding="xxMyOrderDetailsVOIterator1" id="xxMyOrderDetailsVO">
       <nodeDefinition DefName="com.company.myorders.application.model.AllOrderDetails" Name="xxMyOrderDetailsVO0">
         <AttrNames>
@@ -91,9 +126,22 @@
           <Item Value="alertFlag"/>
           <Item Value="lineStatus"/>
           <Item Value="backorderQuantity"/>
+          <Item Value="currencyCode"/>
+          <Item Value="orderedQuantity"/>
           <Item Value="key"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction id="sendEmail" RequiresUpdateModel="true" Action="invokeMethod" MethodName="sendEmail"
+                  IsViewObjectMethod="false" DataControl="DeviceFeatures"
+                  InstanceName="data.DeviceFeatures.dataProvider">
+      <NamedData NDName="to" NDValue="#{bindings.emailAddres.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="cc" NDType="java.lang.String"/>
+      <NamedData NDName="subject" NDType="java.lang.String"/>
+      <NamedData NDName="body" NDType="java.lang.String"/>
+      <NamedData NDName="bcc" NDType="java.lang.String"/>
+      <NamedData NDName="attachments" NDType="java.lang.String"/>
+      <NamedData NDName="mimeTypes" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

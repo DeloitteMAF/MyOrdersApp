@@ -3,5 +3,6 @@
   <cordova-plugins>
     <core-cordova-plugin id="c1" pluginId="maf-cordova-plugin-network-access"/>
     <core-cordova-plugin id="c2" pluginId="maf-cordova-plugin-push"/>
+    <core-cordova-plugin id="c3" pluginId="com.oracle.maf.email"/>
   </cordova-plugins>
 </maf-plugins>

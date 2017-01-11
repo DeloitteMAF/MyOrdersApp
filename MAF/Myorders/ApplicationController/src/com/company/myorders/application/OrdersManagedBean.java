@@ -24,6 +24,7 @@ public class OrdersManagedBean {
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     private int detailRowSpacer = 15;
     private int sbRowSpacer = 10;
+    private String lineStatus="N";
     private Boolean isRefreshComplete=false;
     private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
 
@@ -93,6 +94,14 @@ public class OrdersManagedBean {
         AdfmfContainerUtilities.gotoFeature(currentFeature);
     }
     
+    public void switchOrderLines(ActionEvent actionEvent) {
+        if((String)AdfmfJavaUtilities.getELValue("#{applicationScope.OrdersManagedBean.lineStatus}")=="Y"){
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.lineStatus}", "N");
+        }
+        else
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.lineStatus}", "Y");
+    }
+    
     public void backToDashboard(ActionEvent actionEvent) {
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureName(),
                                                                           "adf.mf.api.amx.doNavigation",
@@ -142,7 +151,7 @@ public class OrdersManagedBean {
     public void pullDownToRefreshAction(ActionEvent actionEvent) {
         // Add event code here...        
         try {
-            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
+   //         AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
@@ -182,7 +191,7 @@ public class OrdersManagedBean {
     
     public void initiateDashboard(){
         try {
-            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
+     //       AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
@@ -222,7 +231,7 @@ public class OrdersManagedBean {
     
     public void refreshOrders(ActionEvent ae){
         try {
-            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
+       //     AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.flushDataChangeEvent();
 //            providerChangeSupport.fireProviderRefresh("orders");       
@@ -260,26 +269,30 @@ public class OrdersManagedBean {
        
     
     public void getAlertCount(ActionEvent ae){
-        String currentTab = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.currentTab}");
+//        String currentTab = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.currentTab}");
         AmxIteratorBinding ib =null;
         int alertCount=0;
-        if(currentTab==null){
-            currentTab="TOP";
-        }
-        if(currentTab.equals("TOP")){
-            ib= (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.xxMyOrderDetailsVOIterator}");
-        }else{
+        int lineCount=0;
+//        if(currentTab==null){
+//            currentTab="TOP";
+//        }
+//        if(currentTab.equals("TOP")){
+//            ib= (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.xxMyOrderDetailsVOIterator}");
+//        }else{
             ib= (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.xxMyOrderDetailsVOIterator1}");   
-        }
+//        }
         ib.getIterator().first();
         for(int i=0;i<ib.getIterator().getTotalRowCount();i++){
             GenericType row = (GenericType) ib.getIterator().getCurrentRow();
             if(row.getAttribute("alertFlag").toString().equals("Y")){
                 alertCount++;
-            }            
+            }
+            lineCount++;
             ib.getIterator().next();
         }
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.alertCount}", new Integer(alertCount).toString());     
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.alertCount}", new Integer(alertCount).toString());
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.lineCount}", new Integer(lineCount).toString());
+        AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.lineStatus}", "N");     
     }
 
 /*
@@ -312,16 +325,16 @@ public void callButtonActionJS(String btn) {
         params.add(searchStr);
         ptypes.add(String.class);
       
-        AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+     //   AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
         AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
         
  //       callButtonActionJS("cl4");
             Integer i =
                 (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator.iterator.totalRowCount}");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
-            Integer j =
-                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.ordersIterator.iterator.totalRowCount}");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}",j);
+//            Integer j =
+//                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.ordersIterator.iterator.totalRowCount}");
+//            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}",j);
     //        String featureID = AdfmfJavaUtilities.getFeatureId();
     //        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setFocusOnInput", new Object[] {});
         }
@@ -372,7 +385,7 @@ public void callButtonActionJS(String btn) {
         try {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","Y");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
-            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+ //           AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
         } catch (AdfInvocationException e) {
             e.getMessage();
@@ -392,7 +405,7 @@ public void callButtonActionJS(String btn) {
         try {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","Y");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
-            AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+ //           AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
         } catch (AdfInvocationException e) {
             e.getMessage();
@@ -416,7 +429,7 @@ public void callButtonActionJS(String btn) {
                 pnames.add("searchValue");
                 params.add("");
                 ptypes.add(String.class);
-                AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+ //               AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
                 AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
             } catch (AdfInvocationException e) {
                 e.getMessage();
@@ -484,5 +497,15 @@ public void callButtonActionJS(String btn) {
 
     public boolean isComingFromNotification() {
         return comingFromNotification;
+    }
+
+    public void setLineStatus(String lineStatus) {
+        String oldLineStatus = this.lineStatus;
+        this.lineStatus = lineStatus;
+        propertyChangeSupport.firePropertyChange("lineStatus", oldLineStatus, lineStatus);
+    }
+
+    public String getLineStatus() {
+        return lineStatus;
     }
 }

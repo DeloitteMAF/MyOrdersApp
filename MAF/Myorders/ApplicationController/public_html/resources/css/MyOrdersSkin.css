@@ -5,7 +5,7 @@
 @import url('../font-awesome-4.3.0/css/font-awesome.css');
 
 .amx-listView-divider{
-    background-color: Black;
+    background-color: ThreeDShadow;
 }
 
 .amx-listView-divider .amx-listView-dividerText{
@@ -23,8 +23,8 @@ html[dir=ltr] .amx-listView-undisclosedIcon{
     border-color:#1EBE92;
 }
 
-#it1__inputElement {
-
+#it2__inputElement::-webkit-input-placeholder {
+    color: #2b2b2b;
 }
 #oh2{
     color:rgb(60, 60, 73);
@@ -32,6 +32,19 @@ html[dir=ltr] .amx-listView-undisclosedIcon{
 
 #oh1{
     color:rgb(60, 60, 73);
+}
+
+html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    -webkit-border-image: none;
+    border-image: none;
+    position: static;
+    height: 40px;
+    background-image: url("../../DownArrow.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
 }
 
 /* Android Title bar styling begin */
@@ -82,6 +95,17 @@ html[dir=ltr] .amx-listView-undisclosedIcon{
 .tab_btn > .amx-commandButton-label{
     color: #FFFFFF;
     font-size: 15px;
+}
+
+.show_line_btn > .amx-commandButton-label{
+    color: #FFFFFF;
+    font-size: 15px;
+}
+.show_line_btnBackground{
+    background: ThreeDShadow;
+}
+.show_line_btnBackground:active{
+    background: ThreeDShadow;
 }
 
 .detailhead{
