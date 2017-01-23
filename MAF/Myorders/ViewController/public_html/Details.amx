@@ -518,15 +518,17 @@
     </amx:facet>
   </amx:panelPage>
   <amx:popup id="p1" autoDismiss="true" animation="pop" backgroundDimming="on">
-    <amx:tableLayout id="tl6">
+    <amx:tableLayout id="tl6" halign="center">
       <amx:rowLayout id="rl18">
         <amx:cellFormat id="cf6">
           <amx:outputText value="#{pageFlowScope.reportReturnMessage}" id="ot13"/>
         </amx:cellFormat>
       </amx:rowLayout>
       <amx:rowLayout id="rl19">
-        <amx:cellFormat id="cf44">
-          <amx:commandButton text="OK" id="cb3"/>
+        <amx:cellFormat id="cf44" halign="center">
+          <amx:commandButton text="OK" id="cb3">
+            <amx:closePopupBehavior id="cpb1" popupId="p1" type="action"/>
+          </amx:commandButton>
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>

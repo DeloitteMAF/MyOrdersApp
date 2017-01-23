@@ -379,7 +379,7 @@
                          icon="/resources/css/images/print.png" actionListener="#{OrdersManagedBean.printReportClicked}">
         <amx:setPropertyListener id="spl9" from="#{'RAXINV_SEL'}" to="#{pageFlowScope.reportType}"/>
         <amx:setPropertyListener id="spl10" from="#{'INV'}" to="#{pageFlowScope.entityType}"/>
-        <amx:setPropertyListener id="spl11" from="#{'bindings.customerTrxId.inputValue'}" to="#{pageFlowScope.entityId}"/>
+        <amx:setPropertyListener id="spl11" from="#{bindings.customerTrxId1.inputValue}" to="#{pageFlowScope.entityId}"/>
         <amx:showPopupBehavior id="spb1" popupId="p1" type="action" decoration="anchor" align="bottomCenter"
                                alignId="ot16"/>
       </amx:commandButton>
@@ -387,15 +387,17 @@
     </amx:panelPage>
   <amx:popup id="p1" autoDismiss="true" animation="pop" backgroundDimming="on"
              inlineStyle="max-width:#{deviceScope.hardware.screen.availableWidth};">
-    <amx:tableLayout id="tl7" width="100%">
+    <amx:tableLayout id="tl7" width="100%" halign="center">
       <amx:rowLayout id="rl7">
         <amx:cellFormat id="cf1" width="100%">
           <amx:outputText value="#{pageFlowScope.reportReturnMessage}" id="ot1"/>
         </amx:cellFormat>
       </amx:rowLayout>
       <amx:rowLayout id="rl8">
-        <amx:cellFormat id="cf3">
-          <amx:commandButton text="OK" id="cb6"/>
+        <amx:cellFormat id="cf3" halign="center">
+          <amx:commandButton text="OK" id="cb6">
+                        <amx:closePopupBehavior id="cpb1" popupId="p1" type="action"/>
+                    </amx:commandButton>
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>
