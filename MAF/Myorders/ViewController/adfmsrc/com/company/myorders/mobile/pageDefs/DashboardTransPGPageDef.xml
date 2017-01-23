@@ -4,33 +4,33 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="root" RangeSize="25" DataControl="TransactionsService" id="TransactionsServiceIterator"/>
+    <!--<iterator Binds="root" RangeSize="25" DataControl="TransactionsService" id="TransactionsServiceIterator"/>
     <accessorIterator MasterBinding="TransactionsServiceIterator" Binds="transactions" RangeSize="25"
                       DataControl="TransactionsService" BeanClass="com.company.myorders.application.model.Transactions"
-                      id="transactionsIterator"/>
+                      id="transactionsIterator"/>-->
     <iterator Binds="root" RangeSize="25" DataControl="AllTransactionsService" id="AllTransactionsServiceIterator"/>
     <accessorIterator MasterBinding="AllTransactionsServiceIterator" Binds="allTransactions" RangeSize="25"
                       DataControl="AllTransactionsService"
                       BeanClass="com.company.myorders.application.model.AllTransactions" id="allTransactionsIterator"/>
-    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="25"
+    <!--<accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="25"
                       DataControl="TransactionsService"
                       BeanClass="com.company.myorders.application.model.TransactionDetails"
-                      id="xxMyOrderARLinesVOIterator"/>
+                      id="xxMyOrderARLinesVOIterator"/>-->
     <accessorIterator MasterBinding="allTransactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="25"
                       DataControl="AllTransactionsService"
                       BeanClass="com.company.myorders.application.model.AllTransactionDetails"
                       id="xxMyOrderARLinesVOIterator1"/>
-    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
+    <!--<accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
                       DataControl="TransactionsService"
                       BeanClass="com.company.myorders.application.model.TransactionActivities"
-                      id="xxMyOrderARActivitiesVOIterator"/>
+                      id="xxMyOrderARActivitiesVOIterator"/>-->
     <accessorIterator MasterBinding="allTransactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
                       DataControl="AllTransactionsService"
                       BeanClass="com.company.myorders.application.model.AllTransactionActivities"
                       id="xxMyOrderARActivitiesVOIterator1"/>
   </executables>
   <bindings>
-    <tree IterBinding="transactionsIterator" id="transactions">
+    <!--<tree IterBinding="transactionsIterator" id="transactions">
       <nodeDefinition DefName="com.company.myorders.application.model.Transactions" Name="transactions0">
         <AttrNames>
           <Item Value="customerTrxId"/>
@@ -53,7 +53,7 @@
           <Item Value="remitToAddress"/>
         </AttrNames>
       </nodeDefinition>
-    </tree>
+    </tree>-->
     <tree IterBinding="allTransactionsIterator" id="allTransactions">
       <nodeDefinition DefName="com.company.myorders.application.model.AllTransactions" Name="allTransactions0">
         <AttrNames>
@@ -78,7 +78,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="xxMyOrderARLinesVOIterator" id="xxMyOrderARLinesVO">
+    <!--<tree IterBinding="xxMyOrderARLinesVOIterator" id="xxMyOrderARLinesVO">
       <nodeDefinition DefName="com.company.myorders.application.model.TransactionDetails" Name="xxMyOrderARLinesVO0">
         <AttrNames>
           <Item Value="customerTrxId"/>
@@ -95,7 +95,7 @@
           <Item Value="unitSellingPrice"/>
         </AttrNames>
       </nodeDefinition>
-    </tree>
+    </tree>-->
     <tree IterBinding="xxMyOrderARLinesVOIterator1" id="xxMyOrderARLinesVO1">
       <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionDetails"
                       Name="xxMyOrderARLinesVO10">
@@ -133,7 +133,7 @@
                   InstanceName="data.AllTransactionsService.dataProvider">
       <NamedData NDName="searchValue" NDValue="#{''}" NDType="java.lang.String"/>
     </methodAction>
-    <methodAction id="findTransactions" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findTransactions"
+    <!--<methodAction id="findTransactions" RequiresUpdateModel="true" Action="invokeMethod" MethodName="findTransactions"
                   IsViewObjectMethod="false" DataControl="TransactionsService"
                   InstanceName="data.TransactionsService.dataProvider">
       <NamedData NDName="searchValue" NDValue="#{''}" NDType="java.lang.String"/>
@@ -153,7 +153,7 @@
           <Item Value="key"/>
         </AttrNames>
       </nodeDefinition>
-    </tree>
+    </tree>-->
     <tree IterBinding="xxMyOrderARActivitiesVOIterator1" id="xxMyOrderARActivitiesVO1">
       <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionActivities"
                       Name="xxMyOrderARActivitiesVO10">

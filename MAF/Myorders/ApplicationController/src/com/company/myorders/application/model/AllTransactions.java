@@ -7,14 +7,11 @@ import java.util.List;
 import oracle.maf.api.cdm.persistence.util.EntityUtils;
 import oracle.maf.api.cdm.persistence.manager.DBPersistenceManager;
 import oracle.maf.api.cdm.persistence.model.Entity;
-
-       import java.math.BigDecimal;
-  
                         
 public class AllTransactions extends Entity
 {
 
-      private BigDecimal customerTrxId;
+      private String customerTrxId;
       private String trxType;
       private String trxNumber;
       private String trxDate;
@@ -35,12 +32,12 @@ public class AllTransactions extends Entity
       private List<AllTransactionActivities> xxMyOrderARActivitiesVO = createIndirectList("xxMyOrderARActivitiesVO");
   
   
-      public BigDecimal getCustomerTrxId()
+      public String getCustomerTrxId()
     {
             return this.customerTrxId;
     }
 
-    public void setCustomerTrxId(BigDecimal customerTrxId)
+    public void setCustomerTrxId(String customerTrxId)
     {
       this.customerTrxId = customerTrxId;
     }

@@ -19,6 +19,11 @@
                       id="xxMyOrderDetailsVOIterator"/>-->
   </executables>
   <bindings>
+    <attributeValues IterBinding="allOrdersIterator" id="headerId">
+      <AttrNames>
+        <Item Value="headerId"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="allOrdersIterator" id="orderNumber">
       <AttrNames>
         <Item Value="orderNumber"/>
@@ -125,9 +130,18 @@
           <Item Value="orderedItem"/>
           <Item Value="alertFlag"/>
           <Item Value="lineStatus"/>
-          <Item Value="backorderQuantity"/>
           <Item Value="currencyCode"/>
           <Item Value="orderedQuantity"/>
+          <Item Value="shippedQuantity"/>
+          <Item Value="backorderQuantity"/>
+          <Item Value="description"/>
+          <Item Value="orderQuantityUom"/>
+          <Item Value="unitSellingPrice"/>
+          <Item Value="deliveryName"/>
+          <Item Value="freightCode"/>
+          <Item Value="actualArrivalDate"/>
+          <Item Value="address"/>
+          <Item Value="shipToContact"/>
           <Item Value="key"/>
         </AttrNames>
       </nodeDefinition>

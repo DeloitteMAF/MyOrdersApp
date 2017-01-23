@@ -4,13 +4,11 @@ import com.company.myorders.application.model.utility.OrdersUtilityBean;
 
 import oracle.maf.api.cdm.persistence.model.Entity;
 
-import java.math.BigDecimal;
-
 
 public class AllOrderDetails extends Entity {
 
-    private BigDecimal headerId;
-    private BigDecimal lineId;
+    private String headerId;
+    private String lineId;
     private String lineNumber;
     private String orderedItem;
     private String description;
@@ -31,7 +29,7 @@ public class AllOrderDetails extends Entity {
     private String currencyCode;
 
 
-    public BigDecimal getHeaderId() {
+    public String getHeaderId() {
         return this.headerId;
     }
 
@@ -43,15 +41,15 @@ public class AllOrderDetails extends Entity {
         return currencyCode;
     }
 
-    public void setHeaderId(BigDecimal headerId) {
+    public void setHeaderId(String headerId) {
         this.headerId = headerId;
     }
 
-    public BigDecimal getLineId() {
+    public String getLineId() {
         return this.lineId;
     }
 
-    public void setLineId(BigDecimal lineId) {
+    public void setLineId(String lineId) {
         this.lineId = lineId;
     }
 

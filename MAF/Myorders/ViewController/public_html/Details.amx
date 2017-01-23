@@ -51,53 +51,6 @@
         <amx:commandLink id="cl2" styleClass="remove_ul">
           <amx:panelGroupLayout id="pgl1">
             <!--rendered="#{pageFlowScope.detailCurrentTab!='LINES' &amp;&amp; pageFlowScope.detailCurrentTab!='ALERTS'}">-->
-            <amx:tableLayout id="tl11" inlineStyle="background-color:black;">
-              <amx:rowLayout id="rl8">
-                <amx:cellFormat id="cf25">
-                  <amx:outputText value="Contact Person: #{bindings.contactName.inputValue}" id="ot23"
-                                  inlineStyle="color:White;"/>
-                </amx:cellFormat>
-              </amx:rowLayout>
-            </amx:tableLayout>
-            <amx:tableLayout id="tl6" width="100%" cellSpacing="10">
-              <amx:rowLayout id="rl7">
-                <amx:cellFormat id="cf20" width="15%">
-                  <amx:spacer id="s9" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                  <amx:goLink id="gl2" url="tel: #{bindings.phoneNumber.inputValue}">
-                    <amx:image id="i5" source="/resources/css/images/phone.png" styleClass="detailimages"/>
-                  </amx:goLink>
-                  <amx:spacer id="s10" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                </amx:cellFormat>
-                <amx:cellFormat id="cf22" width="35%">
-                  <amx:panelGroupLayout id="pgl3">
-                    <amx:outputText value="Phone" id="ot16" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.phoneNumber.inputValue}" id="ot17" styleClass="value"/>
-                  </amx:panelGroupLayout>
-                </amx:cellFormat>
-                <amx:cellFormat id="cf23" width="15%">
-                  <amx:spacer id="s11" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                  <amx:commandLink actionListener="#{bindings.sendEmail.execute}"
-                                   disabled="#{!bindings.sendEmail.enabled}" id="cl1">
-                    <amx:image id="i6" source="/resources/css/images/email.png" styleClass="detailimages"/>
-                  </amx:commandLink>
-                  <amx:spacer id="s12" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                </amx:cellFormat>
-                <amx:cellFormat id="cf24" width="35%">
-                  <amx:panelGroupLayout id="pgl8">
-                    <amx:outputText value="Email" id="ot21" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.emailAddres.inputValue}"
-                                    id="ot22" styleClass="value"/>
-                  </amx:panelGroupLayout>
-                </amx:cellFormat>
-              </amx:rowLayout>
-            </amx:tableLayout>
-            <amx:tableLayout id="tl10" inlineStyle="background-color:ButtonText;" >
-              <amx:rowLayout id="rl15">
-                <amx:cellFormat id="cf36">
-                  <amx:outputText value="Order Details:" id="ot32" inlineStyle="color:White;" />
-                </amx:cellFormat>
-              </amx:rowLayout>
-            </amx:tableLayout>
             <amx:tableLayout id="tl5" width="100%" inlineStyle="background-color:#ECECEC;" cellSpacing="10">
               <amx:rowLayout id="rl4">
                 <amx:cellFormat id="cf8" width="15%">
@@ -130,39 +83,7 @@
                 </amx:cellFormat>
               </amx:rowLayout>
             </amx:tableLayout>
-            <amx:tableLayout id="tl3" width="100%" cellSpacing="10">
-              <amx:rowLayout id="rl3">
-                <amx:cellFormat id="cf7" width="15%" rowSpan="1">
-                  <amx:spacer id="s1" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                  <amx:image id="i1" source="/resources/css/images/Order status.png" styleClass="detailimages"/>
-                  <amx:spacer id="s2" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                </amx:cellFormat>
-                <amx:cellFormat id="cf11" width="35%">
-                  <amx:panelGroupLayout id="pgl7">
-                    <amx:outputText value="Order Status" id="ot8" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.flowStatusCode.inputValue}" id="ot1" styleClass="value"/>
-                    <!--                rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-                    <amx:outputText value="#{bindings.flowStatusCode1.inputValue}" id="ot12"
-                                    rendered="#{pageFlowScope.currentTab!='ALL'}" styleClass="value"/>-->
-                  </amx:panelGroupLayout>
-                </amx:cellFormat>
-                <amx:cellFormat id="cf10" width="15%">
-                  <amx:spacer id="s3" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                  <amx:image id="i4" source="/resources/css/images/Order value.png" styleClass="detailimages"/>
-                  <amx:spacer id="s4" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                </amx:cellFormat>
-                <amx:cellFormat id="cf14" width="35%">
-                  <amx:panelGroupLayout id="pgl4">
-                    <amx:outputText value="Order Value" id="ot11" styleClass="detailhead"/>
-                    <amx:outputText value="#{bindings.currencyCode.inputValue} #{bindings.totalActual.inputValue}" id="ot7" styleClass="value"/>
-                    <!--            rendered="#{pageFlowScope.currentTab=='ALL'}"/>
-                    <amx:outputText value="#{bindings.totalActual1.inputValue}" id="ot15" styleClass="value"
-                                    rendered="#{pageFlowScope.currentTab!='ALL'}"/>-->
-                  </amx:panelGroupLayout>
-                </amx:cellFormat>
-              </amx:rowLayout>
-            </amx:tableLayout>
-            <amx:tableLayout id="tl13" width="100%" inlineStyle="background-color:#ECECEC;" cellSpacing="10">
+            <amx:tableLayout id="tl13" width="100%" cellSpacing="10">
               <amx:rowLayout id="rl17">
                 <amx:cellFormat id="cf40" width="15%">
                   <amx:spacer id="s14" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
@@ -188,18 +109,46 @@
                 </amx:cellFormat>
               </amx:rowLayout>
             </amx:tableLayout>
+            <amx:tableLayout id="tl11" inlineStyle="background-color:#ECECEC;" width="100%">
+              <amx:rowLayout id="rl8">
+                <amx:cellFormat id="cf7" width="2%"/>
+                <amx:cellFormat id="cf25" width="83%">
+                  <amx:outputText value="Contact Person: #{bindings.contactName.inputValue}" id="ot23"
+                                  styleClass="value" inlineStyle="font-size:x-large;"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf1" width="15%">
+                  <amx:outputText value="#{bindings.flowStatusCode.inputValue}" id="ot1" styleClass="detailhead"
+                                  inlineStyle="color:orange"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:tableLayout id="tl3" inlineStyle="background-color:#ECECEC;" width="100%">
+              <amx:rowLayout id="rl7">
+                <amx:cellFormat id="cf20" width="10%" halign="center">
+                  <amx:goLink id="gl2" url="tel: #{bindings.phoneNumber.inputValue}">
+                    <amx:image id="i5" source="/resources/css/images/call.png" inlineStyle="width:60%"/>
+                  </amx:goLink>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf22" width="90%" halign="start">
+                  <amx:outputText value="#{bindings.phoneNumber.inputValue}" id="ot16" styleClass="value"
+                                  inlineStyle="font-size:large;"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl5">
+                <amx:cellFormat id="cf23" width="10%" halign="center">
+                  <amx:commandLink actionListener="#{bindings.sendEmail.execute}"
+                                   disabled="#{!bindings.sendEmail.enabled}" id="cl1">
+                    <amx:image id="i6" source="/resources/css/images/email.png" inlineStyle="width:80%;"/>
+                  </amx:commandLink>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf24" width="90%" halign="start">
+                  <amx:outputText value="#{bindings.emailAddres.inputValue}" id="ot22" styleClass="value"
+                                  inlineStyle="font-size:large;"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+            </amx:tableLayout>
           </amx:panelGroupLayout>
           <amx:tableLayout id="tl2" width="100%" halign="center">
-            <!--<amx:rowLayout id="rl5">
-              <amx:cellFormat id="cf1" width="50%" inlineStyle="background-color:Black; color:White;"
-                              halign="center" valign="middle">
-                <amx:outputText value="Total Lines#: #{pageFlowScope.lineCount}" id="ot12" inlineStyle=" color:White;"/>
-              </amx:cellFormat>
-              <amx:cellFormat id="cf4" width="50%" inlineStyle="background-color:Black; color:White;"
-                              halign="center" valign="middle">
-                <amx:outputText value="Lines on Alert#: #{pageFlowScope.alertCount}" id="ot13" inlineStyle=" color:White;"/>
-              </amx:cellFormat>
-            </amx:rowLayout>-->
             <amx:rowLayout id="rl2">
               <amx:cellFormat id="cf5" width="100%"
                               inlineStyle="#{applicationScope.OrdersManagedBean.lineStatus=='Y' ?' border-bottom: 5px solid #1EBE92; background-color:rgb(60,60,73);' : 'border-bottom:none none none; background-color:rgb(60,60,73);'}"
@@ -213,7 +162,7 @@
             </amx:rowLayout>
           </amx:tableLayout>
           <amx:panelGroupLayout id="pgl2" rendered="#{applicationScope.OrdersManagedBean.lineStatus=='Y'}">
-            <amx:tableLayout id="tl4" inlineStyle="background-color:Black; color:White;" width="100%"
+            <!--<amx:tableLayout id="tl4" inlineStyle="background-color:Black; color:White;" width="100%"
                              cellPadding="5">
               <amx:rowLayout id="rl6">
                 <amx:cellFormat id="cf21" width="25%">
@@ -231,7 +180,7 @@
                 </amx:cellFormat>
                 <amx:cellFormat id="cf39" width="15px"/>
               </amx:rowLayout>
-            </amx:tableLayout>
+            </amx:tableLayout>-->
             <amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO.collectionModel}"
                           fetchSize="#{bindings.xxMyOrderDetailsVO.rangeSize}"
                           selectedRowKeys="#{bindings.xxMyOrderDetailsVO.collectionModel.selectedRow}"
@@ -240,7 +189,7 @@
                           showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
                           dividerAttribute="orderedItem" showDividerCount="true" collapsibleDividers="true">
               <!--rendered="#{pageFlowScope.currentTab=='ALL'}">-->
-              <amx:listItem id="li1" action="openLineDetails"
+              <amx:listItem id="li1"
                             inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
                             showLinkIcon="false">
                 <amx:tableLayout id="tl7" width="100%">
@@ -254,22 +203,69 @@
                                  rendered="#{row.alertFlag=='Y' &amp;&amp; row.backorderQuantity=='0'}"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf3" width="15%">
+                      <amx:outputText value="Line#" id="ot14" styleClass="detailhead"/>
                       <amx:outputText value="#{row.lineNumber}" id="ot2" styleClass="value"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf16" width="30%">
-                      <amx:outputText value="#{row.currencyCode} #{row.lineTotal}" id="ot20" styleClass="value"/>
+                    <amx:cellFormat id="cf16" width="35%">
+                      <amx:outputText value="Unit Price" id="ot3" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.currencyCode} #{row.unitSellingPrice}" id="ot20" styleClass="value"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf19" width="30%">
-                      <amx:outputText value="#{row.orderedQuantity}" id="ot15" styleClass="value"/>
+                    <amx:cellFormat id="cf19" width="25%">
+                      <amx:outputText value="Ordered Qty" id="ot7" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.orderedQuantity} #{row.orderQuantityUom}" id="ot15" styleClass="value"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf37" width="15px" halign="center">
+                    <!--<amx:cellFormat id="cf37" width="15px" halign="center">
                       <amx:commandLink id="cl5" action="openLineDetails">
                         <amx:outputHtml id="oh3" styleClass="fa fa-chevron-circle-right fa-2g"
                                         inlineStyle="color: rgb(157, 157, 173);"/>
                       </amx:commandLink>
+                    </amx:cellFormat>-->
+                  </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:tableLayout id="tl4" width="100%"
+                                 rendered="#{OrdersManagedBean.selectedLine==row.rowKey}"
+                                 inlineStyle="background-color:ThreeDHighlight;">
+                  <amx:rowLayout id="rl3">
+                    <amx:cellFormat id="cf36" width="5%"/>
+                    <amx:cellFormat id="cf21" columnSpan="2">
+                      <amx:outputText value="Item: " id="ot38" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.description}" id="ot8" styleClass="value"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf10">
+                      <amx:outputText value="Shipped" id="ot12" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.shippedQuantity} #{row.orderQuantityUom}" id="ot18" styleClass="value"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf39">
+                      <amx:outputText value="On Backorder" id="ot43" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.backorderQuantity} #{row.orderQuantityUom}" id="ot44" styleClass="value"/>
+                    </amx:cellFormat>
+                  </amx:rowLayout>
+                  <amx:rowLayout id="rl6">
+                    <amx:cellFormat id="cf37" width="5%"/>
+                    <amx:cellFormat id="cf17" columnSpan="4">
+                      <amx:outputText value="Shipping Address" id="ot11" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.address}" id="ot42" styleClass="value"/>
+                    </amx:cellFormat>
+                  </amx:rowLayout>
+                  <amx:rowLayout id="rl15">
+                    <amx:cellFormat id="cf4" width="5%"/>
+                    <amx:cellFormat id="cf11" width="30%" columnSpan="2">
+                      <amx:outputText value="Carrier" id="ot19" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.freightCode}" id="ot39" styleClass="value"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf14" width="30%">
+                      <amx:outputText value="Delivery Name" id="ot21" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.deliveryName}" id="ot40" styleClass="value"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf15" width="35%">
+                      <amx:outputText value="Arrival Date" id="ot32" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.actualArrivalDate}" id="ot41" styleClass="value"/>
                     </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
+                <amx:setPropertyListener id="spl1" to="#{OrdersManagedBean.selectedLine}"
+                                         from="#{row.rowKey}"
+                                         type="action"/>
               </amx:listItem>
             </amx:listView>
             <!--<amx:listView var="row" value="#{bindings.xxMyOrderDetailsVO1.collectionModel}"
@@ -509,5 +505,30 @@
                          icon="/resources/css/images/Back.png" action="backToDashBoard"
                          actionListener="#{OrdersManagedBean.refreshOrders}"/>
     </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="cb1" styleClass="iconstyle iconstyle-buttonBackground"
+                         icon="/resources/css/images/print.png"
+                         actionListener="#{OrdersManagedBean.printReportClicked}">
+        <amx:setPropertyListener id="spl2" from="#{'OEXOEACK_XML'}" to="#{pageFlowScope.reportType}"/>
+        <amx:setPropertyListener id="spl3" from="#{'OM'}" to="#{pageFlowScope.entityType}"/>
+        <amx:setPropertyListener id="spl4" from="#{bindings.headerId.inputValue}" to="#{pageFlowScope.entityId}"/>
+        <amx:showPopupBehavior id="spb1" popupId="p1" type="action" decoration="anchor" align="bottomCenter"
+                               alignId="ot4"/>
+      </amx:commandButton>
+    </amx:facet>
   </amx:panelPage>
+  <amx:popup id="p1" autoDismiss="true" animation="pop" backgroundDimming="on">
+    <amx:tableLayout id="tl6">
+      <amx:rowLayout id="rl18">
+        <amx:cellFormat id="cf6">
+          <amx:outputText value="#{pageFlowScope.reportReturnMessage}" id="ot13"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl19">
+        <amx:cellFormat id="cf44">
+          <amx:commandButton text="OK" id="cb3"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+  </amx:popup>
 </amx:view>

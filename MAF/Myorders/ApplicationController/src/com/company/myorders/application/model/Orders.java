@@ -37,7 +37,7 @@ public class Orders extends Entity {
     private String contactName;
     private String emailAddres;
     private String phoneNumber;
-    private BigDecimal headerId;
+    private String headerId;
     private String currencyCode;
     private String orderAlertFlag;
 
@@ -111,11 +111,11 @@ public class Orders extends Entity {
         this.totalActual = totalActual;
     }
 
-    public BigDecimal getHeaderId() {
+    public String getHeaderId() {
         return this.headerId;
     }
 
-    public void setHeaderId(BigDecimal headerId) {
+    public void setHeaderId(String headerId) {
         this.headerId = headerId;
     }
 

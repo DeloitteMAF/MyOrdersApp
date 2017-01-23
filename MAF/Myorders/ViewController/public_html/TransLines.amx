@@ -6,12 +6,12 @@
             <amx:tableLayout id="tl1" width="100%">
                 <amx:rowLayout id="rl1">
                     <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
-                        <amx:outputText value="Transaction# #{bindings.trxNumber.inputValue}" id="ot4"
+                        <!--<amx:outputText value="Transaction# #{bindings.trxNumber.inputValue}" id="ot4"
                                         rendered="#{pageFlowScope.currentTransTab!='ALL'}"
-                                        inlineStyle="padding-top:0px"/>
+                                        inlineStyle="padding-top:0px"/>-->
                         <amx:outputText value="Transaction# #{bindings.trxNumber1.inputValue}" id="ot16"
-                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"
-                                        inlineStyle="padding-top:0px"/>
+                                        inlineStyle="padding-top:0px"/><!--
+                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>-->
                     </amx:cellFormat>
                 </amx:rowLayout>
             </amx:tableLayout>
@@ -60,18 +60,14 @@
                             <amx:rowLayout id="rl3">
                                 <amx:cellFormat id="cf7" width="20%" rowSpan="1">
                                     <amx:spacer id="s1" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                                    <amx:image id="i1" source="/resources/css/images/Order status.png"
+                                    <amx:image id="i1" source="/resources/css/images/line.png"
                                                styleClass="detailimages"/>
                                     <amx:spacer id="s2" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
                                 </amx:cellFormat>
                                 <amx:cellFormat id="cf11" width="80%">
                                     <amx:panelGroupLayout id="pgl7">
                                         <amx:outputText value="No. of Lines" id="ot8" styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.lineCount.inputValue}" id="ot1"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
                                         <amx:outputText value="#{bindings.lineCount1.inputValue}" id="ot12"
-                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"
                                                         styleClass="value"/>
                                     </amx:panelGroupLayout>
                                 </amx:cellFormat>
@@ -88,12 +84,8 @@
                                 <amx:cellFormat id="cf12" width="80%" rowSpan="2">
                                     <amx:panelGroupLayout id="pgl6">
                                         <amx:outputText value="Due Date" id="ot9" styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.dueDate.inputValue}" id="ot5"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
                                         <amx:outputText value="#{bindings.dueDate1.inputValue}" id="ot13"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
+                                                        styleClass="value"/>
                                     </amx:panelGroupLayout>
                                 </amx:cellFormat>
                             </amx:rowLayout>
@@ -109,12 +101,8 @@
                                 <amx:cellFormat id="cf14" width="80%">
                                     <amx:panelGroupLayout id="pgl4">
                                         <amx:outputText value="Transaction Amount" id="ot11" styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.currencyCode.inputValue} #{bindings.invoiceAmount.inputValue}" id="ot7"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
                                         <amx:outputText value="#{bindings.currencyCode1.inputValue} #{bindings.invoiceAmount1.inputValue}" id="ot15"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
+                                                        styleClass="value"/>
                                     </amx:panelGroupLayout>
                                 </amx:cellFormat>
                             </amx:rowLayout>
@@ -131,12 +119,8 @@
                                     <amx:panelGroupLayout id="pgl5">
                                         <amx:outputText value="Transaction Open Amount" id="ot10"
                                                         styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.currencyCode.inputValue} #{bindings.amountDue.inputValue}" id="ot6"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
                                         <amx:outputText value="#{bindings.currencyCode1.inputValue} #{bindings.amountDue1.inputValue}" id="ot14"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
+                                                        styleClass="value"/>
                                     </amx:panelGroupLayout>
                                 </amx:cellFormat>
                             </amx:rowLayout>
@@ -152,12 +136,8 @@
                                 <amx:cellFormat id="cf46" width="80%">
                                     <amx:panelGroupLayout id="pgl10">
                                         <amx:outputText value="Transaction Applied Amount" id="ot39" styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.currencyCode.inputValue} #{bindings.transactionAppliedAmt.inputValue}" id="ot50"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
                                         <amx:outputText value="#{bindings.currencyCode1.inputValue} #{bindings.transactionAppliedAmt1.inputValue}" id="ot51"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
+                                                        styleClass="value"/>
                                     </amx:panelGroupLayout>
                                 </amx:cellFormat>
                             </amx:rowLayout>
@@ -166,19 +146,15 @@
                             <amx:rowLayout id="rl9">
                                 <amx:cellFormat id="cf19" width="20%">
                                     <amx:spacer id="s9" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                                    <amx:image id="i5" source="/resources/css/images/About.png"
+                                    <amx:image id="i5" source="/resources/css/images/bill_add.png"
                                                styleClass="detailimages"/>
                                     <amx:spacer id="s10" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
                                 </amx:cellFormat>
                                 <amx:cellFormat id="cf21" width="80%">
                                     <amx:panelGroupLayout id="pgl8">
                                         <amx:outputText value="Bill To" id="ot40" styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.billToAddress.inputValue}" id="ot45"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
                                         <amx:outputText value="#{bindings.billToAddress1.inputValue}" id="ot46"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
+                                                        styleClass="value"/>
                                     </amx:panelGroupLayout>
                                 </amx:cellFormat>
                             </amx:rowLayout>
@@ -187,19 +163,15 @@
                             <amx:rowLayout id="rl10">
                                 <amx:cellFormat id="cf35" width="20%">
                                     <amx:spacer id="s11" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
-                                    <amx:image id="i6" source="/resources/css/images/About.png"
+                                    <amx:image id="i6" source="/resources/css/images/remit_add.png"
                                                styleClass="detailimages"/>
                                     <amx:spacer id="s12" height="#{applicationScope.OrdersManagedBean.detailRowSpacer}"/>
                                 </amx:cellFormat>
                                 <amx:cellFormat id="cf36" width="80%">
                                     <amx:panelGroupLayout id="pgl9">
                                         <amx:outputText value="Remit To" id="ot47" styleClass="detailhead"/>
-                                        <amx:outputText value="#{bindings.remitToAddress.inputValue}" id="ot48"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab!='ALL'}"/>
                                         <amx:outputText value="#{bindings.remitToAddress1.inputValue}" id="ot49"
-                                                        styleClass="value"
-                                                        rendered="#{pageFlowScope.currentTransTab=='ALL'}"/>
+                                                        styleClass="value"/>
                                     </amx:panelGroupLayout>
                                 </amx:cellFormat>
                             </amx:rowLayout>
@@ -211,7 +183,7 @@
                 </amx:commandLink>
                 <amx:commandLink id="cl4" styleClass="remove_ul">
                     <amx:panelGroupLayout id="pgl2" rendered="#{pageFlowScope.detailTranscurrentTransTab=='LINES'}">
-                        <amx:listView var="row" value="#{bindings.xxMyOrderARLinesVO.collectionModel}"
+                        <!--<amx:listView var="row" value="#{bindings.xxMyOrderARLinesVO.collectionModel}"
                                       fetchSize="#{bindings.xxMyOrderARLinesVO.rangeSize}"
                                       selectedRowKeys="#{bindings.xxMyOrderARLinesVO.collectionModel.selectedRow}"
                                       initialScrollRowKeys="#{bindings.xxMyOrderARLinesVO.collectionModel.selectedRow}"
@@ -257,14 +229,13 @@
                                     </amx:rowLayout>
                                 </amx:tableLayout>
                             </amx:listItem>
-                        </amx:listView>
+                        </amx:listView>-->
                         <amx:listView var="row" value="#{bindings.xxMyOrderARLinesVO1.collectionModel}"
                                       fetchSize="#{bindings.xxMyOrderARLinesVO1.rangeSize}"
                                       selectedRowKeys="#{bindings.xxMyOrderARLinesVO1.collectionModel.selectedRow}"
                                       initialScrollRowKeys="#{bindings.xxMyOrderARLinesVO1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.xxMyOrderARLinesVO1.collectionModel.makeCurrent}"
-                                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2"
-                                      rendered="#{pageFlowScope.currentTransTab=='ALL'}">
+                                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2">
                             <amx:listItem id="li2"
                                           inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
                                           showLinkIcon="false" rendered="#{row.unitSellingPrice!=''}">
@@ -314,7 +285,7 @@
                 <amx:commandLink id="cl8" styleClass="remove_ul">
                     <amx:panelGroupLayout id="pgl3"
                                           rendered="#{pageFlowScope.detailTranscurrentTransTab=='ACTIVITIES'}">
-                        <amx:listView var="row" value="#{bindings.xxMyOrderARActivitiesVO.collectionModel}"
+                        <!--<amx:listView var="row" value="#{bindings.xxMyOrderARActivitiesVO.collectionModel}"
                                       fetchSize="#{bindings.xxMyOrderARActivitiesVO.rangeSize}"
                                       selectedRowKeys="#{bindings.xxMyOrderARActivitiesVO.collectionModel.selectedRow}"
                                       initialScrollRowKeys="#{bindings.xxMyOrderARActivitiesVO.collectionModel.selectedRow}"
@@ -351,14 +322,13 @@
                                     </amx:rowLayout>
                                 </amx:tableLayout>
                             </amx:listItem>
-                        </amx:listView>
+                        </amx:listView>-->
                         <amx:listView var="row" value="#{bindings.xxMyOrderARActivitiesVO1.collectionModel}"
                                       fetchSize="#{bindings.xxMyOrderARActivitiesVO1.rangeSize}"
                                       selectedRowKeys="#{bindings.xxMyOrderARActivitiesVO1.collectionModel.selectedRow}"
                                       initialScrollRowKeys="#{bindings.xxMyOrderARActivitiesVO1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.xxMyOrderARActivitiesVO1.collectionModel.makeCurrent}"
-                                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv4"
-                                      rendered="#{pageFlowScope.currentTransTab=='ALL'}">
+                                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv4">
                             <amx:listItem id="li4"
                                           inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
                                           showLinkIcon="false" rendered="#{row.appliedAmount!=''}">
@@ -404,5 +374,30 @@
                                              from="#{'DETAILS'}" type="action"/>
             </amx:commandButton>
         </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="cb5" styleClass="iconstyle iconstyle-buttonBackground"
+                         icon="/resources/css/images/print.png" actionListener="#{OrdersManagedBean.printReportClicked}">
+        <amx:setPropertyListener id="spl9" from="#{'RAXINV_SEL'}" to="#{pageFlowScope.reportType}"/>
+        <amx:setPropertyListener id="spl10" from="#{'INV'}" to="#{pageFlowScope.entityType}"/>
+        <amx:setPropertyListener id="spl11" from="#{'bindings.customerTrxId.inputValue'}" to="#{pageFlowScope.entityId}"/>
+        <amx:showPopupBehavior id="spb1" popupId="p1" type="action" decoration="anchor" align="bottomCenter"
+                               alignId="ot16"/>
+      </amx:commandButton>
+    </amx:facet>
     </amx:panelPage>
+  <amx:popup id="p1" autoDismiss="true" animation="pop" backgroundDimming="on"
+             inlineStyle="max-width:#{deviceScope.hardware.screen.availableWidth};">
+    <amx:tableLayout id="tl7" width="100%">
+      <amx:rowLayout id="rl7">
+        <amx:cellFormat id="cf1" width="100%">
+          <amx:outputText value="#{pageFlowScope.reportReturnMessage}" id="ot1"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+      <amx:rowLayout id="rl8">
+        <amx:cellFormat id="cf3">
+          <amx:commandButton text="OK" id="cb6"/>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+  </amx:popup>
 </amx:view>

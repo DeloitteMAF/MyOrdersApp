@@ -3,14 +3,14 @@
                 Package="com.company.myorders.mobile.pageDefs">
   <parameters/>
   <executables>
-    <iterator Binds="root" RangeSize="25" DataControl="TransactionsService" id="TransactionsServiceIterator"/>
+    <!--<iterator Binds="root" RangeSize="25" DataControl="TransactionsService" id="TransactionsServiceIterator"/>
     <accessorIterator MasterBinding="TransactionsServiceIterator" Binds="transactions" RangeSize="25"
                       DataControl="TransactionsService" BeanClass="com.company.myorders.application.model.Transactions"
                       id="transactionsIterator"/>
     <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARLinesVO" RangeSize="10"
                       DataControl="TransactionsService"
                       BeanClass="com.company.myorders.application.model.TransactionDetails"
-                      id="xxMyOrderARLinesVOIterator"/>
+                      id="xxMyOrderARLinesVOIterator"/>-->
     <iterator Binds="root" RangeSize="25" DataControl="AllTransactionsService" id="AllTransactionsServiceIterator"/>
     <accessorIterator MasterBinding="AllTransactionsServiceIterator" Binds="allTransactions" RangeSize="25"
                       DataControl="AllTransactionsService"
@@ -19,17 +19,17 @@
                       DataControl="AllTransactionsService"
                       BeanClass="com.company.myorders.application.model.AllTransactionDetails"
                       id="xxMyOrderARLinesVOIterator1"/>
-    <accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
+    <!--<accessorIterator MasterBinding="transactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
                       DataControl="TransactionsService"
                       BeanClass="com.company.myorders.application.model.TransactionActivities"
-                      id="xxMyOrderARActivitiesVOIterator"/>
+                      id="xxMyOrderARActivitiesVOIterator"/>-->
     <accessorIterator MasterBinding="allTransactionsIterator" Binds="xxMyOrderARActivitiesVO" RangeSize="10"
                       DataControl="AllTransactionsService"
                       BeanClass="com.company.myorders.application.model.AllTransactionActivities"
                       id="xxMyOrderARActivitiesVOIterator1"/>
   </executables>
   <bindings>
-    <tree IterBinding="xxMyOrderARLinesVOIterator" id="xxMyOrderARLinesVO">
+    <!--<tree IterBinding="xxMyOrderARLinesVOIterator" id="xxMyOrderARLinesVO">
       <nodeDefinition DefName="com.company.myorders.application.model.TransactionDetails" Name="xxMyOrderARLinesVO0">
         <AttrNames>
           <Item Value="customerTrxId"/>
@@ -42,7 +42,7 @@
           <Item Value="lineNumber"/>
         </AttrNames>
       </nodeDefinition>
-    </tree>
+    </tree>-->
     <tree IterBinding="xxMyOrderARLinesVOIterator1" id="xxMyOrderARLinesVO1">
       <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionDetails"
                       Name="xxMyOrderARLinesVO10">
@@ -58,7 +58,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="xxMyOrderARActivitiesVOIterator" id="xxMyOrderARActivitiesVO">
+    <!--<tree IterBinding="xxMyOrderARActivitiesVOIterator" id="xxMyOrderARActivitiesVO">
       <nodeDefinition DefName="com.company.myorders.application.model.TransactionActivities"
                       Name="xxMyOrderARActivitiesVO0">
         <AttrNames>
@@ -74,7 +74,7 @@
           <Item Value="applicationStatus"/>
         </AttrNames>
       </nodeDefinition>
-    </tree>
+    </tree>-->
     <tree IterBinding="xxMyOrderARActivitiesVOIterator1" id="xxMyOrderARActivitiesVO1">
       <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionActivities"
                       Name="xxMyOrderARActivitiesVO10">
@@ -92,94 +92,104 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="transactionsIterator" id="lineCount">
+    <!--<attributeValues IterBinding="transactionsIterator" id="lineCount">
       <AttrNames>
         <Item Value="lineCount"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <attributeValues IterBinding="allTransactionsIterator" id="lineCount1">
       <AttrNames>
         <Item Value="lineCount"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="trxNumber">
+    <!--<attributeValues IterBinding="transactionsIterator" id="trxNumber">
       <AttrNames>
         <Item Value="trxNumber"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <attributeValues IterBinding="allTransactionsIterator" id="trxNumber1">
       <AttrNames>
         <Item Value="trxNumber"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="dueDate">
+    <!--<attributeValues IterBinding="transactionsIterator" id="dueDate">
       <AttrNames>
         <Item Value="dueDate"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <attributeValues IterBinding="allTransactionsIterator" id="dueDate1">
       <AttrNames>
         <Item Value="dueDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="invoiceAmount">
+    <!--<attributeValues IterBinding="transactionsIterator" id="invoiceAmount">
       <AttrNames>
         <Item Value="invoiceAmount"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <attributeValues IterBinding="allTransactionsIterator" id="invoiceAmount1">
       <AttrNames>
         <Item Value="invoiceAmount"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="amountDue">
+    <!--<attributeValues IterBinding="transactionsIterator" id="amountDue">
       <AttrNames>
         <Item Value="amountDue"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <attributeValues IterBinding="allTransactionsIterator" id="amountDue1">
       <AttrNames>
         <Item Value="amountDue"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="currencyCode">
+    <!--<attributeValues IterBinding="transactionsIterator" id="currencyCode">
       <AttrNames>
         <Item Value="currencyCode"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <attributeValues IterBinding="allTransactionsIterator" id="currencyCode1">
       <AttrNames>
         <Item Value="currencyCode"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="billToAddress">
+    <!--<attributeValues IterBinding="transactionsIterator" id="billToAddress">
       <AttrNames>
         <Item Value="billToAddress"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <attributeValues IterBinding="allTransactionsIterator" id="billToAddress1">
       <AttrNames>
         <Item Value="billToAddress"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="remitToAddress">
+    <!--<attributeValues IterBinding="transactionsIterator" id="remitToAddress">
       <AttrNames>
         <Item Value="remitToAddress"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <attributeValues IterBinding="allTransactionsIterator" id="remitToAddress1">
       <AttrNames>
         <Item Value="remitToAddress"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="transactionsIterator" id="transactionAppliedAmt">
+    <!--<attributeValues IterBinding="transactionsIterator" id="transactionAppliedAmt">
+      <AttrNames>
+        <Item Value="transactionAppliedAmt"/>
+      </AttrNames>
+    </attributeValues>-->
+    <attributeValues IterBinding="allTransactionsIterator" id="transactionAppliedAmt1">
       <AttrNames>
         <Item Value="transactionAppliedAmt"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="allTransactionsIterator" id="transactionAppliedAmt1">
+    <!--<attributeValues IterBinding="transactionsIterator" id="customerTrxId">
       <AttrNames>
-        <Item Value="transactionAppliedAmt"/>
+        <Item Value="customerTrxId"/>
+      </AttrNames>
+    </attributeValues>-->
+    <attributeValues IterBinding="allTransactionsIterator" id="customerTrxId1">
+      <AttrNames>
+        <Item Value="customerTrxId"/>
       </AttrNames>
     </attributeValues>
   </bindings>

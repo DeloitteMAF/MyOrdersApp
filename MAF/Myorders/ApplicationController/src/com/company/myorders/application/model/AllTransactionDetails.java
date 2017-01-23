@@ -2,13 +2,10 @@ package com.company.myorders.application.model;
 
 import oracle.maf.api.cdm.persistence.model.Entity;
 
-       import java.math.BigDecimal;
-  
-    
 public class AllTransactionDetails extends Entity
 {
 
-      private BigDecimal customerTrxId;
+      private String customerTrxId;
       private String lineNumber;
       private String quantityInvoiced;
       private String description;
@@ -17,12 +14,12 @@ public class AllTransactionDetails extends Entity
   
   
   
-      public BigDecimal getCustomerTrxId()
+      public String getCustomerTrxId()
     {
             return this.customerTrxId;
     }
 
-    public void setCustomerTrxId(BigDecimal customerTrxId)
+    public void setCustomerTrxId(String customerTrxId)
     {
       this.customerTrxId = customerTrxId;
     }

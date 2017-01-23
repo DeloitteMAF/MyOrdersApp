@@ -30,8 +30,28 @@ alert('error '+adf.mf.util.stringify(response));
 </body>
 </html>
 ]]>
-        </amx:verbatim>
-        <amx:facet name="header">
+        </amx:verbatim><amx:facet name="header">
+            <amx:tableLayout id="tl1" width="100%">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
+                        <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="middle">
+                            <amx:panelGroupLayout id="pgl2">
+                                <amx:outputText value="Transactions Dashboard" id="ot1"
+                                                inlineStyle="padding: 13px;"/>
+                            </amx:panelGroupLayout>
+                            <!--<amx:panelGroupLayout id="pgl4"
+                                                  rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}"
+                                                  layout="vertical" valign="middle" halign="center">
+                                <amx:inputText id="it2" hintText="Order Number" simple="true" inputType="number"/>
+                                --><!--<amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"
+                               readOnly="#{!applicationScope.OrdersManagedBean.clearSearch}"/>--><!--
+                            </amx:panelGroupLayout>-->
+                        </amx:panelGroupLayout>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
+        <!--<amx:facet name="header">
             <amx:tableLayout id="tl1" width="100%">
                 <amx:rowLayout id="rl1">
                     <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
@@ -45,8 +65,8 @@ alert('error '+adf.mf.util.stringify(response));
                                                   rendered="#{applicationScope.OrdersManagedBean.getSearchStatus}"
                                                   layout="vertical" valign="middle" halign="center">
                                 <amx:inputText id="it2" hintText="Transaction Number" simple="true" inputType="number"/>
-                                <!--<amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"
-                               readOnly="#{!applicationScope.OrdersManagedBean.clearSearch}"/>-->
+                                --><!--<amx:inputText id="it1" hintText="Order Number" value="#{bindings.searchValue.inputValue}"
+                               readOnly="#{!applicationScope.OrdersManagedBean.clearSearch}"/>--><!--
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                     </amx:cellFormat>
@@ -66,8 +86,8 @@ alert('error '+adf.mf.util.stringify(response));
                         <amx:setPropertyListener id="spl7" type="action"
                                                  to="#{applicationScope.OrdersManagedBean.clearSearch}"
                                                  from="#{'false'}"/>
-                        <!--<amx:image id="i3" source="/resources/css/images/Search.png"
-                     inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>-->
+                        <amx:image id="i3" source="/resources/css/images/Search.png"
+                     inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px; max-height:24px; max-width:24px;"/>
                     </amx:commandButton>
                 </amx:panelGroupLayout>
                 <amx:panelGroupLayout id="pgl6"
@@ -99,11 +119,38 @@ alert('error '+adf.mf.util.stringify(response));
                     </amx:commandButton>
                 </amx:panelGroupLayout>
             </amx:panelGroupLayout>
-        </amx:facet>
+        </amx:facet>-->
         <amx:commandLink id="cl8" styleClass="swippingArea">
             <amx:panelStretchLayout id="psl1" styleClass="ordAppStretchLyt">
-                <amx:facet name="top">
-                    <amx:tableLayout id="tl2" width="100%"
+                <amx:facet name="top"><amx:tableLayout id="tl2" width="100%"
+                                     inlineStyle="border-bottom-width:thin; background-color:#cdcdcd; ">
+                        <amx:rowLayout id="rl2">
+                            <amx:cellFormat id="cf3" width="90%">
+                                <amx:inputText id="it1" hintText="Type to filter Transactions by Number/Value/PO#" simple="true" inputType="number"/>
+                            </amx:cellFormat>
+                            <amx:cellFormat id="cf4" width="10%">
+                                <amx:panelGroupLayout id="pgl1" layout="vertical" halign="center" valign="middle">
+                                    <amx:panelGroupLayout id="pgl3"
+                                                          halign="center" valign="middle">
+                                        <amx:commandButton id="cb1" styleClass="iconstyle"
+                                                           icon="/resources/css/images/Clear Search icon.png"
+                                                           actionListener="#{bindings.findAllOrders.execute}">
+                                                           <!--action="#{bindings.findOrders.execute}">-->
+                                            <amx:setPropertyListener id="spl1" type="action"
+                                                                     to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
+                                                                     from="#{'false'}"/>
+                                            <amx:setPropertyListener id="spl2" type="action"
+                                                                     to="#{applicationScope.OrdersManagedBean.clearSearch}"
+                                                                     from="#{'true'}"/>
+                                            <amx:setPropertyListener id="spl13" to="#{bindings.searchValue.inputValue}"
+                                                                     from="#{''}"/>
+                                        </amx:commandButton>
+                                    </amx:panelGroupLayout>
+                                </amx:panelGroupLayout>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
+                    <!--<amx:tableLayout id="tl2" width="100%"
                                      inlineStyle="border-bottom-width:thin; background-color:rgb(60,60,73); ">
                         <amx:rowLayout id="rl2">
                             <amx:cellFormat id="cf4" width="50%"
@@ -125,12 +172,12 @@ alert('error '+adf.mf.util.stringify(response));
                                 </amx:commandButton>
                             </amx:cellFormat>
                         </amx:rowLayout>
-                    </amx:tableLayout>
+                    </amx:tableLayout>-->
                 </amx:facet>
                 <amx:facet name="center">
                     <amx:refreshContainer id="rc1" busyText="Refreshing" pullText="Pull to Refresh"
                                           actionListener="#{OrdersManagedBean.pullDownToRefreshTransAction}">
-                        <amx:commandLink id="cl7" styleClass="remove_ul">
+                        <!--<amx:commandLink id="cl7" styleClass="remove_ul">
                             <amx:listView var="row" value="#{bindings.transactions.collectionModel}"
                                           fetchSize="#{bindings.transactions.rangeSize}"
                                           selectedRowKeys="#{bindings.transactions.collectionModel.selectedRow}"
@@ -213,14 +260,14 @@ alert('error '+adf.mf.util.stringify(response));
                                                 <amx:tableLayout id="tl9" width="100%" cellPadding="5">
                                                     <amx:rowLayout id="rl13">
                                                         <amx:cellFormat id="cf22" width="100%" rowSpan="1">
-                                                            <!--<amx:image id="i1"
+                                                            --><!--<amx:image id="i1"
                                                                        source="/resources/css/images/#{row.trxStatus}.png"
                                                                        inlineStyle="width:95%;"
                                                                        rendered="#{row.trxType!='CM'}"/>
                                                             <amx:image id="i4"
                                                                        source="/resources/css/images/CM#{row.trxStatus}.png"
                                                                        inlineStyle="width:95%;"
-                                                                       rendered="#{row.trxType=='CM'}"/>-->
+                                                                       rendered="#{row.trxType=='CM'}"/>--><!--
                                                             <dvtm:statusMeterGauge id="statusMeterGauge1"
                                                                        maxValue="#{row.trxType!='CM' ? row.invoiceAmount :(-1)*row.invoiceAmount}" minValue="0"
                                                                        value="#{row.trxType!='CM' ? row.transactionAppliedAmt:(-1)*row.transactionAppliedAmt}"
@@ -247,15 +294,16 @@ alert('error '+adf.mf.util.stringify(response));
                                     </amx:tableLayout>
                                 </amx:listItem>
                             </amx:listView>
-                        </amx:commandLink>
+                        </amx:commandLink>-->
                         <amx:commandLink id="cl9" styleClass="remove_ul">
                            <amx:listView var="row" value="#{bindings.allTransactions.collectionModel}"
                                           fetchSize="#{bindings.allTransactions.rangeSize}"
                                           selectedRowKeys="#{bindings.allTransactions.collectionModel.selectedRow}"
                                           initialScrollRowKeys="#{bindings.allTransactions.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.allTransactions.collectionModel.makeCurrent}"
-                                          rendered="#{pageFlowScope.currentTransTab=='ALL'}"
-                                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2">
+                                          showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2"
+                                         collapsibleDividers="true" showDividerCount="true" dividerMode="all"
+                                         dividerAttribute="trxDate">
                                 <amx:listItem id="li2"
                                               inlineStyle="border-bottom-color:Grey;#{((row.rowKey)%2)==0?'background-color:#D7D7DA;':'background-color:#ECECEC;'}"
                                               showLinkIcon="false" action="openDetail">
@@ -264,7 +312,7 @@ alert('error '+adf.mf.util.stringify(response));
                                             <amx:cellFormat id="cf21" width="5%">
                                                 <amx:spacer id="s7" width="10"/>
                                             </amx:cellFormat>
-                                            <amx:cellFormat id="cf3" width="90%">
+                                            <amx:cellFormat id="cf5" width="90%">
                                                 <amx:spacer id="s3" height="10"/>
                                                 <amx:tableLayout id="tl8" width="100%"
                                                      rendered="#{row.trxType!='CM'}">
@@ -331,14 +379,6 @@ alert('error '+adf.mf.util.stringify(response));
                                                 <amx:tableLayout id="tl12" width="100%" cellPadding="5">
                                                     <amx:rowLayout id="rl20">
                                                         <amx:cellFormat id="cf32" width="100%">
-                                                            <!--<amx:image id="i2"
-                                                                       source="/resources/css/images/#{row.trxStatus}.png"
-                                                                       inlineStyle="width:95%;"
-                                                                       rendered="#{row.trxType!='CM'}"/>
-                                                            <amx:image id="i3"
-                                                                       source="/resources/css/images/CM#{row.trxStatus}.png"
-                                                                       inlineStyle="width:95%;"
-                                                                       rendered="#{row.trxType=='CM'}"/>-->
                                                             <dvtm:statusMeterGauge id="statusMeterGauge2"
                                                                        maxValue="#{row.trxType!='CM' ? row.invoiceAmount :(-1)*row.invoiceAmount}" minValue="0"
                                                                        value="#{row.trxType!='CM' ? row.transactionAppliedAmt:(-1)*row.transactionAppliedAmt}"
@@ -368,7 +408,7 @@ alert('error '+adf.mf.util.stringify(response));
                         </amx:commandLink>
                     </amx:refreshContainer>
                 </amx:facet>
-                <amx:facet name="bottom">
+                <!--<amx:facet name="bottom">
                     <amx:commandLink id="cl11" action="#{OrdersManagedBean.createFilterTrans}">
                         <amx:tableLayout id="tl6" width="100%" cellPadding="10"
                                          inlineStyle="background-color:#{pageFlowScope.isFilterAppliedTrans == 'Y' ? '#1EBE92' : 'rgb(60,60,73)'};">
@@ -380,21 +420,13 @@ alert('error '+adf.mf.util.stringify(response));
                             </amx:rowLayout>
                         </amx:tableLayout>
                     </amx:commandLink>
-                </amx:facet>
+                </amx:facet>-->
             </amx:panelStretchLayout>
         </amx:commandLink>
         <amx:facet name="primary">
             <amx:tableLayout id="tl7" width="100%" styleClass="appIconStyle">
                 <amx:rowLayout id="rl7">
                     <amx:cellFormat id="cf1" valign="middle" width="100%">
-                        <!--<amx:commandLink actionListener="#{WindowBean.showSpringboard}" id="cl3"
-                                         rendered="#{applicationScope.isSprinboardOpen!='Y'}">
-                            <amx:image id="i5" source="/resources/css/images/Menu.png" styleClass="iconstyle"/>
-                        </amx:commandLink>
-                        <amx:commandLink actionListener="#{WindowBean.showSpringboard}" id="cl1"
-                                         rendered="#{applicationScope.isSprinboardOpen=='Y'}">
-                            <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
-                        </amx:commandLink>-->
                         <amx:commandButton id="cb3"
                                            icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
                                            actionListener="#{SlidingDrawerBean.leftPin}"
