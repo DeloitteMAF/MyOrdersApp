@@ -3,7 +3,9 @@
                 Package="com.company.myorders.mobile.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+        <variableIterator id="variables">
+            <variable Name="find_searchTransValue" Type="java.lang.String"/>
+        </variableIterator>
     <!--<iterator Binds="root" RangeSize="25" DataControl="TransactionsService" id="TransactionsServiceIterator"/>
     <accessorIterator MasterBinding="TransactionsServiceIterator" Binds="transactions" RangeSize="25"
                       DataControl="TransactionsService" BeanClass="com.company.myorders.application.model.Transactions"

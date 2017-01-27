@@ -231,7 +231,7 @@ alert('error '+adf.mf.util.stringify(response));
                                             inlineStyle="padding-top: 20px; padding-left: 45%; position: absolute; width:auto; font-size:small; font-weight:bold;"/>
                             <amx:setPropertyListener id="spl3" to="#{pageFlowScope.currentTab}" from="#{'ALL'}"
                                                      type="swipeLeft"/>
-                            <amx:actionListener id="al2" type="swipeRight" binding="#{SlidingDrawerBean.leftPin}"/>
+                            <amx:actionListener id="al2" type="swipeRight" binding="#{SlidingDrawerBean.leftOverlay}"/>
                         </amx:commandLink>-->
                         <amx:commandLink id="cl9" styleClass="remove_ul">
                             <amx:setPropertyListener id="spl4" from="#{'TOP'}" to="#{pageFlowScope.currentTab}"
@@ -339,7 +339,7 @@ alert('error '+adf.mf.util.stringify(response));
                         </amx:commandLink>-->
                         <amx:commandButton id="cb3"
                                            icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
-                                           actionListener="#{SlidingDrawerBean.leftPin}"
+                                           actionListener="#{SlidingDrawerBean.leftOverlay}"
                                            styleClass="iconstyle iconstyle-buttonBackground"/>
                     </amx:cellFormat>
                 </amx:rowLayout>

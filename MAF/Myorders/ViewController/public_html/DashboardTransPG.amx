@@ -126,7 +126,7 @@ alert('error '+adf.mf.util.stringify(response));
                                      inlineStyle="border-bottom-width:thin; background-color:#cdcdcd; ">
                         <amx:rowLayout id="rl2">
                             <amx:cellFormat id="cf3" width="90%">
-                                <amx:inputText id="it1" hintText="Type to filter Transactions by Number/Value/PO#" simple="true" inputType="number"/>
+                                <amx:inputText id="it2" hintText="Type to filter Transactions by Number/Value/PO#" simple="true" inputType="number"/>
                             </amx:cellFormat>
                             <amx:cellFormat id="cf4" width="10%">
                                 <amx:panelGroupLayout id="pgl1" layout="vertical" halign="center" valign="middle">
@@ -134,7 +134,7 @@ alert('error '+adf.mf.util.stringify(response));
                                                           halign="center" valign="middle">
                                         <amx:commandButton id="cb1" styleClass="iconstyle"
                                                            icon="/resources/css/images/Clear Search icon.png"
-                                                           actionListener="#{bindings.findAllOrders.execute}">
+                                                           actionListener="#{bindings.findAllTransactions.execute}">
                                                            <!--action="#{bindings.findOrders.execute}">-->
                                             <amx:setPropertyListener id="spl1" type="action"
                                                                      to="#{applicationScope.OrdersManagedBean.getSearchStatus}"
@@ -142,7 +142,7 @@ alert('error '+adf.mf.util.stringify(response));
                                             <amx:setPropertyListener id="spl2" type="action"
                                                                      to="#{applicationScope.OrdersManagedBean.clearSearch}"
                                                                      from="#{'true'}"/>
-                                            <amx:setPropertyListener id="spl13" to="#{bindings.searchValue.inputValue}"
+                                            <amx:setPropertyListener id="spl13" to="#{bindings.searchTransValue.inputValue}"
                                                                      from="#{''}"/>
                                         </amx:commandButton>
                                     </amx:panelGroupLayout>
@@ -429,7 +429,7 @@ alert('error '+adf.mf.util.stringify(response));
                     <amx:cellFormat id="cf1" valign="middle" width="100%">
                         <amx:commandButton id="cb3"
                                            icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
-                                           actionListener="#{SlidingDrawerBean.leftPin}"
+                                           actionListener="#{SlidingDrawerBean.leftOverlay}"
                                            styleClass="iconstyle iconstyle-buttonBackground"/>
                     </amx:cellFormat>
                 </amx:rowLayout>

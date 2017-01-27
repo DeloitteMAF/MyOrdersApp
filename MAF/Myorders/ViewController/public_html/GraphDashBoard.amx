@@ -26,5 +26,25 @@
         </amx:facet>
         <amx:facet name="bottom"/>
       </amx:panelStretchLayout>
+        <amx:facet name="primary">
+            <amx:tableLayout id="tl7" width="100%" styleClass="appIconStyle">
+                <amx:rowLayout id="rl7">
+                    <amx:cellFormat id="cf2" valign="middle" width="100%">
+                        <!--<amx:commandLink actionListener="#{WindowBean.showSpringboard}" id="cl3"
+                                         rendered="#{applicationScope.isSprinboardOpen!='Y'}">
+                            <amx:image id="i5" source="/resources/css/images/Menu.png" styleClass="iconstyle"/>
+                        </amx:commandLink>
+                        <amx:commandLink actionListener="#{WindowBean.showSpringboard}" id="cl1"
+                                         rendered="#{applicationScope.isSprinboardOpen=='Y'}">
+                            <amx:image id="i6" source="/resources/css/images/Back.png" styleClass="iconstyle"/>
+                        </amx:commandLink>-->
+                        <amx:commandButton id="cb3"
+                                           icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
+                                           actionListener="#{SlidingDrawerBean.leftOverlay}"
+                                           styleClass="iconstyle iconstyle-buttonBackground"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
   </amx:panelPage>
 </amx:view>

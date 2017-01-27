@@ -47,7 +47,7 @@
                     <amx:cellFormat id="cf1" valign="middle" width="100%">
                         <amx:commandButton id="cb3"
                                            icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
-                                           actionListener="#{SlidingDrawerBean.leftPin}"
+                                           actionListener="#{SlidingDrawerBean.leftOverlay}"
                                            styleClass="iconstyle iconstyle-buttonBackground"/>
                     </amx:cellFormat>
                 </amx:rowLayout>

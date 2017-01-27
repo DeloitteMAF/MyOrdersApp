@@ -229,7 +229,7 @@ alert('error '+adf.mf.util.stringify(response));
     <amx:facet name="primary">
       <amx:commandButton id="cb3"
                          icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
-                         actionListener="#{SlidingDrawerBean.leftPin}"
+                         actionListener="#{SlidingDrawerBean.leftOverlay}"
                          styleClass="iconstyle iconstyle-buttonBackground"/>
     </amx:facet>
     <amx:facet name="secondary">

@@ -32,6 +32,8 @@ public class OrdersManagedBean {
     private int detailRowSpacer = 15;
     private int sbRowSpacer = 10;
     private String lineStatus="N";
+    private String transLineStatus="N";
+    private String transActivityStatus="N";
     private String selectedLine;
     private Boolean isRefreshComplete=false;
     private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
@@ -135,6 +137,26 @@ public class OrdersManagedBean {
         return lineStatus;
     }
 
+    public void setTransLineStatus(String transLineStatus) {
+        String oldTransLineStatus = this.transLineStatus;
+        this.transLineStatus = transLineStatus;
+        propertyChangeSupport.firePropertyChange("transLineStatus", oldTransLineStatus, transLineStatus);
+    }
+
+    public String getTransLineStatus() {
+        return transLineStatus;
+    }
+
+    public void setTransActivityStatus(String transActivityStatus) {
+        String oldTransActivityStatus = this.transActivityStatus;
+        this.transActivityStatus = transActivityStatus;
+        propertyChangeSupport.firePropertyChange("transActivityStatus", oldTransActivityStatus, transActivityStatus);
+    }
+
+    public String getTransActivityStatus() {
+        return transActivityStatus;
+    }
+
     public void setSelectedLine(String selectedLine) {
         String oldSelectedLine = this.selectedLine;
         this.selectedLine = selectedLine;
@@ -228,6 +250,22 @@ public class OrdersManagedBean {
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.lineStatus}", "Y");
     }
     
+    public void switchTransLines(ActionEvent actionEvent) {
+        if((String)AdfmfJavaUtilities.getELValue("#{applicationScope.OrdersManagedBean.transLineStatus}")=="Y"){
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.transLineStatus}", "N");
+        }
+        else
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.transLineStatus}", "Y");
+    }
+    
+    public void switchTransActivities(ActionEvent actionEvent) {
+        if((String)AdfmfJavaUtilities.getELValue("#{applicationScope.OrdersManagedBean.transActivityStatus}")=="Y"){
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.transActivityStatus}", "N");
+        }
+        else
+            AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.transActivityStatus}", "Y");
+    }
+    
     public void backToDashboard(ActionEvent actionEvent) {
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureName(),
                                                                           "adf.mf.api.amx.doNavigation",
@@ -299,7 +337,7 @@ public class OrdersManagedBean {
     
     public void initiateDashboardTrans(){
         try {
-            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
+         //   AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
@@ -556,5 +594,4 @@ public class OrdersManagedBean {
         }
         
     }
-
 }

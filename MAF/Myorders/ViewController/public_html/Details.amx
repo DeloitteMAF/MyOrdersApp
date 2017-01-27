@@ -153,7 +153,7 @@
               <amx:cellFormat id="cf5" width="100%"
                               inlineStyle="#{applicationScope.OrdersManagedBean.lineStatus=='Y' ?' border-bottom: 5px solid #1EBE92; background-color:rgb(60,60,73);' : 'border-bottom:none none none; background-color:rgb(60,60,73);'}"
                               columnSpan="2">
-                <amx:commandButton text="#{applicationScope.OrdersManagedBean.lineStatus=='Y' ? 'Hide Order Lines' : 'Show Order Lines'}" id="cb2"
+                <amx:commandButton text="#{applicationScope.OrdersManagedBean.lineStatus=='Y' ? 'Hide Lines' : 'Show Lines'}" id="cb2"
                                    inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none;"
                                    styleClass="show_line_btn" actionListener="#{OrdersManagedBean.switchOrderLines}">
                   <!--<amx:setPropertyListener id="spl2" to="#{pageFlowScope.detailCurrentTab}" from="#{'LINES'}"/>-->

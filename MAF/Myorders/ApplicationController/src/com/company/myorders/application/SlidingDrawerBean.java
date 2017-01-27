@@ -19,8 +19,8 @@ public class SlidingDrawerBean {
     protected static boolean showTopAndBottomFacets;
     private AdfmfSlidingWindowOptions controlOptions;
     protected static boolean controlBarToggleFlag = false;
-    protected static String controlBarHeight = "50%";
-    private String slidingDrawerWindowSize = "50%";
+    protected static String controlBarHeight = "65%";
+    private String slidingDrawerWindowSize = "65%";
 
 
     public void setSlidingDrawerWindowSize(String slidingDrawerWindowSize) {
@@ -42,17 +42,17 @@ public class SlidingDrawerBean {
             if (deviceOS != null && deviceOS.equals("iOS")) { //Check if the device OS is iOS 
                 if (availableWidth > availableHeight) { // Check if the device is in landscape or portrait mode
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        slidingDrawerWindowSize = "50%"; 
+                        slidingDrawerWindowSize = "40%"; 
                     } else {
-                        slidingDrawerWindowSize = "50%";
+                        slidingDrawerWindowSize = "40%";
                     }
 
                 } else {
                     
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        slidingDrawerWindowSize = "50%"; 
+                        slidingDrawerWindowSize = "65%"; 
                     } else {
-                        slidingDrawerWindowSize = "50%";
+                        slidingDrawerWindowSize = "65%";
                     }
 
 
@@ -62,16 +62,16 @@ public class SlidingDrawerBean {
             } else if (deviceOS != null && deviceOS.equals("Android")) { //Check if the device OS is Android 
                 if (availableWidth > availableHeight) { // Check if the device is in landscape or portrait mode
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        slidingDrawerWindowSize = "50%"; 
+                        slidingDrawerWindowSize = "45%"; 
                     } else {
-                        slidingDrawerWindowSize = "50%";
+                        slidingDrawerWindowSize = "45%";
                     }
 
                 } else {
                     if (diagonalSizeInInt < 6) { // Check the device screen diagonal size to set different values for tablet and smartphone
-                        slidingDrawerWindowSize = "50%"; 
+                        slidingDrawerWindowSize = "65%"; 
                     } else {
-                        slidingDrawerWindowSize = "50%";
+                        slidingDrawerWindowSize = "65%";
                     }
 
 
