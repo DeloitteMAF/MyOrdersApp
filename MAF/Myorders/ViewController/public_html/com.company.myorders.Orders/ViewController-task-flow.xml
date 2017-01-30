@@ -24,18 +24,18 @@
     <view id="Details">
       <page>/Details.amx</page>
     </view>
-    <view id="lineDetails">
+    <!--<view id="lineDetails">
       <page>/OrderLines.amx</page>
-    </view>
+    </view>-->
     <method-call id="getOrders">
       <method>#{applicationScope.OrdersManagedBean.initiateDashboard}</method>
       <outcome>
         <fixed-outcome>goToDashboard</fixed-outcome>
       </outcome>
     </method-call>
-    <view id="Search">
+    <!--<view id="Search">
       <page>/com.company.myorders.Search/Search.amx</page>
-    </view>
+    </view>-->
     <router id="router1">
       <case id="__21">
         <expression>#{preferenceScope.application.userPref.isDeviceRegistered == true}</expression>
@@ -94,13 +94,13 @@
         <to-activity-id>DashBoard</to-activity-id>
         <transition>flipDown</transition>
       </control-flow-case>
-      <control-flow-case id="__6">
+      <!--<control-flow-case id="__6">
         <from-outcome>openLineDetails</from-outcome>
         <to-activity-id>lineDetails</to-activity-id>
         <transition>flipUp</transition>
-      </control-flow-case>
+      </control-flow-case>-->
     </control-flow-rule>
-    <control-flow-rule id="__7">
+    <!--<control-flow-rule id="__7">
       <from-activity-id>lineDetails</from-activity-id>
       <control-flow-case id="__8">
         <from-outcome>backToDetails</from-outcome>
@@ -112,7 +112,7 @@
         <to-activity-id>getOrders</to-activity-id>
         <transition>flipDown</transition>
       </control-flow-case>
-    </control-flow-rule>
+    </control-flow-rule>-->
     <control-flow-rule id="__10">
       <from-activity-id>getOrders</from-activity-id>
       <control-flow-case id="__11">
@@ -120,14 +120,14 @@
         <to-activity-id>GraphDashBoard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__13">
+    <!--<control-flow-rule id="__13">
       <from-activity-id>Search</from-activity-id>
       <control-flow-case id="__14">
         <from-outcome>back</from-outcome>
         <to-activity-id>DashBoard</to-activity-id>
         <transition>slideDown</transition>
       </control-flow-case>
-    </control-flow-rule>
+    </control-flow-rule>-->
     <control-flow-rule id="__15">
       <from-activity-id>router1</from-activity-id>
       <control-flow-case id="__16">
