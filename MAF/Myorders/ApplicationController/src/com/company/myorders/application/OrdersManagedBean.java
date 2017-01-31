@@ -304,7 +304,7 @@ public class OrdersManagedBean {
         // Add event code here...
         try {
     //         AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}", "");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}", null);
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
@@ -320,7 +320,7 @@ public class OrdersManagedBean {
         // Add event code here...
         try {
 //            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransStatus}", "");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransStatus}", null);
             AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
@@ -390,7 +390,7 @@ public class OrdersManagedBean {
     public void refreshOrders(ActionEvent ae){
         try {
        //     AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}", "");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}", null);
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.flushDataChangeEvent();
             getStatusCount();
@@ -407,7 +407,7 @@ public class OrdersManagedBean {
     public void refreshTrans(ActionEvent ae){
         try {
 //            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransStatus}", "");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransStatus}", null);
             AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.flushDataChangeEvent();
     //            providerChangeSupport.fireProviderRefresh("orders");
@@ -427,6 +427,198 @@ public class OrdersManagedBean {
         } catch (InterruptedException e) {
         }
         return false;
+    }
+
+    public void callButtonActionJS(String btn) {
+        String featureID = AdfmfJavaUtilities.getFeatureId();
+        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "showPopup", new Object[] { btn });
+    }
+
+
+    public void onKeyDownSearch(String searchStr){
+        try{
+        System.out.println("test keydown search: " +searchStr);
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchValue");
+        params.add(searchStr);
+        ptypes.add(String.class);
+
+     //   AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+        AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+
+    //       callButtonActionJS("cl4");
+            Integer i =
+                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator.iterator.totalRowCount}");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
+    //            Integer j =
+    //                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.ordersIterator.iterator.totalRowCount}");
+    //            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}",j);
+    //        String featureID = AdfmfJavaUtilities.getFeatureId();
+    //        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setFocusOnInput", new Object[] {});
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+
+    }
+
+
+    public void onKeyDownTransSearch(String searchStr){
+        try{
+        System.out.println("test keydown search: " +searchStr);
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchTransValue");
+        params.add(searchStr);
+        ptypes.add(String.class);
+
+//        AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
+        AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
+
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+
+    }
+
+    public String applyGraphFilters() {
+        // Add event code here...
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchValue");
+        params.add("");
+        ptypes.add(String.class);
+        try {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","Y");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
+    //           AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+        } catch (AdfInvocationException e) {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.Error}", e.getMessage());
+            e.getMessage();
+        }
+        //AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
+        return "goToFilteredDashboard";
+    }
+
+    public String applyTransGraphFilters() {
+        // Add event code here...
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchTransValue");
+        params.add("");
+        ptypes.add(String.class);
+        try {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterAppliedTrans}","Y");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
+//            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
+            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
+        } catch (AdfInvocationException e) {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.Error}", e.getMessage());
+            e.getMessage();
+        }
+        //AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
+        return "goToFilteredDashboard";
+    }
+
+    public String applyFilters() {
+        // Add event code here...
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchValue");
+        params.add("");
+        ptypes.add(String.class);
+        try {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","Y");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
+    //           AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+        } catch (AdfInvocationException e) {
+            e.getMessage();
+        }
+        return "back";
+    }
+
+    public String createFilter() {
+        // Add event code here...
+        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isFilterApplier}")=="Y"){
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderNo}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderValue}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fPO}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fAlert}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
+            try {
+                List pnames = new ArrayList();
+                List params = new ArrayList();
+                List ptypes = new ArrayList();
+                pnames.add("searchValue");
+                params.add("");
+                ptypes.add(String.class);
+    //               AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
+                AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
+            } catch (AdfInvocationException e) {
+                e.getMessage();
+            }
+            return null;
+        }else{
+            return "search";
+        }
+
+    }
+
+    public String applyFiltersTrans() {
+        // Add event code here...
+        List pnames = new ArrayList();
+        List params = new ArrayList();
+        List ptypes = new ArrayList();
+        pnames.add("searchTransValue");
+        params.add("");
+        ptypes.add(String.class);
+        try {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterAppliedTrans}","Y");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
+//            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
+            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
+        } catch (AdfInvocationException e) {
+            e.getMessage();
+        }
+        return "back";
+    }
+
+    public String createFilterTrans() {
+        // Add event code here...
+        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isFilterAppliedTrans}")=="Y"){
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderNo}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransValue}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransNo}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransStatus}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransAlert}",null);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterAppliedTrans}","N");
+            try {
+                List pnames = new ArrayList();
+                List params = new ArrayList();
+                List ptypes = new ArrayList();
+                pnames.add("searchTransValue");
+                params.add("");
+                ptypes.add(String.class);
+ //               AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
+                AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
+            } catch (AdfInvocationException e) {
+                e.getMessage();
+            }
+            return null;
+        }else{
+            return "search";
+        }
+
     }
 
 
@@ -626,197 +818,5 @@ public class OrdersManagedBean {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.Error}", e.getMessage());
             e.getMessage();
         }
-    }
-
-    public void callButtonActionJS(String btn) {
-        String featureID = AdfmfJavaUtilities.getFeatureId();
-        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "showPopup", new Object[] { btn });
-    }
-
-
-    public void onKeyDownSearch(String searchStr){
-        try{
-        System.out.println("test keydown search: " +searchStr);
-        List pnames = new ArrayList();
-        List params = new ArrayList();
-        List ptypes = new ArrayList();
-        pnames.add("searchValue");
-        params.add(searchStr);
-        ptypes.add(String.class);
-
-     //   AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
-        AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
-
-    //       callButtonActionJS("cl4");
-            Integer i =
-                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator.iterator.totalRowCount}");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrdersCount}",i);
-    //            Integer j =
-    //                (Integer) AdfmfJavaUtilities.getELValue("#{bindings.ordersIterator.iterator.totalRowCount}");
-    //            AdfmfJavaUtilities.setELValue("#{pageFlowScope.topOrdersCount}",j);
-    //        String featureID = AdfmfJavaUtilities.getFeatureId();
-    //        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "setFocusOnInput", new Object[] {});
-        }
-        catch(Exception e){
-            e.getMessage();
-        }
-
-    }
-
-
-    public void onKeyDownTransSearch(String searchStr){
-        try{
-        System.out.println("test keydown search: " +searchStr);
-        List pnames = new ArrayList();
-        List params = new ArrayList();
-        List ptypes = new ArrayList();
-        pnames.add("searchValue");
-        params.add(searchStr);
-        ptypes.add(String.class);
-
-//        AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
-        AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
-
-        }
-        catch(Exception e){
-            e.getMessage();
-        }
-
-    }
-
-    public String applyGraphFilters() {
-        // Add event code here...
-        List pnames = new ArrayList();
-        List params = new ArrayList();
-        List ptypes = new ArrayList();
-        pnames.add("searchValue");
-        params.add("");
-        ptypes.add(String.class);
-        try {
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","Y");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
-    //           AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
-            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
-        } catch (AdfInvocationException e) {
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.Error}", e.getMessage());
-            e.getMessage();
-        }
-        //AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
-        return "goToFilteredDashboard";
-    }
-
-    public String applyTransGraphFilters() {
-        // Add event code here...
-        List pnames = new ArrayList();
-        List params = new ArrayList();
-        List ptypes = new ArrayList();
-        pnames.add("searchValue");
-        params.add("");
-        ptypes.add(String.class);
-        try {
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterAppliedTrans}","Y");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
-//            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
-            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
-        } catch (AdfInvocationException e) {
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.Error}", e.getMessage());
-            e.getMessage();
-        }
-        //AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
-        return "goToFilteredDashboard";
-    }
-
-    public String applyFilters() {
-        // Add event code here...
-        List pnames = new ArrayList();
-        List params = new ArrayList();
-        List ptypes = new ArrayList();
-        pnames.add("searchValue");
-        params.add("");
-        ptypes.add(String.class);
-        try {
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","Y");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
-    //           AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
-            AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
-        } catch (AdfInvocationException e) {
-            e.getMessage();
-        }
-        return "back";
-    }
-
-    public String createFilter() {
-        // Add event code here...
-        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isFilterApplier}")=="Y"){
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderNo}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderValue}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fPO}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fAlert}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
-            try {
-                List pnames = new ArrayList();
-                List params = new ArrayList();
-                List ptypes = new ArrayList();
-                pnames.add("searchValue");
-                params.add("");
-                ptypes.add(String.class);
-    //               AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
-                AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
-            } catch (AdfInvocationException e) {
-                e.getMessage();
-            }
-            return null;
-        }else{
-            return "search";
-        }
-
-    }
-
-    public String applyFiltersTrans() {
-        // Add event code here...
-        List pnames = new ArrayList();
-        List params = new ArrayList();
-        List ptypes = new ArrayList();
-        pnames.add("searchValue");
-        params.add("");
-        ptypes.add(String.class);
-        try {
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterAppliedTrans}","Y");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.currentTab}","ALL");
-//            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
-            AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
-        } catch (AdfInvocationException e) {
-            e.getMessage();
-        }
-        return "back";
-    }
-
-    public String createFilterTrans() {
-        // Add event code here...
-        if(AdfmfJavaUtilities.getELValue("#{pageFlowScope.isFilterAppliedTrans}")=="Y"){
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fOrderNo}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransValue}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransNo}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransStatus}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fTransAlert}",null);
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterAppliedTrans}","N");
-            try {
-                List pnames = new ArrayList();
-                List params = new ArrayList();
-                List ptypes = new ArrayList();
-                pnames.add("searchValue");
-                params.add("");
-                ptypes.add(String.class);
- //               AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
-                AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
-            } catch (AdfInvocationException e) {
-                e.getMessage();
-            }
-            return null;
-        }else{
-            return "search";
-        }
-
     }
 }

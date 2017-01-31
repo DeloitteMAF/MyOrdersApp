@@ -52,10 +52,7 @@
     <dc id="DeviceFeatures" path="com.company.myorders.application.DeviceFeatures"/>
     <dc id="NotificationsService" path="com.company.myorders.application.NotificationsService"/>
     <dc id="AllTransactionsService" path="com.company.myorders.application.AllTransactionsService"/>
-    <dc id="TransactionsService" path="com.company.myorders.application.TransactionsService"/>
     <dc id="AllOrdersService"   path="com.company.myorders.application.AllOrdersService"/>
-    <dc id="OrdersService" path="com.company.myorders.application.OrdersService"/>
-    <dc id="ResultService" path="com.company.myorders.application.ResultService"/>
     <dc id="ApplicationFeatures" path="com.company.myorders.application.ApplicationFeatures"/>
   </dataControlUsages>
 </Application>

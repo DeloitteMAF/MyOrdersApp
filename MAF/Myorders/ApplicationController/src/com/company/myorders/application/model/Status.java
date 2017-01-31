@@ -4,7 +4,9 @@ import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 public class Status {
+    private Integer id;
     private String status;
+    private String statusCode;
     private Integer count;
     private Float amount;
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
@@ -12,8 +14,10 @@ public class Status {
     public Status() {
         super();
     }
-    public Status(String status, Integer count, Float amount) {
+    public Status(Integer id, String status, String statusCode, Integer count, Float amount) {
+        this.id = id;
         this.status = status;
+        this.statusCode = statusCode;
         this.count = count;
         this.amount = amount;
     }
@@ -54,5 +58,25 @@ public class Status {
 
     public Float getAmount() {
         return amount;
+    }
+
+    public void setId(Integer id) {
+        Integer oldId = this.id;
+        this.id = id;
+        _propertyChangeSupport.firePropertyChange("id", oldId, id);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setStatusCode(String statusCode) {
+        String oldStatusCode = this.statusCode;
+        this.statusCode = statusCode;
+        _propertyChangeSupport.firePropertyChange("statusCode", oldStatusCode, statusCode);
+    }
+
+    public String getStatusCode() {
+        return statusCode;
     }
 }

@@ -93,7 +93,7 @@ public class AllTransactionsService extends EntityCRUDService<AllTransactions> {
                 allTransRow=allTransRow.filter(allTransNew -> allTransNew.getSalesOrder().startsWith(transValue));
             }else if(transNo!=null){
                 allTransRow=allTransRow.filter(allTransNew -> allTransNew.getTrxNumber().startsWith(transNo));
-            }else if(transStatus!=null){
+            }else if(transStatus!=null && transStatus!=""){
                 allTransRow=allTransRow.filter(allTransNew -> allTransNew.getTrxStatus().equalsIgnoreCase(transStatus));
             }else if(transAlert!=null){
                 allTransRow=allTransRow.filter(allTransNew -> allTransNew.getARAlertFlag().equalsIgnoreCase(transAlert));

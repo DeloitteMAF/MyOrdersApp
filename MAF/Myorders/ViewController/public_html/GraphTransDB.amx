@@ -13,11 +13,12 @@
     </amx:facet>
       <amx:panelStretchLayout id="psl1">
         <amx:facet name="top">
-        <amx:commandButton text="Total Transactions: #{pageFlowScope.allCount} of Amount: #{pageFlowScope.allTotal}" id="cb1"
+        <amx:commandButton text="Total Transactions: #{pageFlowScope.allTransCount} of Amount: #{pageFlowScope.allTransTotal}" id="cb1"
                                    inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; background-color:rgb(60,60,73);"
-                                   styleClass="show_line_btn" action="#{OrdersManagedBean.applyGraphFilters}">
+                                   styleClass="show_line_btn" action="#{OrdersManagedBean.applyTransGraphFilters}">
+                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fTransStatus}" from=""/>
                 <amx:setPropertyListener id="spl2" to="#{pageFlowScope.fTransCount}" from="#{pageFlowScope.allTransCount}"/>
-                <amx:setPropertyListener id="spl3" to="#{pageFlowScope.fTransAmount}" from="#{pageFlowScope.allTransAmount}"/>
+                <amx:setPropertyListener id="spl3" to="#{pageFlowScope.fTransAmount}" from="#{pageFlowScope.allTransTotal}"/>
         </amx:commandButton>
       </amx:facet>
         <amx:facet name="center">
@@ -29,7 +30,7 @@
             <dvtm:pieDataItem  sliceId="#{row.status}" value="#{row.count}" id="pdi2"
                               label="#{row.status}: #{row.count}" sliceLabel="Count: #{row.count} Amount: #{row.amount}"
                               action="#{OrdersManagedBean.applyTransGraphFilters}">
-                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fTransStatus}" from="#{row.status}"/>
+                <amx:setPropertyListener id="spl6" to="#{pageFlowScope.fTransStatus}" from="#{row.status}"/>
                 <amx:setPropertyListener id="spl4" to="#{pageFlowScope.fTransCount}" from="#{row.count}"/>
                 <amx:setPropertyListener id="spl5" to="#{pageFlowScope.fTransAmount}" from="#{row.amount}"/>
             </dvtm:pieDataItem>
