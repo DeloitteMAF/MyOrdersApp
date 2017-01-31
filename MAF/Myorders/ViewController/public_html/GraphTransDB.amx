@@ -30,6 +30,7 @@
                               label="#{row.status}: #{row.count}" sliceLabel="Count: #{row.count} Amount: #{row.amount}"
                               action="#{OrdersManagedBean.applyTransGraphFilters}">
                 <amx:setPropertyListener id="spl6" to="#{pageFlowScope.fTransStatus}" from="#{row.statusCode}"/>
+                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fTransStatusMeaning}" from="#{row.status}"/>
                 <amx:setPropertyListener id="spl4" to="#{pageFlowScope.fTransCount}" from="#{row.count}"/>
                 <amx:setPropertyListener id="spl5" to="#{pageFlowScope.fTransAmount}" from="#{row.amount}"/>
             </dvtm:pieDataItem>
