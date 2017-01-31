@@ -260,7 +260,7 @@
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase34"
+      id="ControlFlowCase31"
       from="View2">
       <property
          name="tosrcid">__12</property>

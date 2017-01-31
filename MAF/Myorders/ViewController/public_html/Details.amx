@@ -206,20 +206,23 @@
                       <amx:outputText value="Line#" id="ot14" styleClass="detailhead"/>
                       <amx:outputText value="#{row.lineNumber}" id="ot2" styleClass="value"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf16" width="35%">
-                      <amx:outputText value="Unit Price" id="ot3" styleClass="detailhead"/>
-                      <amx:outputText value="#{row.currencyCode} #{row.unitSellingPrice}" id="ot20" styleClass="value"/>
+                    <amx:cellFormat id="cf16" width="30%">
+                      <amx:outputText value="Unit Price (#{row.currencyCode})" id="ot3" styleClass="detailhead"/>
+                      <amx:outputText value="#{row.unitSellingPrice}" id="ot20" styleClass="value"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf19" width="25%">
                       <amx:outputText value="Ordered Qty" id="ot7" styleClass="detailhead"/>
                       <amx:outputText value="#{row.orderedQuantity} #{row.orderQuantityUom}" id="ot15" styleClass="value"/>
                     </amx:cellFormat>
-                    <!--<amx:cellFormat id="cf37" width="15px" halign="center">
-                      <amx:commandLink id="cl5" action="openLineDetails">
-                        <amx:outputHtml id="oh3" styleClass="fa fa-chevron-circle-right fa-2g"
+                    <amx:cellFormat id="cf37" width="5%" halign="center">
+                      <amx:commandLink id="cl5">
+                        <amx:outputHtml id="oh3" styleClass="fa fa-chevron-circle-down fa-2g"
                                         inlineStyle="color: rgb(157, 157, 173);"/>
+                        <amx:setPropertyListener id="spl1" to="#{OrdersManagedBean.selectedLine}"
+                                         from="#{row.rowKey}"
+                                         type="action"/>
                       </amx:commandLink>
-                    </amx:cellFormat>-->
+                    </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
                 <amx:tableLayout id="tl4" width="100%"
@@ -241,7 +244,7 @@
                     </amx:cellFormat>
                   </amx:rowLayout>
                   <amx:rowLayout id="rl6">
-                    <amx:cellFormat id="cf37" width="5%"/>
+                    <amx:cellFormat id="cf45" width="5%"/>
                     <amx:cellFormat id="cf17" columnSpan="4">
                       <amx:outputText value="Shipping Address" id="ot11" styleClass="detailhead"/>
                       <amx:outputText value="#{row.address}" id="ot42" styleClass="value"/>
@@ -263,7 +266,7 @@
                     </amx:cellFormat>
                   </amx:rowLayout>
                 </amx:tableLayout>
-                <amx:setPropertyListener id="spl1" to="#{OrdersManagedBean.selectedLine}"
+                <amx:setPropertyListener id="spl5" to="#{OrdersManagedBean.selectedLine}"
                                          from="#{row.rowKey}"
                                          type="action"/>
               </amx:listItem>

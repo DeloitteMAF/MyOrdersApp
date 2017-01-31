@@ -2,18 +2,18 @@
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.23.11" id="SpringBoardPageDef"
                 Package="com.company.myorders.SpringBoard">
   <parameters/>
-  <executables>
+  <!--<executables>
     <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="OrdersService" id="OrdersServiceIterator"/>
     <accessorIterator MasterBinding="OrdersServiceIterator" Binds="orders" RangeSize="25" DataControl="OrdersService"
                       BeanClass="com.company.myorders.application.model.Orders" id="ordersIterator"/>
-  </executables>
+  </executables>-->
   <bindings>
-    <attributeValues IterBinding="ordersIterator" id="customer">
+    <!--<attributeValues IterBinding="ordersIterator" id="customer">
       <AttrNames>
         <Item Value="customer"/>
       </AttrNames>
-    </attributeValues>
+    </attributeValues>-->
     <methodAction id="resetFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider">

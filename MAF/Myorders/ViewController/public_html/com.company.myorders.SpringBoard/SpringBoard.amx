@@ -7,11 +7,11 @@
       <amx:tableLayout id="tl4" width="100%" layout="fixed" styleClass="sbheader"
                        inlineStyle="background-image:none; background-color:#1ebe92; min-height:15%; text-wrap:none;">
         <amx:rowLayout id="rl5">
-          <amx:cellFormat id="cf8" width="80%" header="true" rowSpan="2">
+          <amx:cellFormat id="cf8" width="80%" rowSpan="2">
             <amx:tableLayout id="tl2" width="100%">
               <amx:rowLayout id="rl1">
                 <amx:cellFormat id="cf1" valign="middle" halign="center" width="100%">
-                  <amx:outputText value="#{bindings.customer.inputValue}" id="ot1"/>
+                  <amx:outputText value="#{OrdersManagedBean.customerName}" id="ot1"/>
                 </amx:cellFormat>
               </amx:rowLayout>
               <amx:rowLayout id="rl2">

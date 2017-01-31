@@ -17,6 +17,8 @@
     <page path="/NotificationHistory.amx"
           usageId="com_company_myorders_mobile_NotificationHistoryPageDef"/>
     <page path="/GraphDashBoard.amx" usageId="com_company_myorders_mobile_GraphDashBoardPageDef"/>
+    <page path="/com.company.myorders.Orders/ViewController-task-flow.xml#ViewController-task-flow@getOrders"
+          usageId="com_company_myorders_mobile_ViewController_task_flow_ViewController_task_flow_getOrdersPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_company_myorders_mobile_DashBoardPGPageDef"
@@ -35,8 +37,11 @@
           path="com.company.myorders.NotificationHistory.NotificationHistoryPageDef"/>
     <page id="com_company_myorders_mobile_GraphDashBoardPageDef"
           path="com.company.myorders.mobile.pageDefs.GraphDashBoardPageDef"/>
+    <page id="com_company_myorders_mobile_ViewController_task_flow_ViewController_task_flow_getOrdersPageDef"
+          path="com.company.myorders.Orders.ViewController_task_flow_ViewController_task_flow_getOrdersPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="GraphicalDB" path="com.company.myorders.application.GraphicalDB"/>
     <dc id="DeviceFeatures" path="com.company.myorders.application.DeviceFeatures"/>
     <dc id="NotificationsService" path="com.company.myorders.application.NotificationsService"/>
     <dc id="AllTransactionsService" path="com.company.myorders.application.AllTransactionsService"/>

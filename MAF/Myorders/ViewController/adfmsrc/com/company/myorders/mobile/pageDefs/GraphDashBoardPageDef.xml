@@ -3,18 +3,30 @@
                 Package="com.company.myorders.mobile.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <!--<variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="AllOrdersService" id="AllOrdersServiceIterator"/>
     <accessorIterator MasterBinding="AllOrdersServiceIterator" Binds="allOrders" RangeSize="-1"
                       DataControl="AllOrdersService" BeanClass="com.company.myorders.application.model.AllOrders"
-                      id="allOrdersIterator"/>
+                      id="allOrdersIterator"/>-->
+    <iterator Binds="root" RangeSize="25" DataControl="GraphicalDB" id="GraphicalDBIterator"/>
+    <accessorIterator MasterBinding="GraphicalDBIterator" Binds="allStatuses" RangeSize="-1" DataControl="GraphicalDB"
+                      BeanClass="com.company.myorders.application.model.Status" id="allStatusesIterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="allOrdersIterator" id="allOrders">
+    <!--<tree IterBinding="allOrdersIterator" id="allOrders">
       <nodeDefinition DefName="com.company.myorders.application.model.AllOrders" Name="allOrders0">
         <AttrNames>
           <Item Value="flowStatusCode"/>
           <Item Value="headerId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>-->
+    <tree IterBinding="allStatusesIterator" id="allStatuses">
+      <nodeDefinition DefName="com.company.myorders.application.model.Status" Name="allStatuses0">
+        <AttrNames>
+          <Item Value="status"/>
+          <Item Value="amount"/>
+          <Item Value="count"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

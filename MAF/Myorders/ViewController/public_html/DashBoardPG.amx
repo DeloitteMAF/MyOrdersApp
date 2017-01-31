@@ -345,6 +345,11 @@ alert('error '+adf.mf.util.stringify(response));
                 </amx:rowLayout>
             </amx:tableLayout>
         </amx:facet>
+        <amx:facet name="secondary">
+      <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
+                         icon="/resources/css/images/Back.png" action="backToGraph"
+                         actionListener="#{OrdersManagedBean.refreshOrders}"/>
+        </amx:facet>
     </amx:panelPage>
     <amx:popup id="p1" autoDismiss="true" animation="slideUp" inlineStyle="width:80%;">
         <amx:tableLayout id="tl5" width="100%">

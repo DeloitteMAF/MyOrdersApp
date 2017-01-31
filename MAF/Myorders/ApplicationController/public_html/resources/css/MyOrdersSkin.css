@@ -96,14 +96,12 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
     color: Black;
     font-size: 1em;
     font-weight: 600;
-    text-align: left;
     
 }
 
 .sb_btn{
     width:100%;
-    height:80%;
-    text-align: left; 
+    height:80%; 
 }
 
 .tab_btn > .amx-commandButton-label{
@@ -130,6 +128,8 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
     color:#414042;
     width:auto;
     font-size:1em;
+    padding:1%;
+    text-overflow: ellipsis;     
 }
 
 .detailimages{
@@ -162,6 +162,8 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
     color:#6d6e71;
     font-size:1em;
     font-weight:bold;
+    padding:1%;
+    text-overflow: ellipsis; 
 }
 
 .remove_ul {
