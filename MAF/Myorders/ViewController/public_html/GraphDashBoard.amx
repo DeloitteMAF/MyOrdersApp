@@ -3,18 +3,22 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
     <amx:facet name="header">
-      <amx:tableLayout id="tl1" layout="weighted" halign="center" width="100%">
+      <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
-          <amx:cellFormat id="cf1" halign="center" valign="middle" width="100%">
-            <amx:outputText value="Welcome to your Dashboard!" id="ot1"/>
+          <amx:cellFormat id="cf1" halign="center" valign="middle">
+            <amx:outputText value="Welcome to your Dashboard!" id="ot1" inlineStyle="padding-top:0px; padding-left:-5%"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
     </amx:facet>
       <amx:panelStretchLayout id="psl1">
-        <amx:facet name="top"/>
+        <amx:facet name="top">
+        <amx:commandButton text="Total Orders: #{pageFlowScope.allCount} of Amount: #{pageFlowScope.allTotal}" id="cb1"
+                                   inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; background-color:rgb(60,60,73);"
+                                   styleClass="show_line_btn" action="#{OrdersManagedBean.applyGraphFilters}"/>
+      </amx:facet>
         <amx:facet name="center">
-          <dvtm:pieChart var="row" value="#{bindings.allOrders.collectionModel}" id="pc1">
+          <!--<dvtm:pieChart var="row" value="#{bindings.allOrders.collectionModel}" id="pc1">
             <amx:facet name="dataStamp">
               <dvtm:pieDataItem value="#{row.headerId}" id="pdi1"
                                 action="#{OrdersManagedBean.applyGraphFilters}" displayInLegend="off"
@@ -22,8 +26,75 @@
                 <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fStatus}" from="#{row.flowStatusCode}"/>
               </dvtm:pieDataItem>
             </amx:facet>
+          </dvtm:pieChart>-->
+        <!--<amx:commandLink id="cl1" action="OrdersManagedBean.applyGraphFilters">
+          <dvtm:pieChart id="chart1" var="row" dataSelection="single" threeDEffect="on" animationOnDisplay="alphaFade"
+                         animationOnDataChange="alphaFade" drillListener="#{OrdersManagedBean.GraphDrillListener}"
+                         drilling="seriesOnly">
+            <amx:facet name="dataStamp">
+              <dvtm:pieDataItem id="pdi1" value="#{pageFlowScope.enteredCount}" color="Silver" label="Entered"
+                                sliceLabel="Count: #{pageFlowScope.enteredCount} Amount: #{pageFlowScope.enteredTotal}"
+                                action="#{OrdersManagedBean.applyGraphFilters}" drilling="on">
+                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fStatus}" from="#{'Entered'}"/>
+              </dvtm:pieDataItem>
+              <dvtm:pieDataItem id="pdi2" value="#{pageFlowScope.bookedCount}" shortDesc="#{pageFlowScope.bookedTotal}"
+                                sliceId="Booked" color="Yellow" label="Booked"
+                                sliceLabel="Count: #{pageFlowScope.bookedCount} Amount: #{pageFlowScope.enteredTotal}"
+                                action="#{OrdersManagedBean.applyGraphFilters}" drilling="on">
+                <amx:setPropertyListener id="spl2" to="#{pageFlowScope.fStatus}" from="#{'Booked'}"/>
+              </dvtm:pieDataItem>
+              <dvtm:pieDataItem id="pdi3" value="#{pageFlowScope.processCount}"
+                                shortDesc="#{pageFlowScope.processTotal}" sliceId="InProcess" color="Orange"
+                                label="In Process"
+                                sliceLabel="Count: #{pageFlowScope.processCount} Amount: #{pageFlowScope.enteredTotal}"
+                                action="#{OrdersManagedBean.applyGraphFilters}" drilling="on">
+                <amx:setPropertyListener id="spl7" to="#{pageFlowScope.fStatus}" from="#{'In Process'}"/>
+              </dvtm:pieDataItem>
+              <dvtm:pieDataItem id="pdi4" value="#{pageFlowScope.shippedCount}"
+                                shortDesc="#{pageFlowScope.shippedTotal}" sliceId="Shipped" borderColor="Blue"
+                                label="Shipped"
+                                sliceLabel="Count: #{pageFlowScope.shippedCount} Amount: #{pageFlowScope.enteredTotal}"
+                                action="#{OrdersManagedBean.applyGraphFilters}" drilling="on">
+                <amx:setPropertyListener id="spl6" to="#{pageFlowScope.fStatus}" from="#{'Shipped'}"/>
+              </dvtm:pieDataItem>
+              <dvtm:pieDataItem id="pdi5" value="#{pageFlowScope.deliveredCount}"
+                                shortDesc="#{pageFlowScope.deliveredTotal}" sliceId="Delivered" borderColor="Green"
+                                label="Delivered"
+                                sliceLabel="Count: #{pageFlowScope.deliveredCount} Amount: #{pageFlowScope.enteredTotal}"
+                                action="#{OrdersManagedBean.applyGraphFilters}" drilling="on">
+                <amx:setPropertyListener id="spl5" to="#{pageFlowScope.fStatus}" from="#{'Closed'}"/>
+              </dvtm:pieDataItem>
+              <dvtm:pieDataItem id="pdi6" value="#{pageFlowScope.returnedCount}"
+                                shortDesc="#{pageFlowScope.returnedTotal}" sliceId="Returned" borderColor="Purple"
+                                label="Returned"
+                                sliceLabel="Count: #{pageFlowScope.returnedCount} Amount: #{pageFlowScope.enteredTotal}"
+                                action="#{OrdersManagedBean.applyGraphFilters}" drilling="on">
+                <amx:setPropertyListener id="spl4" to="#{pageFlowScope.fStatus}" from="#{'Returned'}"/>
+              </dvtm:pieDataItem>
+              <dvtm:pieDataItem id="pdi7" value="#{pageFlowScope.cancelledCount}"
+                                shortDesc="#{pageFlowScope.cancelledTotal}" sliceId="Cancelled" color="Red"
+                                label="Cancelled"
+                                sliceLabel="Count: #{pageFlowScope.cancelledCount} Amount: #{pageFlowScope.enteredTotal}"
+                                action="#{OrdersManagedBean.applyGraphFilters}" drilling="on">
+                <amx:setPropertyListener id="spl3" to="#{pageFlowScope.fStatus}" from="#{'Cancelled'}"/>
+              </dvtm:pieDataItem>
+            </amx:facet>
+            --><!--<dvtm:legend position="end" id="l1"/>--><!--
           </dvtm:pieChart>
-        </amx:facet>
+        </amx:commandLink>-->        
+        <dvtm:pieChart var="row" value="#{bindings.allStatuses.collectionModel}" id="pc2" threeDEffect="on"
+                       sorting="ascending" selectionEffect="highlightAndExplode" animationOnDataChange="alphaFade"
+                       animationOnDisplay="alphaFade"
+                       inlineStyle="max-width:#{deviceScope.hardware.screen.availableWidth};">
+          <amx:facet name="dataStamp">
+            <dvtm:pieDataItem sliceId="#{row.status}" value="#{row.count}" id="pdi2"
+                              label="#{row.status}: #{row.count}" sliceLabel="Count: #{row.count} Amount: #{row.amount}"
+                              action="#{OrdersManagedBean.applyGraphFilters}">
+                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fStatus}" from="#{row.status}"/>
+            </dvtm:pieDataItem>
+          </amx:facet>
+        </dvtm:pieChart>
+      </amx:facet>
         <amx:facet name="bottom"/>
       </amx:panelStretchLayout>
         <amx:facet name="primary">

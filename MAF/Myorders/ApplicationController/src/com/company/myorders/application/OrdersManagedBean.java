@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import oracle.adfmf.amx.event.ActionEvent;
+import oracle.adfmf.amx.event.ChartDrillEvent;
+import oracle.adfmf.amx.event.SelectionEvent;
 import oracle.adfmf.bindings.dbf.AmxIteratorBinding;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
@@ -26,6 +28,7 @@ public class OrdersManagedBean {
     boolean getSearchStatus = false;
     boolean clearSearch = true;
     String currentFeature;
+    String customerName;
     boolean comingFromNotification;
     boolean springBoardStatus = false;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -81,7 +84,7 @@ public class OrdersManagedBean {
     public OrdersManagedBean() {
         super();
     }
-    
+
     public void addPropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.addPropertyChangeListener(l);
     }
@@ -166,7 +169,17 @@ public class OrdersManagedBean {
     public String getSelectedLine() {
         return selectedLine;
     }
-    
+
+    public void setCustomerName(String customerName) {
+        String oldCustomerName = this.customerName;
+        this.customerName = customerName;
+        propertyChangeSupport.firePropertyChange("customerName", oldCustomerName, customerName);
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
     public void printReportClicked(ActionEvent actionEvent) {
         try {
             RestServiceAdapter restServiceAdapter = RestServiceAdapterFactory.newFactory().createRestServiceAdapter();
@@ -186,29 +199,36 @@ public class OrdersManagedBean {
             restServiceAdapter.setRequestURI(strURI);
             String strResponse = "";
             String returnMsg = null;
-            try {
-                strResponse = restServiceAdapter.send(null);
-                JSONObject jsonObject = new JSONObject(strResponse);
-                JSONObject parent = jsonObject.getJSONObject("P_OUT_MAIL_DATA");
-                JSONArray nodeArray = parent.getJSONArray("P_OUT_MAIL_DATA_ITEM");            int size = nodeArray.length();
-                
-                for (int i = 0; i < size; i++) {
-                    JSONObject temp = nodeArray.getJSONObject(i);
+            //if (#{deviceScope.device.networkStatus}) {
+                try {
+                    strResponse = restServiceAdapter.send(null);
+                    JSONObject jsonObject = new JSONObject(strResponse);
+                    JSONObject parent = jsonObject.getJSONObject("P_OUT_MAIL_DATA");
+                    JSONArray nodeArray = parent.getJSONArray("P_OUT_MAIL_DATA_ITEM");
+                    int size = nodeArray.length();
 
-                    if (temp.getString("RETURN_STATUS") != null)
-                        returnMsg = temp.getString("RETURN_STATUS");
+                    for (int i = 0; i < size; i++) {
+                        JSONObject temp = nodeArray.getJSONObject(i);
+
+                        if (temp.getString("RETURN_STATUS") != null)
+                            returnMsg = temp.getString("RETURN_STATUS");
+                    }
+                } catch (Exception e) {
+                    strResponse = e.getMessage();
                 }
-            } catch (Exception e) {
-                strResponse = e.getMessage();
-            }
-            if(strResponse.contains("success")) {
-                //AdfmfJavaUtilities.setELValue("#{pageFlowScope.reportReturnMessage}","URI Submitted: "+strURI+". Received a response: "+ returnMsg);
-                System.out.println("summary servie:" + "URI Submitted: "+strURI+". Received a response: "+ returnMsg);
-                AdfmfJavaUtilities.setELValue("#{pageFlowScope.reportReturnMessage}",returnMsg);
-            }
-            else{
-                AdfmfJavaUtilities.setELValue("#{pageFlowScope.reportReturnMessage}","URI Submitted: "+strURI+". Received a response: "+ returnMsg+". Please verify your network and try again!");
-            }                
+                if (strResponse.contains("success")) {
+                    //AdfmfJavaUtilities.setELValue("#{pageFlowScope.reportReturnMessage}","URI Submitted: "+strURI+". Received a response: "+ returnMsg);
+                    System.out.println("summary servie:" + "URI Submitted: " + strURI + ". Received a response: " +
+                                       returnMsg);
+                    AdfmfJavaUtilities.setELValue("#{pageFlowScope.reportReturnMessage}", returnMsg);
+                } else {
+                    AdfmfJavaUtilities.setELValue("#{pageFlowScope.reportReturnMessage}",
+                                                  "URI Submitted: " + strURI + ". Received a response: " + returnMsg +
+                                                  ". Please verify your network and try again!");
+                }
+            //}
+            //else
+            //AdfmfJavaUtilities.setELValue("#{pageFlowScope.reportReturnMessage}","You are not in network area right now. Please try again later.");
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();
@@ -225,13 +245,13 @@ public class OrdersManagedBean {
     //        AdfmfContainerUtilities.gotoFeature(currentFeature);
         AdfmfJavaUtilities.logout();
     }
-    
+
     public void openSpringboard(ActionEvent actionEvent) {
         currentFeature = AdfmfJavaUtilities.getFeatureId();
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", true);
         AdfmfContainerUtilities.gotoSpringboard();
     }
-    
+
     public void closeSpringBoard(ActionEvent actionEvent) {
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
         AdfmfContainerUtilities.gotoFeature(currentFeature);
@@ -241,7 +261,7 @@ public class OrdersManagedBean {
         AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.springBoardStatus}", false);
         AdfmfContainerUtilities.gotoFeature(currentFeature);
     }
-    
+
     public void switchOrderLines(ActionEvent actionEvent) {
         if((String)AdfmfJavaUtilities.getELValue("#{applicationScope.OrdersManagedBean.lineStatus}")=="Y"){
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.lineStatus}", "N");
@@ -249,7 +269,7 @@ public class OrdersManagedBean {
         else
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.lineStatus}", "Y");
     }
-    
+
     public void switchTransLines(ActionEvent actionEvent) {
         if((String)AdfmfJavaUtilities.getELValue("#{applicationScope.OrdersManagedBean.transLineStatus}")=="Y"){
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.transLineStatus}", "N");
@@ -257,7 +277,7 @@ public class OrdersManagedBean {
         else
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.transLineStatus}", "Y");
     }
-    
+
     public void switchTransActivities(ActionEvent actionEvent) {
         if((String)AdfmfJavaUtilities.getELValue("#{applicationScope.OrdersManagedBean.transActivityStatus}")=="Y"){
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.transActivityStatus}", "N");
@@ -265,29 +285,31 @@ public class OrdersManagedBean {
         else
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.transActivityStatus}", "Y");
     }
-    
+
     public void backToDashboard(ActionEvent actionEvent) {
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureName(),
                                                                           "adf.mf.api.amx.doNavigation",
                                                                           new Object[] { "backToDashboard" });
     }
-    
+
     public void backToDetails(ActionEvent actionEvent) {
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureName(),
                                                                           "adf.mf.api.amx.doNavigation",
                                                                           new Object[] { "backToDetails" });
     }
-    
+
 
 
     public void pullDownToRefreshAction(ActionEvent actionEvent) {
-        // Add event code here...        
+        // Add event code here...
         try {
     //         AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}", "");
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
-            providerChangeSupport.fireProviderRefresh("orders");            
+            providerChangeSupport.fireProviderRefresh("orders");
+            getStatusCount();
             isRefreshComplete=true;
         } catch (Exception e) {
             e.getMessage();
@@ -295,13 +317,13 @@ public class OrdersManagedBean {
     }
 
     public void pullDownToRefreshTransAction(ActionEvent actionEvent) {
-        // Add event code here...        
+        // Add event code here...
         try {
 //            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
-            providerChangeSupport.fireProviderRefresh("transactions");            
+            providerChangeSupport.fireProviderRefresh("transactions");
             isRefreshComplete=true;
         } catch (Exception e) {
             e.getMessage();
@@ -309,45 +331,47 @@ public class OrdersManagedBean {
     }
 
     public void pullDownToRefreshNotification(ActionEvent actionEvent) {
-        // Add event code here...        
+        // Add event code here...
         try {
             AdfmfJavaUtilities.invokeDataControlMethod("NotificationsService", null, "findAllNotificationsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
-            providerChangeSupport.fireProviderRefresh("notifications");            
+            providerChangeSupport.fireProviderRefresh("notifications");
             isRefreshComplete=true;
         } catch (Exception e) {
             e.getMessage();
         }
     }
-    
+
     public void initiateDashboard(){
         try {
      //       AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrdersRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
-            providerChangeSupport.fireProviderRefresh("orders");   
+            providerChangeSupport.fireProviderRefresh("orders");
+            getStatusCount();
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.clearSearch}", "true");
         } catch (Exception e) {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.Error}", e.getMessage());
             e.getMessage();
         }
     }
-    
+
     public void initiateDashboardTrans(){
         try {
          //   AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
             Thread.sleep(5000);
             AdfmfJavaUtilities.flushDataChangeEvent();
-//            providerChangeSupport.fireProviderRefresh("transactions"); 
-            providerChangeSupport.fireProviderRefresh("allTransactions");   
+//            providerChangeSupport.fireProviderRefresh("transactions");
+            providerChangeSupport.fireProviderRefresh("allTransactions");
         } catch (Exception e) {
             e.getMessage();
         }
     }
-    
+
     public void initiateNotifications(){
         try {
             AdfmfJavaUtilities.invokeDataControlMethod("NotificationsService", null, "findAllNotificationsRemote", new ArrayList(), new ArrayList(), new ArrayList());
@@ -358,12 +382,14 @@ public class OrdersManagedBean {
             e.getMessage();
         }
     }
-    
+
     public void refreshOrders(ActionEvent ae){
         try {
        //     AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}", "");
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllAllOrders", new ArrayList(), new ArrayList(), new ArrayList());
             AdfmfJavaUtilities.flushDataChangeEvent();
+            getStatusCount();
     //            providerChangeSupport.fireProviderRefresh("orders");
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.getSearchStatus}", "false");
             AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.clearSearch}", "true");
@@ -371,9 +397,9 @@ public class OrdersManagedBean {
     //            getSearchStatus=false;
         } catch (Exception e) {
             e.getMessage();
-        }           
+        }
     }
-    
+
     public void refreshTrans(ActionEvent ae){
         try {
 //            AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findAllTransactionsRemote", new ArrayList(), new ArrayList(), new ArrayList());
@@ -386,9 +412,9 @@ public class OrdersManagedBean {
     //            getSearchStatus=false;
         } catch (Exception e) {
             e.getMessage();
-        }           
+        }
     }
-    
+
     public Boolean getRefreshStatus(){
         try {
             Thread.sleep(5000);
@@ -396,8 +422,8 @@ public class OrdersManagedBean {
         }
         return false;
     }
-       
-    
+
+
     public void getAlertCount(ActionEvent ae){
     //        String currentTab = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.currentTab}");
         AmxIteratorBinding ib =null;
@@ -409,7 +435,7 @@ public class OrdersManagedBean {
     //        if(currentTab.equals("TOP")){
     //            ib= (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.xxMyOrderDetailsVOIterator}");
     //        }else{
-            ib= (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.xxMyOrderDetailsVOIterator1}");   
+            ib= (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.xxMyOrderDetailsVOIterator1}");
     //        }
         ib.getIterator().first();
         for(int i=0;i<ib.getIterator().getTotalRowCount();i++){
@@ -422,15 +448,101 @@ public class OrdersManagedBean {
         }
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.alertCount}", new Integer(alertCount).toString());
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.lineCount}", new Integer(lineCount).toString());
-        AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.lineStatus}", "N");     
+        AdfmfJavaUtilities.setELValue("#{applicationScope.OrdersManagedBean.lineStatus}", "N");
     }
-    
+
+    public void getStatusCount(){
+        AmxIteratorBinding ib =null;
+        float rowTotal = 0;
+        int enteredCount=0;
+        float enteredTotal=0;
+        int bookedCount=0;
+        float bookedTotal=0;
+        int processCount=0;
+        float processTotal=0;
+        int shippedCount=0;
+        float shippedTotal=0;
+        int deliveredCount=0;
+        float deliveredTotal=0;
+        int returnedCount=0;
+        float returnedTotal=0;
+        int cancelledCount=0;
+        float cancelledTotal=0;
+        int allCount=0;
+        float allTotal=0;
+        try {
+            ib = (AmxIteratorBinding) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator}");
+            ib.getIterator().first();
+            for (int i = 0; i < ib.getIterator().getTotalRowCount(); i++) {
+                GenericType row = (GenericType) ib.getIterator().getCurrentRow();
+                rowTotal = Float.parseFloat(row.getAttribute("totalActual").toString().replaceAll(",", ""));
+                if (row.getAttribute("flowStatusCode").toString().equals("Entered")) {
+                    enteredCount++;
+                    enteredTotal = enteredTotal + rowTotal;
+                }
+                if (row.getAttribute("flowStatusCode").toString().equals("Booked")) {
+                    bookedCount++;
+                    bookedTotal = bookedTotal + rowTotal;
+                }
+                if (row.getAttribute("flowStatusCode").toString().equals("In Process")) {
+                    processCount++;
+                    processTotal = processTotal + rowTotal;
+                }
+                if (row.getAttribute("flowStatusCode").toString().equals("Shipped")) {
+                    shippedCount++;
+                    shippedTotal = shippedTotal + rowTotal;
+                }
+                if (row.getAttribute("flowStatusCode").toString().equals("Delivered")) {
+                    deliveredCount++;
+                    deliveredTotal = deliveredTotal + rowTotal;
+                }
+                if (row.getAttribute("flowStatusCode").toString().equals("Returned")) {
+                    returnedCount++;
+                    returnedTotal = returnedTotal + rowTotal;
+                }
+                if (row.getAttribute("flowStatusCode").toString().equals("Cancelled")) {
+                    cancelledCount++;
+                    cancelledTotal = cancelledTotal + rowTotal;
+                }
+                allCount++;
+                allTotal = allTotal + rowTotal;
+                customerName = row.getAttribute("customer").toString();
+                ib.getIterator().next();
+            }
+            //AdfmfJavaUtilities.setELValue("#{pageFlowScope.fStatus}", "#");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.enteredCount}", new Integer(enteredCount));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.enteredTotal}", new Float(enteredTotal));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.bookedCount}", new Integer(bookedCount));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.bookedTotal}", new Float(bookedTotal));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.processCount}", new Integer(processCount));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.processTotal}", new Float(processTotal));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.shippedCount}", new Integer(shippedCount));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.shippedTotal}", new Float(shippedTotal));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.deliveredCount}", new Integer(deliveredCount));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.deliveredTotal}", new Float(deliveredTotal));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.returnedCount}", new Integer(returnedCount));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.returnedTotal}", new Float(returnedTotal));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.cancelledCount}", new Integer(cancelledCount));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.cancelledTotal}", new Float(cancelledTotal));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.allCount}", new Integer(allCount));
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.allTotal}", new Float(allTotal));
+        } catch (NumberFormatException nfe) {
+            // TODO: Add catch code
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.getCountError}", nfe.getMessage());
+            nfe.printStackTrace();
+        }
+        catch(Exception e){
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.Error}", e.getMessage());
+            e.getMessage();
+        }
+    }
+
     public void callButtonActionJS(String btn) {
         String featureID = AdfmfJavaUtilities.getFeatureId();
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(featureID, "showPopup", new Object[] { btn });
     }
 
-    
+
     public void onKeyDownSearch(String searchStr){
         try{
         System.out.println("test keydown search: " +searchStr);
@@ -440,10 +552,10 @@ public class OrdersManagedBean {
         pnames.add("searchValue");
         params.add(searchStr);
         ptypes.add(String.class);
-      
+
      //   AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
         AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
-        
+
     //       callButtonActionJS("cl4");
             Integer i =
                 (Integer) AdfmfJavaUtilities.getELValue("#{bindings.allOrdersIterator.iterator.totalRowCount}");
@@ -457,10 +569,10 @@ public class OrdersManagedBean {
         catch(Exception e){
             e.getMessage();
         }
-        
+
     }
 
-    
+
     public void onKeyDownTransSearch(String searchStr){
         try{
         System.out.println("test keydown search: " +searchStr);
@@ -470,15 +582,15 @@ public class OrdersManagedBean {
         pnames.add("searchValue");
         params.add(searchStr);
         ptypes.add(String.class);
-      
+
 //        AdfmfJavaUtilities.invokeDataControlMethod("TransactionsService", null, "findTransactions", pnames, params, ptypes);
         AdfmfJavaUtilities.invokeDataControlMethod("AllTransactionsService", null, "findAllTransactions", pnames, params, ptypes);
-        
+
         }
         catch(Exception e){
             e.getMessage();
         }
-        
+
     }
 
     public String applyGraphFilters() {
@@ -495,6 +607,7 @@ public class OrdersManagedBean {
     //           AdfmfJavaUtilities.invokeDataControlMethod("OrdersService", null, "findOrders", pnames, params, ptypes);
             AdfmfJavaUtilities.invokeDataControlMethod("AllOrdersService", null, "findAllOrders", pnames, params, ptypes);
         } catch (AdfInvocationException e) {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.Error}", e.getMessage());
             e.getMessage();
         }
         //AdfmfJavaUtilities.setELValue("#{pageFlowScope.isFilterApplier}","N");
@@ -543,9 +656,9 @@ public class OrdersManagedBean {
             }
             return null;
         }else{
-            return "search"; 
+            return "search";
         }
-        
+
     }
 
     public String applyFiltersTrans() {
@@ -590,8 +703,8 @@ public class OrdersManagedBean {
             }
             return null;
         }else{
-            return "search"; 
+            return "search";
         }
-        
+
     }
 }
