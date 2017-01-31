@@ -448,7 +448,7 @@ alert('error '+adf.mf.util.stringify(response));
         <amx:facet name="secondary">
       <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
                          icon="/resources/css/images/Back.png" action="backToGraph"
-                         actionListener="#{OrdersManagedBean.refreshOrders}"/>
+                         actionListener="#{OrdersManagedBean.refreshTrans}"/>
         </amx:facet>
     </amx:panelPage>
 </amx:view>

@@ -16,7 +16,6 @@
         <amx:commandButton text="Total Orders: #{pageFlowScope.allCount} of Amount: #{pageFlowScope.allTotal}" id="cb1"
                                    inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; background-color:rgb(60,60,73);"
                                    styleClass="show_line_btn" action="#{OrdersManagedBean.applyGraphFilters}">
-                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fStatus}" from=""/>
                 <amx:setPropertyListener id="spl2" to="#{pageFlowScope.fCount}" from="#{pageFlowScope.allCount}"/>
                 <amx:setPropertyListener id="spl3" to="#{pageFlowScope.fAmount}" from="#{pageFlowScope.allTotal}"/>
         </amx:commandButton>

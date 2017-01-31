@@ -16,7 +16,6 @@
         <amx:commandButton text="Total Transactions: #{pageFlowScope.allTransCount} of Amount: #{pageFlowScope.allTransTotal}" id="cb1"
                                    inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; background-color:rgb(60,60,73);"
                                    styleClass="show_line_btn" action="#{OrdersManagedBean.applyTransGraphFilters}">
-                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fTransStatus}" from=""/>
                 <amx:setPropertyListener id="spl2" to="#{pageFlowScope.fTransCount}" from="#{pageFlowScope.allTransCount}"/>
                 <amx:setPropertyListener id="spl3" to="#{pageFlowScope.fTransAmount}" from="#{pageFlowScope.allTransTotal}"/>
         </amx:commandButton>

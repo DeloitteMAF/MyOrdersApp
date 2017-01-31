@@ -16,6 +16,7 @@
           <Item Value="status"/>
           <Item Value="count"/>
           <Item Value="amount"/>
+          <Item Value="statusCode"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
