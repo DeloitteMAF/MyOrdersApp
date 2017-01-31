@@ -150,6 +150,16 @@ alert('error '+adf.mf.util.stringify(response));
                             </amx:cellFormat>
                         </amx:rowLayout>
                     </amx:tableLayout>
+                    <amx:tableLayout id="tl3" width="100%">
+                        <amx:rowLayout id="rl3">
+                            <amx:cellFormat id="cf5" width="100%">
+                                <amx:commandButton text="#{pageFlowScope.fTransCount} Transactions of Amount: #{pageFlowScope.fTransAmount}"
+                                                   id="cb2"
+                                   inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; background-color:rgb(60,60,73);"
+                                   styleClass="show_line_btn"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
                     <!--<amx:tableLayout id="tl2" width="100%"
                                      inlineStyle="border-bottom-width:thin; background-color:rgb(60,60,73); ">
                         <amx:rowLayout id="rl2">
@@ -434,6 +444,11 @@ alert('error '+adf.mf.util.stringify(response));
                     </amx:cellFormat>
                 </amx:rowLayout>
             </amx:tableLayout>
+        </amx:facet>
+        <amx:facet name="secondary">
+      <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
+                         icon="/resources/css/images/Back.png" action="backToGraph"
+                         actionListener="#{OrdersManagedBean.refreshOrders}"/>
         </amx:facet>
     </amx:panelPage>
 </amx:view>

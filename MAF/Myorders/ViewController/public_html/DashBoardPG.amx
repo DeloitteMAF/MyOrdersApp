@@ -149,6 +149,15 @@ alert('error '+adf.mf.util.stringify(response));
                             </amx:cellFormat>-->
                         </amx:rowLayout>
                     </amx:tableLayout>
+                    <amx:tableLayout id="tl3" width="100%">
+                        <amx:rowLayout id="rl3">
+                            <amx:cellFormat id="cf5" width="100%">
+                                <amx:commandButton text="#{pageFlowScope.fCount} Orders of Amount: #{pageFlowScope.fAmount}" id="cb1"
+                                   inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; background-color:rgb(60,60,73);"
+                                   styleClass="show_line_btn"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
                 </amx:facet>
                 <amx:facet name="center">
                     <amx:refreshContainer id="rc1" busyText="Refreshing" pullText="Pull to Refresh"

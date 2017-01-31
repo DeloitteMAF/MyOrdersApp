@@ -6,7 +6,7 @@
       <amx:tableLayout id="tl1" width="100%">
         <amx:rowLayout id="rl1">
           <amx:cellFormat id="cf1" halign="center" valign="middle">
-            <amx:outputText value="Welcome to your Dashboard!" id="ot1" inlineStyle="padding-top:0px; padding-left:-5%"/>
+            <amx:outputText value="Welcome to your Dashboard!            " id="ot1" inlineStyle="padding-top:0px; padding-left:-5%"/>
           </amx:cellFormat>
         </amx:rowLayout>
       </amx:tableLayout>
@@ -15,7 +15,10 @@
         <amx:facet name="top">
         <amx:commandButton text="Total Orders: #{pageFlowScope.allCount} of Amount: #{pageFlowScope.allTotal}" id="cb1"
                                    inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; background-color:rgb(60,60,73);"
-                                   styleClass="show_line_btn" action="#{OrdersManagedBean.applyGraphFilters}"/>
+                                   styleClass="show_line_btn" action="#{OrdersManagedBean.applyGraphFilters}">
+                <amx:setPropertyListener id="spl2" to="#{pageFlowScope.fTransCount}" from="#{pageFlowScope.allCount}"/>
+                <amx:setPropertyListener id="spl3" to="#{pageFlowScope.fTransAmount}" from="#{pageFlowScope.allAmount}"/>
+        </amx:commandButton>
       </amx:facet>
         <amx:facet name="center">
           <!--<dvtm:pieChart var="row" value="#{bindings.allOrders.collectionModel}" id="pc1">
@@ -91,6 +94,8 @@
                               label="#{row.status}: #{row.count}" sliceLabel="Count: #{row.count} Amount: #{row.amount}"
                               action="#{OrdersManagedBean.applyGraphFilters}">
                 <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fStatus}" from="#{row.status}"/>
+                <amx:setPropertyListener id="spl4" to="#{pageFlowScope.fCount}" from="#{row.count}"/>
+                <amx:setPropertyListener id="spl5" to="#{pageFlowScope.fAmount}" from="#{row.amount}"/>
             </dvtm:pieDataItem>
           </amx:facet>
         </dvtm:pieChart>

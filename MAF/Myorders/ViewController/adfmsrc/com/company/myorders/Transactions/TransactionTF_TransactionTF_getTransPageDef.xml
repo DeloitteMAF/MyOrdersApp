@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20"
+                id="TransactionTF_TransactionTF_getTransPageDef" Package="com.company.myorders.Transactions"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="AllTransactionsService" id="AllTransactionsServiceIterator"/>
+    <accessorIterator MasterBinding="AllTransactionsServiceIterator" Binds="allTransactions" RangeSize="10"
+                      DataControl="AllTransactionsService"
+                      BeanClass="com.company.myorders.application.model.AllTransactions" id="allTransactionsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="allTransactionsIterator" id="allTransactions">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactions" Name="allTransactions0">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="amountDue"/>
+          <Item Value="invoiceAmount"/>
+          <Item Value="trxNumber"/>
+          <Item Value="trxStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

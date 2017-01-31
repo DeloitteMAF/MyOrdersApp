@@ -19,6 +19,9 @@
     <page path="/GraphDashBoard.amx" usageId="com_company_myorders_mobile_GraphDashBoardPageDef"/>
     <page path="/com.company.myorders.Orders/ViewController-task-flow.xml#ViewController-task-flow@getOrders"
           usageId="com_company_myorders_mobile_ViewController_task_flow_ViewController_task_flow_getOrdersPageDef"/>
+    <page path="/com.company.myorders.Transactions/TransactionTF.xml#TransactionTF@getTrans"
+          usageId="com_company_myorders_mobile_TransactionTF_TransactionTF_getTransPageDef"/>
+    <page path="/GraphTransDB.amx" usageId="com_company_myorders_mobile_GraphTransDBPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_company_myorders_mobile_DashBoardPGPageDef"
@@ -39,6 +42,10 @@
           path="com.company.myorders.mobile.pageDefs.GraphDashBoardPageDef"/>
     <page id="com_company_myorders_mobile_ViewController_task_flow_ViewController_task_flow_getOrdersPageDef"
           path="com.company.myorders.Orders.ViewController_task_flow_ViewController_task_flow_getOrdersPageDef"/>
+    <page id="com_company_myorders_mobile_TransactionTF_TransactionTF_getTransPageDef"
+          path="com.company.myorders.Transactions.TransactionTF_TransactionTF_getTransPageDef"/>
+    <page id="com_company_myorders_mobile_GraphTransDBPageDef"
+          path="com.company.myorders.mobile.pageDefs.GraphTransDBPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="GraphicalDB" path="com.company.myorders.application.GraphicalDB"/>

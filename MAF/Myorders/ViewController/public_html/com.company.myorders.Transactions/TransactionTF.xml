@@ -22,11 +22,15 @@
     <!--<view id="SearchTrans">
       <page>/SearchTrans.amx</page>
     </view>-->
+    <view id="GraphTransDB">
+      <page>/GraphTransDB.amx</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>getTrans</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>gotoDashboard</from-outcome>
-        <to-activity-id>Dashboard</to-activity-id>
+        <to-activity-id>GraphTransDB</to-activity-id>
+        <transition>flipUp</transition>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
@@ -34,17 +38,24 @@
       <control-flow-case id="__5">
         <from-outcome>openDetail</from-outcome>
         <to-activity-id>TransLines</to-activity-id>
+        <transition>flipUp</transition>
       </control-flow-case>
       <!--<control-flow-case id="__10">
         <from-outcome>search</from-outcome>
         <to-activity-id>SearchTrans</to-activity-id>
       </control-flow-case>-->
+      <control-flow-case id="__10">
+        <from-outcome>backToGraph</from-outcome>
+        <to-activity-id>GraphTransDB</to-activity-id>
+        <transition>flipDown</transition>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__6">
       <from-activity-id>TransLines</from-activity-id>
       <control-flow-case id="__7">
         <from-outcome>backToDashboard</from-outcome>
         <to-activity-id>Dashboard</to-activity-id>
+        <transition>flipDown</transition>
       </control-flow-case>
     </control-flow-rule>
     <!--<control-flow-rule id="__8">
@@ -54,6 +65,14 @@
         <to-activity-id>Dashboard</to-activity-id>
       </control-flow-case>
     </control-flow-rule>-->
+    <control-flow-rule id="__8">
+      <from-activity-id>GraphTransDB</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>goToFilteredDashboard</from-outcome>
+        <to-activity-id>Dashboard</to-activity-id>
+        <transition>flipUp</transition>
+      </control-flow-case>
+    </control-flow-rule>
     <page-flow-scope-behavior>
       <push-new/>
     </page-flow-scope-behavior>

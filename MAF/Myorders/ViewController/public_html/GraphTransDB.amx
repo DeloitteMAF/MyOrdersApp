@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:tableLayout id="tl1" width="100%">
+        <amx:rowLayout id="rl1">
+          <amx:cellFormat id="cf1" halign="center" valign="middle">
+            <amx:outputText value="Welcome to your Dashboard!            " id="ot1" inlineStyle="padding-top:0px; padding-left:-5%"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+      </amx:tableLayout>
+    </amx:facet>
+      <amx:panelStretchLayout id="psl1">
+        <amx:facet name="top">
+        <amx:commandButton text="Total Transactions: #{pageFlowScope.allCount} of Amount: #{pageFlowScope.allTotal}" id="cb1"
+                                   inlineStyle="width:100%; background-image:none; text-decoration:none solid White; color:White; box-shadow:none; background-color:rgb(60,60,73);"
+                                   styleClass="show_line_btn" action="#{OrdersManagedBean.applyGraphFilters}">
+                <amx:setPropertyListener id="spl2" to="#{pageFlowScope.fTransCount}" from="#{pageFlowScope.allTransCount}"/>
+                <amx:setPropertyListener id="spl3" to="#{pageFlowScope.fTransAmount}" from="#{pageFlowScope.allTransAmount}"/>
+        </amx:commandButton>
+      </amx:facet>
+        <amx:facet name="center">
+        <dvtm:pieChart var="row" value="#{bindings.allStatusesTrans.collectionModel}" id="pc2" threeDEffect="on"
+                       sorting="ascending" selectionEffect="highlightAndExplode" animationOnDataChange="alphaFade"
+                       animationOnDisplay="alphaFade"
+                       inlineStyle="max-width:#{deviceScope.hardware.screen.availableWidth};">
+          <amx:facet name="dataStamp">
+            <dvtm:pieDataItem  sliceId="#{row.status}" value="#{row.count}" id="pdi2"
+                              label="#{row.status}: #{row.count}" sliceLabel="Count: #{row.count} Amount: #{row.amount}"
+                              action="#{OrdersManagedBean.applyTransGraphFilters}">
+                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fTransStatus}" from="#{row.status}"/>
+                <amx:setPropertyListener id="spl4" to="#{pageFlowScope.fTransCount}" from="#{row.count}"/>
+                <amx:setPropertyListener id="spl5" to="#{pageFlowScope.fTransAmount}" from="#{row.amount}"/>
+            </dvtm:pieDataItem>
+          </amx:facet>
+          <dvtm:legend position="end" id="l1"/>
+        </dvtm:pieChart>
+      </amx:facet>
+        <amx:facet name="bottom"/>
+      </amx:panelStretchLayout>
+        <amx:facet name="primary">
+            <amx:tableLayout id="tl7" width="100%" styleClass="appIconStyle">
+                <amx:rowLayout id="rl7">
+                    <amx:cellFormat id="cf2" valign="middle" width="100%">
+                        <amx:commandButton id="cb3"
+                                           icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
+                                           actionListener="#{SlidingDrawerBean.leftOverlay}"
+                                           styleClass="iconstyle iconstyle-buttonBackground"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
+  </amx:panelPage>
+</amx:view>
