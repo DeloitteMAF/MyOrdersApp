@@ -18,9 +18,12 @@
                                    styleClass="show_line_btn" action="#{OrdersManagedBean.applyGraphFilters}">
                 <amx:setPropertyListener id="spl2" to="#{pageFlowScope.fCount}" from="#{pageFlowScope.allCount}"/>
                 <amx:setPropertyListener id="spl3" to="#{pageFlowScope.fAmount}" from="#{pageFlowScope.allTotal}"/>
+                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.fStatusMeaning}" from="#{'All Orders'}"/>
         </amx:commandButton>
       </amx:facet>
         <amx:facet name="center">
+             <amx:refreshContainer id="rc1" busyText="Refreshing" pullText="Pull to Refresh"
+                                          actionListener="#{OrdersManagedBean.refreshDashboard}">
           <!--<dvtm:pieChart var="row" value="#{bindings.allOrders.collectionModel}" id="pc1">
             <amx:facet name="dataStamp">
               <dvtm:pieDataItem value="#{row.headerId}" id="pdi1"
@@ -91,16 +94,18 @@
                        inlineStyle="max-width:#{deviceScope.hardware.screen.availableWidth};">
           <amx:facet name="dataStamp">
             <dvtm:pieDataItem sliceId="#{row.status}" value="#{row.count}" id="pdi2"
-                              label="#{row.status}: #{row.count}" sliceLabel="Count: #{row.count} Amount: #{row.amount}"
+                              label="#{row.status}: Count: #{row.count} Amount: #{row.amount}"
                               action="#{OrdersManagedBean.applyGraphFilters}">
-                <amx:setPropertyListener id="spl6" to="#{pageFlowScope.fStatus}" from="#{row.status}"/>
+                <amx:setPropertyListener id="spl6" to="#{pageFlowScope.fStatus}" from="#{row.statusCode}"/>
+                <amx:setPropertyListener id="spl7" to="#{pageFlowScope.fStatusMeaning}" from="#{row.status}"/>
                 <amx:setPropertyListener id="spl4" to="#{pageFlowScope.fCount}" from="#{row.count}"/>
                 <amx:setPropertyListener id="spl5" to="#{pageFlowScope.fAmount}" from="#{row.amount}"/>
             </dvtm:pieDataItem>
           </amx:facet>
+          <dvtm:legend position="bottom" id="l1"/>
         </dvtm:pieChart>
+        </amx:refreshContainer>
       </amx:facet>
-        <amx:facet name="bottom"/>
       </amx:panelStretchLayout>
         <amx:facet name="primary">
             <amx:tableLayout id="tl7" width="100%" styleClass="appIconStyle">

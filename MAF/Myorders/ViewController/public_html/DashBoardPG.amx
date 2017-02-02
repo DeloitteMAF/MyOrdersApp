@@ -37,7 +37,7 @@ alert('error '+adf.mf.util.stringify(response));
                     <amx:cellFormat id="cf2" valign="middle" width="100%" halign="center">
                         <amx:panelGroupLayout id="pgl8" layout="vertical" halign="center" valign="middle">
                             <amx:panelGroupLayout id="pgl2">
-                                <amx:outputText value="#{pageFlowScope.fStatus} Orders" id="ot1"
+                                <amx:outputText value="#{pageFlowScope.fStatusMeaning}" id="ot1"
                                                 inlineStyle="padding: 13px;"/>
                             </amx:panelGroupLayout>
                             <!--<amx:panelGroupLayout id="pgl4"
@@ -357,7 +357,7 @@ alert('error '+adf.mf.util.stringify(response));
         <amx:facet name="secondary">
       <amx:commandButton id="cb4" styleClass="iconstyle iconstyle-buttonBackground"
                          icon="/resources/css/images/Back.png" action="backToGraph"
-                         actionListener="#{OrdersManagedBean.refreshOrders}"/>
+                         actionListener="#{OrdersManagedBean.refreshDashboard}"/>
         </amx:facet>
     </amx:panelPage>
     <amx:popup id="p1" autoDismiss="true" animation="slideUp" inlineStyle="width:80%;">

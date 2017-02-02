@@ -117,7 +117,23 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-        <attributeValues id="searchTransValue" IterBinding="variables">
+    <tree IterBinding="xxMyOrderARActivitiesVOIterator1" id="xxMyOrderARActivitiesVO1">
+      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionActivities"
+                      Name="xxMyOrderARActivitiesVO10">
+        <AttrNames>
+          <Item Value="customerTrxId"/>
+          <Item Value="alertFlag"/>
+          <Item Value="applicationType"/>
+          <Item Value="appliedAmount"/>
+          <Item Value="dueDate"/>
+          <Item Value="invoiceDueAmount"/>
+          <Item Value="invoiceTotalAmount"/>
+          <Item Value="isNewEntity"/>
+          <Item Value="key"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues id="searchTransValue" IterBinding="variables">
             <AttrNames>
                 <Item Value="find_searchTransValue"/>
             </AttrNames>
@@ -156,21 +172,5 @@
         </AttrNames>
       </nodeDefinition>
     </tree>-->
-    <tree IterBinding="xxMyOrderARActivitiesVOIterator1" id="xxMyOrderARActivitiesVO1">
-      <nodeDefinition DefName="com.company.myorders.application.model.AllTransactionActivities"
-                      Name="xxMyOrderARActivitiesVO10">
-        <AttrNames>
-          <Item Value="customerTrxId"/>
-          <Item Value="alertFlag"/>
-          <Item Value="applicationType"/>
-          <Item Value="appliedAmount"/>
-          <Item Value="dueDate"/>
-          <Item Value="invoiceDueAmount"/>
-          <Item Value="invoiceTotalAmount"/>
-          <Item Value="isNewEntity"/>
-          <Item Value="key"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
   </bindings>
 </pageDefinition>
