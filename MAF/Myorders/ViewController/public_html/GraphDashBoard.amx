@@ -94,7 +94,7 @@
                        inlineStyle="max-width:#{deviceScope.hardware.screen.availableWidth};">
           <amx:facet name="dataStamp">
             <dvtm:pieDataItem sliceId="#{row.status}" value="#{row.count}" id="pdi2"
-                              label="#{row.status}: Count: #{row.count} Amount: #{row.amount}"
+                              label="#{row.status} - No. #{row.count} Amount: #{row.amount}"
                               action="#{OrdersManagedBean.applyGraphFilters}">
                 <amx:setPropertyListener id="spl6" to="#{pageFlowScope.fStatus}" from="#{row.statusCode}"/>
                 <amx:setPropertyListener id="spl7" to="#{pageFlowScope.fStatusMeaning}" from="#{row.status}"/>

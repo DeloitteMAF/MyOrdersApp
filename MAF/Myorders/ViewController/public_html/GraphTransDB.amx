@@ -30,7 +30,7 @@
                        inlineStyle="max-width:#{deviceScope.hardware.screen.availableWidth};">
           <amx:facet name="dataStamp">
             <dvtm:pieDataItem  sliceId="#{row.status}" value="#{row.count}" id="pdi2"
-                              label="#{row.status}: Count: #{row.count} Amount: #{row.amount}"
+                              label="#{row.status} - No. #{row.count} Amount: #{row.amount}"
                               action="#{OrdersManagedBean.applyTransGraphFilters}">
                 <amx:setPropertyListener id="spl6" to="#{pageFlowScope.fTransStatus}" from="#{row.statusCode}"/>
                 <amx:setPropertyListener id="spl7" to="#{pageFlowScope.fTransStatusMeaning}" from="#{row.status}"/>
@@ -38,7 +38,7 @@
                 <amx:setPropertyListener id="spl5" to="#{pageFlowScope.fTransAmount}" from="#{row.amount}"/>
             </dvtm:pieDataItem>
           </amx:facet>
-          <dvtm:legend position="end" id="l1"/>
+          <dvtm:legend position="bottom" id="l1"/>
         </dvtm:pieChart>
        </amx:refreshContainer>
       </amx:facet>

@@ -42,7 +42,7 @@
       <property
          name="fromOutcome">gotoDashboard</property>
       <property
-         name="sdm:polyPoints">B50,-42.0,126.49414,24.0,143.19531,T50</property>
+         name="sdm:polyPoints">B50,-42.0,126.49414,24.0,142.84473,T50</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -116,6 +116,6 @@
       <property
          name="fromOutcome">backToGraph</property>
       <property
-         name="sdm:polyPoints">L54,153.0,136.78711,67.29787,200.69531,R54</property>
+         name="sdm:polyPoints">L54,153.0,136.78711,67.28759,200.34473,R54</property>
    </ControlFlowCase>
 </SDM>
